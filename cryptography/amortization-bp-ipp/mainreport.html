@@ -1,0 +1,1315 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amortization of Bulletproofs Inner-Product Proof - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Amortization of Bulletproofs Inner-Product Proof - Tari Labs University" />
+        <meta name="twitter:site" content="Amortization of Bulletproofs Inner-Product Proof - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Amortization of Bulletproofs Inner-Product Proof - Tari Labs University" />
+        <meta property="og:site_name" content="Amortization of Bulletproofs Inner-Product Proof - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html" class="active"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#amortization-of-bulletproofs-inner-product-proof" id="amortization-of-bulletproofs-inner-product-proof">Amortization of Bulletproofs Inner-product Proof</a></h1>
+<ul>
+<li><a href="#introduction">Introduction</a> </li>
+<li><a href="#notation-and-assumptions">Notation and Assumptions</a></li>
+<li><a href="#zero-knowledge-proofs">Zero-knowledge Proofs</a> </li>
+<li><a href="#bulletproofs-range-proofs">Bulletproofs Range Proofs</a></li>
+<li><a href="#what-is-recursive-proof-composition">What is Recursive Proof Composition?</a>
+<ul>
+<li><a href="#recursive-functions">Recursive Functions</a></li>
+<li><a href="#recursion-in-bulletproofs-inner-product-proof">Recursion in Bulletproofs Inner-product Proof</a></li>
+<li><a href="#inductive-proofs">Inductive Proofs</a> </li>
+</ul>
+</li>
+<li><a href="#verification-amortization-strategies">Verification Amortization Strategies</a>
+<ul>
+<li><a href="#application-of-verifiable-computation">Application of Verifiable Computation</a></li>
+<li><a href="#incrementally-verifiable-computation">Incrementally Verifiable Computation</a></li>
+<li><a href="#nested-amortization">Nested Amortization</a></li>
+</ul>
+</li>
+<li><a href="#amortized-inner-product-proof">Amortized Inner-product Proof</a> 
+<ul>
+<li><a href="#bulletproofs-inner-product-proof-verification">Bulletproofs Inner-product Proof Verification</a></li>
+<li><a href="#verifiable-computation">Verifiable Computation</a>
+<ul>
+<li><a href="#application-1---delegating-inversion-of-verifiers-challenges">Application 1 - Delegating Inversion of Verifier's Challenges</a></li>
+<li><a href="#application-2---delegating-computation-of-g_is-coefficients">Application 2 - Delegating Computation of $G_i$'s Coefficients</a></li>
+</ul>
+</li>
+<li><a href="#verifiers-test-of-g_is-coefficients">Verifier's Test of $G_i$'s Coefficients</a>
+<ul>
+<li><a href="#properties-of-g_is-coefficients">Properties of $G_i$'s Coefficients</a></li>
+<li><a href="#test-of-g_is-coefficients">Test of $G_i$'s Coefficients</a></li>
+</ul>
+</li>
+<li><a href="#optimizing-provers-computation-of-g_is-coefficients">Optimizing Prover's Computation of $G_i$'s Coefficients</a>
+<ul>
+<li><a href="#naive-algorithm">Naive Algorithm</a></li>
+<li><a href="#optimized-algorithms">Optimized Algorithms</a></li>
+</ul>
+</li>
+<li><a href="#concluding-amortized-inner-product-proof">Concluding Amortized Inner-product Proof</a> </li>
+</ul>
+</li>
+<li><a href="#application-to-tari-blockchain">Application to Tari Blockchain</a> </li>
+<li><a href="#references">References</a></li>
+<li><a href="#appendices">Appendices</a>
+<ul>
+<li><a href="#appendix-a-optimized-algorithms">Appendix A: Optimized Algorithms</a> 
+<ul>
+<li><a href="#basic-approach">Basic Approach</a></li>
+<li><a href="#defining-optimized-algorithms">Defining Optimized Algorithms</a>
+<ul>
+<li><a href="#algorithm-1">Algorithm 1</a></li>
+<li><a href="#algorithm-2">Algorithm 2</a></li>
+<li><a href="#algorithm-3">Algorithm 3</a></li>
+<li><a href="#algorithm-4">Algorithm 4</a></li>
+<li><a href="#example-1-algorithm-1-or-a1">Example 1 (Algorithm 1 or [A1])</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#appendix-b-proof-of-theorem-1-and-its-preliminaries">Appendix B: Proof of Theorem 1 and its Preliminaries</a> 
+<ul>
+<li><a href="#notation-and-definitions">Notation and Definitions</a> </li>
+<li><a href="#preliminary-lemmas-and-corollaries">Preliminary Lemmas and Corollaries</a> </li>
+<li><a href="#proof-of-theorem-1">Proof of Theorem 1</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#contributors">Contributors</a></li>
+</ul>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>One of the main attractions of blockchains is the idea of trustlessness. It is aiming at building a network that 
+allows every participant to run their own validation should they be in doubt about any given set of transactions. 
+Well, this is currently an ideal, especially for blockchains with confidential transactions. One of the reasons for this 
+is the current sizes of zero-knowledge proofs. Although much research has focused on reducing the sizes of zero-knowledge 
+proofs, seen in the form of zero-knowledge Succinct Non-interactive Argument of Knowledge (zk-SNARKs) [<a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf" title="DIZK: A Distributed 
+Zero Knowledge Proof System">1</a>] and 
+Bulletproofs [<a href="%3Chttp://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf%3E" title="Bulletproofs: Short Proofs for 
+Confidential Transactions and More">2</a>], scalability remains a big challenge. </p>
+<p>Recent efforts in minimizing verification costs have gone the route of recursive proofs. Sean Bowe et al. [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>] lead 
+the pack on recursive proof composition without a trusted setup, with the Halo protocol. Other applications of recursive 
+proof composition still rely on some kind of a trusted setup [<a href="https://electriccoin.co/blog/halo-recursive-proof-composition-without-a-trusted-setup/" title="Halo: Recursive Proof 
+Composition without 
+a Trusted Setup">3</a>]. For example, Coda [<a href="https://cdn.codaprotocol.com/v2/static/coda-whitepaper-05-10-2018-0.pdf" title="Coda: Decentralized Cryptocurrency at 
+Scale">4</a>] and Sonic [<a href="https://eprint.iacr.org/2019/099.pdf" title="Sonic: Zero-knowledge SNARKs 
+from Linear-size Universal 
+and Updatable Structured Reference Strings">5</a>] use a Common 
+Reference String (CRS) and an updatable structured reference string, respectively. </p>
+<p>Coindesk previously commented that &quot;In essence, Bowe and Co. discovered a new method of proving the validity of 
+transactions, while masked, by compressing computational data to the bare minimum&quot; [<a href="https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really" title="You Can Now Prove 
+a Whole Blockchain With 
+One Math Problem – Really">6</a>]. </p>
+<p>For blockchains with confidential transactions such as Mimblewimble, Bulletproofs range proofs are the most crucial 
+zero-knowledge proofs involved in validation of blockchain transactions. The bulk of computations in these range proofs 
+take place in the Inner-product Proof (IPP).</p>
+<p>This report investigates how the innovative amortization strategies of the Halo protocol can be used to 
+enhance the Bulletproofs IPP. </p>
+<h2><a class="header" href="#notation-and-assumptions" id="notation-and-assumptions">Notation and Assumptions</a></h2>
+<p>The settings and notations used in this report follow the Bulletproofs framework as in the Dalek notes [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>]. This 
+includes the underlying field  $\mathbb{F}_p$, elliptic curve, elliptic curve group, and generators $G$ and $H$. The 
+details are not included here, as they have been covered in other Tari Labs University (TLU) reports. 
+Note that properties such as completeness, soundness or public coin, and discrete log difficulty, are assumed here. </p>
+<p>Since the Ristretto implementation of the curve25519 is used in the Bulletproofs setting, unless otherwise stated, all 
+vectors of size $n$ refer to $n$ 32 bytes. </p>
+<h2><a class="header" href="#zero-knowledge-proofs" id="zero-knowledge-proofs">Zero-knowledge Proofs</a></h2>
+<p>There are two parties in a zero-knowledge proof: the prover and the verifier. The prover seeks to convince the verifier 
+that he or she has knowledge of a secret value $w$, called the <em>witness</em>, without disclosing any more information about 
+$w$ to the verifier. How does this work?</p>
+<p>The prover receives a challenge $x$ from the verifier and:</p>
+<ul>
+<li>makes a commitment $P$ of the witness, which hides the value of $w$; then </li>
+<li>creates a proof $\pi$ that attests knowledge of the correct $w$. </li>
+</ul>
+<p>The prover sends these two to the verifier, who checks correctness of the proof $\pi$. This means that 
+the verifier tests if some particular relation $\mathcal{R}$ between $w$ and $x$ holds true. The proof $\pi$ is deemed 
+correct if $\mathcal{R}(x,w) = 1$ and incorrect if $\mathcal{R}(x,w) = 0$. Since the verifier does not know $w$, they 
+use some verification algorithm $\mathcal{V}$ such that $\mathcal{V}(x, \pi) = \mathcal{R}(x,w)$. </p>
+<p>The entire research on scalability is in pursuit of such an algorithm $\mathcal{V}$ that is most efficient and secure. </p>
+<h2><a class="header" href="#bulletproofs-range-proofs" id="bulletproofs-range-proofs">Bulletproofs Range Proofs</a></h2>
+<p>The Bulletproofs system provides a framework for building non-interactive zero-knowledge proofs without any need for a 
+trusted setup. Also, according to Cathie Yun, &quot;it allows for proving a much wider class of statements than just 
+range proofs&quot; [<a href="https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8" title="Building on Bulletproofs">8</a>]. </p>
+<p>The Bulletproofs framework uses the <em>Pedersen commitment scheme</em>, which is known for its hiding and binding properties. </p>
+<p>A <em>Pedersen commitment</em> of a value $v$ is given by $Com(v) = v \cdot B + \tilde{v} \cdot \tilde{B}$, where $B$ and 
+$\tilde{B}$ are the generators of the elliptic curve group, and $\tilde{v}$ is a blinding factor [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>]. </p>
+<p>In a Bulletproofs range proof - </p>
+<ul>
+<li>A prover, given a challenge $x$ from the verifier: 
+<ul>
+<li>makes a commitment to a value $v$;</li>
+<li>creates a proof $\pi$ that attests to the statement that $v \in [0, 2^n)$; </li>
+<li>sends the proof $\pi$ to the verifier, without revealing any other information about $v$.</li>
+</ul>
+</li>
+<li>A verifier checks if indeed $v$ is non-negative and falls within the interval $v \in [0, 2^n )$. </li>
+</ul>
+<p>The Bulletproofs range proof achieves its goal by rewriting the statement $v \in [0, 2^n)$ in terms of its binary 
+vectors, as well as expressing it as a single inner product $t(x) = \langle \mathbf{l}(x), \mathbf{r}(x) \rangle$ 
+of specially defined binary polynomial vectors $\mathbf{l}(x)$ and $\mathbf{r}(x)$.</p>
+<p>Thus a so-called <em>vector Pedersen commitment</em> is also used in these types of proofs, and is defined as follows: </p>
+<p>A <em>vector Pedersen commitment</em> of vectors 
+$\mathbf{a}_L$ and $\mathbf{a}_R$ is given by 
+$ Com(\mathbf{a}_L , \mathbf{a}_R ) = \langle \mathbf{a}_L 
+\mathbf{G} \rangle + \langle \mathbf{a}_R , \mathbf{H} \rangle + \tilde{a} \tilde{B} $ 
+where $\mathbf{G}$ and $\mathbf{H}$ are vectors of generators of the elliptic curve group [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>]. </p>
+<p>The major component of a Bulletproofs range proof is no doubt its IPP. This became even more 
+apparent when Bootle et al. introduced an IPP that requires only $2log_2(n) + 2$ proof elements instead of $2n$ in [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
+for Arithmetic Circuits in 
+the Discrete Log Setting">9</a>]. 
+Henry de Valence of Interstellar puts it this way: </p>
+<p>&quot;The inner-product proof allows the prover to convince a verifier that some scalar is the inner-product of two length-$n$
+vectors using $\mathcal{O}(log(n))$ steps, and it’s the reason that Bulletproofs are compact&quot; [<a href="https://medium.com/@hdevalence/merlin-flexible-composable-transcripts-for-zero-knowledge-proofs-28d9fda22d9a" title="Merlin: Flexible, Composable 
+Transcripts for 
+Zero-knowledge Proofs">10</a>]. </p>
+<p>No wonder the Halo creators also looked at the IPP in their amortization strategies, particularly taking advantage of its 
+recursive nature. Close attention is therefore given to the IPP as described by Bootle et al. [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
+for Arithmetic Circuits in 
+the Discrete Log Setting">9</a>]. </p>
+<h2><a class="header" href="#what-is-recursive-proof-composition" id="what-is-recursive-proof-composition">What is Recursive Proof Composition?</a></h2>
+<p>The aim of Recursive Proof Composition is to construct &quot;proofs that verify other proofs&quot; or &quot;proofs that are capable of 
+verifying other instances of themselves&quot; [<a href="https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really" title="You Can Now Prove 
+a Whole Blockchain With 
+One Math Problem – Really">6</a>]. These take advantage of the recursive nature of some components of known 
+zero-knowledge proofs. </p>
+<p>Before discussing recursive proofs or proof recursion, the recursive function concept and the efficiency of recursive 
+algorithms are briefly discussed. The IPP, as used in a Bulletproofs range proof, is given as an example of a 
+recursive algorithm. <a href="#fig_brf">Figure 1</a> shows the recursive nature of the IPP, 
+and will later be helpful in explaining some of Halo's amortization strategies. </p>
+<h3><a class="header" href="#recursive-functions" id="recursive-functions">Recursive Functions</a></h3>
+<p>Recursion is used to define functions or sequences of values that depict a consistent pattern. When written as a formula, 
+it becomes apparent that a $(j-1)$-th member of such a sequence is needed in computing the $j$-th member of the same 
+sequence. </p>
+<p>A function $F(x)$ that yields a sequence of values $ F(0) , F(1), ... , F(n)$ for some positive integer $ n $ is a 
+recursive function if $F(k) = F(k - 1) + g(k)$ for all  $0 &lt; k \leq n$, where $g(x)$ is some function of $ x $, an 
+indeterminate. </p>
+<p>A typical recursive function $F(j)$ for $j \in \{ 0 , 1 , ... , n \} $ can be represented in terms of a flow chart, as
+shown in <a href="#fig_brf">Figure 1</a>, depicting how values of the sequence $F(0) , F(1), ... , F(n)$ are computed. </p>
+<p align="center"><a name="fig_brf"> </a><img src="sources/Basic-recursive-function.png" width="300" /></p>
+<div align="center"><b>Figure 1: Recursive Function Flow Chart</b></div> 
+<p>In computer programming, algorithms that involve recursive functions are efficiently executed by the use of &quot;for-loops&quot; 
+and &quot;while-loops&quot;. One can say that computers were made and designed to specifically carry out repetitive computation 
+without much error. However, although recursive proof composition is pointedly applicable to recursive algorithms, 
+there's more to it than just recursiveness. Proof recursion is not defined by recursiveness, but rather takes advantage 
+of it. </p>
+<h3><a class="header" href="#recursion-in-bulletproofs-inner-product-proof" id="recursion-in-bulletproofs-inner-product-proof">Recursion in Bulletproofs Inner-product Proof</a></h3>
+<p>In Bulletproofs range proofs, a prover commits to a value $v$ and seeks to construct an IPP to the fact 
+that $v \in  [ 0 , 2^n ) $. Pedersen commitments are used to keep the value of $v$ confidential, and are expressed as 
+inner-products. </p>
+<p>The main recursive part of a range proof is the IPP. The inner-product of two vectors $\mathbf{a}$, $\mathbf{b}$ and the 
+associated Pedersen commitment can be expressed as: </p>
+<p>$$
+P_k = \langle \mathbf{a} , \mathbf{G} \rangle + \langle \mathbf{b} , \mathbf{H} \rangle + \langle \mathbf{a} ,\mathbf{b} \rangle \cdot Q 
+$$</p>
+<p>where $\mathbf{a}$ and $\mathbf{b}$ are size-$n$ vectors of scalars in the field $\mathbb{F}_p$, while $\mathbf{G}$ and 
+$\mathbf{H}$ are vectors of points in an elliptic curve $\mathbb{E} ( \mathbb{F}_p)$ and $k = log_2(n)$; refer to [<a href="https://doc-internal.dalek.rs/bulletproofs/notes/inner_product_proof/index.html" title="Module Bulletproofs:: notes :: inner-product-proof">11</a>]. </p>
+<p>Recursion is seen in a $k-$round non-interactive IPP argument, where these commitments are written in terms of 
+challenges $u_k$ sent by the verifier: </p>
+<p>$$
+P_{k - 1} = P_k + L_k \cdot u_k^{2} + R_k \cdot u_k^{-2}
+$$</p>
+<p>where $ L_k $ and $ R_k $ are specifically defined as linear combinations of inner-products of vectors that are half the 
+size of vectors in the $k - 1$ round. </p>
+<p>In the IP proof, the prover convinces the verifier of the veracity of the commitment $P_k$ by sending only $k = log(n)$ 
+pairs of values $L_j$ and $R_j$, where $j \in \{ 1, 2, 3, ... , k \}$.<br />
+It is due to this recursion that Bootle et al. [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
+for Arithmetic Circuits in 
+the Discrete Log Setting">9</a>] reduced the previous complexity of zero-knowledge proofs from 
+$O(\sqrt{n})$ to $O(log(n))$. </p>
+<p>Refer to <a href="#fig_ipprs">Figure 2</a> for an overview of the prover's side of the IPP. </p>
+<p>The input to the IPP is the quadruple of size $ n = 2^k $ vectors </p>
+<p>$$
+\big( \mathbf{a}^{(j)} , \mathbf{b}^{(j)} , \mathbf{G}^{(j)} , \mathbf{H}^{(j)} \big)​
+$$</p>
+<p>which is initially </p>
+<p>$$
+\big( \mathbf{a} , \mathbf{b} , \mathbf{G} , \mathbf{H} \big) ​
+$$</p>
+<p>However, when $j &lt; k$, the input is updated to </p>
+<p>$$
+\big(\mathbf{a}^{(j-1)}, \mathbf{b}^{(j-1)}, \mathbf{G}^{(j-1)},\mathbf{H}^{(j-1)} \big)​
+$$</p>
+<p>quadruple vectors each of size $2^{k-1}$, where </p>
+<p>$$
+\mathbf{a}^{(j-1)} = \mathbf{a}_{lo} \cdot u_j + \mathbf{a}_{hi} \cdot u_j^{-1} ​\\ 
+\mathbf{b}^{(j-1)} = \mathbf{b}_{lo} \cdot u_j^{-1} + \mathbf{b}_{hi} \cdot u_j​ \\
+\mathbf{G}^{(j-1)} = \mathbf{G}_{lo} \cdot u_j^{-1} + \mathbf{G}_{hi} \cdot u_j​ \\ 
+\mathbf{H}^{(j-1)} = \mathbf{H}_{lo} \cdot u_j  + \mathbf{H}_{hi} \cdot u_j^{-1} \\ 
+$$</p>
+<p>and $u_k$ is the verifier's challenge. The vectors</p>
+<p>$$
+\mathbf{a}_{lo}, \mathbf{b}_{lo}, \mathbf{G}_{lo}, \mathbf{H}_{lo}​ \\
+\mathbf{a}_{hi}, \mathbf{b}_{hi}, \mathbf{G}_{hi}, \mathbf{H}_{hi} ​
+$$</p>
+<p>are the left and the right halves of the vectors</p>
+<p>$$
+\mathbf{a}, \mathbf{b}, \mathbf{G}, \mathbf{H}​
+$$</p>
+<p>respectively. </p>
+<p align="center"><a name="fig_ipprs"> </a><img src="sources/IPProof-prover-side-10.png" width="450" /></p>
+<div align="center"><b>Figure 2: Inner-product Proof - Prover Side </b></div> 
+<p><a href="#fig_ipprs">Figure 2</a> is included here not only to display the recursive nature of 
+the IPP, but will also be handy and pivotal in understanding amortization strategies that will be applied to the IPP. </p>
+<h3><a class="header" href="#inductive-proofs" id="inductive-proofs">Inductive Proofs</a></h3>
+<p>As noted earlier, &quot;for-loops&quot; and &quot;while-loops&quot; are powerful in efficiently executing repetitive computations. However, 
+they are not sufficient to reach the level of scalability needed in blockchains. The basic reason for this is that the 
+iterative executions compute each instance of the recursive function. This is very expensive and clearly undesirable, 
+because the aim in blockchain validation is not to compute every instance, but to prove that the current instance was 
+correctly executed. </p>
+<p><a href="#fig_rfrb">Figure 3</a> shows how instances of a recursive function are linked, the same way each block in a blockchain 
+is linked to the previous block via hash values. </p>
+<p align="center"><a name="fig_rfrb"> </a><img src="sources/Recursive-funct-resembles-blockchain.png" width="600" /></p>
+<div align="center"><b>Figure 3: Recursive Function Resembles Blockchain </b></div> 
+<p>The amortization strategy used by recursive proof composition or proof recursion is based on the old but powerful 
+mathematical tool called the <em>Principle of Mathematical Induction</em>, which dates back to the sixteenth century [<a href="https://hsm.stackexchange.com/questions/524/who-introduced-the-principle-of-mathematical-induction-for-the-first-time" title="Who Introduced the Principle 
+of Mathematical Induction 
+for the First Time?">12</a>]. </p>
+<p>Suppose one has to prove that a given sequence of values $ F(0) , F(1), ... , F(n)$ are correct instances of a recursive 
+function $F(n) = F(n - 1) + g(n)$ for all positive integer $ n $ and $g(n)$ some function. </p>
+<p>According to the <em>Principle of Mathematical Induction</em>, it is sufficient to prove the above statement in the following 
+two steps: </p>
+<ul>
+<li>
+<p>(Base step): Prove that the first possible instance $F(0)$ is correct. </p>
+</li>
+<li>
+<p>(Inductive step): For any integer $ k &gt; 0 $, prove that &quot;if the previous instance $F(k - 1)$ is correct, then the 
+current instance $F(k)$ is also correct&quot;, i.e. prove that  &quot;$F(k - 1)$ is correct&quot; implies &quot;$F(k)$ is also correct&quot;. </p>
+</li>
+</ul>
+<p>These two steps together are sufficient to form a complete proof for the verifier to be convinced. Such a proof is valid 
+even if the current instance is the zillionth. This saves the verifier the trouble of checking every instance of the 
+function  $F(n)$. </p>
+<p>Michael Straka describes a similar inductive proof, which he refers to as &quot;proof recursion&quot; [<a href="https://www.michaelstraka.com/posts/recursivesnarks/" title="Recursive Zero-knowledge 
+Proofs: A Comprehensive Primer">13</a>]. His explanation of 
+the simplest case that a recursive proof will prove a relation $\mathcal{R}$ inductively, is as follows: </p>
+<p>The verifier has: </p>
+<ul>
+<li>a “base” proof $\pi_0$, which attests to the prover knowing some input $( x_0 , w_0 )$, such that 
+$\mathcal{R}( x_0 ,w_0 ) = 1$. </li>
+<li>the proof $\pi_n$ for any $n&gt;0$ will then prove that the prover knows $( x_n , w_n )$, such that 
+$\mathcal{R}(x_n , w_n ) = 1$ and that a proof $\pi_{n-1}$ was produced, attesting to the knowledge of 
+$(x_{n−1} , w_{n−1})$. </li>
+</ul>
+<p><a href="#fig_prms">Figure 4</a> illustrates the above proof: </p>
+<p align="center"><a name="fig_prms"> </a><img src="sources/proof-recursion-michaelStraka1.png" width="350" /></p>
+<div align="center"><b>Figure 4: Proof Recursion Diagram [<a href="https://www.michaelstraka.com/posts/recursivesnarks/" title="Recursive Zero-knowledge 
+Proofs: A Comprehensive Primer">13</a>] </b></div>
+<p>Straka continues to explain how an arithmetic circuit for the verifier could be built in order to carry out the above 
+proof. Such a circuit $\mathcal{C}$ would either verify $\mathcal{R}( x_0 , w_0 ) = 1$ (for the base case) or 
+verify $\mathcal{R}( x_i , w_i ) = 1$ and then check $\mathcal{V}( x_{i - 1} , π_{i−1} ) = 1$ [<a href="https://www.michaelstraka.com/posts/recursivesnarks/" title="Recursive Zero-knowledge 
+Proofs: A Comprehensive Primer">13</a>].</p>
+<p>Proof systems that use this type of inductive proof for verification solve the blockchain's distributed validation 
+problem. A participant in the blockchain network only needs to download the current state of the network as well as a 
+single proof that this state is correct.</p>
+<p>Recursive proof composition is described in [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>] as &quot;proofs that can feasibly attest to the correctness of other 
+instances of themselves&quot;. </p>
+<h2><a class="header" href="#verification-amortization-strategies" id="verification-amortization-strategies">Verification Amortization Strategies</a></h2>
+<p>Only a few amortization strategies in the literature are used to achieve proper recursive proof composition. This report
+focuses on those that Bowe et al. [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>] used in the Halo protocol. </p>
+<h3><a class="header" href="#application-of-verifiable-computation" id="application-of-verifiable-computation">Application of Verifiable Computation</a></h3>
+<p>Verifiable computation is used for the delegation of computations to an untrusted third party (or at times, the prover) 
+who returns: </p>
+<ul>
+<li>the result $z$ of the computation; and </li>
+<li>a cryptographic proof $\pi_z$ that the result is correct. </li>
+</ul>
+<p>The ideal property of such a proof $\pi_z$ is <em>succinctness</em>, which means the proof $\pi_z$ must be asymptotically 
+smaller and less expensive to check than the delegated computation itself [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>].</p>
+<h3><a class="header" href="#incrementally-verifiable-computation" id="incrementally-verifiable-computation">Incrementally Verifiable Computation</a></h3>
+<p>The idea here is to attest to the validity of a previous proof in addition to application of verifiable computation. The 
+best thing about this amortization strategy is that one proof can be used to inductively demonstrate the correctness of 
+many previous proofs. </p>
+<p>Then, any participator in a blockchain network who wishes to validate the current state of the chain, need only 
+download two things: </p>
+<ul>
+<li>the current state of the chain network; and </li>
+<li>a single proof that this state is correct.</li>
+</ul>
+<p>Any further proofs of state changes in a blockchain can be constructed with the latest proof alone, allowing active 
+participants to prune old state changes [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>]. </p>
+<p>Thus, with incrementally verifiable computation, a large and virtually unbounded amount of computation can be verified 
+with a single proof, and with this proof alone, the computation can be extended to further proofs. </p>
+<p>Due to this strategy, by &quot;allowing a single proof to inductively demonstrate the correctness of many previous proofs&quot; 
+[<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>], Halo achieves better scalability than most known SNARKs constructions.</p>
+<h3><a class="header" href="#nested-amortization" id="nested-amortization">Nested Amortization</a></h3>
+<p>This strategy can be used as part of the above two amortization strategies. </p>
+<p>Whenever the verifier has to compute an expensive fixed operation $F$ that is invoked with some input $x$, the prover is 
+allowed to witness $y = F(x)$ and send the pair $(x, y)$ to the verifier. The verification circuit takes $(x, y)$
+as a public input. &quot;The circuit can then proceed under the assumption that $y$ is correct, delegating the responsibility 
+of checking the correctness of $y$ to the verifier of the proof&quot; [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>]. </p>
+<p>Now, increasing instances of $( x , y )$ will accumulate as proofs are continually composed, simply because the 
+verification circuit will not check these proofs, but rather continually delegate the checking to its verifier. 
+The problem here is that computational cost will escalate. </p>
+<p>It is here that the amortization strategy of <em>collapsing computations</em> is needed: </p>
+<ul>
+<li>given instances $( x , y )$ and $( x′ , y′ )$, the prover will provide a non-interactive proof $\pi_{y,y'}$ that 
+$y = F(x)$ and $y' = F(x')$ as a witness to the verification circuit; and </li>
+<li>the verification circuit will check  $\pi_{y,y'}$ proof.</li>
+</ul>
+<p>If the cost of checking the correctness of $\pi_{y,y'}$ is equivalent to invoking the operation $F$, then the verifier 
+will have collapsed the two instances $( x , y )$ and $( x' , y' )$ into a single fresh instance $( x'' , y'' )$, as 
+shown in <a href="#fig_cc">Figure 5</a>. This is how the cost of invoking $F$ can be amortized. </p>
+<p align="center"><a name="fig_cc"> </a><img src="sources/Collapsing-computations-00.png" width="300" /></p>
+<div align="center"><b>Figure 5: Collapsing Computations </b></div>
+<p>Therefore, a nested amortization is achieved on the instances of a binary tree of accumulated instances, helping to 
+reduce verification costs of the final single proof from linear time to sub-linear marginal verification time. </p>
+<p>As mentioned above, the aim of Recursive Proof Compositions is two-pronged: construction of &quot;proofs that verify other 
+proofs&quot; and construction of &quot;proofs that are capable of verifying other instances of themselves&quot; [<a href="https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really" title="You Can Now Prove 
+a Whole Blockchain With 
+One Math Problem – Really">6</a>]. The discussion 
+in this report focuses on the latter, while the former will be part of forthcoming reports, as it 
+requires delving into understanding cycles of elliptic curves. </p>
+<h2><a class="header" href="#amortized-inner-product-proof" id="amortized-inner-product-proof">Amortized Inner-product Proof</a></h2>
+<p>One application of the amortization strategies discussed thus far, is the Bulletproofs IPP. The aim here is to 
+investigate how much significance these strategies bring to this powerful and pervasive proof, especially in blockchain 
+technology, where efficiency of zero-knowledge proof is pursued.</p>
+<h3><a class="header" href="#bulletproofs-inner-product-proof-verification" id="bulletproofs-inner-product-proof-verification">Bulletproofs Inner-product Proof Verification</a></h3>
+<p>Consider the Bulletproofs IPP, originally described by Bootle et al. [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
+for Arithmetic Circuits in 
+the Discrete Log Setting">9</a>], but following the Dalek's Bulletproofs 
+settings [<a href="https://doc-internal.dalek.rs/bulletproofs/notes/inner_product_proof/index.html" title="Module Bulletproofs:: notes :: inner-product-proof">11</a>]. The IPP is no doubt recursive in the way in which it is executed. 
+<a href="#fig_ipprs">Figure 2</a> and <a href="#fig_bpippvs">Figure 6</a> make this apparent. It is therefore the most relevant case study in amortizing verification 
+costs, especially in the context of recursive proofs. </p>
+<p>Figure 6 shows a naive implementation of the verifier's side of the Bulletproofs IPP.</p>
+<p align="center"><a name="fig_bpippvs"> </a><img src="sources/IPProof-verifier-side-11.png" width="650" /></p>
+<div align="center"><b>Figure 6: Bulletproofs Inner-product Proof - Verifier Side </b></div>
+<h3><a class="header" href="#verifiable-computation" id="verifiable-computation">Verifiable Computation</a></h3>
+<h4><a class="header" href="#application-1---delegating-inversion-of-verifiers-challenges" id="application-1---delegating-inversion-of-verifiers-challenges">Application 1 - Delegating Inversion of Verifier's Challenges</a></h4>
+<p>One of the details omitted from <a href="#fig_bpippvs">Figure 6</a> is the computation of inverses 
+of the verifier's challenges $u_j$ needed to complete verification. The verifier, for example, needs $u_j^{-2}$ in order 
+to compute $- L_j \cdot u_j^2 - R_j \cdot u^{-2}$. Verifiable computation strategy is therefore applicable to the IPP, 
+where the verifier delegates inversion of challenges to the prover. </p>
+<p>As Bowe et al. [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>] proposed, in arithmetic circuits where a field inversion of a variable $u$ can be computed, i.e. 
+$u^{p−2}$, which would normally require $log(p)$ multiplication constraints, the prover could witness $v = u^{− 1}$ 
+instead [<a href="https://electriccoin.co/blog/halo-recursive-proof-composition-without-a-trusted-setup/" title="Halo: Recursive Proof 
+Composition without 
+a Trusted Setup">3</a>]. The verifier could then simply check if $uv = 1$, taking only a single multiplication constraint. 
+Thus one trades $log(p)$ multiplication constraints for only one. </p>
+<p>Therefore, to amortize some verification costs, the prover in the Bulletproofs IPP is requested to compute each $u_j^{- 1}$ 
+and send it to the verifier. That is in addition to values $L_j$ and $R_j$ for $j \in \{ 1, 2 , ... , log_2(n) \}$. </p>
+<p>Worth noting is that the prover will have computed these inverses anyway, because they need them in &quot;halving&quot; of the 
+input vectors to the IPP. The delegation of inversion therefore comes with <em>no extra cost</em> to the prover. </p>
+<p>This amortization strategy has huge savings on verification costs in the form of the number of multiplications by the 
+verifier. Instead of a verification cost of $(log(p))*(log_2(n))$ multiplication constraints on inversion alone, it will 
+now only cost $log_2(n)$ multiplication constraints for a single IPP. The savings are huge considering the fact that 
+$n$, which is the size of the initial input vectors to the IPP, is typically very small compared to $p$, the prime order 
+of the elliptic curve group. </p>
+<p>As noted earlier, this amortization strategy reduces the verification costs by factor of $log(p)$. </p>
+<h4><a class="header" href="#application-2---delegating-computation-of-g_is-coefficients" id="application-2---delegating-computation-of-g_is-coefficients">Application 2 - Delegating Computation of $G_i$'s Coefficients</a></h4>
+<p>Consider the vector of group-generators $\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1} )$, one of the four initial 
+input vectors to the IPP. In verifying the prover's IPP, the verifier has to compute the vector 
+$\mathbf{s} = ( s_0 , s_1 , s_2 , ... , s_{(n-1)} )$, where each $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ is the 
+so-called coefficient of $G_i$, while $j \in \{ 1 , 2 , 3 , ... , k \}$  with  $k = log_2(n)$. Refer to 
+<a href="#fig_bpippvs">Figure 6</a>. Note that</p>
+<p>$$
+b(i,j) = \begin{cases} {-1} &amp; {\text{if}\ \  (i\ \ mod\ \ 2^j) &lt; 2^{j-1}}  \\  {+1} &amp; {\text{if}\ \ (i\ \ mod\ \ 2^j) \geq  2^{j-1}} \end{cases}
+$$</p>
+<p>determines whether the factor multiplied into  $s_i$  is the verifier's challenge $u_j$ or its inverse.</p>
+<p>Computations of these coefficients can be delegated to the prover or some third party called the &quot;helper&quot;. In this application these coefficients are delegated to the helper, and this means the verifier will need a way to test if the values the helper sends are correct. Thus a verifiable computation is created in the next subsection. Since each of these coefficients is a product of field elements, they have strong algebraic 
+properties that can be exploited in two ways:</p>
+<ul>
+<li>Firstly, the verifier can use these properties to check if the $s_i$'s were correctly computed by the helper.</li>
+<li>Secondly, they can be used to minimize the prover's computational costs. </li>
+</ul>
+<h3><a class="header" href="#verifiers-test-of-g_is-coefficients" id="verifiers-test-of-g_is-coefficients">Verifier's Test of $G_i$'s Coefficients</a></h3>
+<h4><a class="header" href="#properties-of-g_is-coefficients" id="properties-of-g_is-coefficients">Properties of $G_i$'s Coefficients</a></h4>
+<p>Note that the verifier has to compute the values $u_j^2$  and $u_j^{-2}$ for all $j \in \{ 1, 2, 3, ... , k \}$. </p>
+<p>The 
+idea here is to use a verifier's test that involves these squares of the challenges and their inverses. The next theorem 
+describes such relationships between these squares and the coefficients $s_i$. </p>
+<p><strong>Theorem 1 (Some properties of the set of coefficients ${ s_i }$)</strong> </p>
+<p>Let $n = 2^k$ and $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ for all $j \in \{ 1, 2, 3, ... , k \}$, where each $G_i$ 
+is the $i-$th component of the initial input vector $\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1})$, then: </p>
+<ol>
+<li>
+<p>$\ \ s_i \cdot s_{(n-1) - i} = 1_{\mathbb{F}_p}$ for all  $i \in  \{ 0, 1, 2, ... , n-1 \}$.</p>
+</li>
+<li>
+<p>$\ \ s_{2^{(j-1)}} \cdot s_{n-1} = u_j^2 $ for all  $j \in \{ 1, 2, 3, ... , k \}$.</p>
+</li>
+<li>
+<p>$\ \ s_0 \cdot s_{(n-1) - 2^{(j-1)}} = u_j^{-2} $ for all  $j \in \{ 1, 2, 3, ... , k \}$. </p>
+</li>
+</ol>
+<p>The proof of Part (1) of Theorem 1 follows by induction on the size $n$ of the initial input vector 
+$\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1} )$ to the IPP, while parts (2) and (3) follow by induction on $k$. 
+<a href="#appendix-b-proof-of-theorem-1-and-its-preliminaries">Appendix B</a> contains full details of the proof.</p>
+<h4><a class="header" href="#test-of-g_is-coefficients" id="test-of-g_is-coefficients">Test of $G_i$'s Coefficients</a></h4>
+<p>The verifier tests the correctness of the coefficients $s_i$ with the following statement: </p>
+<p>$$
+(s_{1} \cdot s_{n-1}  = u_1^2) \land (s_{2} \cdot s_{n-1} = u_2^2) \land (s_{4} \cdot s_{n-1}  = u_3^2) \land\ \dots \ \land (s_{2^{(k-1)}} \cdot s_{n-1}  = u_k^2) \land \\ 
+(s_0 \cdot s_{(n-1) - 2^{(0)}}  = u_1^{-2}) \land (s_0 \cdot s_{(n-1) - 2^{(1)}}  = u_2^{-2}) \land\ \dots \ \land (s_0 \cdot s_{(n-1) - 2^{(k-1)}}  = u_k^{-2})  \land \\ 
+( s_{r_1} \cdot s_{(n-1) - {r_1}}  = 1_{\mathbb{F}_p} ) \land (s_{r_2} \cdot s_{(n-1) - {r_2}}  = 1_{\mathbb{F}_p}) \land (s_{r_3} \cdot s_{(n-1) - {r_3}}  = 1_{\mathbb{F}_p}) \land\ \dots \ \land (s_{r_k} \cdot s_{(n-1) - r_k}  = 1_{\mathbb{F}_p})<br />
+$$</p>
+<p>for randomly sampled values $ \{r_1, r_2, ... , r_k \} \subset \{0, 1, 2, ... , n-1 \} $ where $k = log_2(n)$. </p>
+<p>The multiplication cost of the <em>Test of $G_i$'s Coefficients</em> as stated above is sub-linear with respect to $n$, costing the verifier only $3log(n)$ multiplications. That's because all three parts of Theorem 1 are tested. However, it would still suffice for the verifier to test only two out of the three parts of Theorem 1, reducing the cost to $2log(n)$. </p>
+<p>Note that the values of the coefficients $s_i$ and the squares $u_j^2$ and $u_j^{-2}$ do not exist by default nor are they automatically computed in the Bulletproofs system. In fact, according to Dalek's internal documents on the Inner-product Proof [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>], specifically under <a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html#verification-equation">Verification equation</a>, these values can be provided by the system. Either way, these values need to be computed. The next subsection therefore focuses on optimising the computations of the $s_i$'s. </p>
+<h3><a class="header" href="#optimizing-provers-computation-of-g_is-coefficients" id="optimizing-provers-computation-of-g_is-coefficients">Optimizing Prover's Computation of $G_i$'s Coefficients</a></h3>
+<h4><a class="header" href="#naive-algorithm" id="naive-algorithm">Naive Algorithm</a></h4>
+<p>The naively implemented computation of the coefficients $s_i$, as depicted in 
+<a href="#fig_bpippvs">Figure 6</a>, is very expensive in terms of the number of multiplications. </p>
+<p>The naive algorithm codes computation of the coefficients $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ 
+by cumulatively multiplying the correct factor $u_j^{b(i,j)}$ in each $j-$th IPP round, running from $k = log_2(n)$ down 
+to $1$. </p>
+<p>That is, although recursive according to the nature of the IPP, the naive implementation strictly follows the definition
+without any attempt to optimize.</p>
+<pre><code class="language-text">**Naive Algorithm**
+
+%initialize
+s[n] = [1,1,1, ... ,1];
+k = log_2(n);
+%running inside IPP
+int main() {
+​     for (j = k; j &gt; 0; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            s[i] = s[i]*(u_j)^{b(i,j)};
+​        }
+​    }
+
+return = 0; 
+}
+</code></pre>
+<p>Using the naive algorithm, an input vector $\mathbf{G}$ to the IPP of size $n$, costs the verifier $n*[ log_2(n) - 1 ]$ 
+multiplications. If $n = 256$, the cost is $1,792$. This is rather expensive irrespective of whether the $s_i$'s are computed by a third party or by the proof system.</p>
+<h4><a class="header" href="#optimized-algorithms" id="optimized-algorithms">Optimized Algorithms</a></h4>
+<p>At least four competing algorithms optimize computation of the coefficients ${ s_i }$. Each one is far much better than 
+the naive algorithm. </p>
+<p>The basic optimization strategy is based on the observation that every coefficient has at least one common factor with 
+$2^{k-1}- 1$ other coefficients, two common factors with $2^{k-2}-1$ other coefficients, three common factors with 
+$2^{k-3}- 1$ other coefficients, and so on. It is therefore cost-effective in terms of the number of multiplications to 
+aim at computing these common factors and only form the required coefficients later.</p>
+<pre><code class="language-text">**Typical Optimized Algorithm**
+
+%initialize
+s[n] = [1,1,1, ... ,1];
+k = log_2(n);
+%running inside IPP 
+int main() {
+    s[0] = u_k^{-1};  s[2^{k-1}] = u_k;
+​    s[2^{k-2}] = s[0]; s[2^{k-1} + 2^{k-2}] = s[2^{k-1}];
+​    for (j = k - 1; j &gt; t; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            if (i mod 2^j == 0) {
+​                s[i] = s[i]*(u_j)^{b(i,j)};
+​                l = i + 2^(j-1);
+                s[l] = s[l]*(u_j^{b(l,j)};
+​            }
+​        }
+​    }
+    return = 0;
+}
+</code></pre>
+<p>The value t in the first for-loop can be varied in order to form either products of two or three or four, and so on. 
+The optimization of these algorithms depends on whether they only form &quot;doubles&quot; or &quot;triples&quot; or &quot;quadruples&quot;, and how 
+they form them. Unlike the naive algorithm, which keeps spending multiplication disregarding the existence of common 
+factors among the coefficients $s_i$, the optimized algorithms use multiplication only if the new product formed is 
+unique. </p>
+<p>Since the multiplication cost of the naive algorithm is ludicrously expensive, it will not be used as a point of reference. No programmer would implement the computation of the $s_i$'s using the naive algorithm. So instead, a minimally optimized algorithm called <strong>Algorithm 0</strong> or [A0] will henceforth be the yardstick. </p>
+<p>In terms of the pseudo-code of a <em>Typical Optimized Algorithm</em> given above, algorithm [A0] is defined by setting 't = 0'. That means, [A0] aims at computing the largest possible and distinct products as soon as the new challenge $u_j$ is received from the verifier. </p>
+<p><a href="#tab_cmc">Table 1</a> gives the multiplication cost of [A0] together with 
+other four optimised algorithms. <a href="#appendix-a-optimized-algorithms">Appendix A</a> contains full descriptions of these algorithms, which 
+are simply referred to as Algorithm 1 or [A1], Algorithm 2 or [A2], Algorithm 3 or [A3] and 
+Algorithm 4 or [A4]. </p>
+<div align="center"><a name="tab_cmc"> </a><b>Table 1: Comparison of Multiplication Costs </b></div>  
+<table><thead><tr><th align="right">Vector Size $n$</th><th align="right">[A0]</th><th align="right">[A1]</th><th align="right">[A2]</th><th align="right">[A3]</th><th align="right">[A4]</th><th align="right">Best Algo &amp; <br> Savings % <br> Relative to [A0]</th></tr></thead><tbody>
+<tr><td align="right">$n = 4$</td><td align="right">$4$</td><td align="right">$4$</td><td align="right">$4$</td><td align="right">$4$</td><td align="right">$4$</td><td align="right">[All]  0%</td></tr>
+<tr><td align="right">$n = 8$</td><td align="right">$12$</td><td align="right">$12$</td><td align="right">$12$</td><td align="right">$12$</td><td align="right">$12$</td><td align="right">[All]  0%</td></tr>
+<tr><td align="right">$n = 16$</td><td align="right">$28$</td><td align="right">$28$</td><td align="right">$28$</td><td align="right">$24$</td><td align="right">$24$</td><td align="right">[A3,A4] 14.29%</td></tr>
+<tr><td align="right">$n = 32$</td><td align="right">$60$</td><td align="right">$48$</td><td align="right">$60$</td><td align="right">$48$</td><td align="right">$56$</td><td align="right">[A1,A3] 20%</td></tr>
+<tr><td align="right">$n = 64$</td><td align="right">$124$</td><td align="right">$88$</td><td align="right">$96$</td><td align="right">$92$</td><td align="right">$92$</td><td align="right">[A1] 29.03%</td></tr>
+<tr><td align="right">$n = 128$</td><td align="right">$252$</td><td align="right">$168$</td><td align="right">$168$</td><td align="right">$164$</td><td align="right">$164$</td><td align="right">[A3, A4] 34.92%</td></tr>
+<tr><td align="right">$n = 256$</td><td align="right">$508$</td><td align="right">$316$</td><td align="right">$312$</td><td align="right">$304$</td><td align="right">$304$</td><td align="right">[A3, A4] 40.16%</td></tr>
+<tr><td align="right">$n = 512$</td><td align="right">$1020$</td><td align="right">$612$</td><td align="right">$600$</td><td align="right">$584$</td><td align="right">$816$</td><td align="right">[A3] 42.75%</td></tr>
+<tr><td align="right">$n = 1024$</td><td align="right">$2044$</td><td align="right">$1140$</td><td align="right">$1144$</td><td align="right">$1140$</td><td align="right">$1332$</td><td align="right">[A1,A3] 44.23%</td></tr>
+<tr><td align="right">$n = 2048$</td><td align="right">$4092$</td><td align="right">$2184$</td><td align="right">$2244$</td><td align="right">$2234$</td><td align="right">$2364$</td><td align="right">[A1] 46.63%</td></tr>
+<tr><td align="right">$n = 4096$</td><td align="right">$8188$</td><td align="right">$4272$</td><td align="right">$4436$</td><td align="right">$4424$</td><td align="right">$4424$</td><td align="right">[A1] 47.83%</td></tr>
+</tbody></table>
+<p>All four optimized algorithms, [A1], [A2], [A3] and [A4], are fairly competent in saving multiplication costs, showing more than 
+20% savings for vectors of sizes 64 and above. </p>
+<p>The above results indicate that algorithm [A1] is the best of the four for several reasons: </p>
+<ul>
+<li>
+<p>It is the second most frequent winner in all 11 cases investigated, with a score of 7 out of 11.</p>
+</li>
+<li>
+<p>In order to account for the other four cases; it takes second place twice and third place twice. </p>
+</li>
+<li>
+<p>It has the best savings percentage of 47.83% relative to [A0].</p>
+</li>
+<li>
+<p>The only three cases in which it is on par with the minimally optimized algorithm [A0] is when all other algorithms are on par; i.e. when 
+$n = 4$ and $n = 8$; as well as when the best optimized algorithm saves a mere $4$ multiplications. </p>
+</li>
+</ul>
+<h3><a class="header" href="#concluding-amortized-inner-product-proof" id="concluding-amortized-inner-product-proof">Concluding Amortized Inner-product Proof</a></h3>
+<p>The amortization strategies herein applied to the Bulletproofs IPP are tangible and significantly enhance the proof. 
+With the above amortization of the IPP, the prover sends $3log_2(n)$ IPP elements, i.e. the set of all $log_2(n)$ 
+triples $L_j$, $R_j$ and $u^{-1}$. The $n$ coefficients $s_i$'s will either be sent by the third-party helper or provided by the system according to Dalek's internal documents. See IPP's <a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html#verification-equation">Verification equation</a> in [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>]. </p>
+<p>The given verifier's test of the $G_i$'s coefficients and the optimization of their computations solidify the proposed 
+amortization of the IPP. Given the Bulletproofs setting, that a vector of size $n$ refers to $n$ number of 32-byte 
+values, even seemingly small savings are significant. </p>
+<h2><a class="header" href="#application-to-tari-blockchain" id="application-to-tari-blockchain">Application to Tari Blockchain</a></h2>
+<p>This report not only explains the often obscured parts of the IPP mechanism, but also succeeds in bringing this powerful 
+proof as close as possible to practicality.</p>
+<p>The amortized IPP as discussed above does not veer off the Dalek's Bulletproofs setting, which is preferred for the Tari 
+blockchain. </p>
+<p>These amortization strategies, though minimal in the changes they bring into the IPP to which we are accustomed, have 
+huge savings for the verification costs, cutting down on the number of multiplications by a factor of $log(p)$, where 
+the prime $p$ is deliberately chosen to be very large. </p>
+<p>The amortized IPP lends itself to implementations of any zero-knowledge proof that involves inner-products, especially 
+in the Bulletproofs framework. </p>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf" title="DIZK: A Distributed 
+Zero Knowledge Proof System">1</a>] H. Wu, W. Zheng, A. Chiesa, R. A. Popa and I. Stoica, &quot;DIZK: A Distributed Zero Knowledge Proof System&quot;, 
+UC Berkeley [online]. Available: <a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf">https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf</a>. 
+Date accessed: 2019‑12‑07. </p>
+<p>[<a href="%3Chttp://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf%3E" title="Bulletproofs: Short Proofs for 
+Confidential Transactions and More">2</a>] B. Bünz, J. Bootle, D. Boneh, A. Poelstra, P. Wuille and G. Maxwell, &quot;Bulletproofs: Short Proofs for Confidential 
+Transactions and More&quot; [online]. Blockchain Protocol Analysis and Security Engineering 2018. 
+Available: <a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf">http://web.stanford.edu/~buenz/pubs/bulletproofs.pdf</a>. Date accessed: 2020‑04‑21. </p>
+<p>[<a href="https://electriccoin.co/blog/halo-recursive-proof-composition-without-a-trusted-setup/" title="Halo: Recursive Proof 
+Composition without 
+a Trusted Setup">3</a>] ECC Posts, &quot;Halo: Recursive Proof Composition without a Trusted Setup&quot; [online]. Electric Coin Co., September 2019.
+Available: <a href="https://electriccoin.co/blog/halo-recursive-proof-composition-without-a-trusted-setup/">https://electriccoin.co/blog/halo-recursive-proof-composition-without-a-trusted-setup/</a>. Date accessed: 2020‑04‑24. </p>
+<p>[<a href="https://cdn.codaprotocol.com/v2/static/coda-whitepaper-05-10-2018-0.pdf" title="Coda: Decentralized Cryptocurrency at 
+Scale">4</a>] I. Meckler and E. Shapiro, &quot;Coda: Decentralized Cryptocurrency at Scale&quot; [online]. O(1) Labs, 2018‑05‑10. 
+Available: <a href="https://cdn.codaprotocol.com/v2/static/coda-whitepaper-05-10-2018-0.pdf">https://cdn.codaprotocol.com/v2/static/coda-whitepaper-05-10-2018-0.pdf</a>. Date accessed: 2020‑04‑27. </p>
+<p>[<a href="https://eprint.iacr.org/2019/099.pdf" title="Sonic: Zero-knowledge SNARKs 
+from Linear-size Universal 
+and Updatable Structured Reference Strings">5</a>] M. Maller, S. Bowe, M. Kohlweiss and S. Meiklejohn, &quot;Sonic: Zero-knowledge SNARKs from Linear-size Universal and 
+Updatable Structured Reference Strings&quot; [online]. Proceedings of the 2019 ACM SIGSAC Conference on Computer and 
+Communications, 2019. Available: <a href="https://eprint.iacr.org/2019/099.pdf">https://eprint.iacr.org/2019/099.pdf</a>. Date accessed: 2020‑04‑27. </p>
+<p>[<a href="https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really" title="You Can Now Prove 
+a Whole Blockchain With 
+One Math Problem – Really">6</a>] W. Foxley, &quot;You Can Now Prove a Whole Blockchain With One Math Problem – Really&quot; [online]. Coindesk, 2019. 
+Available: <a href="https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really">https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really</a>. Date accessed: 2020‑04‑27. </p>
+<p>[<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>] Dalek's Bulletproofs documents, &quot;Module Bulletproofs::notes ::index&quot; [online]. 
+Available: <a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html">https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html</a>. Date accessed: 2020‑05‑01.</p>
+<p>[<a href="https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8" title="Building on Bulletproofs">8</a>] C. Yun, &quot;Building on Bulletproofs&quot; [online]. Available: <a href="https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8">https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8</a>.
+Date accessed: 2020‑04‑27.</p>
+<p>[<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
+for Arithmetic Circuits in 
+the Discrete Log Setting">9</a>] J. Bootle, A. Cerulli, P. Chaidos, J. Groth and C. Petit, &quot;Efficient Zero-knowledge Arguments for Arithmetic 
+Circuits in the Discrete Log Setting&quot; [online]. Annual International Conference on the Theory and Applications of 
+Cryptographic Techniques, pp. 327‑357. Springer, 2016. Available: <a href="https://eprint.iacr.org/2016/263.pdf">https://eprint.iacr.org/2016/263.pdf</a>. 
+Date accessed: 2019‑12‑21. </p>
+<p>[<a href="https://medium.com/@hdevalence/merlin-flexible-composable-transcripts-for-zero-knowledge-proofs-28d9fda22d9a" title="Merlin: Flexible, Composable 
+Transcripts for 
+Zero-knowledge Proofs">10</a>] H. de Valence, &quot;Merlin: Flexible, Composable Transcripts for Zero-knowledge Proofs&quot; [online]. Available: 
+<a href="https://medium.com/@hdevalence/merlin-flexible-composable-transcripts-for-zero-knowledge-proofs-28d9fda22d9a">https://medium.com/@hdevalence/merlin-flexible-composable-transcripts-for-zero-knowledge-proofs-28d9fda22d9a</a>. 
+Date accessed: 2019‑12‑21. </p>
+<p>[<a href="https://doc-internal.dalek.rs/bulletproofs/notes/inner_product_proof/index.html" title="Module Bulletproofs:: notes :: inner-product-proof">11</a>] Dalek's Bulletproofs documents, &quot;Module Bulletproofs:: notes :: index&quot; [online]. Available: 
+<a href="https://doc-internal.dalek.rs/bulletproofs/notes/inner_product_proof/index.html">https://doc-internal.dalek.rs/bulletproofs/notes/inner_product_proof/index.html</a>. Date accessed: 2020‑04‑27. </p>
+<p>[<a href="https://hsm.stackexchange.com/questions/524/who-introduced-the-principle-of-mathematical-induction-for-the-first-time" title="Who Introduced the Principle 
+of Mathematical Induction 
+for the First Time?">12</a>] History of Science and Mathematics Beta, &quot;Who Introduced the Principle of Mathematical Induction for the First 
+Time?&quot; [online]. Available: <a href="https://hsm.stackexchange.com/questions/524/who-introduced-the-principle-of-mathematical-induction-for-the-first-time">https://hsm.stackexchange.com/questions/524/who-introduced-the-principle-of-mathematical-induction-for-the-first-time</a>. 
+Date accessed: 2020‑04‑30. </p>
+<p>[<a href="https://www.michaelstraka.com/posts/recursivesnarks/" title="Recursive Zero-knowledge 
+Proofs: A Comprehensive Primer">13</a>] M. Straka, &quot;Recursive Zero-knowledge Proofs: A Comprehensive Primer&quot; [online], 2019‑12‑08. Available: 
+<a href="https://www.michaelstraka.com/posts/recursivesnarks/">https://www.michaelstraka.com/posts/recursivesnarks/</a>. Date accessed: 2020‑04‑30. </p>
+<p>[<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
+without a Trusted Setup">14</a>] S. Bowe, J. Grigg and D. Hopwood, &quot;Recursive Proof Composition without a Trusted Setup&quot; [online]. Electric Coin 
+Company, 2019. Available: <a href="https://eprint.iacr.org/2019/1021.pdf">https://eprint.iacr.org/2019/1021.pdf</a>. Date accessed: 2020‑04‑24. </p>
+<h1><a class="header" href="#appendices" id="appendices">Appendices</a></h1>
+<h2><a class="header" href="#appendix-a-optimized-algorithms" id="appendix-a-optimized-algorithms">Appendix A: Optimized Algorithms</a></h2>
+<p>The naive algorithm codes computation of the coefficients $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ 
+by cumulatively multiplying the correct factor $u_j^{b(i,j)}$ in each $j-$th round of the IPP, running from 
+$k = log_2(n)$ to $1$. </p>
+<p>This appendix contains details of the algorithms investigated to optimize computations of the coefficients 
+${ s_i }$ of $G_i$ the component of the vector input to the IPP, $\mathbf{G} = (G_0 , G_1 , G_2 , ... , G_{n-1})$. </p>
+<h4><a class="header" href="#basic-approach" id="basic-approach">Basic Approach</a></h4>
+<p>The basic approach to the formulation of efficient and cost-saving algorithms is as follows: </p>
+<ul>
+<li>
+<p>Each algorithm aims at reducing verification costs in terms of the number of multiplications. </p>
+</li>
+<li>
+<p>Each algorithm takes advantage of the fact that each coefficient has common sub-products with other $2^{k-2}$ 
+coefficients. </p>
+</li>
+<li>
+<p>The intermediate values of the coefficients are not used anywhere in the IPP. Only the final values made up of all 
+$k$ factors $u_j^{b(i,j)}$. Hence their sub-products can be separately computed and only put together at the end of the 
+IPP's $k-$th round. </p>
+</li>
+<li>
+<p>Due to the algebraic structure of the sets of coefficients, they can be systematically computed. Note specifically 
+that each </p>
+<p>$$
+s_i\ \ =\ \ \prod\limits_{j = 1}^k u_j^{b(i,j)}\ \ =\ \ u_k^{b(i,k)} \cdot u_{k-1}^{b(i,k-1)} \cdot\ \ ...\ \ \cdot u_2^{b(i,2)} \cdot u_1^{b(i,1)}
+$$</p>
+<p>corresponds to a $k-$tuple of field elements</p>
+<p>$$
+\Big( u_k^{b(i,k)}, u_{k-1}^{b(i,k-1)}, ... , u_2^{b(i,2)}, u_1^{b(i,1)}\Big)\ \ \in\ \ \mathbb{F}_p^k
+$$</p>
+</li>
+</ul>
+<p>Hence sub-products such as $\ \ u_4^{b(i,4)} \cdot u_{3}^{b(i,3)} \ \ $ or 
+$\ \ u_{10}^{b(i,10)} \cdot u_{9}^{b(i,9)} \cdot u_{8}^{b(i,8)}\ \ $ or 
+$\ \ u_{4}^{b(i,4)} \cdot u_{3}^{b(i,3)} \cdot u_{2}^{b(i,2)} \cdot u_{1}^{b(i,1)}\ \ $ are herein referred to as &quot;doubles&quot; or 
+&quot;triples&quot; or &quot;quadruples&quot;, respectively.</p>
+<h4><a class="header" href="#defining-optimized-algorithms" id="defining-optimized-algorithms">Defining Optimized Algorithms</a></h4>
+<p>Since the main strategy in using these algorithms is to avoid insisting on immediate updates of the values $s_i$, they 
+differ in their scheduling of when &quot;doubles&quot; or &quot;triples&quot; or &quot;quadruples&quot; are computed. Note that &quot;distinct&quot; 
+sub-products refers to those sub-products with no common factor. </p>
+<h5><a class="header" href="#algorithm-1" id="algorithm-1">Algorithm 1</a></h5>
+<p>This algorithm computes new distinct doubles as soon as it is possible to do so. These new doubles are 
+turned into triples in the next immediate IPP round. This process is repeated until all IPP rounds are completed. Only 
+then are next larger-sized sub-products computed, but consumption of the smallest existing &quot;tuples&quot; is given priority. </p>
+<pre><code class="language-text">**Algorithm 1 or [A1]**
+
+%initialize
+s[n] = [1,1,1, ... ,1];
+k = log_2(n);
+%running inside IPP
+int main() { 
+  ​  s[0] = u_k^{-1};
+    s[2^{k-1}] = u_k;
+​    s[2^{k-2}] = s[0]; 
+    s[3*2^{k-2}] = s[2^{k-1}];
+​    t = k-3;
+​    for (j = k - 1; j &gt; t; j--) {
+    ​    for (i = 0; i &lt; n; i++) {
+    ​        if ( i mod 2^j == 0 ) {
+          ​      s[i] = s[i]*(u_j)^{b(i,j)};
+           ​     l = i + 2^(j-1); 
+           ​     s[l] = s[l]*(u_j^{b(l,j)};
+         ​   } 
+        } 
+    } 
+    %if k-3 &gt; 0, then the program proceeds as follows:
+​    s[1] = u_{k-3}^{-1}; 
+    s[1+2^{k-4}] = u_{k-3}; 
+​    s[1+2^{k-1}] = s[1]; 
+    s[(1+2^{k-4})+2^{k-1}] = s[1+2^{k-4}]; 
+    %if k-4 &gt; 0, then the program proceeds as follows:
+​    t = k-6; 
+​    for (j = k-4; j &gt; t; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            if (i mod (1+2^(k-1)) == 0) { 
+​                s[i] = s[i]*(u_j)^{b(i,j)}; 
+​                l = i + 2^j;
+​                s[l] = s[l]*(u_j^{b(l,j)};
+​            }
+        }
+    }
+    % program continues forming new and distinct triples until k=1
+    % after which all (2^k) &quot;legal&quot; k-tuples are formed
+    return = 0;
+}
+</code></pre>
+<h5><a class="header" href="#algorithm-2" id="algorithm-2">Algorithm 2</a></h5>
+<p>This algorithm starts exactly like Algorithm 1, by forming only new and distinct doubles and turning them into triples 
+in the next immediate IPP round, but goes beyond the triples by immediately forming the next possible quadruples.</p>
+<pre><code class="language-text">**Algorithm 2 or [A2]**
+
+%initialize
+s[n] = [1,1,1, ... ,1];
+k = log_2(n) 
+%running inside IPP
+int main() { 
+​    s[0] = u_k^{-1};
+    s[2^{k-1}] = u_k;
+​    s[2^{k-2}] = s[0];
+    s[3*2^{k-2}] = s[2^{k-1}];
+​    t = k-4;
+​    for (j = k - 1; j &gt; t; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            if ( i mod 2^j == 0 ) {
+​                s[i] = s[i]*(u_j)^{b(i,j)};
+​                l = i + 2^(j-1);
+​                s[l] = s[l]*(u_j^{b(l,j)};
+​            }
+        }
+    }
+    %if k-4 &gt; 0, then the program proceeds as follows:  
+    ​s[1] = u_{k-4}^{-1};
+    s[1+2^{k-4}] = u_{k-4};
+    s[1+2^{k-1}] = s[1];
+    s[(1+2^{k-4})+(2^{k-1})] = s[1+2^{k-4}];
+    %if k-5 &gt; 0, then the program proceeds as follows:  
+    ​t = k-8; 
+    ​for (j = k-5; j &gt; t; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            if ( i mod (1+2^(k-1) == 0 ) {
+​                s[i] = s[i]*(u_j)^{b(i,j)};
+​                l = i + 2^j;
+​                s[l] = s[l]*(u_j^{b(l,j)};
+​            }
+        }
+    }
+    ​% program continues forming new and distinct quadruples until k=1
+    ​% after which all (2^k) &quot;legal&quot; k-tuples are formed
+    return = 0;  
+}
+</code></pre>
+<h5><a class="header" href="#algorithm-3" id="algorithm-3">Algorithm 3</a></h5>
+<p>This algorithm computes new distinct doubles as soon as it is possible to do so, until the end of the 
+IPP rounds. The program then forms any possible triples. Larger-sized sub-products are then computed by firstly 
+consuming the smallest existing &quot;tuples&quot;. </p>
+<pre><code class="language-text">**Algorithm 3 or [A3]**
+
+%initialize
+s[n] = [1,1,1, ... ,1];
+k = log_2(n);
+%running inside IPP
+int main() {
+​    s[0] = u_k^{-1};
+    s[2^{k-1}] = u_k;
+​    s[2^{k-2}] = s[0];
+    s[2^{k-1} + 2^{k-2}] = s[2^{k-1}];
+​    t = k-2;
+​    for (j = k - 1; j &gt; t; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            if ( i mod 2^j == 0 ) {
+​                s[i] = s[i]*(u_j)^{b(i,j)};
+​                l = i + 2^(j-1);
+​                s[l] = s[l]*(u_j^{b(l,j)};
+​            } 
+        } 
+    } 
+    %if k-2 &gt; 0, then program proceeds as follows:  
+    ​s[1] = u_{k-2}^{-1};
+    s[1+2^{k-1}] = u_{k-2};
+    ​s[1+2^{k-2}] = s[1];
+    s[1+3*(2^{k-2})] = s[1+2^{k-1}];
+    %if k-3 &gt; 0, then the program proceeds as follows:
+    ​t = k-3; 
+    ​for (j = k-3; j &gt; t; j--) {
+​        for (i = 0; i &lt; n; i++) {
+​            if ( i mod 1+2^(k-1) == 0 ) {
+​                s[i] = s[i]*(u_j)^{b(i,j)};
+​                l = i + 2^j;
+​                s[l] = s[l]*(u_j^{b(l,j)};
+​            }
+        }
+    }
+    % program continues forming new and distinct doubles until k=1 
+    % after which all (2^k) &quot;legal&quot; k-tuples are formed 
+    return = 0;  
+}
+</code></pre>
+<h5><a class="header" href="#algorithm-4" id="algorithm-4">Algorithm 4</a></h5>
+<p>This algorithm is the same as Algorithm 3 throughout the IPP rounds. However, at the end of the IPP rounds, the program 
+gives preference to the formation of all possible distinct quadruples. Larger-sized sub-products are then computed by 
+firstly consuming the largest existing &quot;tuples&quot;. </p>
+<pre><code class="language-text">**Algorithm 4 or [A4]**
+
+The same pseudocode used for Algorithm 3 applies to Algorithm 4
+</code></pre>
+<h5><a class="header" href="#example-1-algorithm-1-or-a1" id="example-1-algorithm-1-or-a1">Example 1 (Algorithm 1 or [A1])</a></h5>
+<p>Let $n = 32$ so that $k = 5$. The coefficients $s_i$ for $i \in \{0, 1, 2, ... , 15 \}$ are $32$ quintets: </p>
+<p>$$
+u_5^{b(i,5)} * u_4^{b(i,4)} * u_3^{b(i,3)} * u_2^{b(i,2)} * u_1^{b(i,1)}
+$$</p>
+<p>The number of multiplications per IPP round is given at the bottom of each column. The vector of coefficients is 
+initialized to $\mathbf{s} = ( s_0 = 1, s_1 = 1, s_2 = 1, ... , s_{n-1} = 1 )$. 
+Table 2 only displays the updated and computed values $s_i$ since the initialization of $\mathbf{s}$.</p>
+<div align="center"><b>Table 2: Sub-products and their Multiplication Costs using Algorithm 1  </b></div>  
+<table><thead><tr><th>[A1] $\text{ for }$ $ n=2^5$</th><th>j = 5</th><th>j = 4</th><th>j = 3</th><th>j = 2</th><th>j = 1</th></tr></thead><tbody>
+<tr><td>$s_0$</td><td>$u_5^{-1}$</td><td>$u_5^{-1} * u_4^{-1}$</td><td>$u_5^{-1} * u_4^{-1} * u_3^{-1}$</td><td></td><td></td></tr>
+<tr><td>$s_1$</td><td></td><td></td><td></td><td>$u_2^{-1}$</td><td>$u_2^{-1} * u_1$</td></tr>
+<tr><td>$s_2$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_3$</td><td></td><td></td><td></td><td>$u_2$</td><td>$u_2 * u_1^{-1}$</td></tr>
+<tr><td>$s_4$</td><td></td><td></td><td>$u_5^{-1} * u_4^{-1} * u_3$</td><td></td><td></td></tr>
+<tr><td>$s_5$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_6$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_7$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_8$</td><td>$u_5^{-1}$</td><td>$u_5^{-1} * u_4$</td><td>$u_5^{-1} * u_4 * u_3^{-1}$</td><td></td><td></td></tr>
+<tr><td>$s_9$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{10}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{11}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{12}$</td><td></td><td></td><td>$u_5^{-1} * u_4 * u_3$</td><td></td><td></td></tr>
+<tr><td>$s_{13}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{14}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{15}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{16}$</td><td>$u_5$</td><td>$u_5 * u_4^{-1}$</td><td>$u_5 * u_4^{-1} * u_3^{-1} $</td><td></td><td></td></tr>
+<tr><td>$s _{17}$</td><td></td><td></td><td></td><td>$u_2^{-1}$</td><td>$u_2^{-1} * u_1^{-1}$</td></tr>
+<tr><td>$s_{18}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{19}$</td><td></td><td></td><td></td><td>$u_2$</td><td>$u_2 * u_1$</td></tr>
+<tr><td>$s_{20}$</td><td></td><td></td><td>$ u_5 * u_4^{-1} * u_3$</td><td></td><td></td></tr>
+<tr><td>$s_{21}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{22}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{23}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{24}$</td><td>$u_5$</td><td>$u_5 * u_4 $</td><td>$u_5 * u_4 * u_3^{-1} $</td><td></td><td></td></tr>
+<tr><td>$s_{25}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{26}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{27}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$ s_{28} $</td><td></td><td></td><td>$u_5 * u_4 * u_3 $</td><td></td><td></td></tr>
+<tr><td>$s_{29}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{30}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>$s_{31}$</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>mult. cost</td><td>$0$</td><td>$4$</td><td>$8$</td><td>$0$</td><td>$4$</td></tr>
+</tbody></table>
+<p>At the end of the $k$ IPP rounds, there are $eight$ distinct triples and $four$ distinct doubles. These are sufficient 
+to form all the required $32$ quintets, and it takes exactly $32$ multiplications to form them all. </p>
+<p>The <strong>total cost</strong> of computing the coefficients for $n = 32$ using <em>Algorithm 1</em> is $\mathbf{4 + 8 + 4 + 32 = 48}$.</p>
+<h2><a class="header" href="#appendix-b-proof-of-theorem-1-and-its-preliminaries" id="appendix-b-proof-of-theorem-1-and-its-preliminaries">Appendix B: Proof of Theorem 1 and its Preliminaries</a></h2>
+<p>The proof of <strong>Theorem 1</strong> makes use of a few basic properties of the parity values $b(i,j)​$, which are described in 
+this appendix.</p>
+<h3><a class="header" href="#notation-and-definitions" id="notation-and-definitions">Notation and Definitions</a></h3>
+<p>The letters $j$, $k$ and $l$ denote non-negative integers, unless otherwise stated. In addition: 
+$n = 2^k$, $i \in \{ 0, 1, 2, ... , n-1 \}$ and $j \in \{ 1, 2, ... , k \}$. </p>
+<p>The multiplicative identity of the field  $\mathbb{F}_p$  is denoted by $1_{\mathbb{F}_p}$. </p>
+<p>The IPP verifier's $j-$th challenge is denoted by $u_j$ and its parity exponent is defined by 
+$b(i,j) = \begin{cases} {-1} &amp; {\text{if}\ \ (i\ \ mod\ \ 2^j) &lt; 2^{j-1}} \\ {+1} &amp; {\text{if}\ \ (i\ \ mod\ \ 2^j) \geq 2^{j-1}} \end{cases} $</p>
+<h3><a class="header" href="#preliminary-lemmas-and-corollaries" id="preliminary-lemmas-and-corollaries">Preliminary Lemmas and Corollaries</a></h3>
+<p>Details of preliminary results needed to complete the proof of Theorem 1 are provided here in the form of lemmas and 
+corollaries. </p>
+<p>Proofs of these lemmas and their corollaries follow readily from the definition of the parity exponent $b(i,j)$ of 
+verifier challenges and their multiplicative inverses. </p>
+<p>The next lemma is a well-known fact contained in undergraduate mathematics text books, mostly in tables of formulas.</p>
+<p><strong>Lemma 1</strong></p>
+<p>For an indeterminate $x$, we have </p>
+<p>$ \ \ x^k - 1 = (x - 1)(x^{k-1} + x^{k-2} + ... + x + 1)
+​$ </p>
+<p><strong>Corollary 1</strong></p>
+<ol>
+<li>
+<p>$ \ \ 2^k - 1\ \ =\ \ 2^{k-1} + 2^{k-2} + \dots + 2 + 1$</p>
+</li>
+<li>
+<p>$ \ \ 2^k - 1\ \ \geq\ \ 2^{k-1}\ \ $ for all $ k \geq 1$</p>
+</li>
+<li>
+<p>$ \ \ (2^l - 1) \text{ mod } 2^j = 2^{j-1} + 2^{j-2} + \dots +  2 + 1\ \ $ for any $l \geq j$</p>
+</li>
+<li>
+<p>$ \ \ ((n - 1) - 2^{j-1}) \text{ mod } 2^j = 2^{j-2} + 2^{j-3} + \dots +  2 + 1 $</p>
+</li>
+<li>
+<p>$ \ \ i\ \  =\ \ c_{l-1} \cdot 2^{l-1} + c_{l-2} \cdot 2^{l-2} + \dots + c_1 \cdot 2 + c_0\ \ $ for  $ l &lt; k $ 
+and some $ c_{l-i} \in \{ 0 , 1 \}$</p>
+</li>
+</ol>
+<p><strong>Lemma 2</strong></p>
+<ol>
+<li>
+<p>$ \ \ b(0,j) = -1 $</p>
+</li>
+<li>
+<p>$ \ \ b(1,1) = +1 $</p>
+</li>
+<li>
+<p>$ \ \ b(n-2,1) = -1 $</p>
+</li>
+<li>
+<p>$ \ \ b(1,j) = -1 ,\ \ \forall\ \ j &gt; 1 $</p>
+</li>
+<li>
+<p>$ \ \ b(n-1,j) = +1 $</p>
+</li>
+<li>
+<p>$ \ \ b(n-2,j) = +1 ,\ \ \forall\ \ j &gt; 1 $</p>
+</li>
+<li>
+<p>$ \ \ b( 2^j , j ) = -1  $</p>
+</li>
+<li>
+<p>$ \ \ b( 2^{j-1} , j ) = +1 $</p>
+</li>
+<li>
+<p>$ \ \ b(2^l,j) = -1,\ \ \forall\ \ l &lt; j-1 $</p>
+</li>
+<li>
+<p>$  \ \ b(2^l,j) = -1,\ \ \forall\ \ l &gt; j $</p>
+</li>
+<li>
+<p>$ \ \ b((n-1)-2^{j-1}, j) = -1 $</p>
+</li>
+</ol>
+<p><strong>Corollary 2</strong> </p>
+<ol>
+<li>
+<p>$ \ \ b(0,j) = (-1) \cdot b(n-1,j),\ \ \forall\ \ j $</p>
+</li>
+<li>
+<p>$ \ \ b(i,j)  = (-1) \cdot b( (n-1)-i , j ),\ \ \forall\ \ i\ \ \text{and}\ \ \forall\ \ j $</p>
+</li>
+<li>
+<p>$ \ \ b( 2^{j-1} , j ) = b(n-1,j),\ \ \forall\ \ j $</p>
+</li>
+<li>
+<p>$ \ \ b(0,j) = b((n-1)-2^{j-1}, j),\ \ \forall\ \ j $</p>
+</li>
+</ol>
+<p><strong>Proof of Corollary 2, Part (2)</strong></p>
+<p>By induction on  $k$, where $j \in \{ 1, 2, 3, \dots , k \} $. </p>
+<p>For  $j = 1$,  where  $ i $  is <em>even</em>: Note that  $ i \text{ mod } 2^1  = 0 &lt; 2^0 = 1 $, and thus $ b(i,1) = -1 $. 
+On the other hand, $ ((n-1)-i)$ is <em>odd</em>, hence $ ((n-1)-i) \text{ mod } 2^1 = 1 = 2^0 $, so that $ b((n-1)-i, j) = +1 $.</p>
+<p>For $j = 1$, where  $ i $  is <em>odd</em>:  Similarly, $ i \text{ mod } 2^1 = 1 = 2^0 $ and $ b(i,1) = +1 $. 
+Since $ ((n-1)-i) $ is <em>even</em>, $ ((n-1)-i) \text{ mod } 2^1 = 0 &lt; 2^0 $, and therefore $ b((n-1)-i, j) = -1 $. </p>
+<p>This proves the base case, i.e. $ b(i,1) = (-1) \cdot b((n-1)-i, j) $. </p>
+<p>Now for $j &gt; 1$: Note that by Part (5) of Corollary 1, </p>
+<p>$\ \ i  \text{ mod } 2^j  = c_{j-1} \cdot 2^{j-1} + c_{j-2} \cdot 2^{j-2} + \dots + c_1 \cdot 2 + c_0<br />
+$  and </p>
+<p>$ ((n-1)-i) \text{ mod } 2^j = (2^{j-1} + 2^{j-2} + \dots +  2 + 1) - (c_{j-1} \cdot 2^{j-1} + c_{j-2} \cdot 2^{j-2} + \dots + c_1 \cdot 2 + c_0)
+$. </p>
+<p>Suppose that 
+$ b(i, j) = +1 $. Then  $ c_{j-1} \cdot 2^{j-1} + c_{j-2} \cdot 2^{j-2} + \dots + c_1 \cdot 2 + c_0 \geq 2^{j-1}$, 
+which means  $ c_{j-1}  =  1$. This implies<br />
+$ ((n-1)-i) \text{ mod } 2^j = (2^{j-2} + 2^{j-3} + \dots +  2 + 1) - (c_{j-2} \cdot 2^{j-2} + c_{j-3} \cdot 2^{j-3} + \dots + c_1 \cdot 2 + c_0) &lt; 2^{j-1} $. 
+Yielding  $ b((n-1)-i) = -1 $. The converse argument is the same. </p>
+<p>Suppose that 
+$  b(i, j) = -1 $. Then  $ c_{j-1} \cdot 2^{j-1} + c_{j-2} \cdot 2^{j-2} + \dots + c_1 \cdot 2 + c_0 &lt; 2^{j-1} $, 
+which means  $ c_{j-1}  = 0 $. This also implies $  ((n-1)-i) \text{ mod } 2^j \geq 2^{j-1} $.  Hence  $ b((n-1)-i) = +1 $. 
+Again, the converse argument here follows the reverse argument. </p>
+<p>The above two cases prove the inductive step, i.e. $  b(i, j) = (-1) \cdot b((n-1)-i) $.</p>
+<h3><a class="header" href="#proof-of-theorem-1" id="proof-of-theorem-1">Proof of Theorem 1</a></h3>
+<p><strong>Theorem 1 (Some properties of the set of coefficients ${ s_i }$)</strong> </p>
+<p>Let  $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$  be the coefficient of  $G_i$,  the $i-$th component of the initial IPP
+input vector $\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1})$.<br />
+Then, </p>
+<ol>
+<li>
+<p>$\ \ s_i \cdot s_{(n-1) - i} = 1_{\mathbb{F}_p}\ \ $ for all $i \in \{ 0, 1, 2, ... , n-1 \}$</p>
+</li>
+<li>
+<p>$\ \ s_{2^{(j-1)}} \cdot s_{n-1} = u_j^2\ \ $ for all $j \in \{ 1, 2, 3, ... , k \}$</p>
+</li>
+<li>
+<p>$\ \ s_0 \cdot s_{(n-1) - 2^{(j-1)}} = u_j^{-2}\ \ $ for all $j \in \{ 1, 2, 3, ... , k \}$</p>
+</li>
+</ol>
+<p><strong>Proof</strong> </p>
+<ol>
+<li>
+<p>By induction on  $n$ , where  $ i \in \{ 0, 1, 2, \dots , n-1 \} $.</p>
+<p>For  $ i = 0 $. By Part (1)  of  Corollary 2,  $\ \ b(0,j) = (-1) \cdot b(n-1,j)\ \ \text{ for all } j $ . 
+But this holds true <em>if, and only if</em>  $ \  \  u_j^{b(0,j)} = \Big( u_j^{b(n-1,j)} \Big)^{-1} $. 
+And hence 
+$ s_0 \cdot s_{n-1}  =  1_{\mathbb{F}_p} $, proving the base case. </p>
+<p>The inductive step: Suppose 
+$ s_{i-1} \cdot s_{(n-1) - (i-1)}  =  1_{\mathbb{F}_p}  .\ \ $<br />
+And now,  $$ s_i \cdot s_{(n-1)-i} = \big( s_{i-1} \cdot s_{(n-1) - (i-1)} \big) \cdot u_j^{b(i,j)} \cdot u_j^{b((n-1)-i,j)} .$$</p>
+<p>By the inductive step, this yields,  $$ s_i \cdot s_{(n-1)-i} = 1_{\mathbb{F}_p} \cdot u_j^{b(i,j)} \cdot u_j^{b((n-1)-i,j)} .$$ </p>
+<p>According to Part (2) of Corollary 2,  $b(i,j) = (-1) \cdot b((n-1)-i,j)$. Which holds true <em>if, and only if</em> 
+$\ \  u_j^{b(i,j)} = \Big( u_j^{b((n-1)-i,j)} \Big)^{-1} .$  It therefore follows that 
+$  s_i \cdot s_{(n-1)-i} = 1_{\mathbb{F}_p} \cdot u_j^{b(i,j)} \cdot u_j^{b((n-1)-i,j)} = 1_{\mathbb{F}_p} \cdot 1_{\mathbb{F}_p} = 1_{\mathbb{F}_p}$. </p>
+</li>
+<li>
+<p>This part follows readily from  Part (3)  of  Corollary 2.</p>
+</li>
+<li>
+<p>This part also follows readily from  Part (4)  of  Corollary 2.</p>
+</li>
+</ol>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/empiech007">https://github.com/empiech007</a></li>
+<li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a> </li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../cryptography/r1cs-bulletproofs/mainreport.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../cryptography/trustless-recursive-zkproofs/mainreport.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../cryptography/r1cs-bulletproofs/mainreport.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

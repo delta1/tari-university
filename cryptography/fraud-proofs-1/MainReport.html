@@ -1,0 +1,637 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fraud Proofs - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Fraud Proofs - Tari Labs University" />
+        <meta name="twitter:site" content="Fraud Proofs - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Fraud Proofs - Tari Labs University" />
+        <meta property="og:site_name" content="Fraud Proofs - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html" class="active"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#fraud-proofs-and-spv-lightweight-clients---easier-said-than-done" id="fraud-proofs-and-spv-lightweight-clients---easier-said-than-done">Fraud Proofs and SPV (Lightweight) Clients - Easier Said than Done?</a></h1>
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#full-node-vs-spv-client">Full Node vs. SPV Client</a></li>
+<li><a href="#what-are-fraud-proofs">What are Fraud Proofs?</a></li>
+<li><a href="#fraud-proofs-possible-within-existing-bitcoin-protocol">Fraud Proofs Possible within Existing Bitcoin Protocol</a>
+<ul>
+<li><a href="#invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc">Invalid Transaction due to Stateless Criteria Violation</a></li>
+<li><a href="#invalid-transaction-due-to-input-already-spent">Invalid Transaction due to Input Already Spent</a></li>
+<li><a href="#invalid-transaction-due-to-incorrect-generation-output-value">Invalid Transaction due to Incorrect Generation Output Value</a></li>
+<li><a href="#invalid-transaction-if-input-does-not-exist">Invalid Transaction if Input does not Exist</a></li>
+</ul>
+</li>
+<li><a href="#fraud-proofs-requiring-changes-to-bitcoin-protocol">Fraud Proofs Requiring Changes to Bitcoin Protocol</a>
+<ul>
+<li><a href="#invalid-transaction-if-input-does-not-exist-in-old-blocks">Invalid Transaction if Input does not Exist in Old Blocks</a></li>
+<li><a href="#missing-proof-tree-item">Missing Proof Tree Item</a></li>
+</ul>
+</li>
+<li><a href="#universal-fraud-proofs-suggested-improvement">Universal Fraud Proofs (Suggested Improvement)</a></li>
+<li><a href="#how-spv-clients-work">How SPV Clients Work</a></li>
+<li><a href="#security-and-privacy-issues-with-spv-clients">Security and Privacy Issues with SPV Clients</a>
+<ul>
+<li><a href="#weak-bloom-filters-and-merkle-tree-designs">Weak Bloom Filters and Merkle Tree Designs</a></li>
+<li><a href="#improvements">Improvements</a></li>
+</ul>
+</li>
+<li><a href="#examples-of-spv-implementations">Examples of SPV Implementations</a></li>
+<li><a href="#other-suggested-fraud-proof-improvements">Other Suggested Fraud-proof Improvements</a>
+<ul>
+<li><a href="#erasure-codes">Erasure Codes</a></li>
+<li><a href="#merklix-trees">Merklix Trees</a></li>
+<li><a href="#payment-channels">Payment Channels</a></li>
+</ul>
+</li>
+<li><a href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#contributors">Contributors</a></li>
+</ul>
+<h2><a class="header" href="#background" id="background">Background</a></h2>
+<p>The bitcoin blockchain was, as of June 2018, approximately 173 GB in size [<a href="https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/" title="Size of the Bitcoin Blockchain from 2010 to 2018, by Quarter (in Megabytes)">1</a>]. This makes it nearly impossible 
+for everyone to run a full bitcoin node. Lightweight/Simplified Payment Verification (SPV) clients will have to be used 
+by users, since not everyone can run full nodes due to the computational power, bandwidth and cost needed to run a full 
+bitcoin node. </p>
+<p>SPV clients will believe everything miners or nodes tell them, as evidenced by Peter Todd in the following screenshot 
+of an Android client showing millions of bitcoins. The wallet was sent a transaction of 2.1 million BTC outputs [<a href="https://www.linkedin.com/pulse/peter-todds-fraud-proofs-talk-mit-bitcoin-expo-2016-mark-morris/" title="Fraud Proofs">17</a>]. 
+Peter Todd modified the code for his node in order to deceive the bitcoin wallet, since the wallets cannot verify coin 
+amounts [<a href="https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv" title="Bitcoin Integration/Staging Tree">27</a>] (code can be found in the &quot;Quick-n-dirty hack to lie to SPV wallets&quot; branch on his GitHub repository).</p>
+<p align="center"><img src="sources/todd-btc-spv.jpg" width="301" /></p>
+<div align="center"><i>Courtesy: MIT Bitcoin Expo 2016 Day 1</i></div>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>In the original bitcoin whitepaper [<a href="https://www.bitcoin.com/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic Cash System">2</a>], Satoshi recognized the limitations described in <a href="#background">Background</a>,
+and introduced the concept of a Simplified Payment Verification (SPV). This concept allows verification of payments 
+using a lightweight client that does not need to download the entire bitcoin blockchain. It only downloads block 
+headers with the longest proof-of-work chain, which are achieved by obtaining the Merkle branch linking a transaction 
+to a block [<a href="http://docs.electrum.org/en/latest/spv.html" title="Simple Payment Verification">3</a>]. The existence of the Merkle root in the chain, along with blocks added after the block containing 
+the Merkle root, provides confirmation of the legitimacy of that chain.</p>
+<p align="center"><img src="sources/proofofworkchain.png" width="700" /></p>
+<div align="center"><i>Courtesy: Bitcoin: A Peer-to-Peer Electronic Cash System</i></div>
+<p>In this system, the full nodes would need to provide an alert (known as a fraud proof) to SPV clients when an invalid 
+block is detected. The SPV clients would then be prompted to download the full block and alerted transactions to 
+confirm the inconsistency [<a href="https://www.bitcoin.com/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic Cash System">2</a>]. An invalid block need not be of malicious intent, but could be as a result of other 
+accounting errors (whether by accident or by malicious intent).</p>
+<h2><a class="header" href="#full-node-vs-spv-client" id="full-node-vs-spv-client">Full Node vs. SPV Client</a></h2>
+<p>A full bitcoin node contains the following details:</p>
+<ul>
+<li>every block;</li>
+<li>every transaction that has ever been sent;</li>
+<li>all the unspent transaction outputs (UTXOs) [<a href="https://multibit.org/hd0.4/how-spv-works.html" title="SPV, Bloom Filters and Checkpoints">4</a>].</li>
+</ul>
+<p>An SPV client, however, contains:</p>
+<ul>
+<li>a block header with transaction data relative to the client, including other transactions required to compute the 
+Merkle root; or</li>
+<li>just a block header with no transactions.</li>
+</ul>
+<h2><a class="header" href="#what-are-fraud-proofs" id="what-are-fraud-proofs">What are Fraud Proofs?</a></h2>
+<p>Fraud proofs are a way to improve the security of SPV clients [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>] by providing a mechanism for full nodes to prove 
+that a chain is invalid, irrespective of the amount of proof of work it has [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>]. Fraud proofs could also help with 
+the bitcoin scaling debate, as SPV clients are easier to run and could thus help with bitcoin scalability issues
+([<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>], [<a href="https://www.trustnodes.com/2017/08/12/new-satoshi-nakamoto-e-mails-revealed" title="New Satoshi Nakamoto E-mails Revealed">18</a>]).</p>
+<h2><a class="header" href="#fraud-proofs-possible-within-existing-bitcoin-protocol" id="fraud-proofs-possible-within-existing-bitcoin-protocol">Fraud Proofs Possible within Existing Bitcoin Protocol</a></h2>
+<p>At the time of writing (February 2019), various proofs are needed to prove fraud in the bitcoin blockchain based on 
+various actions. The following are the types of proofs needed to prove fraud based on specific fraud cases within the 
+existing bitcoin protocol [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>]:</p>
+<h3><a class="header" href="#invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc" id="invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc">Invalid Transaction due to Stateless Criteria Violation (Correct Syntax, Input Scripts Conditions Satisfied, etc.)</a></h3>
+<p>In the case of an invalid transaction, the fraud proofs consist of:</p>
+<ul>
+<li>the header of invalid block;</li>
+<li>the invalid transaction;</li>
+<li>an invalid block's Merkle tree containing the minimum number of nodes needed to prove the existence of the invalid 
+transaction in the tree.</li>
+</ul>
+<h3><a class="header" href="#invalid-transaction-due-to-input-already-spent" id="invalid-transaction-due-to-input-already-spent">Invalid Transaction due to Input Already Spent</a></h3>
+<p>In this case, the fraud proof would consist of:</p>
+<ul>
+<li>the header of the invalid block;</li>
+<li>the invalid transaction;</li>
+<li>proof that the invalid transaction is within the invalid block;</li>
+<li>the header of the block containing the original spend transaction;</li>
+<li>the original spending transaction;</li>
+<li>proof showing that the spend transaction is within the header block of the spend transaction.</li>
+</ul>
+<h3><a class="header" href="#invalid-transaction-due-to-incorrect-generation-output-value" id="invalid-transaction-due-to-incorrect-generation-output-value">Invalid Transaction due to Incorrect Generation Output Value</a></h3>
+<p>In this case, the fraud proof consists of the block itself.</p>
+<h3><a class="header" href="#invalid-transaction-if-input-does-not-exist" id="invalid-transaction-if-input-does-not-exist">Invalid Transaction if Input does not Exist</a></h3>
+<p>In this case, the fraud proof consists of the entire blockchain.</p>
+<h2><a class="header" href="#fraud-proofs-requiring-changes-to-bitcoin-protocol" id="fraud-proofs-requiring-changes-to-bitcoin-protocol">Fraud Proofs Requiring Changes to Bitcoin Protocol</a></h2>
+<p>The following fraud proofs would require changes to the bitcoin protocol itself [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>]:</p>
+<h3><a class="header" href="#invalid-transaction-if-input-does-not-exist-in-old-blocks" id="invalid-transaction-if-input-does-not-exist-in-old-blocks">Invalid Transaction if Input does not Exist in Old Blocks</a></h3>
+<p>In this case, the fraud proof consists of:</p>
+<ul>
+<li>the header of the invalid block;</li>
+<li>the invalid transaction;</li>
+<li>proof that the header of the invalid block contains the invalid transaction;</li>
+<li>proof that the header of the invalid block contains the leaf node corresponding to the non-existent input;</li>
+<li>the block referenced by the leaf node, if it exists.</li>
+</ul>
+<h3><a class="header" href="#missing-proof-tree-item" id="missing-proof-tree-item">Missing Proof Tree Item</a></h3>
+<p>In this case, the fraud proof consists of:</p>
+<ul>
+<li>the header of the invalid block;</li>
+<li>the transaction of the missing proof tree node;</li>
+<li>an indication as to which input from the transaction of the missing proof tree node is missing;</li>
+<li>proof that the header of the invalid block contains the transition of the missing proof tree node;</li>
+<li>proof that the proof tree contains two adjacent leaf nodes.</li>
+</ul>
+<h2><a class="header" href="#universal-fraud-proofs-suggested-improvement" id="universal-fraud-proofs-suggested-improvement">Universal Fraud Proofs (Suggested Improvement)</a></h2>
+<p>As can be seen, requiring different fraud proof constructions for different fraud proofs can get cumbersome.
+Al-Bassam, et al. [<a href="https://arxiv.org/pdf/1809.09044.pdf" title="Fraud Proofs: Maximising Light Client Security and Scaling Blockchains with Dishonest Majorities">26</a>] proposed a general, universal fraud-proof construction for most cases. Their proposition is to
+generalize the entire blockchain as a state transition system and represent the entire state as a Merkle root using a
+Sparse Merkle tree, with each transaction changing the state root of the blockchain. This can be simplified by this 
+function: </p>
+<ul>
+<li><code>transaction(state,tx) = State or Error</code></li>
+</ul>
+<p align="center"><img src="sources/stateroot.png" width="500" /></p>
+<div align="center"><i>Courtesy: Fraud Proofs: Maximising Light Client Security and Scaling Blockchains with 
+Dishonest Majorities</i></div>
+<p>In the case of the bitcoin blockchain, representing the entire blockchain as a key-value store Sparse Merkle tree would
+mean:</p>
+<ul>
+<li><code>Key = UTXO ID</code></li>
+<li><code>Value = 1 if unspent or 0 if spent</code></li>
+</ul>
+<p>Each transaction will change the state root of the blockchain and can be represented with this function: </p>
+<ul>
+<li><code>TransitionRoot(stateRoot,tx,Witnesses) = stateRoot or Error</code></li>
+</ul>
+<p>In this proposition, a valid fraud proof construction will consist of:</p>
+<ul>
+<li>the transaction;</li>
+<li>the pre-state root;</li>
+<li>the post-state root;</li>
+<li>witnesses (Merkle proofs of all the parts of the state the transaction accesses/modifies).</li>
+</ul>
+<p>Also expressed as this function:</p>
+<ul>
+<li><code>rootTransition(stateRoot, tx, witnesses) != stateRoot</code></li>
+</ul>
+<p>So a full node would send a light client/SPV this data to prove a valid fraud proof. The SPV would compute this
+function and, if the transition root of the state root is different to the state root in the block, then the block
+is rejected.</p>
+<p align="center"><img src="sources/fraudproof.png" width="500" /></p>
+<div align="center"><i>Courtesy: Fraud Proofs: Maximising Light Client Security and Scaling Blockchains with 
+Dishonest Majorities</i></div>
+<p>The post-state root can be excluded in order to save block space. However, this does increase the fraud proof size.
+This works with the assumption that the SPV client is connected to a minimum of one honest node.</p>
+<h2><a class="header" href="#how-spv-clients-work" id="how-spv-clients-work">How SPV Clients Work</a></h2>
+<p>SPV clients make use of Bloom filters to receive transactions that are relevant to the user [<a href="https://eprint.iacr.org/2014/763.pdf" title="On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients">7</a>]. Bloom filters are
+probabilistic data structures used to check the existence of an element in a set quicker by responding with a Boolean
+answer [<a href="https://medium.com/blockchain-musings/a-case-of-false-positives-in-bloom-filters-da09ec487ff0" title="A Case of False Positives in Bloom Filters,">9</a>].</p>
+<p align="center"><img src="sources/spv.png" width="600" /></p>
+<div align="center"><i>Courtesy: On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients</i></div>
+<p>In addition to Bloom filters, SPV clients rely on Merkle trees [<a href="https://arxiv.org/pdf/1809.09044.pdf" title="Fraud Proofs: Maximising Light Client Security and Scaling Blockchains with Dishonest Majorities">26</a>] - binary structures that have a list of all the
+hashes between the block (apex) and the transaction (leaf). With Merkle trees, one only needs to check a small part of
+the block, called a Merkle root, to prove that the transaction has been accepted in the network [<a href="https://multibit.org/hd0.4/how-spv-works.html" title="SPV, Bloom Filters and Checkpoints">8</a>].</p>
+<p align="center"><img src="sources/merkle-tree.png" width="1000" /></p>
+<p>Fraud proofs are integral to the security of SPV clients. However, the other components in SPV clients are not without
+issues. </p>
+<h2><a class="header" href="#security-and-privacy-issues-with-spv-clients" id="security-and-privacy-issues-with-spv-clients">Security and Privacy Issues with SPV Clients</a></h2>
+<h3><a class="header" href="#weak-bloom-filters-and-merkle-tree-designs" id="weak-bloom-filters-and-merkle-tree-designs">Weak Bloom Filters and Merkle Tree Designs</a></h3>
+<p>In August 2017, a weakness in the bitcoin Merkle tree design was found to reduce the security of SPV clients. This
+weakness could allow an attacker to simulate a payment of an arbitrary amount to a victim using an SPV wallet, and
+trick the victim into accepting it as valid [<a href="https://media.rsk.co/the-design-of-bitcoin-merkle-trees-reduces-the-security-of-spv-clients/" title="The Design of Bitcoin Merkle Trees Reduces the Security of SPV Clients">10</a>]. The bitcoin Merkle tree makes no distinction between inner and leaf
+nodes, and could thus be manipulated by an attack that could reinterpret transactions as nodes and nodes as
+transactions [<a href="https://bitslog.wordpress.com/2018/06/09/leaf-node-weakness-in-bitcoin-merkle-tree-design/" title="Leaf-node Weakness in Bitcoin Merkle Tree Design">11</a>]. This weakness is due to inner nodes having no format and only requiring the length to be 64 bytes.</p>
+<p>A brute-force attack particularly affects systems that automatically accept SPV proofs and could be carried out with an
+investment of approximately USD3 million. One proposed solution is to ensure that no internal, 64-bit node is ever
+accepted as a valid transaction by SPV wallets/clients [<a href="https://bitslog.wordpress.com/2018/06/09/leaf-node-weakness-in-bitcoin-merkle-tree-design/" title="Leaf-node Weakness in Bitcoin Merkle Tree Design">11</a>].</p>
+<p>The BIP37 SPV [<a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki" title="bip-0037.mediawiki">13</a>] Bloom filters do not have relevant privacy features [<a href="https://eprint.iacr.org/2014/763.pdf" title="On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients">7</a>]. They leak information such as IP
+addresses of the user, and whether multiple addresses belong to a single owner [<a href="https://bisq.network/blog/privacy-in-bitsquare/" title="Privacy in Bitsquare">12</a>] (if Tor or Virtual Private
+Networks (VPNs) are not used).</p>
+<p>Furthermore, SPV clients face the risk of a denial of service attack against full nodes due to processing load
+(80 GB disk reads) when SPV clients sync and full nodes themselves can cause a denial of service for SPV clients
+by returning NULL filter responses to requests [<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html" title="Committed Bloom Filters for Improved Wallet Performance and SPV Security">14</a>]. Peter Todd [<a href="https://github.com/petertodd/bloom-io-attack" title="Bloom-io-attack">15</a>] aptly demonstrates the risk of SPV denial of
+service.</p>
+<h3><a class="header" href="#improvements" id="improvements">Improvements</a></h3>
+<p>To address these issues, a new concept called committed Bloom filters was introduced to improve the performance and
+security of SPV clients. In this concept, which can be used in lieu of BIP37 [<a href="https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/" title="Committed Bloom Filters versus BIP37 SPV">16</a>], a Bloom filter digest (BFD) of
+every block's inputs, outputs and transactions is created with a filter that consists of a small size of the overall
+block size [<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html" title="Committed Bloom Filters for Improved Wallet Performance and SPV Security">14</a>].</p>
+<p>A second Bloom filter is created with all transactions and a binary comparison is made to determine matching
+transactions. This BFD allows the caching of filters by SPV clients without the need to recompute [<a href="https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/" title="Committed Bloom Filters versus BIP37 SPV">16</a>]. It also
+introduces semi-trusted oracles to improve the security and privacy of SPV clients by allowing SPV clients to download
+block data via any out of band method [<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html" title="Committed Bloom Filters for Improved Wallet Performance and SPV Security">14</a>].</p>
+<h2><a class="header" href="#examples-of-spv-implementations" id="examples-of-spv-implementations">Examples of SPV Implementations</a></h2>
+<p>There are two well-known SPV implementations for bitcoin: bitcoinj and electrum. The latter does SPV-level validation,
+comparing multiple electrum servers against each other. It has very similar security to bitcoinj, but potentially better 
+privacy [<a href="https://www.reddit.com/r/Bitcoin/comments/3c3zn4/whats_the_difference_between_an_api_wallet_and_a/" title="Whats the Difference between an API Wallet and a SPV Wallet?">25</a>] due to bitcoinj's implementation of Bloom filters [<a href="https://eprint.iacr.org/2014/763.pdf" title="On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients">7</a>].</p>
+<h2><a class="header" href="#other-suggested-fraud-proof-improvements" id="other-suggested-fraud-proof-improvements">Other Suggested Fraud-proof Improvements</a></h2>
+<h3><a class="header" href="#erasure-codes" id="erasure-codes">Erasure Codes</a></h3>
+<p>Along with the proposed universal fraud-proof solution, another data availability issue with fraud proofs is erasure
+coding. Erasure coding allows a piece of data M chunks long to be expanded into a piece of data N chunks long (“chunks”
+can be of arbitrary size), such that any M of the N chunks can be used to recover the original data. Blocks are then
+required to commit the Merkle root of this extended data and have light clients probabilistically check that the
+majority of the extended data is available [<a href="https://www.trustnodes.com/2017/08/14/vitalik-buterin-peter-todd-go-head-head-crypto-culture-wars" title="Vitalik Buterin and Peter Todd Go Head to Head in the Crypto Culture Wars">21</a>].</p>
+<p>According to the proposed solution,
+one of three conditions will be true for the SPV client when using erasure codes [<a href="https://github.com/ethereum/research/wiki/A-note-on-data-availability-and-erasure-coding" title="A Note on Data Availability and Erasure Coding">20</a>]:</p>
+<ol>
+<li>The entire extended data is available, the erasure code is constructed correctly and the block is valid.</li>
+<li>The entire extended data is available, the erasure code is constructed correctly, but the block is invalid.</li>
+<li>The entire extended data is available, but the erasure code is constructed incorrectly.</li>
+</ol>
+<p>In case (1), the block is valid and the light client can accept it. In case (2), it is expected that some other node
+will quickly construct and relay a fraud proof. In case (3), it is also expected that some other node will quickly
+construct and relay a specialized kind of fraud proof that shows that the erasure code is constructed incorrectly.</p>
+<h3><a class="header" href="#merklix-trees" id="merklix-trees">Merklix Trees</a></h3>
+<p>Another suggested fraud proof improvement for the bitcoin blockchain is by means of block sharding and validation using
+Merklix trees. Merklix trees are essentially Merkle trees that use unordered set [<a href="https://www.deadalnix.me/2016/09/24/introducing-merklix-tree-as-an-unordered-merkle-tree-on-steroid/" title="Introducing Merklix Tree as an Unordered Merkle Tree on Steroid">22</a>]. This also assumes that there
+is at least one honest node per shard. Using Merklix proofs, the following can be proven [<a href="https://www.deadalnix.me/2016/11/06/using-merklix-tree-to-shard-block-validation/" title="Using Merklix Tree to Shard Block Validation">23</a>]:</p>
+<ol>
+<li>A transaction is in the block.</li>
+<li>The transaction's inputs and outputs are or are not in the UTXO set.</li>
+</ol>
+<p>In this scenario, SPV clients can be made aware of any invalidity in blocks and cannot be lied to about the UTXO set.</p>
+<h3><a class="header" href="#payment-channels" id="payment-channels">Payment Channels</a></h3>
+<p>Bitcoin is made to be resilient to denial of service (DoS) attacks. However, the same cannot be said for SPV clients.
+This could be an issue if malicious alerting nodes spam with false fraud proofs. A proposed solution to this is payment
+channels [<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>], due to them:</p>
+<ol>
+<li>operating at near instant speeds, thus allowing quick alerting of fraud proofs;</li>
+<li>facilitating micro-transactions;</li>
+<li>being robust to temporary mining failures (as they use long “custodial periods”).</li>
+</ol>
+<p>In this way, the use of payment channels can help with incentivizing full nodes to issue fraud proofs.</p>
+<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<p>Fraud proofs can be complex [<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>] and hard to implement. However, they appear to be necessary for scalability of
+blockchains and the security and privacy for SPV clients, since not everyone can or should want to run a full node to
+participate in the network. The current SPV implementations are working on improving the security and privacy of these
+SPV clients. Furthermore, for current blockchains, a hard or soft fork would need to be done in order to accommodate
+the data in the block headers.</p>
+<p>Based on the <a href="#payment-channels">payment channels</a> fraud proof proposal that suggests some sort of incentive for nodes
+that issue alert/fraud proofs, it seems likely that some sort of fraud proof provider and consumer marketplace will
+have to emerge.</p>
+<p>Where Tari is concerned, it would appear that the universal fraud proof proposals or something similar would need to be
+looked into, as undoubtedly end-users of the protocol/network will mostly be using light clients. However, since these
+fraud proofs work on the assumption of a minimum of one honest node, in the case of a digital issuer (which may be one
+or more), a fraud proof will not be viable on this assumption, as the digital issuer could be the sole node.</p>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/" title="Size of the Bitcoin Blockchain from 2010 to 2018, by Quarter (in Megabytes)">1</a>] &quot;Size of the Bitcoin Blockchain from 2010 to 2018, by Quarter (in Megabytes)&quot; [online].<br />
+Available:  <a href="https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/">https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/</a>. Date accessed: 2018‑09‑10.</p>
+<p>[<a href="https://www.bitcoin.com/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic Cash System">2</a>] S. Nakamoto, &quot;Bitcoin: A Peer-to-Peer Electronic Cash System&quot; [online]. Available: <a href="https://www.bitcoin.com/bitcoin.pdf">https://www.bitcoin.com/bitcoin.pdf</a>.<br />
+Date accessed: 2018‑09‑10.</p>
+<p>[<a href="http://docs.electrum.org/en/latest/spv.html" title="Simple Payment Verification">3</a>] &quot;Simple Payment Verification&quot; [online]. Available: <a href="http://docs.electrum.org/en/latest/spv.html">http://docs.electrum.org/en/latest/spv.html</a>. Date accessed: 
+2018‑09‑10.</p>
+<p>[<a href="https://multibit.org/hd0.4/how-spv-works.html" title="SPV, Bloom Filters and Checkpoints">4</a>] &quot;SPV, Bloom Filters and Checkpoints&quot; [online]. Available: <a href="https://multibit.org/hd0.4/how-spv-works.html">https://multibit.org/hd0.4/how-spv-works.html</a>. 
+Date accessed: 2018‑09‑10.</p>
+<p>[<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>] &quot;Improving the Ability of SPV Clients to Detect Invalid Chains&quot; [online].<br />
+Available: <a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60">https://gist.github.com/justusranvier/451616fa4697b5f25f60</a>. Date accessed: 2018‑09‑10.</p>
+<p>[<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>] &quot;Meditations on Fraud Proofs&quot; [online]. Available: <a href="http://www.truthcoin.info/blog/fraud-proofs/">http://www.truthcoin.info/blog/fraud-proofs/</a>. Dated accessed: 
+2018‑09‑10.</p>
+<p>[<a href="https://eprint.iacr.org/2014/763.pdf" title="On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients">7</a>] A. Gervais, G. O. Karame, D. Gruber and S. Capkun, &quot;On the Privacy Provisions of Bloom Filters in Lightweight 
+Bitcoin Clients&quot; [online]. Available: <a href="https://eprint.iacr.org/2014/763.pdf">https://eprint.iacr.org/2014/763.pdf</a>. Date accessed: 2018‑09‑10.</p>
+<p>[<a href="https://multibit.org/hd0.4/how-spv-works.html" title="SPV, Bloom Filters and Checkpoints">8</a>] &quot;SPV, Bloom Filters and Checkpoints&quot; [online]. Available: <a href="https://multibit.org/hd0.4/how-spv-works.html">https://multibit.org/hd0.4/how-spv-works.html</a>. 
+Date accessed: 2018‑09‑10.</p>
+<p>[<a href="https://medium.com/blockchain-musings/a-case-of-false-positives-in-bloom-filters-da09ec487ff0" title="A Case of False Positives in Bloom Filters,">9</a>] &quot;A Case of False Positives in Bloom Filters&quot; [online].<br />
+Available: https://medium.com/blockchain-musings/a-case-of-false-positives-in-bloom-filters-da09ec487ff0. Date 
+accessed: 2018‑09‑11.</p>
+<p>[<a href="https://media.rsk.co/the-design-of-bitcoin-merkle-trees-reduces-the-security-of-spv-clients/" title="The Design of Bitcoin Merkle Trees Reduces the Security of SPV Clients">10</a>] &quot;The Design of Bitcoin Merkle Trees Reduces the Security of SPV Clients&quot; [online].<br />
+Available: <a href="https://media.rsk.co/the-design-of-bitcoin-merkle-trees-reduces-the-security-of-spv-clients/">https://media.rsk.co/the-design-of-bitcoin-merkle-trees-reduces-the-security-of-spv-clients/</a>. 
+Date accessed: 2018‑09‑11.</p>
+<p>[<a href="https://bitslog.wordpress.com/2018/06/09/leaf-node-weakness-in-bitcoin-merkle-tree-design/" title="Leaf-node Weakness in Bitcoin Merkle Tree Design">11</a>] &quot;Leaf-node Weakness in Bitcoin Merkle Tree Design&quot; [online].<br />
+Available: <a href="https://bitslog.wordpress.com/2018/06/09/leaf-node-weakness-in-bitcoin-merkle-tree-design/">https://bitslog.wordpress.com/2018/06/09/leaf-node-weakness-in-bitcoin-merkle-tree-design/</a>. 
+Date accessed: 2018‑09‑11.</p>
+<p>[<a href="https://bisq.network/blog/privacy-in-bitsquare/" title="Privacy in Bitsquare">12</a>] &quot;Privacy in Bitsquare&quot; [online]. Available: <a href="https://bisq.network/blog/privacy-in-bitsquare/">https://bisq.network/blog/privacy-in-bitsquare/</a>. 
+Date accessed: 2018‑09‑11.</p>
+<p>[<a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki" title="bip-0037.mediawiki">13</a>] &quot;bip-0037.mediawiki&quot; [online]. Available: <a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki</a>. 
+Date accessed: 2018‑09‑11.</p>
+<p>[<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html" title="Committed Bloom Filters for Improved Wallet Performance and SPV Security">14</a>] &quot;Committed Bloom Filters for Improved Wallet Performance and SPV Security&quot; [online].<br />
+Available: <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html">https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html</a>. Date accessed: 2018‑09‑11.</p>
+<p>[<a href="https://github.com/petertodd/bloom-io-attack" title="Bloom-io-attack">15</a>] &quot;Bloom-io-attack&quot; [online]. Available: <a href="https://github.com/petertodd/bloom-io-attack">https://github.com/petertodd/bloom-io-attack</a>. Date accessed: 2018‑09‑11.</p>
+<p>[<a href="https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/" title="Committed Bloom Filters versus BIP37 SPV">16</a>] &quot;Committed Bloom Filters versus BIP37 SPV&quot; [online].<br />
+Available: <a href="https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/">https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/</a>. 
+Date accessed: 2018‑09‑12.</p>
+<p>[<a href="https://www.linkedin.com/pulse/peter-todds-fraud-proofs-talk-mit-bitcoin-expo-2016-mark-morris/" title="Fraud Proofs">17</a>] &quot;Fraud Proofs&quot; [online]. Available: <a href="https://www.linkedin.com/pulse/peter-todds-fraud-proofs-talk-mit-bitcoin-expo-2016-mark-morris/">https://www.linkedin.com/pulse/peter-todds-fraud-proofs-talk-mit-bitcoin-expo-2016-mark-morris/</a>.<br />
+Date accessed: 2018‑09‑12.</p>
+<p>[<a href="https://www.trustnodes.com/2017/08/12/new-satoshi-nakamoto-e-mails-revealed" title="New Satoshi Nakamoto E-mails Revealed">18</a>] &quot;New Satoshi Nakamoto E-mails Revealed&quot; [online]. Available: <a href="https://www.trustnodes.com/2017/08/12/new-satoshi-nakamoto-e-mails-revealed">https://www.trustnodes.com/2017/08/12/new-satoshi-nakamoto-e-mails-revealed</a>.
+Date accessed: 2018‑09‑12.</p>
+<p>[<a href="https://plasma.io/plasma.pdf" title="Plasma: Scalable Autonomous Smart Contracts">19</a>] J. Poon and V. Buterin, &quot;Plasma: Scalable Autonomous Smart Contracts&quot; [online]. Available: <a href="https://plasma.io/plasma.pdf">https://plasma.io/plasma.pdf</a>.<br />
+Date accessed: 2018‑09‑13.</p>
+<p>[<a href="https://github.com/ethereum/research/wiki/A-note-on-data-availability-and-erasure-coding" title="A Note on Data Availability and Erasure Coding">20</a>] &quot;A Note on Data Availability and Erasure Coding&quot; [online].<br />
+Available: <a href="https://github.com/ethereum/research/wiki/A-note-on-data-availability-and-erasure-coding">https://github.com/ethereum/research/wiki/A-note-on-data-availability-and-erasure-coding</a>. 
+Date accessed: 2018‑09‑13.</p>
+<p>[<a href="https://www.trustnodes.com/2017/08/14/vitalik-buterin-peter-todd-go-head-head-crypto-culture-wars" title="Vitalik Buterin and Peter Todd Go Head to Head in the Crypto Culture Wars">21</a>] &quot;Vitalik Buterin and Peter Todd Go Head to Head in the Crypto Culture Wars&quot; [online].<br />
+Available: <a href="https://www.trustnodes.com/2017/08/14/vitalik-buterin-peter-todd-go-head-head-crypto-culture-wars">https://www.trustnodes.com/2017/08/14/vitalik-buterin-peter-todd-go-head-head-crypto-culture-wars</a>.
+Date accessed: 2018‑09‑14.</p>
+<p>[<a href="https://www.deadalnix.me/2016/09/24/introducing-merklix-tree-as-an-unordered-merkle-tree-on-steroid/" title="Introducing Merklix Tree as an Unordered Merkle Tree on Steroid">22</a>] &quot;Introducing Merklix Tree as an Unordered Merkle Tree on Steroid&quot; [online].<br />
+Available: <a href="https://www.deadalnix.me/2016/09/24/introducing-merklix-tree-as-an-unordered-merkle-tree-on-steroid/">https://www.deadalnix.me/2016/09/24/introducing-merklix-tree-as-an-unordered-merkle-tree-on-steroid/</a>. 
+Date accessed 2018‑09‑14.</p>
+<p>[<a href="https://www.deadalnix.me/2016/11/06/using-merklix-tree-to-shard-block-validation/" title="Using Merklix Tree to Shard Block Validation">23</a>] &quot;Using Merklix Tree to Shard Block Validation&quot; [online].<br />
+Available: <a href="https://www.deadalnix.me/2016/11/06/using-merklix-tree-to-shard-block-validation/">https://www.deadalnix.me/2016/11/06/using-merklix-tree-to-shard-block-validation/</a>. Date accessed: 2018‑09‑14.</p>
+<p>[<a href="https://bitco.in/forum/threads/fraud-proofs.1617/" title="Fraud Proofs">24</a>] &quot;Fraud Proofs&quot; [online]. Available: <a href="https://bitco.in/forum/threads/fraud-proofs.1617/">https://bitco.in/forum/threads/fraud-proofs.1617/</a>. Date accessed: 2018‑09‑18.</p>
+<p>[<a href="https://www.reddit.com/r/Bitcoin/comments/3c3zn4/whats_the_difference_between_an_api_wallet_and_a/" title="Whats the Difference between an API Wallet and a SPV Wallet?">25</a>] &quot;Whats the Difference between an API Wallet and a SPV Wallet?&quot; [Online.]<br />
+Available: <a href="https://www.reddit.com/r/Bitcoin/comments/3c3zn4/whats_the_difference_between_an_api_wallet_and_a/">https://www.reddit.com/r/Bitcoin/comments/3c3zn4/whats_the_difference_between_an_api_wallet_and_a/</a>.
+Date accessed: 2018‑09‑21.</p>
+<p>[<a href="https://arxiv.org/pdf/1809.09044.pdf" title="Fraud Proofs: Maximising Light Client Security and Scaling Blockchains with Dishonest Majorities">26</a>] M. Al-Bassam, A. Sinnino and V. Butterin, &quot;Fraud Proofs: Maximising Light Client Security and Scaling Blockchains 
+with Dishonest Majorities&quot; [online]. Available: <a href="https://arxiv.org/pdf/1809.09044.pdf">https://arxiv.org/pdf/1809.09044.pdf</a>. Date accessed: 2018‑10‑08.</p>
+<p>[<a href="https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv" title="Bitcoin Integration/Staging Tree">27</a>] &quot;Bitcoin Integration/Staging Tree&quot; [online]. Available: <a href="https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv">https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv</a>.<br />
+Date accessed: 2018‑10‑12.</p>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/ksloven">https://github.com/ksloven</a></li>
+<li><a href="https://github.com/CjS77">https://github.com/CjS77</a></li>
+<li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

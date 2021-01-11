@@ -1,0 +1,649 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Probability of a Byzantine Takeover of the Digital Assets Network - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Probability of a Byzantine Takeover of the Digital Assets Network - Tari Labs University" />
+        <meta name="twitter:site" content="Probability of a Byzantine Takeover of the Digital Assets Network - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Probability of a Byzantine Takeover of the Digital Assets Network - Tari Labs University" />
+        <meta property="og:site_name" content="Probability of a Byzantine Takeover of the Digital Assets Network - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html" class="active"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <style>
+        div.highlight {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #EA9999;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+<h1><a class="header" href="#probability-of-a-byzantine-takeover-of-the-digital-assets-network" id="probability-of-a-byzantine-takeover-of-the-digital-assets-network">Probability of a Byzantine Takeover of the Digital Assets Network</a></h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#tari-digital-assets-network">Tari Digital Assets Network</a> 
+<ul>
+<li><a href="#kademlia">Kademlia</a></li>
+<li><a href="#node-id">Node ID</a>
+<ul>
+<li><a href="#bootstrapping-a-node">Bootstrapping a Node</a></li>
+<li><a href="#xor-metric">XOR Metric</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#implementation">Implementation</a>
+<ul>
+<li><a href="#crude-monte-carlo-simulation">Crude Monte Carlo Simulation</a>
+<ul>
+<li><a href="#proving-the-law-of-large-numbers">Proving the Law of Large Numbers</a></li>
+<li><a href="#individual-probabilities">Individual Probabilities</a>
+<ul>
+<li><a href="#uniform-distribution">Uniform Distribution</a></li>
+<li><a href="#poisson-distribution">Poisson Distribution</a></li>
+<li><a href="#normal-distribution">Normal Distribution</a></li>
+</ul>
+</li>
+<li><a href="#histogram-and-visualization-of-distribution">Histogram and Visualization of Distribution</a></li>
+</ul>
+</li>
+<li><a href="#statistical-calculation">Statistical Calculation</a>
+<ul>
+<li><a href="#variation-of-total-nodes">Variation of Total Nodes</a></li>
+<li><a href="#variation-of-byzantine-fault-tolerance-threshold">Variation of Byzantine Fault-tolerance Threshold</a></li>
+<li><a href="#variation-of-total-number-of-nodes-with-committee-size-10">Variation of Total Number of Nodes with Committee Size 10</a></li>
+<li><a href="#variation-of-total-number-of-nodes-with-committee-size-100">Variation of Total Number of Nodes with Committee Size 100</a></li>
+<li><a href="#variation-of-bad-nodes-with-committee-size-10-and-100">Variation of Bad Nodes with Committee Size 10 and 100</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#conclusions-and-remarks">Conclusions and Remarks</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#appendices">Appendices</a>
+<ul>
+<li><a href="#appendix-a-definitions-of-terms">Appendix A: Definitions of Terms</a></li>
+</ul>
+</li>
+<li><a href="#contributors">Contributors</a> </li>
+</ul>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>This investigation aims to provide answers to questions posed about the workings of the Tari Digital Assets Network (DAN) 
+environment. It covers probabilistic attack vector with regard to the total nodes, compromised nodes, committee size and 
+Byzantine Fault-tolerance (BFT) threshold. </p>
+<p>The investigation attempts to answer the following question:
+<em>What is the percentage chance of controlling the majority of nodes in a random sample with varying quantities of the total 
+number of nodes, committee size, bad nodes and BFT threshold?</em></p>
+<h2><a class="header" href="#tari-digital-assets-network" id="tari-digital-assets-network">Tari Digital Assets Network</a></h2>
+<p>The Tari Digital Assets Network (DAN) forms part of the Tari second layer, where the management of all digital 
+asset interactions takes place. </p>
+<p>These interactions are processed and validated by committees of special nodes, called Validator Nodes<sup><a href="#vn" title=" Validator nodes make up 
+the Tari second layer...">def</a></sup>
+(VNs). Management 
+of Digital Assets (DAs) involves state changes and ensures enforcement of the rules that govern assets contracts. 
+Thus, all actions on this network are due to the interactions of the VNs. 
+The registration of VNs occurs on the base layer. To prevent Sybil attacks, they commit collateral. If 
+proved that the VN engaged in malicious behavior, the VN will lose its collateral. </p>
+<p>An Asset Issuer <sup><a href="#ai" title=" An entity that creates
+digital assets...">def</a></sup> (AI) would then issue DAs and draw up a contract. The AI will dictate the size of 
+the committee of VNs for a particular DA. The AI will also have the ability to nominate a trusted node to 
+form part of the VN committee for the DA [<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>].</p>
+<h3><a class="header" href="#kademlia" id="kademlia">Kademlia</a></h3>
+<p>Kademlia was designed by Petar Maymounkov and David Mazières in 2002 [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Kademlia">2</a>]. It is a distributed hash table, used for 
+decentralized, peer-to-peer computer networks. </p>
+<h3><a class="header" href="#node-id" id="node-id">Node ID</a></h3>
+<p>A node selects an $n$-bit ID, given to nodes on the network. Node IDs have uniformly distributed numbers. 
+A node's position is determined by a unique prefix of its ID, which forms a tree structure, with node IDs as leaves. </p>
+<p>The bit length of the node ID should be sufficiently large to make collisions unlikely when using a uniformly 
+distributed random number generator [<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>].</p>
+<h4><a class="header" href="#bootstrapping-a-node" id="bootstrapping-a-node">Bootstrapping a Node</a></h4>
+<p>A bootstrap node is a node listed on a predetermined list, and serves as the first point of contact for a new node. The 
+node bootstrapping process is as follows:</p>
+<ul>
+<li>To establish itself on the network without any known contacts, a node needs to contact at least one bootstrap node, 
+requesting an introduction to the network.</li>
+<li>A node ID is generated for the joining node.</li>
+<li>The new node contacts other nodes of which it is aware.</li>
+<li>The new node sends a lookup request with its newly generated node ID.</li>
+<li>The contacted nodes return the nodes they know about that are closest.</li>
+<li>The new nodes are added to the routing table, and contacting begins.</li>
+<li>The process continues until the joining node is unable to locate any closer nodes.</li>
+</ul>
+<p>This 
+<em>self-lookup</em> has two effects:</p>
+<ul>
+<li>it allows the node to learn about nodes closer to itself; and</li>
+<li>it populates other nodes' 
+routing tables with the node's ID [<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>].</li>
+</ul>
+<h4><a class="header" href="#xor-metric" id="xor-metric">XOR Metric</a></h4>
+<p>The Kademlia paper, published in 2002 [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Kademlia">2</a>], contained the novel idea of using the XOR operator to determine the 
+distance and therefore the arrangement of peers within the network. </p>
+<p>Through the XOR metric, a distance is captured. The lookup procedure allows nodes to locate other nodes, 
+given a node ID [<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>].</p>
+<h2><a class="header" href="#implementation" id="implementation">Implementation</a></h2>
+<p>The following calculations were done using the <a href="https://github.com/tari-labs/modelling">Tari Labs Modelling Repository</a>. </p>
+<h3><a class="header" href="#crude-monte-carlo-simulation" id="crude-monte-carlo-simulation">Crude Monte Carlo Simulation</a></h3>
+<h4><a class="header" href="#proving-the-law-of-large-numbers" id="proving-the-law-of-large-numbers">Proving the Law of Large Numbers</a></h4>
+<p>With the Crude Monte Carlo technique, to gain precision, the number of samples can be increased. Thus, before 
+calculating the probability and drawing comparisons, the sample size, number of draws within an experiment, and the 
+number of experiments can be varied to find an optimal amount. </p>
+<p>Below is the input data inserted into the <a href="https://github.com/tari-labs/modelling/blob/master/scenarios/crude_monte_carlo_simulation.py">python programme</a> 
+with dependencies <a href="https://github.com/tari-labs/modelling/blob/master/utils/network_setup.py">network setup</a> and <a href="https://github.com/tari-labs/modelling/blob/master/utils/rand_dist.py">random distribution</a>, where the number of draws within an experiment is $10​$, and the number of experiments is $10​$:</p>
+<pre><code class="language-Text">What is the total amount of nodes? 100
+What is the amount of bad nodes? 60
+How many nodes are to be drawn? 3
+What is the BFT threshold within the committee? 2
+What is the number of draws within an experiment? 10
+How many experiments? 10
+Do you know the theoretical mean? Y|N: Y
+What is the theoretical mean? 0.649474335188621
+</code></pre>
+<p align="center"><img src="assets/small_no_exp_convergence.png" width="700" /></p>
+<p>Below is the input data inserted into the python programme, where the number of draws within an experiment is $1,000​$ 
+and the number of experiments is $1,000​$:</p>
+<pre><code class="language-Text">What is the total amount of nodes? 100
+What is the amount of bad nodes? 60
+How many nodes are to be drawn? 3
+What is the BFT threshold within the committee? 2
+What is the number of draws within an experiment? 1,000
+How many experiments? 1,000
+Do you know the theoretical mean? Y|N: Y
+What is the theoretical mean? 0.649474335188621
+</code></pre>
+<p align="center"><img src="assets/convergence.png" width="700" /></p>
+<p>In each graph, the cumulative probabilities calculated for normal, uniform, Poisson and hypergeometric distribution are 
+plotted against the number of experiments. The bold blue line represents the mean calculated from theoretical data. </p>
+<p>In the first graph, where the experiments and draws are equal to $10$, there is weak convergence. In the second graph, where the 
+experiments and draws are equal to $1,000$, the  Law of Large Numbers (LLN) is proved; as the sample size grows, convergence 
+with the statistical mean is achieved. </p>
+<h4><a class="header" href="#individual-probabilities" id="individual-probabilities">Individual Probabilities</a></h4>
+<p>The following graph highlights the varying probabilities of each experiment conducted for the hypergeometric distribution. 
+The mean of this distribution provides us with the average of the probabilities, which can then be compared to the calculated 
+theoretical mean. </p>
+<p>From a comparison of the mean probability of each distribution with the theoretical mean, it can be seen that the 
+distribution type that closely mimics the theoretical result is hypergeometric. </p>
+<p>Hypergeometric distribution is where there is no replacement, i.e. nodes are drawn simultaneously, distinguished and 
+not returned to the pool of total nodes. </p>
+<p align="center"><img src="assets/individual_probability_hypergeometric.png" width="700" /></p>
+<h5><a class="header" href="#uniform-distribution" id="uniform-distribution">Uniform Distribution</a></h5>
+<table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference  Calculated</th></tr></thead><tbody>
+<tr><td>Intercept</td><td>0.6497887492507493</td><td>0.649474335188621</td><td>3.14414E-4</td></tr>
+<tr><td>Standard Deviation</td><td>0.015438728229013219</td><td></td><td></td></tr>
+</tbody></table>
+<h5><a class="header" href="#hypergeometric-distribution" id="hypergeometric-distribution">Hypergeometric Distribution</a></h5>
+<table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference Calculated</th></tr></thead><tbody>
+<tr><td>Intercept</td><td>0.6495665834165834</td><td>0.649474335188621</td><td>9.22482E-5</td></tr>
+<tr><td>Standard Deviation</td><td>0.014812123075035204</td><td></td><td></td></tr>
+</tbody></table>
+<h5><a class="header" href="#poisson-distribution" id="poisson-distribution">Poisson Distribution</a></h5>
+<table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference Calculated</th></tr></thead><tbody>
+<tr><td>Intercept</td><td>0.6501259280719281</td><td>0.649474335188621</td><td>6.51592E-4</td></tr>
+<tr><td>Standard Deviation</td><td>0.015233575444419514</td><td></td><td></td></tr>
+</tbody></table>
+<h5><a class="header" href="#normal-distribution" id="normal-distribution">Normal Distribution</a></h5>
+<table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference Calculated</th></tr></thead><tbody>
+<tr><td>Intercept</td><td>0.6482901778221778</td><td>0.649474335188621</td><td>1.18416E-3</td></tr>
+<tr><td>Standard Deviation</td><td>0.01507612979811762</td><td></td><td></td></tr>
+</tbody></table>
+<h4><a class="header" href="#histogram-and-visualization-of-distribution" id="histogram-and-visualization-of-distribution">Histogram and Visualization of Distribution</a></h4>
+<p>The histogram of randomness highlights the distribution of good and bad nodes selected in each experiment, highlighting 
+the random nature of the experiment. </p>
+<p align="center"><img src="assets/histogram_of_randomness.png" width="700" /></p>
+<table><thead><tr><th>Statistical Information</th><th></th></tr></thead><tbody>
+<tr><td>Mean</td><td>120,000.0</td></tr>
+<tr><td>Median</td><td>119,991.0</td></tr>
+<tr><td>Mode</td><td>-</td></tr>
+<tr><td>Standard Deviation</td><td>346.4313595341606</td></tr>
+</tbody></table>
+<h3><a class="header" href="#statistical-calculation" id="statistical-calculation">Statistical Calculation</a></h3>
+<p>Literature about <a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html">BFT threshold</a> advises 
+the number of good nodes to be at least $\frac{2}{3} \cdot n+1​$, where $n​$ is the number of nodes. In the calculations 
+that follow, BFT threshold of, for example, $67​$% of N, is implemented with rounding up to ensure that at least that 
+fraction is obtained. In this sense, $67​$% of N simulates $\frac{2}{3} \cdot n+1​$.</p>
+<h4><a class="header" href="#variation-of-total-nodes" id="variation-of-total-nodes">Variation of Total Nodes</a></h4>
+<p>The variables and results are below: </p>
+<ul>
+<li>N (total number of nodes in the network) = $100, 300, 500, 1000$</li>
+<li>m (number of bad actors) = $60$% of N</li>
+<li>T (BFT threshold) = $67$% of N</li>
+<li>n (committee size) = ranging from $1$ to $1,000$ </li>
+</ul>
+<p>The above graph was calculated using Python (<a href="https://github.com/tari-labs/modelling/blob/master/scenarios/N_variations.py">variations of N</a> with dependencies <a href="https://github.com/tari-labs/modelling/blob/master/utils/hyper_dist_prob.py">hypergeometric distribution</a>). Below is a sample of the data where there is a total of 100. The highlighted data was previously used in the Crude Monte Carlo Simulation when supplying the theoretical mean.</p>
+<table><thead><tr><th align="center">  Total Nodes  </th><th align="center">  Bad Nodes  </th><th align="center">  Committee Size  </th><th align="center">  BFT Threshold  </th><th>  Probability  </th></tr></thead><tbody>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">1</td><td align="center">1</td><td>0.6</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">2</td><td align="center">2</td><td>0.3575757575757576</td></tr>
+<tr><td align="center"><div class="highlight">100</div></td><td align="center"><div class="highlight">60</div></td><td align="center"><div class="highlight">3</div></td><td align="center"><div class="highlight">2</div></td><td><div class="highlight">0.649474335188621</div></td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">4</td><td align="center">3</td><td>0.47343240951488375</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">5</td><td align="center">4</td><td>0.33162085827770661</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">6</td><td align="center">4</td><td>0.5443381851334722</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">7</td><td align="center">5</td><td>0.4153500188485931</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">8</td><td align="center">6</td><td>0.30661160770090995</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">9</td><td align="center">6</td><td>0.47996269793634677</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">10</td><td align="center">7</td><td>0.37423758246308586</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">11</td><td align="center">8</td><td>0.28361605491457653</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">12</td><td align="center">8</td><td>0.4320215340178938</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">13</td><td align="center">9</td><td>0.3409545354772218</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">14</td><td align="center">10</td><td>0.2623321970180976</td></tr>
+<tr><td align="center">100</td><td align="center">60</td><td align="center">15</td><td align="center">10</td><td>0.39288184738975973</td></tr>
+</tbody></table>
+<p align="center"><img src="assets/variation_of_total_nodes .png" width="700" /></p>
+From a plot of committee size versus probability with a change in $N$, the total number of nodes, it can be seen that 
+the probability is lower with respect to the committee size when $N$ is smaller. 
+<h4><a class="header" href="#variation-of-byzantine-fault-tolerance-threshold" id="variation-of-byzantine-fault-tolerance-threshold">Variation of Byzantine Fault-tolerance Threshold</a></h4>
+<p>The variables and results are below: </p>
+<ul>
+<li>N (total number of nodes in the network) = $100$</li>
+<li>m (number of bad actors) = $60$% of N</li>
+<li>T (BFT threshold) = $50$%, $55$%, $60$%, $67$% of N</li>
+<li>n (committee size) = ranging from $1$ to $100$ </li>
+</ul>
+<p align="center"><img src="assets/variation_of_bft_threshold.png" width="700" /></p>
+<p>The above graph was calculated using Python 
+(<a href="https://github.com/tari-labs/modelling/blob/master/scenarios/T_variations.py">variations of BFT</a> with dependencies 
+<a href="https://github.com/tari-labs/modelling/blob/master/utils/hyper_dist_prob.py">hypergeometric distribution</a>). From a plot 
+of committee size versus probability where the number of nodes remains at $100$ with a change in $T$, the BFT 
+threshold, ranging from $50$% to $67$%, it can be seen that When the BFT threshold is $50$% and $55$%, the probability 
+is low when the committee size is small; as the committee size increases, the probability increases, and tends to $1$. 
+The probability is higher for the case where the BFT threshold is $50$% than when the probability is $55$%. </p>
+<p>When the BFT threshold is $60$%, the probability decreases from $0.63$ to approximately $0.59$, where it remains constant. </p>
+<p>When the BFT threshold is $65$% and $67$%, the probability decreases from $0.38$ and tends to zero. This confirms the 
+BFT threshold of $\frac{2}{3} \cdot n+1$ as per literature.</p>
+<h4><a class="header" href="#variation-of-total-number-of-nodes-with-committee-size-10" id="variation-of-total-number-of-nodes-with-committee-size-10">Variation of Total Number of Nodes with Committee Size 10</a></h4>
+<p>The variables and results are below: </p>
+<ul>
+<li>N (total number of nodes in the network) = ranging from $10$ to $350$</li>
+<li>m (number of bad actors) = $60$% of N</li>
+<li>T (BFT threshold) = $67$% of N</li>
+<li>n (committee size) = $10$</li>
+</ul>
+<p align="center"><img src="assets/committee_size_10.png" width="900" /></p>
+<p>The above graph was calculated using Excel 
+(<a href="https://github.com/tari-labs/modelling/blob/master/other/variation_of_N_n_fixed.xlsx">variations of N with n fixed</a>). For the 
+graph showing varying probabilities with respect to the total number of network nodes, where the committee size is $10$, 
+the probability dramatically increases when the total nodes is $3$ times more than the committee size and onwards. The 
+probability plateaus at $0.35$. </p>
+<h4><a class="header" href="#variation-of-total-number-of-nodes-with-committee-size-100" id="variation-of-total-number-of-nodes-with-committee-size-100">Variation of Total Number of Nodes with Committee Size 100</a></h4>
+<p>The variables and results are below: </p>
+<ul>
+<li>N (total number of nodes in the network) = ranging from $100$ to $1,300$</li>
+<li>m (number of bad actors) = $60$% of N</li>
+<li>T (BFT threshold) = $67​$% of N</li>
+<li>n (committee size) = $100$</li>
+</ul>
+<p align="center"><img src="assets/committee_size_100.png" width="900" /></p>
+<p>The above graph was calculated using Excel 
+(<a href="https://github.com/tari-labs/modelling/blob/master/other/variation_of_N_n_fixed.xlsx">variations of N with n fixed</a>). 
+From this and the previous graph, it can be seen that probabilities are significantly lower when the committee size is 
+$100$ compared to when it is $10$. There is an increase in probability up to a network size of $700$, albeit, not as steep as the 
+change when the committee size is $10$. The probability plateaus at $0.08$.</p>
+<p>The larger the committee size, the fewer dramatic changes there are in the probability. </p>
+<h4><a class="header" href="#variation-of-bad-nodes-with-committee-size-10-and-100" id="variation-of-bad-nodes-with-committee-size-10-and-100">Variation of Bad Nodes with Committee Size 10 and 100</a></h4>
+<p>The variables and results are below: </p>
+<ul>
+<li>N (total number of nodes in the network) = ranging from $10$ and $100$ to $50,000$</li>
+<li>m (number of bad actors) = $10$%, $20$%, $30$%, $40$%, $50$%, $60$%, $70$%, $80$% and $90$% of N</li>
+<li>T (BFT threshold) = $67$% of N</li>
+<li>n (committee size) = $10$ and $100$</li>
+</ul>
+<p align="center"><img src="assets/probability_when_committee_100_20.png" width="900" /></p>
+<p align="center"><img src="assets/probability_when_committee_100_40.png" width="900" /></p>
+<p align="center"><img src="assets/probability_when_committee_100_60.png" width="900" /></p>
+<p align="center"><img src="assets/probability_when_committee_100_90.png" width="900" /></p>
+<p>The above graphs were calculated using Excel 
+(<a href="https://github.com/tari-labs/modelling/blob/master/other/bad_nodes_variation_10_10.xlsx">bad node variation where n is 100</a>). These 
+graphs show varying probabilities when the percentage of bad nodes is $20$, $40$, $60$ and $90$. The value when the 
+probability plateaus is used to construct the following graph for both committee sizes $10$ and $100$. </p>
+<p align="center"><img src="assets/probability_bad_nodes_10_100.png" width="850" /></p>
+<p>The above graph was calculated using Excel 
+(<a href="https://github.com/tari-labs/modelling/blob/master/other/bad_node_percentage_10_100.xlsx">bad node percentage at 10 and 100</a>). The 
+graph shows changes in the probability due to changes in percentage of bad nodes when the committee size is $10$ and $100$.  When 
+the committee size is $10$, there is a change in probability when the bad node percentage is between $30$ and $80$.<br />
+When the committee size is $100$, there is a steep increase in the probability when the bad node percentage is between 
+$50$ and $80$. When the committee size is $100$, the probability remains lower as the bad node percentage increases and 
+has a steeper gradient when the change in probability occurs. Whereas, when the committee size is $10$, the probability 
+begins to increase at a lower percentage of bad nodes. </p>
+<h2><a class="header" href="#conclusions-and-remarks" id="conclusions-and-remarks">Conclusions and Remarks</a></h2>
+<p>With regard to the Crude Monte Carlo Simulation, at this building block stage, probabilities were calculated and 
+distributions of nodes within the network illustrated.</p>
+<p>With regard to the statistical calculation, comments can be made for each of the varied parameters. </p>
+<ul>
+<li>Total nodes in the network: The smaller the pool of total nodes in the network, the lower the probability of bad 
+actors controlling the network. However, the probability difference is near negligible if the committee size is large. 
+This parameter will also be difficult to control, and the network will be ever-increasing. This can be seen in the 
+graph in <a href="#variation-of-total-nodes">Variation of Total Nodes</a>. </li>
+<li>BFT threshold: This threshold should be at least  $\frac{2}{3} \cdot n+1$ as per literature. This can be seen in the 
+graph in <a href="#variation-of-byzantine-fault-tolerance-threshold">Variation of Byzantine Fault-tolerance Threshold</a>.</li>
+<li>Committee size: The larger the committee size, the lower the probability of bad actors controlling the network. This can 
+be seen in the graph in 
+<a href="#variation-of-total-number-of-nodes-with-committee-size-10">Variation of Total Number of Nodes with Committee Size 10</a> 
+and <a href="#variation-of-total-number-of-nodes-with-committee-size-100">Variation of Total Number of Nodes with Committee Size 100</a>.</li>
+<li>Bad nodes: While this variable cannot be controlled, the probability of bad actors controlling the network can remain 
+low, as the percentage of bad nodes increases if the committee size is approximately $100$ or larger. This can be seen in the 
+graphs in <a href="#variation-of-bad-nodes-with-committee-size-10-and-100">Variation of Bad Nodes with Committee Size 10 and 100</a></li>
+</ul>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>] C. Sharrock [online]. Available: <a href="https://rfc.tari.com/RFC-0300_DAN.html">https://rfc.tari.com/RFC-0300_DAN.html</a>. 
+Date accessed: 2019‑07‑18.</p>
+<p>[<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Kademlia">2</a>] P. Maymounkov and D. Mazières, &quot;Kademlia: A Peer-to-peer Information System Based on the XOR Metric&quot; [online]. 
+Available: <a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf">https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf</a>. Date accessed: 2019‑07‑18.</p>
+<p>[<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>] S. Bondi, &quot;Distributed Hash Tables&quot; [online]. Available: <a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html">https://tlu.tarilabs.com/protocols/dht/MainReport.html</a>. 
+Date accessed: 2019‑07‑18.</p>
+<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
+<h3><a class="header" href="#appendix-a-definitions-of-terms" id="appendix-a-definitions-of-terms">Appendix A: Definitions of Terms</a></h3>
+<p>Definitions of terms presented here are high level and general in nature. </p>
+<ul>
+<li><strong>Asset Issuer (AI):</strong><a name="ai"> </a> An entity that creates digital assets on the Tari Digital Asset Network (DAN). The Asset Issuer will 
+specify the parameters of the contract template that defines the rules that govern the asset and the number and nature 
+of its constituent tokens on issuance. The AI will, generally, be the initial owner of the tokens [<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>].</li>
+</ul>
+<ul>
+<li><strong>Validator Node (VN):</strong><a name="vn"> </a>Validator nodes make up the Tari second layer, or Digital Asset Network (DAN). VNs 
+are responsible for creating and updating digital asset living on the Tari network [<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>].</li>
+</ul>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/kevoulee">https://github.com/kevoulee</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a> </li>
+<li><a href="https://github.com/neonknight64">https://github.com/neonknight64</a> </li>
+<li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a> </li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../network-analysis/probabilistic-attack/building_blocks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../labs/introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../network-analysis/probabilistic-attack/building_blocks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../labs/introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

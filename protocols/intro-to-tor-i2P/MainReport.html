@@ -1,0 +1,845 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction to Tor and I2P - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Introduction to Tor and I2P - Tari Labs University" />
+        <meta name="twitter:site" content="Introduction to Tor and I2P - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Introduction to Tor and I2P - Tari Labs University" />
+        <meta property="og:site_name" content="Introduction to Tor and I2P - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html" class="active"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction-to-tor-and-i2p" id="introduction-to-tor-and-i2p">Introduction to Tor and I2P</a></h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#i2p-network">I2P Network</a>
+<ul>
+<li><a href="#what-is-i2p">What is I2P?</a></li>
+<li><a href="#how-does-i2p-work">How does I2P Work?</a></li>
+<li><a href="#i2p-infrastructure">I2P Infrastructure</a>
+<ul>
+<li><a href="#routing-infrastructure-and-anonymity">Routing Infrastructure and Anonymity</a></li>
+<li><a href="#distributed-network-database">Distributed Network Database</a></li>
+<li><a href="#floodfill-routers">Floodfill Routers</a></li>
+<li><a href="#garlic-routing">Garlic Routing</a></li>
+</ul>
+</li>
+<li><a href="#i2p-threats-security-and-vulnerability">I2P Threats, Security and Vulnerability</a>
+<ul>
+<li><a href="#sybil-attacks">Sybil Attacks</a></li>
+<li><a href="#eclipse-attacks">Eclipse Attacks</a></li>
+<li><a href="#brute-force-attacks">Brute Force Attacks</a></li>
+<li><a href="#intersection-attacks">Intersection Attacks</a></li>
+<li><a href="#denial-of-service-attacks">Denial of Service Attacks</a>
+<ul>
+<li><a href="#greedy-user-attack">Greedy User Attack</a></li>
+<li><a href="#starvation-attack">Starvation Attack</a></li>
+<li><a href="#flooding-attack">Flooding Attack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tor-network">Tor Network</a>
+<ul>
+<li><a href="#what-is-tor">What is Tor?</a></li>
+<li><a href="#how-does-tor-work">How does Tor Work</a></li>
+<li><a href="#how-does-onion-routing-work">How does Onion Routing Work?</a></li>
+<li><a href="#types-of-tor-relaysnodes-routing">Types of Tor Relays/Nodes Routing</a>
+<ul>
+<li><a href="#guard-or-entry-relay-non-exit-relay-nodes">Guard or Entry Relay (Non-exit Relay) Nodes</a></li>
+<li><a href="#middle-relay-nodes">Middle Relay Nodes</a></li>
+<li><a href="#exit-relay-nodes">Exit Relay Nodes</a></li>
+<li><a href="#bridge-relay-nodes">Bridge Relay Nodes</a></li>
+</ul>
+</li>
+<li><a href="#pitfalls-of-using-tor-anonymously---is-it-broken">Pitfalls of Using Tor Anonymously - is it Broken?</a></li>
+<li><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
+</ul>
+</li>
+<li><a href="#differences-between-i2p-and-tor">Differences between I2P and Tor</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#appendices">Appendices</a>
+<ul>
+<li><a href="#appendix-a-tor-further-investigation">Appendix A: Tor Further Investigation</a></li>
+<li><a href="#appendix-b-tor-links-of-interest">Appendix B: Tor Links of Interest</a></li>
+</ul>
+</li>
+<li><a href="#contributors">Contributors</a></li>
+</ul>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>Invisible Internet Project (I2P), Tor and Virtual Private Networks (VPNs) are well-known anonymity networks. They are all 
+designed in different ways and for specific uses, although most people use them with the intent of privately browsing the 
+Internet. These network functions have very similar characteristics, but also have important differentiators 
+in how they work to anonymize and secure users' Internet traffic.</p>
+<p>In this report we'll examine what Tor and the I2P networks are, the paradigms of how they work, their security 
+infrastructure and their potential or known use-cases in the blockchain domain.</p>
+<h2><a class="header" href="#i2p-network" id="i2p-network">I2P Network</a></h2>
+<h3><a class="header" href="#what-is-i2p" id="what-is-i2p">What is I2P?</a></h3>
+<p>I2P (known as the Invisible Internet Project - founded in 2003) is a low-latency network layer that runs on a distributed 
+network of computers across the globe. It is primarily built into applications such as email, Internet Relay Chat (IRC) 
+and file sharing [<a href="https://delaat.net/rp/2017-2018/p97/report.pdf" title="Blockchain-based Sybil 
+Attack Mitigation: 
+A Case Study of the 
+I2P Network">6</a>]. I2P works by automatically making each client in the network a node, through which data and 
+traffic are routed. These nodes are responsible for providing encrypted, one-way connections to and from other computers 
+within the network. </p>
+<h3><a class="header" href="#how-does-i2p-work" id="how-does-i2p-work">How does I2P Work?</a></h3>
+<p>I2P is an enclosed network that runs within the Internet infrastructure (referred to as the clearnet in this paradigm). 
+Unlike VPNs and Tor, which are inherently &quot;outproxy&quot; networks designed for anonymous and private communication with the 
+Internet, I2P is designed as a peer-to-peer network. This means it has very little to no communication with the 
+Internet. It also means each node in I2P is not identified with an Internet Protocol (IP) address, but with a 
+cryptographic identifier ([<a href="https://blokt.com/guides/what-is-i2p-vs-tor-browser#How_does_I2P_work" title="What Is I2P &amp; 
+How Does It Compare vs. 
+Tor Browser?">1</a>], [<a href="https://geti2p.net/en/docs/api/i2ptunnel" title="I2PTunnel">2</a>]). A node in the I2P network can be either a server that hosts a darknet service 
+(similar to a website on the Internet), or a client who accesses the servers and services hosted by other nodes [<a href="https://delaat.net/rp/2017-2018/p97/report.pdf" title="Blockchain-based Sybil 
+Attack Mitigation: 
+A Case Study of the 
+I2P Network">6</a>]. 
+Tor, on the other hand, works by using a group of volunteer-operated relay servers/nodes that allow people to privately 
+and securely access the Internet. This means people can choose to volunteer as a relay node in the network and hence 
+donate bandwidth [<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: How it works">13</a>]. Compared to Tor, each client/server in I2P is automatically a relay node. Whether data is 
+routed through a specific node is normally bandwidth dependent. </p>
+<p>Since there is no Internet in I2P, the network is made up of its own anonymous and hidden sites, called <strong>eepsites</strong>. 
+These exist only within the network and are only accessible to people using I2P. Services such as <strong>I2PTunnel</strong>, 
+which use a standard web server, can be used to create such sites.</p>
+<h3><a class="header" href="#i2p-infrastructure" id="i2p-infrastructure">I2P Infrastructure</a></h3>
+<h4><a class="header" href="#routing-infrastructure-and-anonymity" id="routing-infrastructure-and-anonymity">Routing Infrastructure and Anonymity</a></h4>
+<p>I2P works by installing an I2P routing service within a client's device. This router creates temporary, encrypted, 
+one-way connections with I2P routers on other devices. Connections are referred to as one way because they are made up 
+of an <em>Outbound Tunnel</em> and an <em>Inbound Tunnel</em>. During any communication, data leaves the client's devices via the 
+outbound tunnels and is received on other devices through their inbound tunnels. This means that messages do not 
+travel in two directions within the same tunnel. Therefore, a single round-trip request message and its response between 
+two parties needs four tunnels [<a href="https://censorbib.nymity.ch/pdf/Hoang2018a.pdf" title="An Empirical Study 
+of the I2P Anonymity 
+Network and its
+Censorship Resistance">4</a>], as shown in Figure 1. Messages sent from one device do not travel directly to 
+the inbound tunnel of the destination device. Instead, the outbound router queries a distributed network database for 
+the corresponding address of the inbound router. This database is comprised of a custom Kademlia-style Distributed Hash 
+Table (DHT) that contains the router information and destination information. For each application or client, the I2P 
+router keeps a pool of tunnel pairs. Exploratory tunnels for interactions with the network database are shared among all 
+users of a router. If a tunnel in the pool is about to expire or if the tunnel is no longer usable, the router creates a 
+new tunnel and adds it to the pool. It is important to recall later that tunnels periodically expire every 10 minutes, 
+and thus need to be refreshed frequently. This is one of I2P's security measures that are performed to prevent 
+long-lived tunnels from becoming a threat to anonymity [<a href="https://sites.cs.ucsb.edu/%7Echris/research/doc/raid13_i2p.pdf" title="Practical Attacks Against
+the I2P Network">3</a>].</p>
+<p align="center"><a name="fig_eca"> </a><img src="assets/network-topology.png" width="950" /></p>
+<p align="center"><b>Figure&nbsp;1: Network Topology [<a href="https://www.delaat.net/rp/2017-2018/p97/presentation.pdf" title="Network Topology">6</a>]</b></p> 
+<h4><a class="header" href="#distributed-network-database" id="distributed-network-database">Distributed Network Database</a></h4>
+<p>The Network Database (NetDB) is implemented as a DHT and is propagated via nodes known as 
+floodfill routers using the Kademlia protocol. The NetDB is one of the characteristics that make I2P decentralized. 
+To start participating in the network, a router installs a part of the NetDB. Obtaining the partial NetDB is called 
+bootstrapping and happens by 'reseeding’ the router. By default, a router will reseed the first time by querying some 
+bootstrapped domain names. When a router successfully establishes a connection to one of these domains, a Transport 
+Layer Security (TLS) connection is set up through which the router downloads a signed partial copy of the NetDB. Once 
+the router can reach at least one other participant in the network, the router will query for other parts of the NetDB 
+it does not have itself [<a href="https://www.delaat.net/rp/2018-2019/p63/report.pdf" title="Invisible Internet Project - MSc Security and Network Engineering Research Project">12</a>].</p>
+<p>The NetDB stores two types of data: </p>
+<ol>
+<li>
+<p><strong>RouterInfo.</strong>
+When a message is leaving one router, it needs to know some key pieces of data (known as <em>RouterInfo</em>) about the 
+other router. The destination RouterInfo is stored in the NetDB with the router's identity as the key. To request a 
+resource (or RouterInfo), a client requests the desired key from the node considered to be closest to the key. If 
+the piece of data is located at the node, it is returned to the client. Otherwise, the node uses its local knowledge 
+of participating nodes and returns the node it considers to be nearest to the key [<a href="https://sites.cs.ucsb.edu/%7Echris/research/doc/raid13_i2p.pdf" title="Practical Attacks Against
+the I2P Network">3</a>]. The RouterInfo in the NetDB 
+is made up of ([<a href="https://censorbib.nymity.ch/pdf/Hoang2018a.pdf" title="An Empirical Study 
+of the I2P Anonymity 
+Network and its
+Censorship Resistance">4</a>], [<a href="https://delaat.net/rp/2017-2018/p97/report.pdf" title="Blockchain-based Sybil 
+Attack Mitigation: 
+A Case Study of the 
+I2P Network">6</a>]):</p>
+<ul>
+<li>The router's identity - an encryption key, a signing key and a certificate.</li>
+<li>The contact addresses at which it can be reached - protocol, IP and port.</li>
+<li>When this was created or published.</li>
+<li>Options - a set of arbitrary text options, e.g. bandwidth of router.</li>
+<li>The signature of the above, generated by the identity's signing key.</li>
+</ul>
+</li>
+<li>
+<p><strong>LeaseSets.</strong> 
+The LeaseSet specifies a tunnel entry point to reach an endpoint. This specifies the routers that can directly 
+contact the desired destination. It contains the following data:</p>
+<ul>
+<li>Tunnel gateway router - given by specifying its identity.</li>
+<li>Tunnel ID - tunnel used to send messages.</li>
+<li>Tunnel expiration - when the tunnel will expire.</li>
+<li>Destination itself - similar to router identity.</li>
+<li>Signature - used to verify the LeaseSet.</li>
+</ul>
+</li>
+</ol>
+<h4><a class="header" href="#floodfill-routers" id="floodfill-routers">Floodfill Routers</a></h4>
+<p>Special routers, referred to as <em>floodfill routers</em>, are responsible for storing the NetDB. Participation in the floodfill 
+pool can be automatic or manual. Automatic participation occurs whenever the number of floodfill routers drops below a 
+certain threshold, which is currently 6% of all nodes in the network ([<a href="https://delaat.net/rp/2017-2018/p97/report.pdf" title="Blockchain-based Sybil 
+Attack Mitigation: 
+A Case Study of the 
+I2P Network">6</a>], [<a href="https://geti2p.net/en/docs/how/network-database" title="The Network Database">7</a>]). When this happens, a node is 
+selected to participate as a floodfill router based on criteria such as uptime and bandwidth. It should be noted that 
+approximately 95% of floodfill routers are automatic [<a href="http://ijsetr.org/wp-content/uploads/2015/05/IJSETR-VOL-4-ISSUE-5-1515-1518.pdf" title="Defending Eclipse Attack 
+in I2P using Structured
+Overlay Network">8</a>]. The NetDB is stored in a DHT format within the floodfill 
+routers. A resource is requested from the floodfill router considered to be closest to that key. To have a higher 
+success rate on a lookup, the client is able to iteratively look up the key. This means that the lookup continues with 
+the next-closest peer should the initial lookup request fail.</p>
+<h4><a class="header" href="#garlic-routing" id="garlic-routing">Garlic Routing</a></h4>
+<p>Garlic routing is a way of building paths or tunnels through which messages in the I2P network travel. When a message
+leaves the application or client, it is encrypted to the recipient's public key. The encrypted message is then encrypted 
+with instructions specifying the next hop. The message travels in this way through each hop until it reaches the 
+recipient. During the transportation of the message, it is bundled with other messages. This means that any message
+travelling in the network could contain a number of other messages bundled with it. In essence, garlic routing does two
+things:</p>
+<ul>
+<li>provides layered encryption; and</li>
+<li>bundles multiple messages together.</li>
+</ul>
+<p>Figure 2 illustrates the end-to-end message bundling:</p>
+<p align="center"><a name="fig_eca"> </a><img src="assets/garliccloves.png" width="1050" /></p>
+<p align="center"><b>Figure&nbsp;2: Garlic Routing <a href="https://github.com/ElementsProject/confidential-assets-demo" title="ElementsProject/confidential-assets-demo"></a></b></p>
+<h3><a class="header" href="#i2p-threats-security-and-vulnerability" id="i2p-threats-security-and-vulnerability">I2P Threats, Security and Vulnerability</a></h3>
+<p>The I2P project has no specific threat model, but rather talks about common attacks and existing defenses. 
+Overall, the design of I2P is motivated by threats similar to those addressed by Tor: the attacker can observe traffic 
+locally, but not all traffic flowing through the network; and the integrity of all cryptographic primitives is assumed. 
+Furthermore, an attacker is only allowed to control a limited number of peers in the network (the website talks about 
+not more than 20% of nodes participating in the NetDB and a similar percentage of the total number of nodes controlled 
+by the malicious entity). In this section, we'll look at different threat models affecting the network [<a href="https://sites.cs.ucsb.edu/%7Echris/research/doc/raid13_i2p.pdf" title="Practical Attacks Against
+the I2P Network">3</a>].</p>
+<h4><a class="header" href="#sybil-attacks" id="sybil-attacks">Sybil Attacks</a></h4>
+<p>The Sybil attack, illustrated in Figure 3, is a well-known anonymity system attack in which the malicious user 
+creates multiple identities in an effort to increase control over the network. Running this attack over the I2P network 
+is rather difficult. This is because participants/clients in the network evaluate the performance of peers when 
+selecting peers to interact with, instead of using a random sample. Since running multiple identities on the same host 
+affects the performance of each of those instances, the number of additional identities running in parallel is 
+effectively limited by the need to provide each of them with enough resources to be considered as peers. This means that 
+the malicious user will need substantial resources to create multiple identities.</p>
+<p align="center"><a name="fig_eca"> </a><img src="assets/Sybil Attack.png" width="750" /></p>
+<p align="center"><b>Figure&nbsp;3: Sybil Attack [<a href="https://www.delaat.net/rp/2017-2018/p97/presentation.pdf" title="Network Topology">5</a>]</b></p>
+<h4><a class="header" href="#eclipse-attacks" id="eclipse-attacks">Eclipse Attacks</a></h4>
+<p>In eclipse attacks, a set of malicious and colluding nodes arranges that a good node can 
+only communicate with malicious nodes. The union of malicious nodes therefore fools the good node into writing its
+addresses into neighbouring lists of good nodes. In a Sybil attack, a single malicious node has a large number of 
+identities in the network in order to control some part of the network. If an attacker wants to continue a Sybil attack 
+into an eclipse attack, the attacker will try to place malicious nodes in the strategic routing path in such a way that 
+all traffic will pass through the attacker's node [<a href="http://ijsetr.org/wp-content/uploads/2015/05/IJSETR-VOL-4-ISSUE-5-1515-1518.pdf" title="Defending Eclipse Attack 
+in I2P using Structured
+Overlay Network">8</a>].</p>
+<h4><a class="header" href="#brute-force-attacks" id="brute-force-attacks">Brute Force Attacks</a></h4>
+<p>Brute force attacks on the I2P network can be mounted by actively watching the network's messages as they pass between 
+all of the nodes and attempting to correlate messages and their routes. Since all peers in the network are frequently 
+sending messages, this attack is trivial. The attacker can send out large amounts of data (more than 2GB), observe all 
+the nodes and narrow down those that routed the message. Transmission of a large chunk of data is necessary because 
+inter-router communication is encrypted and streamed, i.e. 1,024 byte data is indistinguishable from 
+2,048 byte data. Mounting this attack is, however, very difficult and one would need to be an Internet Service 
+Provider (ISP) or government entity in order to observe a large chunk of the network.</p>
+<h4><a class="header" href="#intersection-attacks" id="intersection-attacks">Intersection Attacks</a></h4>
+<p>Intersection attacks involve observing the network and node churns over time. In order to narrow down specific targets, 
+when a message is transferred through the network, the peers that are online are intersected. It is theoretically 
+possible to mount this attack if the network is small, but impractical with a larger network.</p>
+<h4><a class="header" href="#denial-of-service-attacks" id="denial-of-service-attacks">Denial of Service Attacks</a></h4>
+<p>Denial of service attacks include the following:</p>
+<h5><a class="header" href="#greedy-user-attack" id="greedy-user-attack">Greedy User Attack</a></h5>
+<p>A greedy user attack occurs when a user is consuming significantly more resources than they are willing to contribute. 
+I2P has strong defenses against these attacks, as users within the network are routers by default and hence contribute 
+to the network by design.</p>
+<h5><a class="header" href="#starvation-attack" id="starvation-attack">Starvation Attack</a></h5>
+<p>A user/node may try to launch a starvation attack by creating a number of bad nodes that do not provide any resources or 
+services to the network, causing existing peers to search through a larger network database, or request more tunnels 
+than should be necessary. An attempt to find useful nodes can be difficult, as there are no differences between them and 
+failing or loaded nodes. However, I2P, by design, maintains a profile of all peers and attempts to identify and ignore 
+poorly performing nodes, making this attack difficult.</p>
+<h5><a class="header" href="#flooding-attack" id="flooding-attack">Flooding Attack</a></h5>
+<p>In a flooding attack, the malicious user sends a large number of messages to the target's inbound tunnels or to the 
+network at large.</p>
+<p>The targeted user can, however:</p>
+<ul>
+<li>detect this by the contents of the message and because the tunnel's 
+tests will fail;</li>
+<li>identify the unresponsive tunnels, ignore them and build new ones;</li>
+<li>choose to throttle the number of messages a tunnel can receive.</li>
+</ul>
+<p>Although I2P has no defences against a network flooding 
+attack, it is incredibly difficult to flood the network.</p>
+<h2><a class="header" href="#tor-network" id="tor-network">Tor Network</a></h2>
+<h3><a class="header" href="#what-is-tor" id="what-is-tor">What is Tor?</a></h3>
+<p>Tor is a free and open-source anonymity/privacy tool, meant to protect a user's location and identity. The name is derived 
+from the acronym for the original software project name, <strong>The Onion Router</strong> ([<a href="https://www.torproject.org/" title="Tor Project: Download for Tor Browser">17</a>], [<a href="https://en.wikipedia.org/wiki/Tor_(anonymity_network)" title="Wikipedia: Tor (Anonymity Network)">18</a>]). This refers to the way 
+in which Tor protects a user's data, by wrapping it in multiple layers of encryption, similar to the layers of an onion.</p>
+<p>Tor uses a unique system that was originally developed by the US Navy to protect government intelligence communications. 
+Naval Research Laboratory released the Tor code under a free license and the Tor Project was founded in 2006. With the 
+help of the Electronic Frontier Foundation (EFF), further research and development of Tor have continued as a Free and 
+Open Source Project. The Tor network service is run by a worldwide community of volunteers and are not controlled by any 
+corporate or government agencies.</p>
+<p>The Tor network service is the heart of the Tor project. The Tor Browser and other tools, such as OnionShare, run on top 
+of or via the Tor network. These tools are meant to make using the Tor network as simple and secure as possible.</p>
+<p>Some tools, such as the Tor Browser Bundle, come as a single downloadable and installable package containing everything 
+needed to use the Tor network and be anonymous.</p>
+<p>Almost any network tool or application that can be configured to use a Socket Secure (SOCKS) proxy can be set up to use 
+the Tor network service.</p>
+<h3><a class="header" href="#how-does-tor-work" id="how-does-tor-work">How does Tor Work?</a></h3>
+<p>Before Tor data enters the Tor network, it is bundled into nested layers of encrypted packets of the same size. These 
+packets are then routed through a random series of volunteer-operated servers called relay nodes. Each 
+time the Tor data passes through one of these relays, a layer of encryption is removed to reveal the location of the 
+next relay. When the data reaches the final relay on its path, the last layer of encryption is removed and the data is 
+sent to its final destination.</p>
+<p>Relay nodes, such as I2P's nodes, are responsible for creating hops through which data is routed before reaching its 
+intended destination on the Internet. They work by incrementally building a circuit of encrypted connections through 
+relays on the network. The circuit is extended one hop at a time. Each relay along the way knows only which relay gave 
+it data and which relay it is giving data to. No individual relay ever knows the complete path that a data packet has 
+taken. Also, no request uses the same path. Later requests are given a new circuit, to keep people from linking a user's 
+earlier actions to new actions. This process is also known as Onion Routing [<a href="https://svn.torproject.org/svn/projects/design-paper/tor-design.html" title="Tor: The Second-Generation Onion Router">14</a>], and is illustrated in Figure 4: </p>
+<p align="center"><a name="fig_eca"> </a><img src="assets/htw3.png" width="625" /></p>
+<p align="center"><b>Figure&nbsp;4: How Tor Works [<a href="https://2019.www.torproject.org/about/overview.html.en" title="How Tor Works">13</a>]</b></p>
+<h3><a class="header" href="#how-does-onion-routing-work" id="how-does-onion-routing-work">How does Onion Routing Work?</a></h3>
+<p>Onion Routing is essentially a distributed overlay network designed to anonymize Transmission Control Protocol (TCP) 
+based applications such as web browsing, secure shell and instant messaging. Clients choose a path through the network 
+and build a circuit in which each node in the path knows its predecessor and successor, but no other nodes in the 
+circuit. Traffic flows down the circuit in fixed-size cells, which are unwrapped by a symmetric key at each node 
+(similar to the layers of an onion) and relayed downstream [<a href="https://svn.torproject.org/svn/projects/design-paper/tor-design.html" title="Tor: The Second-Generation Onion Router">14</a>]. Each relay can only decrypt enough data to learn the 
+location of the previous and next relay. Since each path is randomly generated and the relays do not keep records, it is 
+nearly impossible for your activity to be traced back to you through Tor’s complex network [<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: Overview">21</a>].</p>
+<p>An <code>.onion</code> address points to some resource on the Tor network called a hidden service or an <code>onion</code> service. Onion 
+services are generally only accessible by using the Tor network. As an example, if the DuckDuckGo Search engine onion 
+address (https://3g2upl4pq6kufc4m.onion/) is visited, the request is routed through the Tor network without the client 
+knowing the host IP address of the server. The onion address is practically meaningless without it being routed through 
+and resolved by the Tor network. Traffic between a Tor client and an <code>.onion</code> site should never leave the Tor network, 
+thus making the network traffic safer and more anonymous than publicly hosted sites. An <code>.onion</code> address is a domain 
+name that is not easy to remember or find, as there are no directory services. It generally consists of opaque, 
+non-mnemonic, 16- or 56-character alpha-semi-numerical strings that are generated on a cryptographically hashed public 
+key. The Top Level Domain (TLD) <code>.onion</code> is not a true domain and cannot be found or queried on the Internet, but only 
+inside the Tor network ([<a href="https://3g2upl4pq6kufc4m.onion/" title="DuckDuckGo Search Engine - 
+link will not work unless 
+Tor or Tor Browser is used">19</a>]], [<a href="https://en.wikipedia.org/wiki/.onion" title="Wikipedia: .onion">23</a>], [<a href="https://2019.www.torproject.org/docs/faq#AccessOnionServices" title="Tor Project: How do I access onion services?">24</a>]).</p>
+<p>The designated use of relay nodes in the Tor network gives the network the following important characteristics [<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: How it works">13</a>]: </p>
+<ul>
+<li>The stability of the network is proportional to the number of relay nodes in the network. The fewer the number of 
+relay nodes, the less stable the network becomes. </li>
+<li>The security of the network is also proportional to the number of relay nodes. A network with more active relay 
+nodes is less vulnerable to attacks. </li>
+<li>Finally, the speed of the network is proportional to the number of relay nodes. The more nodes there are, the faster 
+the network becomes.</li>
+</ul>
+<h3><a class="header" href="#types-of-tor-relaysnodes-routing" id="types-of-tor-relaysnodes-routing">Types of Tor Relays/Nodes Routing</a></h3>
+<p>Tor's relay nodes do not all function in the same way. As shown in Figure 5, there are four types of relay nodes: an 
+entry or guard relay node, a middle relay node, an exit relay node and a bridge relay node. </p>
+<p align="center"><a name="fig_eca"> </a><img src="assets/torCircuit.png" width="650" /></p>
+<p align="center"><b>Figure&nbsp;5: Tor Circuit [<a href="https://medium.com/coinmonks/tor-nodes-explained-580808c29e2d" title="The Tor Circuit">14</a>]</b></p>
+<h4><a class="header" href="#guard-or-entry-relay-non-exit-relay-nodes" id="guard-or-entry-relay-non-exit-relay-nodes">Guard or Entry Relay (Non-exit Relay) Nodes</a></h4>
+<p>A guard relay node is the first relay node in the Tor circuit. Each client that wants to connect to the Tor network will 
+first connect to a guard relay node. This means that guard relay nodes can see the IP address of the client attempting 
+to connect. It is worth noting that Tor publishes its guard relay nodes and anyone can see them on websites such as the 
+one in [<a href="https://torstatus.blutmagie.de/" title="Tor Network Status">15</a>]. Since it is possible to see the IP address of a client, there have been cases where attackers have 
+filtered out traffic on the network using circuit fingerprinting techniques such as documented in [<a href="https://people.csail.mit.edu/devadas/pubs/circuit_finger.pdf" title="Circuit Fingerprinting Attacks: Passive Deanonymization of Tor Hidden Service">16</a>].</p>
+<h4><a class="header" href="#middle-relay-nodes" id="middle-relay-nodes">Middle Relay Nodes</a></h4>
+<p>Middle relay nodes cover most parts of the Tor network and act as hops. They consist of relays through which data is 
+passed in encrypted format. No node knows more than its predecessor and descendant. All the available middle relay nodes 
+show themselves to the guard and exit relay nodes so that any may connect to them for transmission. Middle relay nodes 
+can never be exit relay nodes within the network [<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: How it works">13</a>].</p>
+<h4><a class="header" href="#exit-relay-nodes" id="exit-relay-nodes">Exit Relay Nodes</a></h4>
+<p>Exit relay nodes act as a bridge between the Tor network and the Internet. They are Internet public-facing relays, where 
+the last layer of Tor encryption is removed from traffic that can then leave the Tor network as normal traffic that 
+merges into the Internet on its way to its desired destinations on the Internet.</p>
+<p>The services to which Tor clients are connecting (website, chat service, email provider, etc.) will see the IP address 
+of the exit relay instead of the real IP addresses of Tor users. Because of this, exit relay node owners are often 
+subjected to numerous complaints, legal notices and shutdown threats [<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: How it works">13</a>].</p>
+<h4><a class="header" href="#bridge-relay-nodes" id="bridge-relay-nodes">Bridge Relay Nodes</a></h4>
+<p>The design of the Tor network means that the IP addresses of Tor relays are public, as previously mentioned, and as 
+shown in [<a href="https://torstatus.blutmagie.de/" title="Tor Network Status">15</a>]. Because of this, Tor can be blocked by governments or ISPs blacklisting the IP addresses of these 
+public Tor nodes. In response to blocking tactics, a special kind of relay called a Bridge should be used, which is a
+node in the network that is not listed in the public Tor directory. Bridge selection is done when installing the Tor 
+Browser bundle, and makes it less likely to have to deal with complaints or have Internet traffic blocked by ISPs and 
+governments.</p>
+<p>Bridge relay nodes are meant for people who want to run Tor from their homes, have a static IP address or do not have much bandwidth to donate [<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: How it works">13</a>].</p>
+<h3><a class="header" href="#pitfalls-of-using-tor-anonymously---is-it-broken" id="pitfalls-of-using-tor-anonymously---is-it-broken">Pitfalls of Using Tor Anonymously - is it Broken?</a></h3>
+<p>Although traffic between nodes on the Tor network is encrypted, this does not guarantee anonymity for users. There are a 
+number of pitfalls of using Tor anonymously. </p>
+<p>Internet browsers and operating systems, what might seem like a simple request to a URL, could deanonymize somebody.</p>
+<p>Older Tor setups needed a user to know how to configure their proxy settings in their operating system and/or browser, 
+in order to use Tor services. This was very easy to get wrong or incomplete, and some users' information or details 
+could be leaked.</p>
+<p>For example, Domain Name System (DNS) requests intended for the Tor network, i.e. <code>.onion</code> address, might be sent 
+directly to the public DNS server, if the <code>network.proxy.socks_remote_dns</code> was not set to true in FireFox. These DNS 
+requests could be used to track where a user might be surfing and thus deanonymize the user.</p>
+<p>Tor is not broken if Tor services are correctly set up or if the Tor Browser is used correctly. It is very easy to do 
+something that would deanonymize a user, such as use an older browser or tool that is not configured to proxy all 
+traffic via Tor network services.</p>
+<p>Another example is if the user logs into a remote service such as Facebook or Gmail, their anonymity at this site is 
+lost. What many people do not know is that other sites use tracking techniques, such as cookies, which could deanonymize 
+the user on other sites too. Further information about online tracking can be found in [<a href="https://robertheaton.com/2017/11/20/how-does-online-tracking-actually-work/" title="Robert Heaton: How does online 
+tracking actually work?">25</a>]</p>
+<p>However, recent releases of the Tor Browser notify users of updates and also work toward keeping each site isolated 
+in their own Tab or session, addressing old and possibly insecure releases and user tracking via cookies.</p>
+<p>Tor some has weaknesses, e.g. if a user is the only person using Tor on their home, office or school network, 
+they could be deanonymized. Another is that a site knows when it has been accessed using Tor. These shortcomings 
+might not be directly an issue with Tor or its encryption, but an expectation of a novice user, using Tor or 
+one of the Tor tools and services.</p>
+<p>For an interesting talk about some of the Tor attacks, refer to [<a href="https://www.youtube.com/watch?v=eQ2OZKitRwc" title="YouTube: DEF CON 22 - Adrian Crenshaw - 
+Dropping Docs on Darknets: 
+How People Got Caught">26</a>]. The following are two real instances where 
+people using Tor were discovered:</p>
+<ul>
+<li>On 16 December 2013, Harvard University received a bomb threat that was tracked down to Eldo Kim, who was one of the 
+few people using Tor on the campus network when the email had been sent. After questioning, Kim admitted he had sent 
+the hoax bomb threat, as he wanted to get out of an exam [<a href="https://arstechnica.com/security/2013/12/use-of-tor-helped-fbi-finger-bomb-hoax-suspect/" title="Ars Technica: Use of Tor helped 
+FBI ID suspect in bomb hoax case">27</a>].</li>
+<li>Hector Xavier Monsegur (Sabu) normally used Tor for connecting to IRC, but was caught not using it once, and the FBI 
+found his home IP. After being caught, he started to collaborate with the FBI. While Monsegur was chatting to Jeremy 
+Hammond on IRC, Hammond let slip details of where he had been arrested before and other groups with which he had been 
+involved. This helped reduce the number of suspects and the FBI was able to get a court order to monitor Internet 
+access and to correlate when Hammond was using Tor [<a href="https://arstechnica.com/tech-policy/2012/03/stakeout-how-the-fbi-tracked-and-busted-a-chicago-anon/" title="Ars Technica: Stakeout: How the 
+FBI tracked and busted a Chicago Anon">28</a>].</li>
+</ul>
+<h3><a class="header" href="#advantages-and-disadvantages" id="advantages-and-disadvantages">Advantages and Disadvantages</a></h3>
+<p>Advantages of Tor:</p>
+<ul>
+<li>It is free and open source.</li>
+<li>It supports Linux, OSX and Windows.</li>
+<li>It is easy to install for supported operating systems.</li>
+<li>It is not controlled by corporate or government agencies.</li>
+</ul>
+<p>Disadvantages of Tor:</p>
+<ul>
+<li>It can be slow.</li>
+<li>It does not necessarily encrypt data leaving <code>Exit Node</code>. This data can be intercepted.</li>
+<li>It does not stop somebody from deanonymizing themselves.</li>
+<li>It does not stop interceptors from knowing you are using Tor.</li>
+<li>Its network is not user-friendly, due to its secure and hidden nature.</li>
+<li>Its nodes (relay/bridge) are run by volunteers, who can sometimes be unreliable.</li>
+</ul>
+<h2><a class="header" href="#differences-between-i2p-and-tor" id="differences-between-i2p-and-tor">Differences between I2P and Tor</a></h2>
+<!-- <div align="center"><b>Table 1: Differences between I2P and Tor</b></div> -->
+<table><thead><tr><th>I2P</th><th>Tor</th></tr></thead><tbody>
+<tr><td>Fully peer to peer: self-organizing nodes</td><td>Fully peer to peer: volunteer relay nodes</td></tr>
+<tr><td>Queries NetDB to find destination’s inbound tunnel gateway</td><td>Relays data to the closest relay</td></tr>
+<tr><td>Limited to no exit nodes; internal communication only</td><td>Designed and optimized for exit traffic, with a large number of exit nodes</td></tr>
+<tr><td>Designed primarily for file sharing</td><td>Designed for anonymous Internet access</td></tr>
+<tr><td>Unidirectional tunnels</td><td>Rendezvous point</td></tr>
+<tr><td>Significantly smaller user base</td><td>Generally bigger user base</td></tr>
+</tbody></table>
+<p><strong>Source:</strong> ([<a href="https://pdfs.semanticscholar.org/aa81/79d3da24b643a4d004c44ebe543000295d51.pdf" title="I2P Usability vs. 
+Tor Usability - 
+A Bandwidth and Latency 
+Comparison">9</a>], [<a href="https://geti2p.net/en/comparison/tor" title="I2P Compared to Tor">10</a>], [<a href="http://www.geti2p.org/how_networkcomparisons.html" title="I2P Compared to Tor 
+and Freenet">11</a>]).</p>
+<h2><a class="header" href="#conclusion" id="conclusion">Conclusion</a></h2>
+<p>In summary, Tor and I2P are two network types that anonymize and encrypt data transferred within them. Each network is 
+uniquely designed for a respective function. The I2P network is designed for moving data in a peer-to-peer format, 
+whereas the Tor network is designed for accessing the Internet privately. </p>
+<p>Regarding Tor, the following should be kept in mind:</p>
+<ul>
+<li>Anonymity is not confidentiality; Tor by itself does not guarantee anonymity. Total anonymity has many obstacles, 
+not only technology related, but also the human component.</li>
+<li>Tor is not a Virtual Private Network (VPN).</li>
+<li>Tor data leaving the Tor network can be intercepted.</li>
+</ul>
+<p>Extensive research exists and continues to find ways to improve the security of these networks in their respective 
+operational designs. This research becomes especially important when control of a network may mean monetary loss, loss 
+of privacy or denial of service.</p>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://blokt.com/guides/what-is-i2p-vs-tor-browser#How_does_I2P_work" title="What Is I2P &amp; 
+How Does It Compare vs. 
+Tor Browser?">1</a>] B. Mann, &quot;What Is I2P &amp; How Does It Compare vs. Tor Browser?&quot; [Online.]
+Available: <a href="https://blokt.com/guides/what-is-i2p-vs-tor-browser#How_does_I2P_work">https://blokt.com/guides/what-is-i2p-vs-tor-browser#How_does_I2P_work</a>. Date accessed: 2019‑06‑18.</p>
+<p>[<a href="https://geti2p.net/en/docs/api/i2ptunnel" title="I2PTunnel">2</a>]: I2P: &quot;I2PTunnel&quot; [online]. Available: <a href="https://geti2p.net/en/docs/api/i2ptunnel">https://geti2p.net/en/docs/api/i2ptunnel</a>. Date accessed: 2019‑06‑18.</p>
+<p>[<a href="https://sites.cs.ucsb.edu/%7Echris/research/doc/raid13_i2p.pdf" title="Practical Attacks Against
+the I2P Network">3</a>]: C. Egger, J. Schlumberger, C. Kruegel and G. Vigna, &quot;Practical Attacks Against the I2P Network&quot; - Paper [online]. 
+Available: <a href="https://sites.cs.ucsb.edu/%7Echris/research/doc/raid13_i2p.pdf">https://sites.cs.ucsb.edu/~chris/research/doc/raid13_i2p.pdf</a>. Date accessed: 2019‑06‑18.</p>
+<p>[<a href="https://censorbib.nymity.ch/pdf/Hoang2018a.pdf" title="An Empirical Study 
+of the I2P Anonymity 
+Network and its
+Censorship Resistance">4</a>] N. P. Hoang, P. Kintis, M. Antonakakis and M. Polychronakis, &quot;An Empirical Study of the I2P Anonymity Network and 
+its Censorship Resistance&quot; [online]. Available: <a href="https://censorbib.nymity.ch/pdf/Hoang2018a.pdf">https://censorbib.nymity.ch/pdf/Hoang2018a.pdf</a>. Date accessed: 
+2019‑06‑18.</p>
+<p>[<a href="https://www.delaat.net/rp/2017-2018/p97/presentation.pdf" title="Mitigating Sybil Attacks 
+on the I2P Network 
+Using Blockchain">5</a>] K. Alachkar and D. Gaastra, &quot;Mitigating Sybil Attacks on the I2P Network Using Blockchain&quot; - Presentation [online]. 
+Available: <a href="https://www.delaat.net/rp/2017-2018/p97/presentation.pdf">https://www.delaat.net/rp/2017-2018/p97/presentation.pdf</a>. Date accessed: 2019‑06‑20.</p>
+<p>[<a href="https://delaat.net/rp/2017-2018/p97/report.pdf" title="Blockchain-based Sybil 
+Attack Mitigation: 
+A Case Study of the 
+I2P Network">6</a>] K. Alachkar and D. Gaastra, &quot;Blockchain-based Sybil Attack Mitigation: A Case Study of the I2P Network&quot; - Report 
+[online]. Available: <a href="https://delaat.net/rp/2017-2018/p97/report.pdf">https://delaat.net/rp/2017-2018/p97/report.pdf</a>. Date accessed: 2019‑06‑20.</p>
+<p>[<a href="https://geti2p.net/en/docs/how/network-database" title="The Network Database">7</a>] I2P: &quot;The Network Database&quot; [online]. Available: <a href="https://geti2p.net/en/docs/how/network-database">https://geti2p.net/en/docs/how/network-database</a>. Date accessed: 
+2019‑06‑20.</p>
+<p>[<a href="http://ijsetr.org/wp-content/uploads/2015/05/IJSETR-VOL-4-ISSUE-5-1515-1518.pdf" title="Defending Eclipse Attack 
+in I2P using Structured
+Overlay Network">8</a>] H. Vhora and G. Khilari, &quot;Defending Eclipse Attack in I2P using Structured
+Overlay Network&quot; [online]. Available: <a href="http://ijsetr.org/wp-content/uploads/2015/05/IJSETR-VOL-4-ISSUE-5-1515-1518.pdf">http://ijsetr.org/wp-content/uploads/2015/05/IJSETR-VOL-4-ISSUE-5-1515-1518.pdf</a>. 
+Date accessed: 2019‑06‑20.</p>
+<p>[<a href="https://pdfs.semanticscholar.org/aa81/79d3da24b643a4d004c44ebe543000295d51.pdf" title="I2P Usability vs. 
+Tor Usability - 
+A Bandwidth and Latency 
+Comparison">9</a>] M. Ehlert, &quot;I2P Usability vs. Tor Usability - A Bandwidth and Latency Comparison&quot; [online]. 
+Available: <a href="https://pdfs.semanticscholar.org/aa81/79d3da24b643a4d004c44ebe543000295d51.pdf">https://pdfs.semanticscholar.org/aa81/79d3da24b643a4d004c44ebe543000295d51.pdf</a>. Date accessed: 2019‑06‑20.</p>
+<p>[<a href="https://geti2p.net/en/comparison/tor" title="I2P Compared to Tor">10</a>] I2P: &quot;I2P Compared to Tor&quot; [online]. Available: <a href="https://geti2p.net/en/comparison/tor">https://geti2p.net/en/comparison/tor</a>. Date accessed: 2019‑06‑20.</p>
+<p>[<a href="http://www.geti2p.org/how_networkcomparisons.html" title="I2P Compared to Tor 
+and Freenet">11</a>] I2P: &quot;I2P Compared to Tor and Freenet&quot; [online]. Available: <a href="http://www.geti2p.org/how_networkcomparisons.html">http://www.geti2p.org/how_networkcomparisons.html</a>. 
+Date accessed: 2019‑06‑20.</p>
+<p>[<a href="https://www.delaat.net/rp/2018-2019/p63/report.pdf" title="Invisible Internet Project - MSc Security and Network Engineering Research Project">12</a>] T. de Boer and V. Breider: &quot;Invisible Internet Project - MSc Security and Network Engineering Research Project.&quot; [online].
+Available: <a href="https://www.delaat.net/rp/2018-2019/p63/report.pdf">https://www.delaat.net/rp/2018-2019/p63/report.pdf</a> Date accessed: 2019‑07‑10.</p>
+<p>[<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: How it works">13</a>] Tor, &quot;Tor Project: How it works&quot; [online].
+Available: <a href="https://2019.www.torproject.org/about/overview.html.en">https://2019.www.torproject.org/about/overview.html.en</a> Date accessed: 2019‑08‑05.</p>
+<p>[<a href="https://svn.torproject.org/svn/projects/design-paper/tor-design.html" title="Tor: The Second-Generation Onion Router">14</a>] R. Dingledine, N Mathewson and P. Syverson, &quot;Tor: The Second-Generation Onion Router&quot; [online]
+Available: <a href="https://svn.torproject.org/svn/projects/design-paper/tor-design.html">https://svn.torproject.org/svn/projects/design-paper/tor-design.html</a> Date accessed: 2019‑08‑05.</p>
+<p>[<a href="https://torstatus.blutmagie.de/" title="Tor Network Status">15</a>] Tor, &quot;Tor Network Status&quot; [online]<br />
+Available: <a href="https://torstatus.blutmagie.de/">https://torstatus.blutmagie.de/</a> Date accessed: 2019‑08‑05.</p>
+<p>[<a href="https://people.csail.mit.edu/devadas/pubs/circuit_finger.pdf" title="Circuit Fingerprinting Attacks: Passive Deanonymization of Tor Hidden Service">16</a>] A. Kwon, M. AlSabah, D. Lazar, M. Dacier and S. Devadas, &quot;Circuit Fingerprinting Attacks: Passive Deanonymization of Tor Hidden Service&quot; [online]
+Available: <a href="https://people.csail.mit.edu/devadas/pubs/circuit_finger.pdf">https://people.csail.mit.edu/devadas/pubs/circuit_finger.pdf</a> Date accessed: 2019‑08‑05.</p>
+<p>[<a href="https://www.torproject.org/" title="Tor Project: Download for Tor Browser">17</a>] Tor Project: &quot;Download for Tor Browser&quot; [online]. Available: <a href="https://www.torproject.org/">https://www.torproject.org/</a>. Date accessed: 2019‑05‑16.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Tor_(anonymity_network)" title="Wikipedia: Tor (Anonymity Network)">18</a>] Wikipedia: &quot;Tor (Anonymity Network)&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Tor_(anonymity_network)">https://en.wikipedia.org/wiki/Tor_(anonymity_network)</a>. 
+Date accessed: 2019‑05‑16.</p>
+<p>[<a href="https://3g2upl4pq6kufc4m.onion/" title="DuckDuckGo Search Engine - 
+link will not work unless 
+Tor or Tor Browser is used">19</a>] DuckDuckGo Search Engine inside Tor [online]. Available: <a href="https://3g2upl4pq6kufc4m.onion/">https://3g2upl4pq6kufc4m.onion/</a>. <strong>Note:</strong> This link 
+will not work unless Tor or the Tor Browser is used. Date accessed: 2019‑05‑16.</p>
+<p>[<a href="https://check.torproject.org/" title="Tor Project: Check - 
+link will help user identify 
+Tor or Tor Browser is been used">20</a>] Tor Project: &quot;Check&quot; [online]. Available: <a href="https://check.torproject.org/">https://check.torproject.org/</a>. <strong>Note:</strong> This link will help the user 
+identify if Tor or the Tor Browser is been used. Date accessed: 2019‑05‑16</p>
+<p>[<a href="https://2019.www.torproject.org/about/overview.html.en" title="Tor Project: Overview">21</a>] Tor Project: &quot;Overview&quot; [online]. Available: <a href="https://2019.www.torproject.org/about/overview.html.en">https://2019.www.torproject.org/about/overview.html.en</a>. 
+Date accessed: 2019‑05‑16.</p>
+<p>[<a href="https://trac.torproject.org/projects/tor/wiki/TorRelayGuide" title="Tor Project: The Tor Relay Guide">22</a>] Tor Project: &quot;The Tor Relay Guide&quot; [online]. Available: 
+<a href="https://trac.torproject.org/projects/tor/wiki/TorRelayGuide">https://trac.torproject.org/projects/tor/wiki/TorRelayGuide</a>. Date accessed: 2019‑08‑14.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/.onion" title="Wikipedia: .onion">23</a>] Wikipedia: &quot;.onion&quot; [online]. Available: 
+<a href="https://en.wikipedia.org/wiki/.onion">https://en.wikipedia.org/wiki/.onion</a>. Date accessed: 2019‑08‑22.</p>
+<p>[<a href="https://2019.www.torproject.org/docs/faq#AccessOnionServices" title="Tor Project: How do I access onion services?">24</a>] Tor Project: &quot;How do I access onion services?&quot; [online]. Available: 
+<a href="https://2019.www.torproject.org/docs/faq#AccessOnionServices">https://2019.www.torproject.org/docs/faq#AccessOnionServices</a>. Date accessed: 2019‑08‑22.</p>
+<p>[<a href="https://robertheaton.com/2017/11/20/how-does-online-tracking-actually-work/" title="Robert Heaton: How does online 
+tracking actually work?">25</a>] R. Heaton: &quot;How Does Online Tracking Actually Work?&quot; [online]. Available: 
+<a href="https://robertheaton.com/2017/11/20/how-does-online-tracking-actually-work/">https://robertheaton.com/2017/11/20/how-does-online-tracking-actually-work/</a>. Date accessed: 2019‑07‑25.</p>
+<p>[<a href="https://www.youtube.com/watch?v=eQ2OZKitRwc" title="YouTube: DEF CON 22 - Adrian Crenshaw - 
+Dropping Docs on Darknets: 
+How People Got Caught">26</a>] YouTube: &quot;DEF CON 22 - Adrian Crenshaw - Dropping Docs on Darknets: How People Got Caught&quot; [online]. Available: 
+<a href="https://www.youtube.com/watch?v=eQ2OZKitRwc">https://www.youtube.com/watch?v=eQ2OZKitRwc</a>. Date accessed: 2019‑06‑18.</p>
+<p>[<a href="https://arstechnica.com/security/2013/12/use-of-tor-helped-fbi-finger-bomb-hoax-suspect/" title="Ars Technica: Use of Tor helped 
+FBI ID suspect in bomb hoax case">27</a>] Ars Technica: &quot;Use of Tor helped FBI ID suspect in bomb hoax case&quot; [online]. Available: 
+<a href="https://arstechnica.com/security/2013/12/use-of-tor-helped-fbi-finger-bomb-hoax-suspect/">https://arstechnica.com/security/2013/12/use-of-tor-helped-fbi-finger-bomb-hoax-suspect/</a>. 
+Date accessed: 2019‑07‑11.</p>
+<p>[<a href="https://arstechnica.com/tech-policy/2012/03/stakeout-how-the-fbi-tracked-and-busted-a-chicago-anon/" title="Ars Technica: Stakeout: How the 
+FBI tracked and busted a Chicago Anon">28</a>] Ars Technica: &quot;Stakeout: How the FBI tracked and busted a Chicago Anon&quot; [online]. Available: 
+<a href="https://arstechnica.com/tech-policy/2012/03/stakeout-how-the-fbi-tracked-and-busted-a-chicago-anon/">https://arstechnica.com/tech-policy/2012/03/stakeout-how-the-fbi-tracked-and-busted-a-chicago-anon/</a>. 
+Date accessed: 2019‑07‑11.</p>
+<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
+<h3><a class="header" href="#appendix-a-tor-further-investigation" id="appendix-a-tor-further-investigation">Appendix A: Tor Further Investigation</a></h3>
+<p>Onion Services - Tor services that don’t leave the Tor network: <a href="https://2019.www.torproject.org/docs/onion-services.html.en">https://2019.www.torproject.org/docs/onion-services.html.en</a>.</p>
+<h3><a class="header" href="#appendix-b-tor-links-of-interest" id="appendix-b-tor-links-of-interest">Appendix B: Tor Links of Interest</a></h3>
+<ul>
+<li><a href="https://www.le-vpn.com/what-is-tor-browser/">What is Tor Browser?</a></li>
+<li><a href="https://www.vpnmentor.com/blog/tor-browser-work-relate-using-vpn/">The Ultimate Guide to Tor Browser (with Important Tips) 2019</a></li>
+<li><a href="https://metrics.torproject.org">Metrics of the Tor Project</a></li>
+<li><a href="https://onionshare.org">Sharing files using Tor</a></li>
+<li><a href="https://blog.torproject.org/new-release-onionshare-2">Blog Post about OnionShare2 and its release</a></li>
+<li><a href="https://2019.www.torproject.org/projects/projects.html.en">List of Tor Projects</a></li>
+<li><a href="https://github.com/isislovecruft/talks/blob/master/2016-03-21-raboud/slides/2016-03-21-raboud-netsec-anonymity-handout.pdf">Isis Lovecruft's PDF covering Privacy and Anonymity</a></li>
+</ul>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/mhlangagc">https://github.com/mhlangagc</a> and <a href="https://github.com/leet4tari">https://github.com/leet4tari</a></li>
+<li><a href="https://github.com/neonknight64">https://github.com/neonknight64</a></li>
+<li><a href="https://github.com/SWvheerden">https://github.com/SWvheerden</a></li>
+<li><a href="https://github.com/sdbondi">https://github.com/sdbondi</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../protocols/rgb-introduction/sources/PITCHME.link.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../protocols/dht/MainReport.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../protocols/rgb-introduction/sources/PITCHME.link.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../protocols/dht/MainReport.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

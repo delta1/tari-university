@@ -1,0 +1,696 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Probabilistic Attack Vector Analysis Building Blocks - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Probabilistic Attack Vector Analysis Building Blocks - Tari Labs University" />
+        <meta name="twitter:site" content="Probabilistic Attack Vector Analysis Building Blocks - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Probabilistic Attack Vector Analysis Building Blocks - Tari Labs University" />
+        <meta property="og:site_name" content="Probabilistic Attack Vector Analysis Building Blocks - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html" class="active"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <style>
+        div.wrap_bad {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #3D85C6;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+<style>
+        div.wrap_good {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #6AA84F;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+<style>
+        div.highlight {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #EA9999;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+<h1><a class="header" href="#probabilistic-attack-vector-analysis-building-blocks" id="probabilistic-attack-vector-analysis-building-blocks">Probabilistic Attack Vector Analysis Building Blocks</a></h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#types-of-distribution">Types of Distribution</a> 
+<ul>
+<li><a href="#continuous-distribution">Continuous Distribution</a></li>
+<li><a href="#discrete-distribution">Discrete Distribution</a>
+<ul>
+<li><a href="#hypergeometric-distribution">Hypergeometric Distribution</a></li>
+<li><a href="#binomial-distribution">Binomial Distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#monte-carlo-simulations">Monte Carlo Simulations</a> 
+<ul>
+<li><a href="#monte-carlo-fallacy">Monte Carlo Fallacy</a> </li>
+<li><a href="#crude-monte-carlo">Crude Monte Carlo</a></li>
+<li><a href="#law-of-large-numbers">Law of Large Numbers</a></li>
+</ul>
+</li>
+<li><a href="#methodology">Methodology</a>
+<ul>
+<li><a href="#notation-used">Notation Used</a></li>
+<li><a href="#crude-monte-carlo-simulation">Crude Monte Carlo Simulation</a>
+<ul>
+<li><a href="#programming-the-simulation">Programming the Simulation</a></li>
+<li><a href="#use-of-random-numbers">Use of Random Numbers</a></li>
+<li><a href="#computing-statistics">Computing Statistics</a>
+<ul>
+<li><a href="#mode-value">Mode Value</a></li>
+<li><a href="#median-value">Median Value</a></li>
+<li><a href="#mean-value">Mean Value</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#statistical-calculation">Statistical Calculation</a>
+<ul>
+<li><a href="#binomial-distribution-formula">Binomial Distribution Formula</a></li>
+<li><a href="#hypergeometric-distribution-formula">Hypergeometric Distribution Formula</a></li>
+<li><a href="#summation-formula">Summation Formula</a> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+<li><a href="#appendices">Appendices</a>
+<ul>
+<li><a href="#appendix-a-definitions-of-terms">Appendix A: Definitions of Terms</a></li>
+</ul>
+</li>
+<li><a href="#contributors">Contributors</a> </li>
+</ul>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>This report discusses building blocks to aid in answering questions regarding the Tari Network. In order to perform 
+analysis and draw accurate conclusions, a set of skills and programs needs to be built and honed. Among these, is an 
+understanding of statistics. The report focuses on types of distribution and the deriving of their formulae, and discusses the simulations, specifically the Monte Carlo Simulation. </p>
+<h2><a class="header" href="#types-of-distribution" id="types-of-distribution">Types of Distribution</a></h2>
+<p>There are a few high-level types of distribution, including continuous, discrete, mixed continuous/discrete, 
+joint and non-numeric distribution.</p>
+<p>When determining the probability of an attacker controlling the majority of nodes in the network, the various 
+types of probability distribution of the specific circumstances and variables of the 
+problem need to be analyzed. There are two categories of probability distribution: finite and infinite support [<a href="https://en.wikipedia.org/wiki/List_of_probability_distributions" title="List of Probability Distributions">1</a>]. 
+All probability distributions can be classified either as discrete or continuous probability 
+distribution, 
+depending on whether they define probabilities associated with discrete or continuous variables [<a href="https://stattrek.com/probability-distributions/discrete-continuous.aspx" title="Probability Distributions">14</a>]. </p>
+<h3><a class="header" href="#continuous-distribution" id="continuous-distribution">Continuous Distribution</a></h3>
+<p>If a variable can take on any value between two specified values, it is called a continuous variable, and its probability 
+distribution is called a discrete probability distribution [<a href="https://stattrek.com/probability-distributions/discrete-continuous.aspx" title="Probability Distributions">14</a>].</p>
+<p>Probabilities of continuous random variables (<em>X</em>) are defined as the area under the curve of their Probability Density 
+Function<sup><a href="#pdf" title=" A statistical expression that 
+defines a...">def</a></sup> (PDF). Therefore only ranges of values can have a nonzero probability. The probability that 
+a continuous random variable equals some value is always zero [<a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/" title="Continuous and Discrete Probability Distributions">11</a>]. The following plot shows a typical continuous distribution
+below (although specifically for a normal distribution).</p>
+<p align="center"><img src="assets/distribution_plot_normal_weight_shade_middle.png" width="700" /></p>
+### Discrete Distribution 
+<p>A discrete variable, as opposed to a continuous variable, can only take on a finite number of values. If a random 
+variable is a discrete variable, its probability distribution is called a discrete probability distribution [<a href="https://stattrek.com/probability-distributions/discrete-continuous.aspx" title="Probability Distributions">14</a>]. A 
+discrete 
+distribution thus describes the probability of occurrence of each value of a discrete random variable [<a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/" title="Continuous and Discrete Probability Distributions">11</a>].</p>
+<p>With a discrete probability distribution, each possible value of the discrete random variable can be associated with a 
+nonzero probability. Thus, the presentation of a discrete probability distribution is often in tabular form [<a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/" title="Continuous and Discrete Probability Distributions">11</a>], or a 
+bar graph.</p>
+<p align="center"><img src="assets/distribution_plot_poisson_shade_right_tail.png" width="700" /></p>
+Here's an overview of the various distributions and how they are related [[15]]:
+<p align="center"><img src="assets/relationship_map.png" width="700" /></p>
+Examples of discrete distribution with **finite** support <sup>[def][discrete_distribution_finite~]</sup>  include the 
+following: 
+<table><thead><tr><th>Type of Finite Discrete Distribution</th><th>Description   [<a href="https://en.wikipedia.org/wiki/List_of_probability_distributions" title="List of Probability Distributions">1</a>]</th></tr></thead><tbody>
+<tr><td>Bernoulli Distribution</td><td>Takes value $1$ with probability $p$ and value $0$ with probability $q=1-p$.</td></tr>
+<tr><td>Rademacher Distribution</td><td>Takes value $1$ with probability $\frac{1}{2}$ and value $-1$ with probability $\frac{1}{2}$.</td></tr>
+<tr><td>Binomial Distribution</td><td>The number of successes in a series of independent Yes/No experiments, all with the same probability of success.</td></tr>
+<tr><td>Beta-Binomial Distribution</td><td>The number of successes in a series of independent Yes/No experiments with heterogeneity in the success probability.</td></tr>
+<tr><td>Degenerate Distribution</td><td>At $X0$, where $X$ is certain to take the value $X0$. This does not look random, but it satisfies the definition of a random variable. This is useful because it puts deterministic variables and random variables in the same formalism.</td></tr>
+<tr><td>Discrete Uniform Distribution</td><td>Where all elements of a finite set are equally likely. This is the theoretical distribution model for a balanced coin, an unbiased die, a casino roulette, or the first card of a well-shuffled deck.</td></tr>
+<tr><td>Hypergeometric Distribution</td><td>The number of successes in the first $m$ of a series of $n$ consecutive Yes/No experiments, if the total number of successes is known. This distribution arises where there is no replacement.</td></tr>
+<tr><td>Poisson Binomial  Distribution</td><td>The number of successes in a series of independent Yes/No experiments with different success probabilities.</td></tr>
+</tbody></table>
+<p>Examples of discrete distribution with <strong>infinite</strong> support <sup><a href="#discrete_distribution_infinite" title="A discrete distribution with infinite... ">def</a></sup>  include the following: </p>
+<table><thead><tr><th>Type of Infinite Discrete Distribution</th><th>Description [<a href="https://en.wikipedia.org/wiki/List_of_probability_distributions" title="List of Probability Distributions">1</a>]</th></tr></thead><tbody>
+<tr><td>Boltzmann Distribution</td><td>A discrete distribution important in statistical physics, which describes the probabilities of the various discrete energy levels of a system in thermal equilibrium. It has a continuous analog.</td></tr>
+<tr><td>Geometric Distribution</td><td>A discrete distribution that describes the number of attempts needed to get the first success in a series of independent Bernoulli trials or, alternatively, only the number of losses before the first success (i.e. one less).</td></tr>
+<tr><td>Negative Binomial/Pascal Distribution</td><td>A generalization of the geometric distribution of the $nth$ success.</td></tr>
+<tr><td>Poisson Distribution</td><td>A very large number of individually unlikely events that happen at a specific time interval. Related to this distribution are several other distributions: the displaced Poisson, the hyper-Poisson, the general Poisson binomial and the Poisson-type distributions.</td></tr>
+<tr><td>Skellam Distribution</td><td>The distribution of the difference between two independent Poisson-distributed random variables.</td></tr>
+<tr><td>Zeta Distribution</td><td>Has uses in applied statistics and statistical mechanics, and perhaps may be of interest to number theorists. It is the Zipf distribution for an infinite number of elements.</td></tr>
+<tr><td>Zipf's Law</td><td>A discrete power-law distribution, the most famous example of which is the description of the frequency of words in the English language.</td></tr>
+<tr><td>Zipf-Mandelbrot Law</td><td>A discrete power-law distribution, which is a generalization of the Zipf distribution.</td></tr>
+</tbody></table>
+<h4><a class="header" href="#hypergeometric-distribution" id="hypergeometric-distribution">Hypergeometric Distribution</a></h4>
+<p>A hypergeometric distribution is a discrete probability distribution that describes the probability of $T$ successes 
+(random 
+draws for which the object drawn has a specified feature) in $n$ draws, <em>without</em> replacement, from a finite population 
+of size $N$ that contains exactly $m$ objects with that feature, wherein each draw is either a success or a failure [<a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution" title="Hypergeometric Distribution">3</a>]:</p>
+<ul>
+<li>A sample of size $n$ is randomly selected without replacement from a population of $N$ items.</li>
+<li>In the population, $T$ items can be classified as successes and $N-T$ items can be classified as failures.</li>
+<li>There are $m$ featuring objects. </li>
+</ul>
+<p>Given $m, N, n$ and $T$, the hypergeometric probability can be computed based on the following example: </p>
+<p><strong>Example 1:</strong> Suppose a population consists of $N$ items, $T$ of which are successes; and a random sample drawn from that 
+population consists of $n$ items. Then the hypergeometric probability is [<a href="https://stattrek.com/probability-distributions/hypergeometric.aspx" title="Hypergeometric Distribution">10</a>]:
+$$
+h(m; N, n, T)= {{T}\choose{m}}{{N-T}\choose{n-m}}{{N}\choose{n}}
+$$
+The hypergeometric distribution has the following properties:</p>
+<ul>
+<li>The mean of the distribution is equal to $n\cdot\frac{T}{N}$</li>
+<li>The variance is $ n\cdot T \cdot(N-T)\cdot\frac{N-n}{N^2\cdot(N-1)}$</li>
+</ul>
+<h4><a class="header" href="#binomial-distribution" id="binomial-distribution">Binomial Distribution</a></h4>
+<p>The binomial distribution with parameters $n$ and $p$ is the discrete probability distribution of the number of 
+successes in a sequence of $n$ independent experiments, each asking a Yes/No question, and each with its own 
+Boolean-valued outcome: success/yes/true/one (with probability $p$) or failure/no/false/zero (with probability $q=1- p$). 
+A single success/failure experiment is also called a Bernoulli trial or Bernoulli experiment, and a sequence of outcomes 
+is called a Bernoulli process. For a single trial, i.e. $n=1$, the binomial distribution is a Bernoulli distribution. 
+The binomial distribution is the basis for the popular binomial test of statistical significance. </p>
+<p>The binomial distribution is frequently used to model the number of successes in a sample of size $n$ drawn with 
+replacement from a population of size $N$. If the sampling is carried out without replacement, the draws are not 
+independent, and so the resulting distribution is hypergeometric, not binomial. However, for $n$ much larger than 
+$n$, the binomial distribution remains a good approximation and is widely used. </p>
+<p>Thus, in a binomial distribution, an object is selected with replacement [<a href="https://en.wikipedia.org/wiki/Binomial_distribution" title="Binomial Distribution">4</a>]. A binomial experiment requires that the 
+probability of success be constant on every trial. </p>
+<p><strong>Example 2:</strong> You have an urn containing $10$ marbles: $5$ red and $5$ green. You randomly select $2$ marbles with 
+replacement, and the probability of success would not change. It would be $\frac{5}{10}$ on every trial [<a href="https://stattrek.com/probability-distributions/hypergeometric.aspx" title="Hypergeometric Distribution">10</a>]. </p>
+<h2><a class="header" href="#monte-carlo-simulations" id="monte-carlo-simulations">Monte Carlo Simulations</a></h2>
+<p>The Monte Carlo approach is a computer-based analytical method that was developed in the 1940s as part of the atomic 
+program, by a scientist at the Los Alamos National Laboratory, who used it to 
+model the random diffusion of neutrons. It was named after the city in Monaco, which has many casinos. </p>
+<p>Monte Carlo analysis uses statistical tools to model a real-life system or process mathematically. It then estimates 
+the probability of obtaining a successful outcome. The statistical distribution of the process to be modeled 
+must be determined before the Monte Carlo simulation can be applied. </p>
+<p>Monte Carlo methods are widely used, heuristic techniques that can solve a variety of common problems, including 
+optimization and numerical integration problems. These algorithms work by cleverly sampling from distributions to 
+simulate the workings of a system. Applications range from solving problems in theoretical physics to predicting trends 
+in financial investments [<a href="https://towardsdatascience.com/monte-carlo-simulations-with-python-part-1-f5627b7d60b0" title="Monte Carlo Simulations with Python (Part 1)">6</a>]. </p>
+<h3><a class="header" href="#monte-carlo-fallacy" id="monte-carlo-fallacy">Monte Carlo Fallacy</a></h3>
+<p>The Monte Carlo Fallacy or gambler's fallacy is the inaccurate belief that if something happens more frequently than 
+normal during a given period, it will happen less often in the future. In situations where the outcome being observed is 
+truly random and consists of independent trials of a random process, this belief is false. The fallacy can arise in many 
+situations, but is most strongly associated with gambling, where it is common among players [<a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy" title="Gambler's Fallacy">13</a>]. </p>
+<p>The gambler's fallacy can be illustrated by considering the repeated toss of a fair coin. The outcomes in different 
+tosses are statistically independent, and the probability of getting heads on a single toss is $\frac{1}{2}$. The 
+probability of getting $2$ heads in $2$ tosses is $\frac{1}{4}$, and the probability of getting $3$ heads in $3$ 
+tosses is $\frac{1}{8}$. If, after tossing four heads in a row, the next coin toss also came up heads, it would complete 
+a run of five successive heads. Since the probability of a sequence of five consecutive heads is $\frac{1}{32}$, a 
+person might believe that the next flip would more likely come up tails rather than heads again. This is incorrect 
+and is an example of the gambler's fallacy. The events &quot;five heads in a row&quot; and &quot;first $4$ heads, then a tails&quot; 
+are equally likely, each having a probability of $\frac{1}{32}$. Since the first four tosses turn up heads, the probability 
+that the next toss is a head is $\frac{1}{2}$ . While a run of five heads has a probability of $\frac{1}{32} = 0.03125$, 
+the misunderstanding lies in not realizing that this is the case only before the first coin is tossed. After the first 
+four tosses, the results are no longer unknown, so the probability at that point is equal to $one$. The reasoning that 
+it is more likely that a fifth toss is more likely to be tails because the previous four tosses were heads, with a run 
+of luck in the past influencing the odds in the future, forms the basis of the fallacy [<a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy" title="Gambler's Fallacy">13</a>].</p>
+<h3><a class="header" href="#crude-monte-carlo" id="crude-monte-carlo">Crude Monte Carlo</a></h3>
+<p>The Monte Carlo technique is built upon this principle: instead of evaluating an indefinite integral, which can 
+sometimes be impossible, the average of the integrand is estimated, and that is used to approximate the integral. If one 
+needs to be more precise, the number of samples can be increased. </p>
+<p>It is a widely used heuristic technique that can solve a variety of common problems, including optimization and numerical 
+integration problems. These algorithms work by cleverly sampling from a distribution to simulate the workings of a system.<br />
+Applications range from solving problems in theoretical physics to predicting trends in financial investments. </p>
+<h3><a class="header" href="#law-of-large-numbers" id="law-of-large-numbers">Law of Large Numbers</a></h3>
+<p>The Law of Large Numbers (LLN), in probability and statistics, states that as a sample size grows, its mean gets closer 
+to the average of the whole population. In statistical analysis, the LLN can be applied to a variety of 
+subjects. It may not be feasible to poll every individual within a given population to collect the required amount of 
+data. However, every additional data point gathered has the potential to increase the likelihood that the outcome is an 
+accurate measure of the mean [<a href="https://www.investopedia.com/terms/l/lawoflargenumbers.asp" title="Investopedia: Law of Large Numbers">7</a>]. </p>
+<p>The LLN is crucial because it guarantees stable, long-term results for the averages of some random event [<a href="https://en.wikipedia.org/wiki/Law_of_large_numbers" title="Law of Large Numbers">8</a>]. </p>
+<p align="center"><img src="assets/law_of_large_numbers.png" width="650" /></p>
+The preceding figure illustrates the LLN using a particular run of rolls of a single dice. As can be seen in the figure, 
+as the number of rolls in this run increases, the average of the values of all the results approaches 3.5. While 
+different runs would show a different shape over a small number of throws (on the left), over a large number of rolls 
+(to the right), they would be extremely similar [[9]].
+<h1><a class="header" href="#methodology" id="methodology">Methodology</a></h1>
+<h2><a class="header" href="#notation-used" id="notation-used">Notation Used</a></h2>
+<p>This section gives the general notation of statistical expressions when specifically referenced. This information 
+is important knowledge for the remainder of the report. </p>
+<ul>
+<li>Let $N$ be the total number of nodes in the network. </li>
+<li>Let $n$ be the committee size.</li>
+<li>Let $m$ be the number of bad actors.</li>
+<li>Let $T$ be the Byzantine Fault Tolerance (BFT) threshold.</li>
+</ul>
+<p>There is a pool with <em>N</em> nodes. The pool contains <em>m</em> malicious nodes or bad actors. From within the pool, a random 
+selection of nodes, <em>n</em> is drawn. From this selection, the probability of drawing a threshold of bad actors, <em>T</em>, needs to 
+be calculated.</p>
+<h2><a class="header" href="#crude-monte-carlo-simulation" id="crude-monte-carlo-simulation">Crude Monte Carlo Simulation</a></h2>
+<h3><a class="header" href="#programming-the-simulation" id="programming-the-simulation">Programming the Simulation</a></h3>
+<p>It was initially thought that selecting a committee ($n$) from the total nodes ($N$) without replacing the selected nodes 
+requires the removal of an element from the pool of total nodes when it is drawn. However, as the program is 
+calling for many selections within many experiments, this logic could not be used. </p>
+<p>The experiment is extended to ask the overarching question: <em>&quot;What is the probability of selecting the threshold worth of</em> 
+<em>bad nodes or more from a pool of total nodes?&quot;</em> To this end, we perform a variable number of experiments and 
+count how many times the threshold is met, in order to estimate the probability. </p>
+<h3><a class="header" href="#use-of-random-numbers" id="use-of-random-numbers">Use of Random Numbers</a></h3>
+<p>Some problems in science and technology are described by &quot;exact&quot; mathematics, leading to &quot;precise&quot; results, e.g. 
+throwing a ball and oscillating a system. Some problems appear physically uncertain, e.g. rolling a die and molecular motion. 
+Random numbers can be used to mimic the uncertainty of the experiment. </p>
+<p>Random numbers make it possible to simulate physical systems with uncertainty, in input data or the process. </p>
+<h3><a class="header" href="#computing-statistics" id="computing-statistics">Computing Statistics</a></h3>
+<p>The mode, median and mean are the arithmetic average of a data set. This is found by adding the numbers in a data set and 
+dividing by how many numbers there are. </p>
+<h4><a class="header" href="#mode-value" id="mode-value">Mode Value</a></h4>
+<p>The mode is the score or value that occurs most often in a data set.</p>
+<h4><a class="header" href="#median-value" id="median-value">Median Value</a></h4>
+<p>The median is the middle number in a data set with the numbers listed in either ascending or descending order.</p>
+<p>If the total number of numbers (n) is an odd number, then the formula is:
+$$
+median =\biggl(\frac{n+1}{2}\biggr)^{th}term
+$$
+If the total number of numbers (n) is an even number, then the formula is:
+$$
+median= \frac{\biggl({\frac{n}{2}\biggr)^{th}term+\biggl({\frac{n}{2}+1\biggr)}^{th}term}}{2}
+$$</p>
+<h4><a class="header" href="#mean-value" id="mean-value">Mean Value</a></h4>
+<p>$$
+\bar{x}  = \frac{{\sum}x}{N}<br />
+$$</p>
+<p>Where:</p>
+<ul>
+<li>$\sum$ represents the summation </li>
+<li>$x$ represents scores </li>
+<li>$N$ represents number of scores </li>
+</ul>
+<p align="center"><img src="assets/mode_median_mean.png" width="170" /></p>
+## Statistical Calculation
+<p>A single probability from the overarching question was used as a means to derive the formulae, as shown in the following 
+example. </p>
+<p><strong>Example 3</strong>: What is the probability of selecting a majority of bad nodes from a total of $5$ nodes if the committee 
+size is $3$? There are $3$ bad nodes $(B1, B2, B3)$ and $2$ good nodes $(G1, G2)$.</p>
+<p>The first step is to calculate the number of combinations where bad and good nodes can be chosen: </p>
+<table><thead><tr><th align="center">  Draw 1st node  </th><th align="center">  Draw 2nd node  </th><th align="center">  Draw 3rd node  </th><th align="center">Are bad nodes <br /> in the majority?</th></tr></thead><tbody>
+<tr><td align="center"><div class="wrap_bad">$B1$</div></td><td align="center"><div class="wrap_bad">$B2$</div></td><td align="center"><div class="wrap_bad">$B3$</div></td><td align="center">Yes</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B1$</div></td><td align="center"><div class="wrap_bad">$B2$</div></td><td align="center"><div class="wrap_good">$G1$</div></td><td align="center">Yes</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B1$</div></td><td align="center"><div class="wrap_bad">$B2$</div></td><td align="center"><div class="wrap_good">$G2$</div></td><td align="center">Yes</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B1$</div></td><td align="center"><div class="wrap_bad">$B3$</div></td><td align="center"><div class="wrap_good">$G1$</div></td><td align="center">Yes</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B1$</div></td><td align="center"><div class="wrap_bad">$B3$</div></td><td align="center"><div class="wrap_good">$G2$</div></td><td align="center">Yes</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B1$</div></td><td align="center"><div class="wrap_good">$G1$</div></td><td align="center"><div class="wrap_good">$G2$</div></td><td align="center">No</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B2$</div></td><td align="center"><div class="wrap_bad">$B3$</div></td><td align="center"><div class="wrap_good">$G1$</div></td><td align="center">Yes ​</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B2$</div></td><td align="center"><div class="wrap_bad">$B3$</div></td><td align="center"><div class="wrap_good">$G2$</div></td><td align="center">Yes ​</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B2$</div></td><td align="center"><div class="wrap_good">$G1$</div></td><td align="center"><div class="wrap_good">$G2$</div></td><td align="center">No</td></tr>
+<tr><td align="center"><div class="wrap_bad">$B3$</div></td><td align="center"><div class="wrap_good">$G1$</div></td><td align="center"><div class="wrap_good">$G2$</div></td><td align="center">No</td></tr>
+<tr><td align="center"></td><td align="center"></td><td align="center"><strong>Tally of Yes responses</strong></td><td align="center">$7$</td></tr>
+</tbody></table>
+<p>From this list, the number of combinations where $B$ is the majority can then be tallied. In this case, there are $7$
+combinations where $B$ is the majority. Thus, from the $10$ combinations, there are $7$ combinations where there is a 
+majority of bad nodes. Therefore, the quotient of $7$ and $10$ is the probability $0.7$. </p>
+<p>This method is limited in calculating the probability where the variables are large. For example, if the same question 
+was posed, 
+but one had to calculate the probability of selecting a majority of bad nodes from a total of $100$ nodes, with a 
+committee size of $60$, $60$ bad nodes and $40$ good nodes, the number of combinations where bad and good nodes can be 
+chosen is $1.27E+28$.</p>
+<h3><a class="header" href="#binomial-distribution-formula" id="binomial-distribution-formula">Binomial Distribution Formula</a></h3>
+<p>With regard to binomial distribution, a committee of nodes is drawn from the total nodes with replacement, i.e. nodes 
+are drawn, the intention of the node is distinguished and the node is returned to the total nodes. 
+$$
+P = {{n}\choose{T}}\cdot\biggl(\frac{m}{n}\biggr)^{T}\cdot\biggl(\frac{N-m}{n}\biggr)^{n-T}
+$$</p>
+<h3><a class="header" href="#hypergeometric-distribution-formula" id="hypergeometric-distribution-formula">Hypergeometric Distribution Formula</a></h3>
+<p>With regard to hypergeometric distribution, a committee of nodes is drawn from the total nodes without replacement, 
+i.e. nodes are drawn simultaneously, the intention of the node is distinguished and not returned to the total nodes. 
+This closely mimics the events that would take place within the network. 
+$$
+P = \frac{{{m}\choose{T}}\cdot{{N-m}\choose{n-T}}}{{N}\choose{n}}
+$$</p>
+<h3><a class="header" href="#summation-formula" id="summation-formula">Summation Formula</a></h3>
+<p>Referring to Example 3, the <strong>tally</strong> is the sum of all the combinations where the bad nodes are in a majority.</p>
+<p>As a recap to the question, <em>what is the probability of selecting a majority of bad nodes from a total of $100$ nodes 
+if the committee size is $10$</em>? This problem considers solving for the probability where there is a <strong>majority</strong> of bad 
+nodes in the committee. This entails calculating the probabilities from the BFT threshold to the committee size. Thus, 
+there needs to be a summation of individual probabilities in order to calculate the probability of selecting the 
+majority of bad nodes. 
+$$
+P_{tot} = \sum_{i=T}^{n} P(N,m,n,i)
+$$</p>
+<p>The following table provides some visual insight into understanding this: </p>
+<table><thead><tr><th align="center">  Committee Size  </th><th align="center">  BFT Threshold  </th><th align="center">  No. of Steps  </th></tr></thead><tbody>
+<tr><td align="center">10</td><td align="center">7</td><td align="center">3</td></tr>
+</tbody></table>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://en.wikipedia.org/wiki/List_of_probability_distributions" title="List of Probability Distributions">1</a>] Wikipedia, “List of Probability Distributions” [online]. Available: <a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">https://en.wikipedia.org/wiki/List_of_probability_distributions</a>. 
+Date accessed: 2019‑05‑13.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Support_(mathematics)" title="Support (Mathematics)">2</a>] Wikipedia, “Support (Mathematics)&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Support_(mathematics)">https://en.wikipedia.org/wiki/Support_(mathematics)</a>. 
+Date accessed: 2019‑05‑13.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution" title="Hypergeometric Distribution">3</a>] Wikipedia, “Hypergeometric Distribution” [online]. Available: <a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution">https://en.wikipedia.org/wiki/Hypergeometric_distribution</a>. 
+Date accessed: 2019‑05‑13.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Binomial_distribution" title="Binomial Distribution">4</a>] Wikipedia, “Binomial Distribution&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Binomial_distribution">https://en.wikipedia.org/wiki/Binomial_distribution</a>. 
+Date accessed: 2019‑05‑13.</p>
+<p>[<a href="https://medium.com/poa-network/poa-network-honey-badger-bft-and-threshold-cryptography-c43e10fadd87" title="POA Network: HoneyBadger BFT and Threshold Cryptography">5</a>] POA Network Team, &quot;POA Network: Honey Badger BFT and Threshold Cryptography&quot; [online]. Available: 
+<a href="https://medium.com/poa-network/poa-network-honey-badger-bft-and-threshold-cryptography-c43e10fadd87">https://medium.com/poa-network/poa-network-honey-badger-bft-and-threshold-cryptography-c43e10fadd87</a>. 
+Date accessed: 2019‑06‑28.</p>
+<p>[<a href="https://towardsdatascience.com/monte-carlo-simulations-with-python-part-1-f5627b7d60b0" title="Monte Carlo Simulations with Python (Part 1)">6</a>] P. Hanbury, &quot;Monte Carlo Simulations with Python (Part 1)&quot; [online]. Available: 
+<a href="https://towardsdatascience.com/monte-carlo-simulations-with-python-part-1-f5627b7d60b0">https://towardsdatascience.com/monte-carlo-simulations-with-python-part-1-f5627b7d60b0</a>. Date accessed: 2019‑06‑28.</p>
+<p>[<a href="https://www.investopedia.com/terms/l/lawoflargenumbers.asp" title="Investopedia: Law of Large Numbers">7</a>] W. Kenton, &quot;Law of Large Numbers&quot; [online]. Available: <a href="https://www.investopedia.com/terms/l/lawoflargenumbers.asp">https://www.investopedia.com/terms/l/lawoflargenumbers.asp</a>. 
+Date accessed: 2019‑06‑28.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Law_of_large_numbers" title="Law of Large Numbers">8</a>] Wikipedia, &quot;Law of Large Numbers&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">https://en.wikipedia.org/wiki/Law_of_large_numbers</a>. 
+Date accessed: 2019‑06‑28.</p>
+<p>[<a href="https://commons.wikimedia.org/w/index.php?curid=58536069" title="Law of Large Numbers - Average Dice Roll by Number of Rolls">9</a>] Wikipedia, &quot;Law of Large Numbers - Average Dice Roll by Number of Rolls&quot; [online]. 
+Available: <a href="https://commons.wikimedia.org/w/index.php?curid=58536069">https://commons.wikimedia.org/w/index.php?curid=58536069</a>. Date accessed: 2019‑06‑28.</p>
+<p>[<a href="https://stattrek.com/probability-distributions/hypergeometric.aspx" title="Hypergeometric Distribution">10</a>] Stat Trek, &quot;Hypergeometric Distribution&quot; [online]. Available: <a href="https://stattrek.com/probability-distributions/hypergeometric.aspx">https://stattrek.com/probability-distributions/hypergeometric.aspx</a>. 
+Date accessed: 2019‑06‑28.</p>
+<p>[<a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/" title="Continuous and Discrete Probability Distributions">11</a>] Minitab Express Support, &quot;Continuous and Discrete Probability Distributions&quot; [online]. Available: 
+<a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/">https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/</a>. 
+Date accessed: 2019‑07‑18.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Probability_density_function" title="Probability Density Function">12</a>] Wikipedia, &quot;Probability Density Function&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Probability_density_function">https://en.wikipedia.org/wiki/Probability_density_function</a>. 
+Date accessed: 2019‑07‑18.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy" title="Gambler's Fallacy">13</a>] Wikipedia, &quot;Gambler's Fallacy&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy">https://en.wikipedia.org/wiki/Gambler%27s_fallacy</a>. Date 
+accessed: 2019‑07‑18.</p>
+<p>[<a href="https://stattrek.com/probability-distributions/discrete-continuous.aspx" title="Probability Distributions">14</a>] Stat Trek, &quot;Probability Distributions: Discrete vs. Continuous&quot; [online]. Available: <a href="https://stattrek.com/probability-distributions/discrete-continuous.aspx">https://stattrek.com/probability-distributions/discrete-continuous.aspx</a>. Date 
+accessed: 2019‒11‑18.</p>
+<p>[<a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4" title="Common Probability Distributions">15</a>] Medium, &quot;Common Probability Distributions: The Data Scientist’s Crib Sheet&quot; [online]. Available: <a href="https://medium.com/@srowen/common-probability-distributions-347e6b945ce4">https://medium.com/@srowen/common-probability-distributions-347e6b945ce4</a>. Date 
+accessed: 2019‒11‑18.</p>
+<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
+<h3><a class="header" href="#appendix-a-definitions-of-terms" id="appendix-a-definitions-of-terms">Appendix A: Definitions of Terms</a></h3>
+<p>Definitions of terms presented here are high level and general in nature. </p>
+<ul>
+<li><strong>Probability Density Function (PDF):</strong><a name="pdf"> </a> a statistical expression that defines a probability 
+distribution 
+for a continuous random variable instead of a discrete random variable ([<a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/" title="Continuous and Discrete Probability Distributions">11</a>], [<a href="https://en.wikipedia.org/wiki/Probability_density_function" title="Probability Density Function">12</a>]).</li>
+</ul>
+<ul>
+<li><strong>Discrete Distribution with finite support:</strong><a name="discrete distribution"> </a> a discrete distribution with 
+finite support can have a finite number of possible realizations.</li>
+</ul>
+<ul>
+<li><strong>Discrete Distribution with infinite support:</strong><a name="discrete distribution"> </a> a discrete distribution with 
+infinite support can have an infinite number of possible realizations.</li>
+</ul>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/kevoulee">https://github.com/kevoulee</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a></li>
+<li><a href="https://github.com/neonknight64">https://github.com/neonknight64</a> </li>
+<li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a> </li>
+<li><a href="https://github.com/Empiech007">https://github.com/Empiech007</a> </li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../network-analysis/network-analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../network-analysis/network-analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

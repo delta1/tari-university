@@ -1,0 +1,689 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Distributed Hash Tables - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Distributed Hash Tables - Tari Labs University" />
+        <meta name="twitter:site" content="Distributed Hash Tables - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Distributed Hash Tables - Tari Labs University" />
+        <meta property="og:site_name" content="Distributed Hash Tables - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html" class="active"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#distributed-hash-tables" id="distributed-hash-tables">Distributed Hash Tables</a></h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#characterization-of-dht-networks">Characterization of DHT Networks</a>
+<ul>
+<li><a href="#peer-discovery">Peer Discovery</a></li>
+<li><a href="#scalability-and-fault-tolerance">Scalability and Fault-tolerance</a></li>
+<li><a href="#distributed-data-storage">Distributed Data Storage</a></li>
+</ul>
+</li>
+<li><a href="#dht-algorithms">DHT Algorithms</a>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#kademlia">Kademlia</a>
+<ul>
+<li><a href="#node-id">Node ID</a></li>
+<li><a href="#bootstrapping-a-node">Bootstrapping a Node</a></li>
+<li><a href="#xor-metric">XOR Metric</a></li>
+<li><a href="#protocol">Protocol</a>
+<ul>
+<li><a href="#lookup-procedure">Lookup Procedure</a></li>
+<li><a href="#data-storage-and-retrieval-procedure">Data Storage and Retrieval Procedure</a></li>
+<li><a href="#routing-table">Routing Table</a></li>
+<li><a href="#k-bucket-ordering">$k$-bucket Ordering</a></li>
+</ul>
+</li>
+<li><a href="#kademlia-attacks">Kademlia Attacks</a>
+<ul>
+<li><a href="#node-insertion-attack">Node Insertion Attack</a></li>
+<li><a href="#eclipse-attack">Eclipse Attack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#dht-vulnerabilities-and-attacks">DHT Vulnerabilities and Attacks</a>
+<ul>
+<li><a href="#eclipse-attack">Eclipse Attack</a></li>
+<li><a href="#sybil-attack">Sybil Attack</a></li>
+<li><a href="#adaptive-join-leave-attack">Adaptive Join-Leave Attack</a></li>
+</ul>
+</li>
+<li><a href="#cuckoo-rule">Cuckoo Rule</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#contributors">Contributors</a></li>
+</ul>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>A hash table is a data structure that maps keys to values. A hashing function is used to compute keys that are inserted 
+into a table from which values can later be retrieved. As the name suggests, a distributed hash table (DHT) is a hash 
+table that is distributed across many linked nodes, which cooperate to form a single cohesive hash table service. Nodes 
+are linked in what is called an <a href="https://en.wikipedia.org/wiki/Overlay_network">overlay network</a>.
+An overlay network is simply a communication network built on top of another network. The Internet is an example, as it 
+began as an overlay network on the public switched telephone network.</p>
+<p>$\langle key, value \rangle$ pairs are stored on a subset of the network, usually by some notion of &quot;closeness&quot; to that 
+key.</p>
+<p>A DHT network design allows the network to tolerate nodes coming and going without failure, and allows the network size 
+to increase indefinitely.</p>
+<p><img src="./assets/xkcd-network.png" alt="XKCD-Network" /></p>
+<p>Image from <a href="https://xkcd.com/350/">XKCD #350 - Network</a> - <a href="https://xkcd.com/license.html">License</a></p>
+<p>The need for DHTs arose from early file-sharing networks such as Gnutella, Napster, FreeNet and BitTorrent, which were 
+able to make use of distributed resources across
+the Internet to provide a single cohesive service [<a href="https://en.wikipedia.org/wiki/Distributed_hash_table." title="Wikipedia: Distributed Hash Table">1</a>].</p>
+<p>These systems employed different methods of locating resources on the network:</p>
+<ul>
+<li>Gnutella searches were inefficient, because queries would result in messages flooding the network.</li>
+<li>Napster used a central index server, which was a single point of failure and left it vulnerable to attacks.</li>
+<li>FreeNet used a key-based routing. However, it was less structured than a DHT and did not guarantee that data could be found.</li>
+</ul>
+<p>In 2001, four DHT projects were introduced: CAN, Chord, Pastry and Tapestry. They aimed to have a lookup efficiency
+($O(log(n))$) similar to that of a centralized index, while having the benefits of a decentralized network.</p>
+<p>DHTs use varying techniques to achieve this, depending on the given algorithm. However, they have a number
+of aspects in common:</p>
+<ul>
+<li>Each participant has some unique network identifier.</li>
+<li>They perform peer lookup, data storage and retrieval services.</li>
+<li>There is some implicit or explicit joining procedure.</li>
+<li>Communication need only occur between neighbors that are decided on by some algorithm.</li>
+</ul>
+<p>In this report we'll go over some of the aspects common to all DHTs and dive deeper into a popular DHT implementation, 
+called <a href="#kademlia">Kademlia</a>.</p>
+<h2><a class="header" href="#characterization-of-dht-networks" id="characterization-of-dht-networks">Characterization of DHT Networks</a></h2>
+<h3><a class="header" href="#peer-discovery" id="peer-discovery">Peer Discovery</a></h3>
+<p>Peer discovery is the process of locating nodes in a distributed network for data communication.
+This is facilitated by every node maintaining a list of peers and sharing that list with other nodes
+on the network. A new participant would seek to find their peers on the network by first contacting a
+set of predefined bootstrap nodes. These nodes are normal network participants who happen to be part of
+some dynamic or static list. It is the job of every node on the network to facilitate peer discovery.</p>
+<p>As peers come and go, these lists are repeatedly updated to ensure network integrity.</p>
+<h3><a class="header" href="#scalability-and-fault-tolerance" id="scalability-and-fault-tolerance">Scalability and Fault-tolerance</a></h3>
+<p>A DHT network efficiently distributes responsibility for the replicated storage and retrieval of routing information
+and data. This distribution allows nodes to join and leave with minimal or no disruption. The network can
+have a massive number of nodes (in the case of BitTorrent, millions of nodes) without each node having to
+know about every other participant in the network. In this way, DHTs are inherently more resilient against hostile 
+attackers than a typical centralized system [<a href="https://en.wikipedia.org/wiki/Distributed_hash_table." title="Wikipedia: Distributed Hash Table">1</a>].</p>
+<p>BitTorrent is one of the largest decentralized networks in existence, containing in the order of tens of millions
+of concurrent users and hundreds of millions of active users. It is estimated that there are a quarter of a billion
+distinct monthly users of the BitTorrent network [<a href="https://en.wikipedia.org/wiki/BitTorrent" title="BitTorrent">10</a>]. As of 2019, Tor has approximately 9,000 relay servers and
+over 2 million users [<a href="https://en.wikipedia.org/wiki/BitTorrent" title="Servers - Tor Metrics">11</a>].</p>
+<h3><a class="header" href="#distributed-data-storage" id="distributed-data-storage">Distributed Data Storage</a></h3>
+<p>Arbitrary data may be stored and replicated by a subset of nodes for later retrieval. Data is hashed using a
+consistent hashing function (such as SHA256) to produce a key for the data. That data is propagated and
+eventually stored on the node or nodes whose node IDs are &quot;closer&quot; to the key for that data for some distance
+function.</p>
+<p>Partitioned data storage has limited usefulness to a typical blockchain, as each full node is required to keep a copy
+of all transactions and blocks for verification.</p>
+<h2><a class="header" href="#dht-algorithms" id="dht-algorithms">DHT Algorithms</a></h2>
+<h3><a class="header" href="#overview" id="overview">Overview</a></h3>
+<p>The following graph is replicated and simplified from [<a href="https://www.cs.helsinki.fi/webfm_send/1339" title="Overlay and P2P networks">8</a>]. Degree is the number of neighbors with which a node must 
+maintain contact.</p>
+<table><thead><tr><th>Parameter</th><th>CAN</th><th>CHORD</th><th>Kademlia</th><th>Koord</th><th>Pastry</th><th>Tapestry</th><th>Viceroy</th></tr></thead><tbody>
+<tr><td>Foundation</td><td>d-dimensional torus</td><td>Circular space</td><td>XOR metric</td><td>de Bruijn graph</td><td>Plaxton-style mesh</td><td>Plaxton-style mesh</td><td>Butterfly network</td></tr>
+<tr><td>Routing function</td><td>Map key-value pairs to coordinate space</td><td>Matching key to node ID</td><td>Matching key to node ID</td><td>Matching key to node ID</td><td>Matching key and prefix in node ID</td><td>Suffix matching</td><td>Levels of tree, vicinity search</td></tr>
+<tr><td>Routing performance (network size $n$)</td><td>$O(dn^{(2/d)})$</td><td>$O(log(n))$</td><td>$O(log(n)) + c$ $c$ is small</td><td>Between $O(log(log(n)))$ and $O(log(n))$</td><td>$O(log(n))$</td><td>$O(log(n))$</td><td>$O(log(n))$</td></tr>
+<tr><td>Degree</td><td>$2d$</td><td>$O(log(n))$</td><td>$O(log(n))$</td><td>Between constant to $log(n)$</td><td>$O(2log(n))$</td><td>$O(log(n))$</td><td>Constant</td></tr>
+<tr><td>Join/Leaves</td><td>$2d$</td><td>$log(n)^2$</td><td>$O(log(n)) + c$ $c$ is small</td><td>$O(log(n))$</td><td>$O(log(n))$</td><td>$O(log(n))$</td><td>$O(log(n))$</td></tr>
+<tr><td>Implementations</td><td>--</td><td>OpenChord, OverSIM</td><td>Ethereum [<a href="https://github.com/ethereum/wiki/wiki/Kademlia-Peer-Selection" title="Kademlia Peer Selection">3</a>], Mainline DHT (BitTorrent), I2P, Kad Network</td><td>--</td><td>FreePastry</td><td>OceanStore, Mnemosyne [<a href="https://www.wikiwand.com/en/Tapestry_(DHT)" title="Tapestry (DHT)">4</a>]</td><td>--</td></tr>
+</tbody></table>
+<p>The popularity of Kademlia over other DHTs is likely due to its relative simplicity and performance. The rest of this 
+section dives deeper into Kademlia.</p>
+<h3><a class="header" href="#kademlia" id="kademlia">Kademlia</a></h3>
+<p>Kademlia is designed to be an efficient means for storing and finding content in a distributed peer-to-peer (P2P) network.
+It has a number of core features that are not simultaneously offered by other DHTs [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>], such as:</p>
+<ul>
+<li>The number of messages necessary for nodes to learn about each other, is minimized.</li>
+<li>Nodes have enough information to route traffic through low-latency paths.</li>
+<li>Parallel and asynchronous queries are made to avoid timeout delays from failed nodes.</li>
+<li>The node existence algorithm resists certain basic distributed denial-of-service (DDoS) attacks.</li>
+</ul>
+<h4><a class="header" href="#node-id" id="node-id">Node ID</a></h4>
+<p>A node selects an $n$-bit ID, which is given to other nodes on the network. The network design relies on node IDs being 
+uniformly distributed by some random procedure. A node's position is determined by the shortest unique prefix of its 
+ID, which forms a tree structure with node IDs as leaves [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>]. This ID should be reused when the node rejoins the 
+network. The following figure shows a binary tree structure in a three-bit key space:</p>
+<div class="mermaid">
+graph TD
+AR[ ] --- |0| A0( )
+AR --- |1| A1[ ]
+A0 --- |0| A00[ ]
+A0 --- |1| A01[ ]
+A00 --- |0| N000[Node 000]
+A00 --- |1| N001[Node 001]
+A01 --- |0| N010[Node 010]
+A01 --- |1| N011[Node 011]
+A1 --- |0| A10[ ]
+A1 --- |1| A11[ ]
+A10 --- |0| A100[Node 100]
+A10 --- |1| A101[Node 101]
+A11 --- |0| A110[Node 110]
+A11 --- |1| A111[Node 111]
+</div>
+The bit length of the node ID should be sufficiently large to make collisions extremely unlikely when using a uniformly
+distributed random number generator [[2]].
+<h4><a class="header" href="#bootstrapping-a-node" id="bootstrapping-a-node">Bootstrapping a Node</a></h4>
+<p>A node wishing to join the network for the first time has no known contacts. In order for the node to establish
+itself on the network, it must contact one, or more than one, bootstrap node. These nodes are not special in any way 
+other than being listed in some predefined list. They simply serve as a first point of contact for the requesting node 
+to become known to more of the network and to find its closest peers.</p>
+<p>There are a number of ways that bootstrap nodes can be obtained, including adding addresses to a configuration and using 
+<a href="https://bitcoin.org/en/glossary/dns-seed">DNS seeds</a>. The joining process is described as follows [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>]:</p>
+<ol>
+<li>A joining node generates a random ID.</li>
+<li>It contacts a few nodes it knows about.</li>
+<li>It sends a <code>FIND_NODE</code> lookup request of its newly generated node ID.</li>
+<li>The contacted nodes return the closest nodes they know about. The newly discovered nodes are added to the joining 
+node's routing table.</li>
+<li>The joining node then contacts some of the new nodes it knows about. The process then continues iteratively until 
+the joining node is unable to locate any closer nodes.</li>
+</ol>
+<p>This <em>self-lookup</em> has two effects: it allows the node to learn about nodes closer to itself; and it populates other 
+nodes' routing tables with the node's ID [<a href="https://en.wikipedia.org/wiki/Distributed_hash_table." title="Wikipedia: Distributed Hash Table">1</a>].</p>
+<h4><a class="header" href="#xor-metric" id="xor-metric">XOR Metric</a></h4>
+<p>The Kademlia paper published in 2002 [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>] offered the novel idea of using the XOR ($\oplus​$) operator to determine the 
+distance and therefore the arrangement of peers within the network. Defined as:</p>
+<p>$$ distance(a, b) = a \oplus b$$</p>
+<p>This works, because XOR exhibits the same mathematical properties as any distance function.</p>
+<p>Specifically, [<a href="https://en.wikipedia.org/wiki/Distributed_hash_table." title="Wikipedia: Distributed Hash Table">1</a>]</p>
+<ul>
+<li>Identity: $a \oplus a = 0$</li>
+<li>Non-negativity: $a \oplus b &gt; 0$ for $a \neq b$</li>
+<li>Symmetry: $a \oplus b = b \oplus a$</li>
+<li>Triangle inequality: $a \oplus b + b \oplus c \geq a \oplus c$</li>
+</ul>
+<p>The XOR metric implicitly captures a notion of distance in the preceding tree structure [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>].</p>
+<h4><a class="header" href="#protocol" id="protocol">Protocol</a></h4>
+<p>Kademlia is a relatively simple protocol consisting of only four remote procedure call (RPC) messages that facilitate 
+two independent concerns: peer discovery and data storage/retrieval.</p>
+<p>The following RPC messages are part of the Kademlia protocol:</p>
+<ul>
+<li>Peer discovery
+<ul>
+<li><code>PING</code>/<code>PONG</code> - used to determine liveness of a peer.</li>
+<li><code>FIND_NODE</code> - returns a number of nodes which are closer to a given query value.</li>
+</ul>
+</li>
+<li>Data storage and retrieval
+<ul>
+<li><code>STORE</code> - request to store a $\langle key, value \rangle$ pair.</li>
+<li><code>FIND_VALUE</code> - behaves the same as <code>FIND_NODE</code> by returning closer nodes. If a node has the requested 
+$\langle key, value \rangle​$ pair, it will instead return the stored value.</li>
+</ul>
+</li>
+</ul>
+<p>Notably, there is no <code>JOIN</code> message. This is because there is no explicit join in Kademlia. Each peer has a chance of 
+being added to a routing table of another node whenever an RPC message is sent/received between them [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>]. In this 
+way, the node becomes known to the network.</p>
+<h5><a class="header" href="#lookup-procedure" id="lookup-procedure">Lookup Procedure</a></h5>
+<p>The lookup procedure allows nodes to locate other nodes, given a node ID. The procedure begins by the initiator 
+concurrently querying the closest $\alpha$ (concurrency parameter) nodes to the target node ID it knows about. The 
+queried node returns the $k​$ closest nodes it knows about. The querying node then proceeds in rounds, querying closer 
+and closer nodes until it has found the node. In the process, both the querying node and the intermediate nodes have 
+learnt about each other.</p>
+<h5><a class="header" href="#data-storage-and-retrieval-procedure" id="data-storage-and-retrieval-procedure">Data Storage and Retrieval Procedure</a></h5>
+<p>The storage and retrieval procedure ensures that $\langle key, value \rangle$ pairs are reliably stored and able to be
+retrieved by participants in the network:</p>
+<ul>
+<li>
+<p>The storage procedure uses the <a href="#lookup-procedure">lookup procedure</a> to locate the closest nodes to the key, at which
+point it issues a <code>STORE</code> RPC message to those nodes. Each node republishes the $\langle key, value \rangle$ pairs to
+increase the availability of the data. Depending on the implementation, the data may eventually expire (say 
+24 hours). Therefore, the original publisher may be required to republish the data before that period expires.</p>
+</li>
+<li>
+<p>The retrieval procedure follows the same logic as storage, except a <code>FIND_VALUE</code> RPC is issued and the data received.</p>
+</li>
+</ul>
+<h5><a class="header" href="#routing-table" id="routing-table">Routing Table</a></h5>
+<p>Each node organizes contacts into a list called a routing table. A routing table is a binary tree where the leaves are 
+&quot;buckets&quot; that contain a maximum of $k​$ nodes. $k​$ is a network-wide parameter that should be large enough to ensure 
+that lookups and data will be available with high probability. These buckets are aptly named $k​$-buckets, and contain 
+nodes with some common node ID prefix.</p>
+<p>It should be noted that this is captured by the <a href="#xor-metric">XOR metric</a>. For instance, given node $A(1100)$ with peers 
+$B(1110)$, $C(1101)$, $D(0111)$ and $E(0101)$, the distances from 
+node $A$ would be:</p>
+<ul>
+<li>$A \oplus B = 0010 (2)$</li>
+<li>$A \oplus C = 0001 (1)$</li>
+<li>$A \oplus D = 1011 (11)$</li>
+<li>$A \oplus E = 1001 (9)$</li>
+</ul>
+<p>$A$, $B$ and $C$ share the same prefix up to the first two most significant bits (MSBs). However, $A$, $C$ and $D$ share
+no prefixed bits and are therefore further apart. In this example, $A$, $B$ and $C$ would be in the same bucket, and
+$D$ and $E$ in their own bucket.</p>
+<p>Initially, a node's routing table is not populated with $k​$-buckets, but may contain a single node in a single 
+$k​$-bucket. As more nodes become known, they are added to the $k​$-bucket until it is full. At this point, the node 
+splits the bucket in two: one for nodes that share the same prefix as itself and one for all the others.</p>
+<p align="center"><img src="assets/Kad-Evolution-Routing-Table.png" width="450" /></p>
+<p>This guarantees that for bucket $j$, where $0 &lt;= j &lt; k$, there is at least one node $N$ in node $A$'s routing table for 
+which $$ 2^j &lt;= distance(A, N) &lt; 2^{(j+1)} $$</p>
+<h5><a class="header" href="#k-bucket-ordering" id="k-bucket-ordering">$k$-bucket Ordering</a></h5>
+<p>Peers within $k$-buckets are sorted from least to most recently seen. Once a node receives a request or reply from a 
+peer, it checks to see if the peer is contained in the appropriate $k$-bucket. Depending on whether or not the peer 
+already exists, the entry is either moved or appended to the tail of the list (most recently seen). If a particular 
+bucket is already size $k$, the node tries to <code>PING</code> the first peer in the list (least recently seen). If the peer does 
+not respond, it is evicted and the new peer is appended to the bucket, otherwise the new peer is discarded. In this 
+way, the algorithm is biased towards peers that are long-lived and highly available.</p>
+<h4><a class="header" href="#kademlia-attacks" id="kademlia-attacks">Kademlia Attacks</a></h4>
+<p>Some notable attacks in the Kademlia scheme:</p>
+<h5><a class="header" href="#node-insertion-attack" id="node-insertion-attack">Node Insertion Attack</a></h5>
+<p>Since there is no verification of a node's ID, an attacker can select their ID to occupy a particular keyspace in the 
+network. Once an attacker has inserted themselves in this way, they may censor or manipulate content in that keyspace, 
+or eclipse nodes [<a href="https://www.net.t-labs.tu-berlin.de/%7Estefan/icdcn10.pdf" title="Poisoning the Kad Network">9</a>].</p>
+<h5><a class="header" href="#eclipse-attack" id="eclipse-attack">Eclipse Attack</a></h5>
+<p>Kademlia is vulnerable to eclipse attacks. This is discussed in the following section.</p>
+<h2><a class="header" href="#dht-vulnerabilities-and-attacks" id="dht-vulnerabilities-and-attacks">DHT Vulnerabilities and Attacks</a></h2>
+<h3><a class="header" href="#eclipse-attack-1" id="eclipse-attack-1">Eclipse Attack</a></h3>
+<p>An eclipse attack is an attack that allows adversarial nodes to isolate the victim from the rest of its peers and 
+filter its view of the rest of the network. If the attacker is able to occupy all peer connections, the victim is 
+eclipsed.</p>
+<p>An attacker takes advantage of the fact that in practice, there are relatively few nodes in most parts of a 160-bit 
+keyspace. An attacker injects themselves closer to the target than other peers and eventually could achieve a 
+dominating position. This can be done cheaply if the network rules allow many peers to come from the same IP address.</p>
+<p>The cost of executing an eclipse attack is highly dependent on the architecture of the network and can range from a 
+small number of machines (e.g. with hundreds of node instances on a single machine) to requiring a full-fledged botnet. 
+Reference [<a href="https://www.cs.bu.edu/%7Egoldbe/projects/eclipseEth.pdf" title="Low-Resource Eclipse Attacks on Ethereum’s Peer-to-Peer Network">6</a>] shows that an eclipse attack on Ethereum's Kademlia-based DHT can be executed using as few as two nodes.</p>
+<p>Mitigations include:</p>
+<ul>
+<li>Identities must be obtained independently from some random oracle.</li>
+<li>Nodes maintain contact with nodes outside of their current network placement.</li>
+</ul>
+<h3><a class="header" href="#sybil-attack" id="sybil-attack">Sybil Attack</a></h3>
+<p>Sybil attacks are an attempt by colluding nodes to gain disproportionate control of a network and are often used as a 
+vector for other attacks. Many, if not all, DHTs have been designed under the assumption that a low fraction of nodes 
+are malicious. A sybil attack attempts to break this assumption by increasing the number of malicious nodes.</p>
+<p>Mitigations include [<a href="https://www.researchgate.net/publication/220566526_A_survey_of_DHT_security_techniques" title="A Survey of DHT Security Techniques">12</a>]:</p>
+<ul>
+<li>Associating a cost with adding new identifiers to the network.</li>
+<li>Reliably joining real-world identifiers (IP address, MAC address, etc.) to the node identifier, and rejecting a 
+threshold of duplicates.</li>
+<li>Having a trusted central authority or secure decentralized scheme that issues identities.</li>
+<li>Using social information and trust relationships.</li>
+</ul>
+<h3><a class="header" href="#adaptive-join-leave-attack" id="adaptive-join-leave-attack">Adaptive Join-Leave Attack</a></h3>
+<p>An adversary wants to populate a particular keyspace interval $I$ with bad nodes in order to prevent a particular file
+from being shared. Let's suppose that we have a network with node IDs chosen completely at random through some random 
+oracle. An adversary starts by executing join/leaves until it has nodes in that keyspace. After that they proceed in 
+rounds, keeping the nodes that are in $I$ and rejoining the nodes that aren't, until control is gained over the 
+interval ([<a href="http://www.cs.jhu.edu/%7Ebaruch/RESEARCH/Research_areas/Peer-to-Peer/2006_SPAA/virtual5.pdf" title="Towards a Scalable and Robust DHT">5</a>], [<a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf" title="Commensal Cuckoo: Secure Group Partitioning for Large-Scale Services">7</a>]).</p>
+<p>It should be noted that if there is a large enough cost for rejoining the network, there is a disincentive for this 
+attack. In the absence of this disincentive, the <a href="#cuckoo-rule">cuckoo rule</a> [<a href="http://www.cs.jhu.edu/%7Ebaruch/RESEARCH/Research_areas/Peer-to-Peer/2006_SPAA/virtual5.pdf" title="Towards a Scalable and Robust DHT">5</a>] is proposed as a defence.</p>
+<h2><a class="header" href="#cuckoo-rule" id="cuckoo-rule">Cuckoo Rule</a></h2>
+<p>Given a network that is partitioned into groups or intervals, and in which nodes are positioned uniformly and randomly.
+Adversaries may proceed in rounds, continuously rejoin nodes from the least faulty group until control is gained over
+one or more groups as described in <a href="#adaptive-join-leave-attack">Adaptive Join-Leave Attack</a>.</p>
+<p>The cuckoo rule is a join rule that moves (cuckoos) nodes in the same group as the joining node to random locations
+outside of the group. It is shown that this can prevent adaptive join-leave attacks with high probability,
+i.e. a probability $1 - 1/N$, where $N$ is the size of the network.</p>
+<p>Given:</p>
+<ul>
+<li>$I$ - keyspace group in $[0,1)$;</li>
+<li>$n$ - number of honest nodes;</li>
+<li>$ \epsilon n$ - number adversarial nodes for constant $\epsilon &lt; 1$;</li>
+</ul>
+<p>therefore, the network size $N$ is $n + \epsilon n$. Put another way, as $\epsilon$ approaches 1, bad nodes occupy less 
+than half of the total network.</p>
+<ul>
+<li>$k$-region is a region in $[0,1)$ of size $k/n$;</li>
+<li>$R_k(x)$ is a unique $k$-region containing $x$.</li>
+</ul>
+<p>And with the following two conditions:</p>
+<ul>
+<li>Balancing Condition - the interval $I​$ contains at least $O(log(n))​$ nodes.</li>
+<li>Majority Condition - honest nodes are in the majority in $I$.</li>
+</ul>
+<p>The cuckoo rule states:</p>
+<blockquote>
+<p>If a new node $v​$ wants to join the system, pick a random $x \in [0, 1)​$. Place $v​$ into $x​$ and move
+all nodes in $R_k(x)​$ to points in $[0, 1)​$ chosen uniformly and independently at random (without replacing any
+further nodes) [<a href="http://www.cs.jhu.edu/%7Ebaruch/RESEARCH/Research_areas/Peer-to-Peer/2006_SPAA/virtual5.pdf" title="Towards a Scalable and Robust DHT">5</a>].</p>
+</blockquote>
+<p>It is concluded that for a constant fraction of adversarial peers, where $\epsilon &lt; 1 - 1/k$ for any constant, $k &gt; 1$
+is sufficient to prevent adaptive join-leave attacks with high probability.</p>
+<p>Sen, Freedman [<a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf" title="Commensal Cuckoo: Secure Group Partitioning for Large-Scale Services">7</a>] modelled and analysed the cuckoo rule and found that, in practice, it tolerates very few 
+adversarial nodes.</p>
+<table><thead><tr><th align="center"></th><th align="center"></th><th align="center"></th></tr></thead><tbody>
+<tr><td align="center"><img src="./assets/Commensal-Cuckoo-Figure1.png" alt="Commensal Cuckoo Figure1" /></td><td align="center"></td><td align="center"><img src="./assets/Commensal-Cuckoo-Figure2.png" alt="Commensal Cuckoo Figure2" /></td></tr>
+<tr><td align="center">(Cuckoo rule) Minimum group size <br>needed to tolerate different $\epsilon$ for 100,000 rounds.<br>Groups must be large (i.e. 100s to 1,000s of nodes) to guarantee correctness [<a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf" title="Commensal Cuckoo: Secure Group Partitioning for Large-Scale Services">7</a>]</td><td align="center"></td><td align="center">(Cuckoo rule) Number of rounds the system maintained correctness with an average group<br> size of 64 nodes, varied. Simulation was halted<br> after 100,000 rounds. Failure rates drop dramatically past a certain threshold for different N [<a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf" title="Commensal Cuckoo: Secure Group Partitioning for Large-Scale Services">7</a>]</td></tr>
+</tbody></table>
+<p>Notably, they show that rounds to failure (i.e. more than one-third of nodes in a given group are adversarial) decreases 
+dramatically with an increasing but small global fraction of adversarial nodes. An amendment rule is proposed, which 
+allows smaller group sizes while maintaining Byzantine correctness. Reference [<a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf" title="Commensal Cuckoo: Secure Group Partitioning for Large-Scale Services">7</a>] warrants more investigation, but is 
+out of the scope of this report.</p>
+<h2><a class="header" href="#conclusion" id="conclusion">Conclusion</a></h2>
+<p>DHTs are a proven solution to distributed storage and discovery. Kademlia, in particular, has been successfully 
+implemented and sustained in file-sharing and blockchain networks with participants in the millions. As with every 
+network, it is not without its flaws, and careful network design is required to mitigate attacks.</p>
+<p>Novel research exists, which proposes schemes for protecting networks against control from adversaries. This research 
+becomes especially important when control of a network may mean monetary losses, loss of privacy or denial of service.</p>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://en.wikipedia.org/wiki/Distributed_hash_table." title="Wikipedia: Distributed Hash Table">1</a>] Wikipedia: &quot;Distributed Hash Table&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Distributed_hash_table">https://en.wikipedia.org/wiki/Distributed_hash_table</a>. 
+Date accessed: 2019‑03‑08.</p>
+<p>[<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Original Kademlia paper">2</a>] &quot;Kademlia: A Peer-to-Peer Information System&quot; [online]. Available: <a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf">https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf</a>. 
+Date accessed: 2019‑03‑08.</p>
+<p>[<a href="https://github.com/ethereum/wiki/wiki/Kademlia-Peer-Selection" title="Kademlia Peer Selection">3</a>] Ethereum/Wiki: &quot;Kademlia Peer Selection' [online]. Available: <a href="https://github.com/ethereum/wiki/wiki/Kademlia-Peer-Selection#lookup">https://github.com/ethereum/wiki/wiki/Kademlia-Peer-Selection#lookup</a>. 
+Date accessed: 2019‑03‑12.</p>
+<p>[<a href="https://www.wikiwand.com/en/Tapestry_(DHT)" title="Tapestry (DHT)">4</a>] Wikipedia: &quot;Tapestry (DHT)&quot; [online]. Available: <a href="https://www.wikiwand.com/en/Tapestry_(DHT)">https://www.wikiwand.com/en/Tapestry_(DHT)</a>. Date accessed: 
+2019‑03‑12.</p>
+<p>[<a href="http://www.cs.jhu.edu/%7Ebaruch/RESEARCH/Research_areas/Peer-to-Peer/2006_SPAA/virtual5.pdf" title="Towards a Scalable and Robust DHT">5</a>] &quot;Towards a Scalable and Robust DHT&quot; [online]. Available: <a href="http://www.cs.jhu.edu/%7Ebaruch/RESEARCH/Research_areas/Peer-to-Peer/2006_SPAA/virtual5.pdf">http://www.cs.jhu.edu/~baruch/RESEARCH/Research_areas/Peer-to-Peer/2006_SPAA/virtual5.pdf</a>. 
+Date accessed: 2019‑03‑12.</p>
+<p>[<a href="https://www.cs.bu.edu/%7Egoldbe/projects/eclipseEth.pdf" title="Low-Resource Eclipse Attacks on Ethereum’s Peer-to-Peer Network">6</a>] &quot;Low-resource Eclipse Attacks on Ethereum’s Peer-to-Peer Network&quot; [online]. Available: <a href="https://www.cs.bu.edu/%7Egoldbe/projects/eclipseEth.pdf">https://www.cs.bu.edu/~goldbe/projects/eclipseEth.pdf</a>. 
+Date accessed: 2019‑03‑15.</p>
+<p>[<a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf" title="Commensal Cuckoo: Secure Group Partitioning for Large-Scale Services">7</a>]: &quot;Commensal Cuckoo: Secure Group Partitioning for Large-scale Services&quot; [online]. Available: <a href="https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf">https://web.archive.org/web/20180729064433/http://sns.cs.princeton.edu/docs/ccuckoo-ladis11.pdf</a>. Date accessed: 
+2019‑03‑15.</p>
+<p>[<a href="https://www.cs.helsinki.fi/webfm_send/1339" title="Overlay and P2P networks">8</a>]: &quot;Overlay and P2P Networks&quot; [online]. Available: <a href="https://www.cs.helsinki.fi/webfm_send/1339">https://www.cs.helsinki.fi/webfm_send/1339</a>. 
+Date accessed: 2019‑04‑04.</p>
+<p>[<a href="https://www.net.t-labs.tu-berlin.de/%7Estefan/icdcn10.pdf" title="Poisoning the Kad Network">9</a>]: &quot;Poisoning the Kad Network&quot; [online]. Available: <a href="https://www.net.t-labs.tu-berlin.de/%7Estefan/icdcn10.pdf">https://www.net.t-labs.tu-berlin.de/~stefan/icdcn10.pdf</a>. 
+Date accessed: 2019‑04‑04.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/BitTorrent" title="BitTorrent">10</a>]: &quot;BitTorrent&quot; [online]. <a href="https://en.wikipedia.org/wiki/BitTorrent">https://en.wikipedia.org/wiki/BitTorrent</a>. Date accessed: 2019‑04‑04.</p>
+<p>[<a href="https://en.wikipedia.org/wiki/BitTorrent" title="Servers - Tor Metrics">11</a>]: &quot;Servers - Tor Metrics&quot; [online]. <a href="https://metrics.torproject.org/networksize.html">https://metrics.torproject.org/networksize.html</a>. Date accessed: 
+2019‑04‑29.</p>
+<p>[<a href="https://www.researchgate.net/publication/220566526_A_survey_of_DHT_security_techniques" title="A Survey of DHT Security Techniques">12</a>]: &quot;A Survey of DHT Security Techniques&quot; [online]. <a href="https://www.researchgate.net/publication/220566526_A_survey_of_DHT_security_techniques">https://www.researchgate.net/publication/220566526_A_survey_of_DHT_security_techniques</a>. 
+Date accessed: 2019‑04‑29.</p>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/sdbondi">https://github.com/sdbondi</a></li>
+<li><a href="https://github.com/neonknight64">https://github.com/neonknight64</a></li>
+<li><a href="https://github.com/philipr-za">https://github.com/philipr-za</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../protocols/intro-to-tor-i2P/MainReport.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../protocols/intro-to-tor-i2P/MainReport.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

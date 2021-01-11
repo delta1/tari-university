@@ -1,0 +1,718 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Laser Beam - Tari Labs University</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A collection of learning resources for cryptocurrency">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Twitter tags -->
+        <meta name="twitter:title" content="Laser Beam - Tari Labs University" />
+        <meta name="twitter:site" content="Laser Beam - Tari Labs University"/>
+        <meta name="twitter:description" content="A collection of learning resources for cryptocurrency" />
+        <meta name="twitter:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta name="twitter:card" content="summary"/>
+
+        <!-- Facebook tags -->
+        <meta property="og:title" content="Laser Beam - Tari Labs University" />
+        <meta property="og:site_name" content="Laser Beam - Tari Labs University"/>
+        <meta property="og:image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png" />
+        <meta property="og:description" content="A collection of learning resources for cryptocurrency" />
+
+        <!-- Generic tags -->
+        <meta itemprop="thumbnailUrl" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <meta itemprop="image" content="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+        <link rel="image_src" href="https://tlu.tarilabs.com/theme/images/tari-labs.png"/>
+
+        <link rel="shortcut icon" href="../../">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        
+        <!-- Matomo Analytics -->
+        <script type="text/javascript">
+          var _paq = window._paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+          _paq.push(["setCookieDomain", "*.tlu.tarilabs.com"]);
+          _paq.push(["setDomains", ["*.tlu.tarilabs.com"]]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//matomo.tari.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <noscript><p><img src="//matomo.tari.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+        <!-- End Matomo Code -->
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+            }
+          });
+        </script>
+        
+
+        <style>
+        div.wrap_beg {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #FFE599;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+        div.wrap_int {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #B6D7A8;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+        <style>
+            div.wrap_adv {
+            width: 95%; 
+            word-wrap: break-word;
+            background: #A2C4C9;
+            font-size: 1.0em;
+            padding: 0.5em;
+            color: #000000;
+            }
+        </style>
+
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <img src="../../theme/images/tlu.png" class="tlu">
+
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../preface/introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="../../preface/learning/introduction-to-learning.html"><strong aria-hidden="true">1.</strong> Learning Paths</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../preface/learning/blockchain-basics.html"><strong aria-hidden="true">1.1.</strong> Learning about Blockchain Basics</a></li><li class="chapter-item expanded "><a href="../../preface/learning/mimblewimble.html"><strong aria-hidden="true">1.2.</strong> Learning about Mimblewimble Implementation</a></li><li class="chapter-item expanded "><a href="../../preface/learning/bulletproofs.html"><strong aria-hidden="true">1.3.</strong> Learning about Bulletproofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../cryptography/cryptography.html"><strong aria-hidden="true">2.</strong> Cryptography</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cryptography/crypto-1/sources/PITCHME.link.html"><strong aria-hidden="true">2.1.</strong> Elliptic Curves 101</a></li><li class="chapter-item expanded "><a href="../../cryptography/digital_signatures/introduction_schnorr_signatures.html"><strong aria-hidden="true">2.2.</strong> Introduction to Schnorr Signatures</a></li><li class="chapter-item expanded "><a href="../../cryptography/scriptless-scripts/introduction-to-scriptless-scripts.html"><strong aria-hidden="true">2.3.</strong> Introduction to Scriptless Scripts</a></li><li class="chapter-item expanded "><a href="../../cryptography/musig-schnorr-sig-scheme/The_MuSig_Schnorr_Signature_Scheme.html"><strong aria-hidden="true">2.4.</strong> The MuSig Schnorr Signature Scheme</a></li><li class="chapter-item expanded "><a href="../../cryptography/fraud-proofs-1/MainReport.html"><strong aria-hidden="true">2.5.</strong> Fraud Proofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html"><strong aria-hidden="true">2.6.</strong> Bulletproofs and Mimblewimble</a></li><li class="chapter-item expanded "><a href="../../cryptography/building-on-bulletproofs/link.html"><strong aria-hidden="true">2.7.</strong> Building on Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/bulletproofs-protocols/MainReport.html"><strong aria-hidden="true">2.8.</strong> The Bulletproof Protocols</a></li><li class="chapter-item expanded "><a href="../../cryptography/pure-rust-ecc/pure-rust-ecc.html"><strong aria-hidden="true">2.9.</strong> Pure-Rust Elliptic Curve Cryptography</a></li><li class="chapter-item expanded "><a href="../../cryptography/zksnarks/mainreport.html"><strong aria-hidden="true">2.10.</strong> zk-SNARKs</a></li><li class="chapter-item expanded "><a href="../../cryptography/r1cs-bulletproofs/mainreport.html"><strong aria-hidden="true">2.11.</strong> Rank-1 Constraint System with Application to Bulletproofs</a></li><li class="chapter-item expanded "><a href="../../cryptography/amortization-bp-ipp/mainreport.html"><strong aria-hidden="true">2.12.</strong> Amortization of Bulletproofs Inner-Product Proof</a></li><li class="chapter-item expanded "><a href="../../cryptography/trustless-recursive-zkproofs/mainreport.html"><strong aria-hidden="true">2.13.</strong> Trustless Recursive Zero-Knowledge Proofs</a></li></ol></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/consensus-mechanisms.html"><strong aria-hidden="true">3.</strong> Consensus Mechanisms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT/understanding_bft_consensus.html"><strong aria-hidden="true">3.1.</strong> Understanding BFT Consensus</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensusmechanisms/sources/PITCHME.link.html"><strong aria-hidden="true">3.2.</strong> BFT Consensus Mechanisms</a></li><li class="chapter-item expanded "><a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html"><strong aria-hidden="true">3.3.</strong> Introduction to Applications of Byzantine Consensus Mechanisms</a></li></ol></li><li class="chapter-item expanded "><a href="../../scaling/scaling.html"><strong aria-hidden="true">4.</strong> Scaling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../scaling/layer2scaling-landscape/layer2scaling-survey.html"><strong aria-hidden="true">4.1.</strong> Layer 2 Scaling Survey</a></li><li class="chapter-item expanded "><a href="../../scaling/executive-summary/sources/PITCHME.link.html"><strong aria-hidden="true">4.2.</strong> Layer 2 Scaling Survey Executive Summary</a></li><li class="chapter-item expanded "><a href="../../scaling/directed-acyclic-graphs/DAGs.html"><strong aria-hidden="true">4.3.</strong> Directed Acyclic Graphs</a></li><li class="chapter-item expanded "><a href="../../scaling/laser-beam/MainReport.html" class="active"><strong aria-hidden="true">4.4.</strong> Laser Beam</a></li></ol></li><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining.html"><strong aria-hidden="true">5.</strong> Merged Mining</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../merged-mining/merged-mining-scene/MergedMiningIntroduction.html"><strong aria-hidden="true">5.1.</strong> Merged Mining Introduction</a></li></ol></li><li class="chapter-item expanded "><a href="../../digital-assets/digital-assets.html"><strong aria-hidden="true">6.</strong> Digital Assets</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../digital-assets/howey-application-to-blockchain/MainReport.html"><strong aria-hidden="true">6.1.</strong> Application of Howey to Blockchain Network Token Sales</a></li><li class="chapter-item expanded "><a href="../../digital-assets/nft-landscape-1/sources/PITCHME.link.html"><strong aria-hidden="true">6.2.</strong> Non-fungible Tokens Survey</a></li><li class="chapter-item expanded "><a href="../../digital-assets/confidential-assets/MainReport.html"><strong aria-hidden="true">6.3.</strong> Confidential Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../protocols/protocols.html"><strong aria-hidden="true">7.</strong> Protocols</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.1.</strong> Mimblewimble A High-Level Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-1/MainReport.html"><strong aria-hidden="true">7.2.</strong> Mimblewimble Transactions Explained</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-protocol-overview/MainReport.html"><strong aria-hidden="true">7.3.</strong> Mimblewimble-Grin Block Chain Protocol Overview</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-beam-comparison/MainReport.html"><strong aria-hidden="true">7.4.</strong> Grin vs. BEAM; a Comparison</a></li><li class="chapter-item expanded "><a href="../../protocols/grin-design-choice-criticisms/MainReport.html"><strong aria-hidden="true">7.5.</strong> Grin Design Choice Criticisms - Truth or Fiction</a></li><li class="chapter-item expanded "><a href="../../protocols/atomic-swaps/AtomicSwaps.html"><strong aria-hidden="true">7.6.</strong> Atomic Swaps</a></li><li class="chapter-item expanded "><a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html"><strong aria-hidden="true">7.7.</strong> Lightning Network for Dummies</a></li><li class="chapter-item expanded "><a href="../../protocols/merkle-trees-and-spv-1/sources/PITCHME.link.html"><strong aria-hidden="true">7.8.</strong> Introduction to SPV, Merkle Trees and Bloom Filters</a></li><li class="chapter-item expanded "><a href="../../protocols/rgb-introduction/sources/PITCHME.link.html"><strong aria-hidden="true">7.9.</strong> The RGB Protocol - An Introduction</a></li><li class="chapter-item expanded "><a href="../../protocols/intro-to-tor-i2P/MainReport.html"><strong aria-hidden="true">7.10.</strong> Introduction to Tor and I2P</a></li><li class="chapter-item expanded "><a href="../../protocols/dht/MainReport.html"><strong aria-hidden="true">7.11.</strong> Distributed Hash Tables</a></li><li class="chapter-item expanded "><a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html"><strong aria-hidden="true">7.12.</strong> Mimblewimble Multiparty Bulletproof UTXO</a></li></ol></li><li class="chapter-item expanded "><a href="../../network-analysis/network-analysis.html"><strong aria-hidden="true">8.</strong> Network Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/building_blocks.html"><strong aria-hidden="true">8.1.</strong> Probabilistic Attack Vector Analysis Building Blocks</a></li><li class="chapter-item expanded "><a href="../../network-analysis/probabilistic-attack/byzantine_takeover_of_the_DAN.html"><strong aria-hidden="true">8.2.</strong> Probability of a Byzantine Takeover of the Digital Assets Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../labs/introduction.html"><strong aria-hidden="true">9.</strong> Labs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../labs/mermaid-demo.html"><strong aria-hidden="true">9.1.</strong> Mermaid Demonstration</a></li><li class="chapter-item expanded "><a href="../../labs/notes.html"><strong aria-hidden="true">9.2.</strong> Notes and info boxes</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">
+<svg width="23px" height="23px" viewBox="0 0 23 23 version="1.1" class="gem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,6.12859037 L0,12.5315952 L9.50941704,23 L23,12.5722492 L23,6.12859037 L9.56098655,0 L0,6.12859037 Z M8.37488789,18.3349536 L2.3103139,11.6575342 L2.3103139,8.02916483 L8.37488789,9.56385329 L8.37488789,18.3349536 Z M10.6748879,19.2090146 L10.6748879,10.1533363 L19.4932735,12.3893062 L10.6748879,19.2090146 Z M20.7,7.57180734 L20.7,10.3464428 L4.17713004,6.15908087 L9.74663677,2.58152894 L20.7,7.57180734 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg></h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#laser-beam" id="laser-beam">Laser Beam</a></h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#detail-scheme">Detail Scheme</a>
+<ul>
+<li><a href="#funding-transaction">Funding Transaction</a></li>
+<li><a href="#refund-procedure">Refund Procedure</a>
+<ul>
+<li><a href="#alice---part-1">Alice - Part 1</a></li>
+<li><a href="#bob---part-1">Bob - Part 1</a></li>
+<li><a href="#alice---part-2">Alice - Part 2</a></li>
+<li><a href="#bob---part-2">Bob - Part 2</a></li>
+</ul>
+</li>
+<li><a href="#revoke-previous-refund">Revoke Previous Refund</a></li>
+<li><a href="#punishment-transaction">Punishment Transaction</a></li>
+<li><a href="#channel-closure">Channel Closure</a></li>
+</ul>
+</li>
+<li><a href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></li>
+<li><a href="#appendices">Appendices</a>
+<ul>
+<li><a href="#appendix-a-notation-used">Appendix A: Notation Used</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+<li><a href="#contributors">Contributors</a></li>
+</ul>
+<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<p>Proof-of-Work (PoW) blockchains are notoriously slow, as transactions need to be a number of blocks in the past to be 
+confirmed, and have poor scalability properties. A payment channel 
+is a class of techniques designed to allow two or more parties to make multiple blockchain transactions, without 
+committing all of the transactions to the blockchain. Resulting funds can be committed back to the blockchain. Payment 
+channels allow multiple transactions to be made within off-chain agreements. They keep the operation mode of the 
+blockchain protocol, but change the way in which it is used in order to deal with the challenge of scalability [<a href="https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html" title="Layer 2 Scaling Survey - 
+Tari Labs University">1</a>].</p>
+<p>The <a href="../../protocols/lightning-network-for-dummies/sources/PITCHME.link.html">Lightning Network</a> is a second-layer payment 
+protocol that was originally designed for Bitcoin, and which enables instant transactions between participating nodes. 
+It features a peer-to-peer system for making micropayments through a network of bidirectional payment channels. The 
+Lightning Network's dispute mechanism requires all users to constantly watch the blockchain for fraud. Various mainnet 
+implementations that support Bitcoin exist and, with small tweaks, some of them are also able to support Litecoin 
+([<a href="http://lightning.network/lightning-network-paper.pdf" title="The Bitcoin Lightning Network: 
+Scalable Off-Chain Instant Payments">2</a>], [<a href="https://github.com/lightningnetwork/lightning-rfc" title="GitHub: lightningnetwork/lightning-rfc: 
+Lightning Network Specifications">3</a>], [<a href="https://coinut.com/blog/whats-the-situation-of-litecoins-lightning-network-now" title="What is the situation of Litecoin's 
+Lightning Network now?">4</a>], [<a href="https://suredbits.com/lightning-101-for-exchanges-overview/" title="Lightning 101 for Exchanges">10</a>]).</p>
+<p>Laser Beam is an adaptation of the Lightning Network for the <a href="../../protocols/mimblewimble-1/MainReport.html">Mimblewimble</a> 
+protocol, to be implemented for Beam ([<a href="https://github.com/BeamMW/beam/wiki/Lightning-Network" title="GitHub: Lightning Network - 
+BeamMW/beam Wiki">5</a>], [<a href="https://docs.beam.mw/Beam_lightning_network_position_paper.pdf" title="Beam - Lightning network 
+position paper. (v 1.0)">6</a>], [<a href="https://github.com/fjahr/lightning-mw" title="GitHub: fjahr/lightning-mw, 
+Lightning Network Specifications">7</a>]). At the time of writing of this report (November 2019), 
+the specifications were far advanced, but still work in progress. Beam has a working demonstration in its mainnet 
+repository, which at this stage demonstrates off-chain transactions in a single channel between two parties [<a href="https://github.com/BeamMW/beam/tree/master/node/laser_beam_demo" title="GitHub: beam/node/laser_beam_demo 
+at master - BeamMW/beam">8</a>]. 
+According to the Request for Comment (RFC) documents, Beam plans to 
+implement routing across different payment channels in the Lightning Network style.</p>
+<h2><a class="header" href="#detail-scheme" id="detail-scheme">Detail Scheme</a></h2>
+<p>Beam's version of a multisignature (MultiSig) is actually a $2\text{-of-}2$ multiparty Unspent Transaction Output (UTXO), 
+where each party keeps its share of the blinding factor of the Pedersen commitment, 
+$C(v,k_{1}+k_{2})=\Big(vH+(k_{1}+k_{2})G\Big)$, secret. (Refer to <a href="#appendix-a-notation-used">Appendix A</a> for notation 
+used.) The multiparty commitment is accompanied by a single multiparty Bulletproof range proof, similar to that employed 
+by <a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html#utilizing-grins-shared-bulletproof-computation">Grin</a>, 
+where the individual shares of the blinding factor are used to create the combined range proof [<a href="https://github.com/BeamMW/beam/blob/mainnet/core/ecc_bulletproof.cpp" title="GitHub: beam/ecc_bulletproof.cpp 
+at mainnet - BeamMW/beam">9</a>].</p>
+<p>In the equations that follow Alice's and Bob's contributions are denoted by subscripts $_{a}$ and $_{b}$ respectively; 
+$f$ is the fee and $\mathcal{X}$ is the excess. Note that blinding factors denoted by $\hat{k}$, $k^{\prime}$ and 
+$k^{\prime\prime}$, and values denoted by $v^{\prime}$ and $v^{\prime\prime}$, have a special purpose, discussed later, 
+so that $\hat{k}_{N_{a}} \neq k_{N_{a}} \neq k^{\prime} \neq k^{\prime\prime}_{N_{a}}$ and $v_{N_{a}} 
+\neq v^{\prime}_{N_{a}} \neq v^{\prime\prime}_{N_{a}}$. </p>
+<h3><a class="header" href="#funding-transaction" id="funding-transaction">Funding Transaction</a></h3>
+<p>The parties collaborate to create the multiparty UTXO (i.e. commitment and associated multiparty range proof), combined 
+on‑chain funding transaction (Figure 1) and an initial refund transaction for each party (off‑chain). All refund 
+transactions have a relative time lock in their kernel, referencing the kernel of the original combined funding 
+transaction, which has to be confirmed on the blockchain.</p>
+<p align="center"><img src="sources/refund_procedure_01.png" width="700" /></p>
+<div align="center"><b>Figure&nbsp;1: Laser Beam Funding for Round (N)</b></div>
+<p>The initial funding transaction between Alice and Bob is depicted in (1). The lock height in the signature challenge 
+corresponds to the current blockchain height. Input commitment values and blinding factors are identified by superscript 
+$^{\prime\prime}$.</p>
+<p>$$
+\begin{aligned}
+-\text{Inputs}(0)+\text{MultiSig}(0)+\text{fee} 
+&amp;= \text{Excess}(0) \\
+-\Big((v^{\prime\prime}_{0_{a}}H+k^{\prime\prime}_{0_{a}}G)+(v^{\prime\prime}_{0_{b}}H+k^{\prime\prime}_{0_{b}}G)\Big)+\Big(v_{0}H+(k_{0_{a}}+k_{0_{b}})G\Big)+fH 
+&amp;= \mathcal{X}_{0}
+\end{aligned}
+\tag{1}
+$$</p>
+<p>Alice and Bob also need to set up their own respective refund transactions so they can be compensated should the channel 
+never be used; this is performed via a refund procedure. A refund procedure (off‑chain) consists of four parts, whereby 
+each user creates two transactions: one kept partially secret (discussed below) and the other shared. Each partially 
+secret transaction creates a different intermediate multiparty UTXO, which is then used as input in two shared 
+transactions, to spending the same set of outputs to each participant.</p>
+<p>All consecutive refund procedures work in exactly the same way. In the equations that follow, double subscripts 
+$_{AA}$, $_{AB}$, $_{BA}$ and $_{BB}$ have the following meaning: the first letter and the second letter indicate 
+who controls the transaction and who created the value, respectively. Capitalized use of $R$ and $P$ denotes public 
+nonce and public blinding factor respectively. The $N_{\text{th}}$ refund procedure is as follows:</p>
+<h3><a class="header" href="#refund-procedure" id="refund-procedure">Refund Procedure</a></h3>
+<h4><a class="header" href="#alice---part-1" id="alice---part-1">Alice - Part 1</a></h4>
+<p align="center"><img src="sources/refund_procedure_02.png" width="700" /></p>
+<div align="center"><b>Figure&nbsp;2: Laser Beam Refund Part 1 for Round (N)</b></div>
+<p>Alice and Bob set up Alice's intermediate MultiSig funding transaction (Figure 2), spending the original funding 
+MultiSig UTXO. The lock height $h_{N}$ corresponds to the current blockchain height. </p>
+<p>$$
+\begin{aligned}
+-\text{MultiSig}(0)+\text{MultiSig}(N)_{A}+\text{fee} 
+&amp; =\text{Excess}(N)_{A1} \\
+-\Big(v_{0}H+(k_{0_{a}}+k_{0_{b}})G\Big) + \Big((v_{0}-f)H+(\hat{k}_{N_{a}}+k_{N_{b}})G\Big) + fH 
+&amp;= \mathcal{X}_{N_{A1}} 
+\end{aligned}
+\tag{2}
+$$</p>
+<p>They collaborate to create $\text{MultiSig}(N)_{A}$, its Bulletproof range proof, the signature challenge and Bob's 
+portion of the signature, $s_{N_{AB1}}$. Alice does not share the final kernel and thus keeps her part of the 
+aggregated signature, $s_{N_{AA1}}$, hidden.</p>
+<p>$$
+\begin{aligned}
+\mathcal{X}_{N_{A1}} &amp;= (-k_{0_{a}}+\hat{k}_{N_{a}})G+(-k_{0_{b}}+k_{N_{b}})G \\ 
+&amp;= P_{N_{AA1}}+P_{N_{AB1}}
+\end{aligned}
+\tag{3}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Challenge:}\quad\mathcal{H}(R_{N_{AA1}}+R_{N_{AB1}}\parallel P_{N_{AA1}}+P_{N_{AB1}}\parallel 
+f\parallel h_{N}) 
+\end{aligned}
+\tag{4}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Final signature tuple, kept secret:}\quad(s_{N_{AA1}}+s_{N_{AB1}},R_{N_{AA1}}+R_{N_{AB1}}) 
+\end{aligned}
+\tag{5}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Kernel of this transaction:}\quad\mathcal{K}_{N_{AA1}} 
+\end{aligned}
+\tag{6}
+$$</p>
+<h4><a class="header" href="#bob---part-1" id="bob---part-1">Bob - Part 1</a></h4>
+<p>Alice and Bob set up Bob's intermediate MultiSig funding transaction (Figure 2), also spending the original funding 
+MultiSig UTXO. The lock height $h_{N}$ again corresponds to the current blockchain height.</p>
+<p>$$
+\begin{aligned}
+-\text{MultiSig}(0)+\text{MultiSig}(N)_{B}+\text{fee} 
+&amp; =\text{Excess}(N)_{B1} \\
+-\Big(v_{0}H+(k_{0_{a}}+k_{0_{b}})G\Big) + \Big((v_{0}-f)H+(k_{N_{a}}+\hat{k}_{N_{b}})G\Big) + fH 
+&amp;= \mathcal{X}_{N_{B1}}
+\end{aligned}
+\tag{7}
+$$</p>
+<p>They collaborate to create $\text{MultiSig}(N)_{A}$, its Bulletproof range proof, the signature challenge and Alice's 
+portion of the signature. Bob does not share the final kernel and thus keeps his part of the aggregated signature 
+hidden.</p>
+<p>$$
+\begin{aligned}
+\mathcal{X}_{N_{B1}} &amp;= (-k_{0_{a}}+k_{N_{a}})G+(-k_{0_{b}}+\hat{k}_{N_{b}})G \\ 
+&amp;= P_{N_{BA1}}+P_{N_{BB1}}
+\end{aligned}
+\tag{8}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Challenge:}\quad\mathcal{H}(R_{N_{BA1}}+R_{N_{BB1}}\parallel P_{N_{BA1}}+P_{N_{BB1}}\parallel 
+f\parallel h_{N}) 
+\end{aligned}
+\tag{9}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Final signature tuple, kept secret:}\quad(s_{N_{BA1}}+s_{N_{BB1}},R_{N_{BA1}}+R_{N_{BB1}}) 
+\end{aligned}
+\tag{10}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Kernel of this transaction:}\quad\mathcal{K}_{N_{BB1}} 
+\end{aligned}
+\tag{11}
+$$</p>
+<h4><a class="header" href="#alice---part-2" id="alice---part-2">Alice - Part 2</a></h4>
+<p align="center"><img src="sources/refund_procedure_03.png" width="700" /></p>
+<div align="center"><b>Figure&nbsp;3: Laser Beam Refund Part 2 for Round (N)</b></div>
+<p>Alice and Bob set up a refund transaction (Figure 3), which Alice controls, with the same relative time lock 
+$h_{rel}$ to the intermediate funding transaction's kernel, $\mathcal{K}_{N_{AA1}}$. Output commitment values and 
+blinding factors are identified by superscript $^{\prime}$.</p>
+<p>$$
+\begin{aligned}
+-\text{MultiSig}(N)_{A}+\text{Outputs}(N)+\text{fee}
+&amp; =\text{Excess}(N)_{A2} \\
+-\Big((v_{0}-f)H+(\hat{k}_{N_{a}}+k_{N_{b}})G\Big)+\Big((v_{N_{a}}^{\prime}H+k_{N_{a}}^{\prime}G)+(v_{N_{b}}^
+{\prime}H+k_{N_{b}}^{\prime}G)\Big)+fH
+&amp;=\mathcal{X}_{N_{A2}}  \\
+\end{aligned}
+\tag{12}
+$$</p>
+<p>They collaborate to create the challenge and the aggregated signature. Because the final kernel 
+$\mathcal{K}_{N_{AA1}}$ is kept secret, only its hash is shared. Alice shares this transaction's final kernel with 
+Bob. The signature challenge is determined as follows:</p>
+<p>$$
+\begin{aligned}
+\mathcal{X}_{N_{A2}} &amp;= (-\hat{k}_{N_{a}}+k_{N_{a}}^{\prime})G + (-k_{N_{b}}+k_{N_{b}}^{\prime})G \\
+&amp;= P_{N_{AA2}}+P_{N_{AB2}} \\
+\end{aligned}
+\tag{13}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Challenge:}\quad\mathcal{H}(R_{N_{AA2}}+R_{N_{AB2}}\parallel P_{N_{AA2}}+P_{N_{AB2}}\parallel f
+\parallel\mathcal{H}(\mathcal{K}_{N_{AA1}})\parallel h_{rel})
+\end{aligned}
+\tag{14}
+$$</p>
+<h4><a class="header" href="#bob---part-2" id="bob---part-2">Bob - Part 2</a></h4>
+<p>Alice and Bob set up a refund transaction (Figure 3), which Bob controls, with a relative time lock $h_{rel}$ to 
+the intermediate funding transaction's kernel, $\mathcal{K}_{N_{BB1}}$. Output commitment values and blinding factors 
+are identified by superscript $^{\prime}$.</p>
+<p>$$
+\begin{aligned}
+-\text{MultiSig}(N)_{B}+\text{Outputs}(N)+\text{fee}
+&amp; =\text{Excess}(N)_{B2} \\
+-\Big((v_{0}-f)H+(k_{N_{a}}+\hat{k}_{N_{b}})G\Big)+\Big((v_{N_{a}}^{\prime}H+k_{N_{a}}^{\prime}G)+(v_{N_{b}}^
+{\prime}H+k_{N_{b}}^{\prime}G)\Big)+fH
+&amp;=\mathcal{X}_{N_{B2}} \\
+\end{aligned}
+\tag{15}
+$$</p>
+<p>They collaborate to create the challenge and the aggregated signature. Because the final kernel 
+$\mathcal{K}_{N_{BB1}}$ is kept secret, only its hash is shared. Bob shares this transaction's final kernel with 
+Alice. The signature challenge is determined as follows:</p>
+<p>$$
+\begin{aligned}
+\mathcal{X}_{N_{B2}} &amp;= (-k_{N_{a}}+k_{N_{a}}^{\prime})G + (-\hat{k}_{N_{b}}+k_{N_{b}}^{\prime})G \\
+&amp;= P_{N_{BA2}}+P_{N_{BB2}}
+\end{aligned}
+\tag{16}
+$$</p>
+<p>$$
+\begin{aligned}
+\text{Challenge:}\quad\mathcal{H}(R_{N_{BA2}}+R_{N_{BB2}}\parallel P_{N_{BA2}}+P_{N_{BB2}}\parallel f
+\parallel\mathcal{H}(\mathcal{K}_{N_{BB1}})\parallel h_{rel})
+\end{aligned}
+\tag{17}
+$$</p>
+<h3><a class="header" href="#revoke-previous-refund" id="revoke-previous-refund">Revoke Previous Refund</a></h3>
+<p>Whenever the individual balances in the channel change, a new refund procedure is negotiated, revoking previous 
+agreements (Figure 4). </p>
+<p align="center"><img src="sources/refund_procedure_04.png" width="700" /></p>
+<div align="center"><b>Figure&nbsp;4: Laser Beam Revoke for Round (N)</b></div>
+<p>Revoking refund transactions involves revealing blinding factor shares for the intermediate multiparty UTXOs, thereby 
+nullifying their further use. After the four parts of the refund procedure have been concluded successfully, the 
+previous round's blinding factor shares $\hat{k}_{(N-1)}$  are revealed to each other, in order to revoke the previous 
+agreement.</p>
+<p>Alice:</p>
+<p>$$
+\begin{aligned}
+\text{MultiSig}(N-1)_{A}:\quad\Big((v_{0}-f)H+(\hat{k}_{(N-1)_{a}}+k_{(N-1)_{b}})G\Big) 
+&amp; \quad &amp; \lbrace\text{Alice's commitment}\rbrace \\
+\hat{k}_{(N-1)_{a}} 
+&amp; \quad &amp; \lbrace\text{Alice shares with Bob}\rbrace \\
+\end{aligned}
+\tag{18}
+$$</p>
+<p>Bob:</p>
+<p>$$
+\begin{aligned}
+\text{MultiSig}(N-1)_{B}:\quad\Big((v_{0}-f)H+(k_{(N-1)_{a}}+\hat{k}_{(N-1)_{b}})G\Big) 
+&amp; \quad &amp; \lbrace\text{Bob's commitment}\rbrace \\
+\hat{k}_{(N-1)_{b}} 
+&amp; \quad &amp; \lbrace\text{Bob shares with Alice}\rbrace 
+\end{aligned}
+\tag{19}
+$$</p>
+<p>Note that although the kernels for transactions (2) and (10) were kept secret, when the Bulletproof range proofs for 
+$\text{MultiSig}(N-1)_{A}$ and  $\text{MultiSig}(N-1)_{B}$ were constructed, resultant values of those MultiSig 
+Pedersen commitments were revealed to the counterparty. Each of them is thus able to verify the counterparty's blinding 
+factor share by constructing the counterparty's MultiSig Pedersen commitment.</p>
+<p>Alice verifies:</p>
+<p>$$
+\begin{aligned}<br />
+\Big((v_{0}-f)H+(k_{(N-1)_{a}}+\hat{k}_{(N-1)_{b}})G\Big) \overset{?}{=} C(v_{0}-f,\ k_{(N-1)_{a}}+
+\hat{k}_{(N-1)_{b}})
+\end{aligned}
+\tag{20}
+$$</p>
+<p>Bob verifies:</p>
+<p>$$
+\begin{aligned}
+\Big((v_{0}-f)H+(\hat{k}_{(N-1)_{a}}+k_{(N-1)_{b}})G\Big) \overset{?}{=} C(v_{0}-f,\ \hat{k}_{(N-1)_{a}}+
+k_{(N-1)_{b}})
+\end{aligned}
+\tag{21}
+$$</p>
+<p>Although each party will now have its counterparty's blinding factor share in the counterparty's intermediate multiparty 
+UTXO, they will still not be able to spend it, because the corresponding transaction kernel is still kept secret by the 
+counterparty. The previous round's corresponding transaction (2) or (10), with a fully signed transaction kernel, was 
+never published on the blockchain.</p>
+<h3><a class="header" href="#punishment-transaction" id="punishment-transaction">Punishment Transaction</a></h3>
+<p>If a counterparty decides to broadcast a revoked set of refund transactions, and if the honest party is actively 
+monitoring the blockchain and able to detect the attempted foul play, a punishment transaction can immediately be 
+constructed before the relative time lock $h_{rel}$ expires. Whenever any of the counterparty's intermediate multiparty 
+UTXOs, $\text{MultiSig}(N-m)\ \text{for}\ 0&lt;m&lt;N$, becomes available in the blockchain, the honest party can spend all 
+the funds to its own output, because it knows the total blinding factor and the counterparty does not.</p>
+<h3><a class="header" href="#channel-closure" id="channel-closure">Channel Closure</a></h3>
+<p>Whenever the parties agree to a channel closure, the original on‑chain multiparty UTXO, $\text{MultiSig}(0)$, is spent 
+to their respective outputs in a collaborative transaction. In the event of a single party deciding to close the channel 
+unilaterally for whatever reason, its latest refund transaction is broadcast, effectively closing the channel. In either
+case, the parties have to wait for the relative time lock $h_{rel}$ to expire before being able to claim their funds.</p>
+<p>Opening a channel requires one collaborative funding transaction on the blockchain. Closing a channel involves each 
+party broadcasting its respective portion of the refund transaction to the blockchain, or collaborating to broadcast a 
+single settlement transaction. A round-trip open channel, multiple off‑chain spending and close channel thus involves, 
+at most, three on‑chain transactions.</p>
+<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<ol>
+<li>
+<p>MultiSig</p>
+<p>The Laser Beam MultiSig corresponds to a Mimblewimble $2-of-2$ Multiparty Bulletproof UTXO, as described 
+<a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html#mimblewimble--ntext-of-n--multiparty-bulletproof-utxo">here</a>. 
+There is more than one method for creating the MultiSig's associated Bulletproof range proof, and utilizing the 
+<a href="../../protocols/mimblewimble-mp-bp-utxo/MainReport.html#creating-the-multiparty-bulletproof-range-proof">Bulletproofs MPC Protocol</a> 
+will enable wallet reconstruction. It may also make information sharing, while constructing the Bulletproof range 
+proof, more secure.</p>
+</li>
+<li>
+<p>Linked Transactions</p>
+<p>Part 2 of the refund procedure requires a kernel with a relative time lock to the kernel of its corresponding 
+part 1 refund procedure, when those kernels are not yet available in the base layer, as well as a different, 
+non-similar, signature challenge. Metadata about the linked transaction kernel and non-similar signature challenge 
+creation must therefore be embedded within part 2 refund transaction kernels.</p>
+</li>
+<li>
+<p>Refund Procedure</p>
+<p>In the event that for round $N$, Alice or Bob decides to stop negotiations after their respective part 1 has 
+been concluded and that transaction has been broadcast, the result would be that funding UTXO, $\text{MultiSig}(0)$, 
+would be replaced by the respective $\text{MultiSig}(N)$. The channel will still be open. However, it also cannot be 
+spent unilaterally, as the blinding factor is shared. Any new updates of the channel will then need to be based on 
+$\text{MultiSig}(N)$ as the funding UTXO. Note that this cannot happen if the counterparties construct transactions 
+for part 1 and part 2, conclude part 2 by signing it, and only then sign part 1.</p>
+<p>In the event that for round $N$, Alice or Bob decides to stop negotiations after their respective part 1 and 
+part 2 have been concluded and those transactions have been broadcast, it will effectively be a channel closure.</p>
+</li>
+<li>
+<p>Revoke Attack Vector</p>
+<p>When revoking the previous refund  $(N-1)$, Alice can get hold of Bob's blinding factor share $\hat{k}_{(N-1)_{b}}$ 
+(19), and after verifying that it is correct (20), refuse to give up her blinding factor share. This will leave 
+Alice with the ability to broadcast any of refund transactions $(N-1)$ and $N$, without fear of Bob broadcasting a 
+punishment transaction. Bob, on the other hand, will only be able to broadcast refund transaction $N$.</p>
+</li>
+</ol>
+<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
+<h3><a class="header" href="#appendix-a-notation-used" id="appendix-a-notation-used">Appendix A: Notation Used</a></h3>
+<ul>
+<li>
+<p>Let $p$ be a large prime number, $\mathbb{Z}_{p}$ denote the ring of integers $\mathrm{mod} \text{ } p$, and 
+$\mathbb{F}_{p}$ be the group of elliptic curve points.</p>
+</li>
+<li>
+<p>Let $G\in\mathbb{F}_{p}$ be a random generator point (base point) and let $H\in\mathbb{F}_{p}$ be specially chosen 
+so that the value $x_{H}$ to satisfy $H=x_{H}G$ cannot be found, except if the Elliptic Curve Discrete Logarithm 
+Problem (ECDLP) is solved.</p>
+</li>
+<li>
+<p>Let commitment to value $v\in\mathbb{Z}_{p}$ be determined by calculating $C(v,k)=(vH+kG)$, which is called the 
+Elliptic Curve Pedersen Commitment (Pedersen Commitment), with $k\in\mathbb{Z}_{p}$ (the blinding factor) a random 
+value.</p>
+</li>
+<li>
+<p>Let scalar multiplication be depicted by $\cdot$, e.g. $e\cdot(vH+kG)=e\cdot vH+e\cdot kG$.</p>
+</li>
+</ul>
+<h2><a class="header" href="#references" id="references">References</a></h2>
+<p>[<a href="https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html" title="Layer 2 Scaling Survey - 
+Tari Labs University">1</a>] J. A. Odendaal, &quot;Layer 2 Scaling Survey - Tari Labs University&quot; [online]. Available: 
+<a href="https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html">https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html</a>. Date accessed: 2019‑10‑06.</p>
+<p>[<a href="http://lightning.network/lightning-network-paper.pdf" title="The Bitcoin Lightning Network: 
+Scalable Off-Chain Instant Payments">2</a>] J. Poon, T. Dryja (2016). &quot;The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments&quot; [online].&quot; Available: 
+<a href="http://lightning.network/lightning-network-paper.pdf">http://lightning.network/lightning-network-paper.pdf</a>. Date accessed: 2019‑07‑04.</p>
+<p>[<a href="https://github.com/lightningnetwork/lightning-rfc" title="GitHub: lightningnetwork/lightning-rfc: 
+Lightning Network Specifications">3</a>] &quot;GitHub: lightningnetwork/lightning-rfc: Lightning Network Specifications&quot; [online]. Available: 
+<a href="https://github.com/lightningnetwork/lightning-rfc">https://github.com/lightningnetwork/lightning-rfc</a>. Date accessed: 2019‑07‑04.</p>
+<p>[<a href="https://coinut.com/blog/whats-the-situation-of-litecoins-lightning-network-now" title="What is the situation of Litecoin's 
+Lightning Network now?">4</a>] X. Wang, &quot;What is the situation of Litecoin's Lightning Network now?&quot; [online]. Available: 
+<a href="https://coinut.com/blog/whats-the-situation-of-litecoins-lightning-network-now">https://coinut.com/blog/whats-the-situation-of-litecoins-lightning-network-now</a>. Date accessed: 2019‑09‑11.</p>
+<p>[<a href="https://github.com/BeamMW/beam/wiki/Lightning-Network" title="GitHub: Lightning Network - 
+BeamMW/beam Wiki">5</a>] The Beam Team, &quot;GitHub: Lightning Network - BeamMW/beam Wiki&quot; [online]. Available: 
+<a href="https://github.com/BeamMW/beam/wiki/Lightning-Network">https://github.com/BeamMW/beam/wiki/Lightning-Network</a>. Date accessed: 2019‑07‑05.</p>
+<p>[<a href="https://docs.beam.mw/Beam_lightning_network_position_paper.pdf" title="Beam - Lightning network 
+position paper. (v 1.0)">6</a>] F. Jahr, &quot;Beam - Lightning Network Position Paper. (v 1.0)&quot; [online]. Available: 
+<a href="https://docs.beam.mw/Beam_lightning_network_position_paper.pdf">https://docs.beam.mw/Beam_lightning_network_position_paper.pdf</a>. Date accessed: 2019‑07‑04.</p>
+<p>[<a href="https://github.com/fjahr/lightning-mw" title="GitHub: fjahr/lightning-mw, 
+Lightning Network Specifications">7</a>] F. Jahr, &quot;GitHub: fjahr/lightning-mw, Lightning Network Specifications&quot; [online]. Available: 
+<a href="https://github.com/fjahr/lightning-mw">https://github.com/fjahr/lightning-mw</a>. Date accessed: 2019‑07‑04.</p>
+<p>[<a href="https://github.com/BeamMW/beam/tree/master/node/laser_beam_demo" title="GitHub: beam/node/laser_beam_demo 
+at master - BeamMW/beam">8</a>] The Beam Team, &quot;GitHub: beam/node/laser_beam_demo at master - BeamMW/beam&quot; [online]. Available: 
+<a href="https://github.com/BeamMW/beam/tree/master/node/laser_beam_demo">https://github.com/BeamMW/beam/tree/master/node/laser_beam_demo</a>. Date accessed: 2019‑07‑05.</p>
+<p>[<a href="https://github.com/BeamMW/beam/blob/mainnet/core/ecc_bulletproof.cpp" title="GitHub: beam/ecc_bulletproof.cpp 
+at mainnet - BeamMW/beam">9</a>] The Beam Team, &quot;GitHub: beam/ecc_bulletproof.cpp at mainnet - BeamMW/beam&quot; [online]. Available: 
+<a href="https://github.com/BeamMW/beam/blob/mainnet/core/ecc_bulletproof.cpp">https://github.com/BeamMW/beam/blob/mainnet/core/ecc_bulletproof.cpp</a>. Date accessed: 2019‑07‑05.</p>
+<p>[<a href="https://suredbits.com/lightning-101-for-exchanges-overview/" title="Lightning 101 for Exchanges">10</a>] D. Smith, N. Kohen, and C. Stewart, “Lightning 101 for Exchanges” [online]. Available: 
+<a href="https://suredbits.com/lightning-101-for-exchanges-overview">https://suredbits.com/lightning-101-for-exchanges-overview</a>. Date accessed: 2019‑11‑06.</p>
+<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<ul>
+<li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
+<li><a href="https://github.com/anselld">https://github.com/anselld</a></li>
+<li><a href="https://github.com/SWvheerden">https://github.com/SWvheerden</a></li>
+<li><a href="https://github.com/Empiech007">https://github.com/Empiech007</a></li>
+<li><a href="https://github.com/mikethetike">https://github.com/mikethetike</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../scaling/directed-acyclic-graphs/DAGs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../merged-mining/merged-mining.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../scaling/directed-acyclic-graphs/DAGs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../merged-mining/merged-mining.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+        <!-- Google Analytics Tag -->
+        <script type="text/javascript">
+            var localAddrs = ["localhost", "127.0.0.1", ""];
+
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-115476091-2', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Initialize mermaid -->
+        <script src="../../theme/js/mermaid.min.js" type="text/javascript" charset="utf-8"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
