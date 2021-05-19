@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#atomic-swaps" id="atomic-swaps">Atomic Swaps</a></h1>
+                        <h1 id="atomic-swaps"><a class="header" href="#atomic-swaps">Atomic Swaps</a></h1>
 <ul>
 <li><a href="#what-are-atomic-swaps">What are Atomic Swaps?</a></li>
 <li><a href="#hashed-timelock-contracts">Hashed Timelock Contracts</a></li>
@@ -241,13 +241,13 @@
 <li><a href="#references">References</a></li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#what-are-atomic-swaps" id="what-are-atomic-swaps">What are Atomic Swaps?</a></h2>
+<h2 id="what-are-atomic-swaps"><a class="header" href="#what-are-atomic-swaps">What are Atomic Swaps?</a></h2>
 <p>Atomic swaps or cross-chain atomic swaps [<a href="https://coinsutra.com/atomic-swap/" title="What is Atomic Swap and Why it Matters?">1</a>], in a nutshell, are decentralized 
 exchanges, but only for cryptocurrencies. They allow multiple parties to exchange two different crypto currencies in a 
 trustless environment. If one party defaults or fails the transaction, neither party can &quot;run off&quot; with anyone's 
 money. For this to work, we will require two technologies: a payment channel and hashed timelock contracts. An 
 implementation of a payment channel is the lightning network. </p>
-<h2><a class="header" href="#hashed-timelock-contracts" id="hashed-timelock-contracts">Hashed Timelock Contracts</a></h2>
+<h2 id="hashed-timelock-contracts"><a class="header" href="#hashed-timelock-contracts">Hashed Timelock Contracts</a></h2>
 <p>Hashed Timelock Contracts (HTLC) [<a href="https://hackernoon.com/what-are-hashed-timelock-contracts-htlcs-application-in-lightning-network-payment-channels-14437eeb9345" title="What are Hashed Timelock Contracts (HTLCs)? Application in Lightning Network &amp; Payment Channels">2</a>] is one of the most important technologies required for atomic swaps. This is a 
 payment class that uses hashlocks and timelocks to require certain public knowledge before making a payment, otherwise 
 the payment is reversed. HTLCs are also 
@@ -265,12 +265,12 @@ that generated the hash Carla gave to Alex. </li>
 <li>Bart uses the random number to claim the payment from Alex. </li>
 </ol>
 <p>If the payment to Carla does not go through, the timelock in the contract will reverse all transactions. </p>
-<h2><a class="header" href="#atomic-vs-etomic-swaps" id="atomic-vs-etomic-swaps">Atomic vs. Etomic Swaps</a></h2>
+<h2 id="atomic-vs-etomic-swaps"><a class="header" href="#atomic-vs-etomic-swaps">Atomic vs. Etomic Swaps</a></h2>
 <p>For an atomic swap transaction to happen, both cryptocurrencies must use the same hashing function, as this is crucial 
 for HTLC to function. Etomic swaps were created in an attempt to make atomic swaps happen between Bitcoin tokens and 
 Ethereum-based tokens. </p>
-<h2><a class="header" href="#examples-of-current-atomic-swaps-and-implementations" id="examples-of-current-atomic-swaps-and-implementations">Examples of Current Atomic Swaps and Implementations</a></h2>
-<h3><a class="header" href="#1-manual-method" id="1-manual-method">#1 Manual Method</a></h3>
+<h2 id="examples-of-current-atomic-swaps-and-implementations"><a class="header" href="#examples-of-current-atomic-swaps-and-implementations">Examples of Current Atomic Swaps and Implementations</a></h2>
+<h3 id="1-manual-method"><a class="header" href="#1-manual-method">#1 Manual Method</a></h3>
 <p>An article was posted on Hackernoon [<a href="https://hackernoon.com/so-how-do-i-really-do-an-atomic-swap-f797852c7639" title="So how do I really do an Atomic Swap">4</a>] 
 giving the exact steps that are required for doing an atomic swap using cli. The requirements for this method are:</p>
 <ul>
@@ -279,7 +279,7 @@ giving the exact steps that are required for doing an atomic swap using cli. The
 <li>Use of supported coins (UXTO-based protocol coins, e.g. Bitcoin, Litecoin and Viacoin).</li>
 <li>Power user.</li>
 </ul>
-<h3><a class="header" href="#2-atomic-wallet" id="2-atomic-wallet">#2 Atomic Wallet</a></h3>
+<h3 id="2-atomic-wallet"><a class="header" href="#2-atomic-wallet">#2 Atomic Wallet</a></h3>
 <p>Atomic Wallet [<a href="https://atomicwallet.io/" title="Atomic Wallet">6</a>] is an atomic swap exchange. It allows two parties to trade with it as 
 a third party. The process is as follows:</p>
 <ol>
@@ -291,7 +291,7 @@ a third party. The process is as follows:</p>
 <li>Party A and Party B's Atomic Wallets check the contracts.</li>
 <li>Both parties receive their coins.</li>
 </ol>
-<h3><a class="header" href="#3-barterdex" id="3-barterdex">#3 BarterDEX</a></h3>
+<h3 id="3-barterdex"><a class="header" href="#3-barterdex">#3 BarterDEX</a></h3>
 <p>BarterDEX is a decentralized exchange created by Komodo [<a href="https://komodoplatform.com/decentralized-exchange/" title="BarterDEX">7</a>], but 
 it works with electron servers or native. BarterDEX at its core is more like an auction system than a true decentralized 
 exchange. It also uses a security deposit in the form of Zcredits to do swaps without waiting for confirmation.</p>
@@ -299,7 +299,7 @@ exchange. It also uses a security deposit in the form of Zcredits to do swaps wi
 as a third party. Although swaps have been done, it is stated as not yet being production ready [<a href="https://github.com/artemii235/etomic-swap" title="etomic-swap">8</a>]. Currently 
 (July 2018), it is only possible to use Barterdex out of the Command Line Interface (CLI) [<a href="https://github.com/KomodoPlatform/KomodoPlatform/wiki/Installing-and-Using-Komodo-Platform-(barterDEX" title="Barterdex">9</a>]. Barterdex charges 
 a 0.1287% fee for a swap [<a href="https://github.com/KomodoPlatform/KomodoPlatform/wiki/barterDEX-Whitepaper-v2" title="barterDEX Whitepaper v2">10</a>]. </p>
-<h3><a class="header" href="#4-comit" id="4-comit">#4 COMIT</a></h3>
+<h3 id="4-comit"><a class="header" href="#4-comit">#4 COMIT</a></h3>
 <p>Cryptographically-secure Off-chain Multi-asset Instant Transaction (COMIT) is an open-source protocol for 
 cross-blockchain applications, like peer-to-peer atomic swaps, and does not feature another blockchain nor token. It 
 is powered by simple cryptographic principles such as HTLCs and enables users to trustlessly exchange one digital asset 
@@ -307,7 +307,7 @@ to another. Its specification, reference implementation in Rust, JavaScript Soft
 Graphical User Interface (GUI) are available on GitHub. At the time of writing, October 2019, COMIT supports 
 assets from the Bitcoin blockchain (e.g. BTC) and from the Ethereum blockchain (e.g. ETH and ERC20 tokens) 
 ([<a href="https://github.com/comit-network" title="GitHub: comit-network">11</a>, [<a href="https://blog.coblox.tech/2018/06/23/connect-all-the-blockchains.html" title="CoBloX Connect all the Blockchains!!!">12</a>], [<a href="https://comit.network/" title="COMIT Website">13</a>]). </p>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://coinsutra.com/atomic-swap/" title="What is Atomic Swap and Why it Matters?">1</a>] S. Khatwani (2018), &quot;What is Atomic Swap and Why it Matters?&quot; <em>Coinsutra</em>. [Online.] 
 Available: <a href="https://coinsutra.com/atomic-swap/">https://coinsutra.com/atomic-swap/</a>. Date accessed: 2018‑07‑12.</p>
 <p>[<a href="https://hackernoon.com/what-are-hashed-timelock-contracts-htlcs-application-in-lightning-network-payment-channels-14437eeb9345" title="What are Hashed Timelock Contracts (HTLCs)? Application in Lightning Network &amp; Payment Channels">2</a>] A. Vohra (2016), &quot;What are Hashed Timelock Contracts (HTLCs)? Application in Lightning Network &amp; Payment Channels&quot;, 
@@ -335,7 +335,7 @@ Available: <a href="https://github.com/KomodoPlatform/KomodoPlatform/wiki/barter
 <a href="https://blog.coblox.tech/2018/06/23/connect-all-the-blockchains.html/">https://blog.coblox.tech/2018/06/23/connect-all-the-blockchains.html/</a>. Date accessed: 2019‑10‑16.</p>
 <p>[<a href="https://comit.network/" title="COMIT Website">13</a>] &quot;COMIT is an open protocol facilitating trustless cross-blockchain applications&quot; [online]
 Available: <a href="https://comit.network/">https://comit.network/</a>. Date accessed: 2019‑10‑16.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/SWvheerden">https://github.com/SWvheerden</a></li>
 <li><a href="https://github.com/anselld">https://github.com/anselld</a></li>

@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#mimblewimble-transactions-explained" id="mimblewimble-transactions-explained">Mimblewimble Transactions Explained</a></h1>
+                        <h1 id="mimblewimble-transactions-explained"><a class="header" href="#mimblewimble-transactions-explained">Mimblewimble Transactions Explained</a></h1>
 <ul>
 <li><a href="#high-level-overview">High-level Overview</a></li>
 <li><a href="#transactions-explained">Transactions Explained</a>
@@ -243,7 +243,7 @@
 <li><a href="#references">References</a></li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#high-level-overview" id="high-level-overview">High-level Overview</a></h2>
+<h2 id="high-level-overview"><a class="header" href="#high-level-overview">High-level Overview</a></h2>
 <p>Mimblewimble is a privacy-oriented, cryptocurrency technology. It differs from Bitcoin in some key areas:</p>
 <ul>
 <li>No addresses. The concept of Mimblewimble addresses does not exist.</li>
@@ -251,7 +251,7 @@
 <li>Compact blockchain. Mimblewimble uses a different set of security guarantees to Bitcoin, which leads to a far more 
 compact blockchain.</li>
 </ul>
-<h2><a class="header" href="#transactions-explained" id="transactions-explained">Transactions Explained</a></h2>
+<h2 id="transactions-explained"><a class="header" href="#transactions-explained">Transactions Explained</a></h2>
 <p>Confidential transactions [<a href="https://www.mycryptopedia.com/what-are-confidential-transactions/" title="What are Bitcoin Confidential Transactions?">1</a>] were invented by Dr. Adam Back and are employed in several cryptocurrency projects,
 including Monero and Tari - by way of Mimblewimble.</p>
 <p>Recipients of Tari create the private keys for receiving coins on the fly. Therefore they must be involved in the
@@ -259,7 +259,7 @@ construction of a Tari transaction.</p>
 <p>This doesn't necessarily mean that recipients have to be online. However, they do need to be able to communicate, 
 whether it
 be by email, Instant Messaging (IM) or carrier pigeon.</p>
-<h3><a class="header" href="#basic-transaction" id="basic-transaction">Basic Transaction</a></h3>
+<h3 id="basic-transaction"><a class="header" href="#basic-transaction">Basic Transaction</a></h3>
 <p>We'll explain how Alice can send Tari to Bob using a two-party protocol for Mimblewimble. Multiparty transactions are
 similar, but the flow of information is a bit different and takes place over additional communication rounds.</p>
 <p>Let's say Alice has 300 µT and she wants to send 200 µT to Bob.</p>
@@ -290,7 +290,7 @@ reasonable values of _n_ and scan the blockchain for those public keys?<sup>[^a]
 <div class="footnote-definition" id="a"><sup class="footnote-definition-label">1</sup>
 <p>&quot;This is called a pre-image attack.&quot;</p>
 </div>
-<h3><a class="header" href="#blinding-factors" id="blinding-factors">Blinding Factors</a></h3>
+<h3 id="blinding-factors"><a class="header" href="#blinding-factors">Blinding Factors</a></h3>
 <p>To prevent a pre-image attack from unblinding all the values in Tari transactions, we need to add randomness to each
 input and output. The basic idea is to do this by adding a second public key to each transaction output.</p>
 <p>So if we rewrite the inputs and outputs as follows:</p>
@@ -304,7 +304,7 @@ the other [[2]]. Specifically, if _G_ is the base generator, then there exists s
 exercise for the reader to figure out why.</p>
 <p>For a semi-gentle introduction to these concepts, Adam Gibson's paper on the subject is excellent [<a href="https://joinmarket.me/static/FromZK2BPs_v1.pdf" title="From Zero (Knowledge) to BulletProofs">5</a>].</p>
 </div>
-<h3><a class="header" href="#alice-prepares-a-transaction" id="alice-prepares-a-transaction">Alice Prepares a Transaction</a></h3>
+<h3 id="alice-prepares-a-transaction"><a class="header" href="#alice-prepares-a-transaction">Alice Prepares a Transaction</a></h3>
 <p>Alice can now start to build a transaction.</p>
 <table><thead><tr><th align="left">Type</th><th align="left">Formula</th><th align="left">Name</th></tr></thead><tbody>
 <tr><td align="left">Input</td><td align="left">$$ -300.H - k_1.G $$</td><td align="left">C1</td></tr>
@@ -355,7 +355,7 @@ any of the accounting of Tari.
 <tr><td align="left">Metadata</td><td align="left">m</td></tr>
 </tbody></table>
 <p>The message metadata is some extra bits of information that pertains to the transaction (such as when the output can be spent).</p>
-<h3><a class="header" href="#bob-prepares-his-response" id="bob-prepares-his-response">Bob Prepares his Response</a></h3>
+<h3 id="bob-prepares-his-response"><a class="header" href="#bob-prepares-his-response">Bob Prepares his Response</a></h3>
 <p>Bob receives this information and then sets about completing his part of the transaction.</p>
 <p>First, he can verify that Alice has sent over the correct information by checking that the public excess, <em>X</em>, is 
 correct by following the same procedure that Alice used to calculate it above. This step isn't strictly necessary, 
@@ -377,7 +377,7 @@ since he doesn't have enough information to detect any fraud at this point.</p>
 <tr><td align="left">Signature</td><td align="left">$$s_b$$</td></tr>
 <tr><td align="left">Public key</td><td align="left">$$P_b$$</td></tr>
 </tbody></table>
-<h3><a class="header" href="#alice-completes-and-broadcasts-the-transaction" id="alice-completes-and-broadcasts-the-transaction">Alice Completes and Broadcasts the Transaction</a></h3>
+<h3 id="alice-completes-and-broadcasts-the-transaction"><a class="header" href="#alice-completes-and-broadcasts-the-transaction">Alice Completes and Broadcasts the Transaction</a></h3>
 <p>After hearing back from Bob, Alice can wrap things up.</p>
 <p>First, she can now use Bob's public nonce and public key to independently calculate the same challenge that Bob signed:</p>
 <p>$$ e = H(R_a + R_b \Vert X + P_b \Vert f \Vert m) $$</p>
@@ -395,7 +395,7 @@ since he doesn't have enough information to detect any fraud at this point.</p>
 <tr><td align="left">Inputs with range proofs</td><td align="left">$$[C_1]$$</td></tr>
 <tr><td align="left">Outputs with range proofs</td><td align="left">$$[C_2, C_B]$$</td></tr>
 </tbody></table>
-<h2><a class="header" href="#transaction-verification-and-propagation" id="transaction-verification-and-propagation">Transaction Verification and Propagation</a></h2>
+<h2 id="transaction-verification-and-propagation"><a class="header" href="#transaction-verification-and-propagation">Transaction Verification and Propagation</a></h2>
 <p>When a full node receives Alice's transaction, it needs to verify that it's on the level before sending it on to its
 peers. The node wants to check the following:</p>
 <ol>
@@ -431,7 +431,7 @@ checking the following, where the challenge <em>e</em> is calculated as before:<
 </ol>
 <p>If all these checks pass, then the node will forward the transaction on to its peers and it will eventually be mined and
 be added to the blockchain.</p>
-<h2><a class="header" href="#stopping-fraud" id="stopping-fraud">Stopping Fraud</a></h2>
+<h2 id="stopping-fraud"><a class="header" href="#stopping-fraud">Stopping Fraud</a></h2>
 <p>Now let's say Alice tried to be sneaky and used \( X^* \) as her excess; the one where she gave herself 100 µT change
 instead of 90 µT. Now the values won't balance. The sum of outputs, inputs and fees will look something like this:</p>
 <p>$$ 10.H + (x_s + k_b).G ​$$</p>
@@ -446,7 +446,7 @@ R + e(10.H + X + P_b) &amp;\stackrel{?}{=} (r_a + r_b).G + e(x_s + k_b).G \\
 $$</p>
 <p>The signature doesn't verify! The node can't tell exactly what is wrong with the transaction, but it knows something is
 up, and so it will just drop the transaction silently and get on with its life.</p>
-<h2><a class="header" href="#transaction-summary" id="transaction-summary">Transaction Summary</a></h2>
+<h2 id="transaction-summary"><a class="header" href="#transaction-summary">Transaction Summary</a></h2>
 <p>To sum up: a Tari/MimbleWimble transaction includes the following:</p>
 <ul>
 <li>From Alice, a set of inputs that reference and spend a set of previous outputs.</li>
@@ -462,7 +462,7 @@ up, and so it will just drop the transaction silently and get on with its life.<
 <li>The excess blinding value used as the private key to sign a message attesting to the transaction metadata, and the
 public excess.</li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://www.mycryptopedia.com/what-are-confidential-transactions/" title="What are Bitcoin Confidential Transactions?">1</a>] &quot;What are Bitcoin Confidential Transactions?&quot; [Online.] Available: <a href="https://www.mycryptopedia.com/what-are-confidential-transactions/">https://www.mycryptopedia.com/what-are-confidential-transactions/</a> 
 Date accessed: 2019‑04‑09.</p>
 <p>[<a href="https://en.wikipedia.org/w/index.php?title=Nothing-up-my-sleeve_number&amp;oldid=889582749" title="Nothing-Up-My_Sleeve Number">2</a>] &quot;Nothing-Up-My_Sleeve Number&quot; [online].<br>Available:
@@ -474,7 +474,7 @@ Date accessed: 2019‑04‑09.</p>
 <p>[<a href="https://joinmarket.me/static/FromZK2BPs_v1.pdf" title="From Zero (Knowledge) to BulletProofs">5</a>] A. Gibson, &quot;From Zero (Knowledge) to BulletProofs&quot; [online]. 
 Available: <a href="https://joinmarket.me/static/FromZK2BPs_v1.pdf">https://joinmarket.me/static/FromZK2BPs_v1.pdf</a>.
 Date accessed: 2019‑04‑10.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/CjS77">https://github.com/CjS77</a></li>
 <li><a href="https://github.com/anselld">https://github.com/anselld</a></li>

@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#the-bulletproof-protocols" id="the-bulletproof-protocols">The Bulletproof Protocols</a></h1>
+                        <h1 id="the-bulletproof-protocols"><a class="header" href="#the-bulletproof-protocols">The Bulletproof Protocols</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#preliminaries">Preliminaries</a>
@@ -274,7 +274,7 @@
 </li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>The overview of Bulletproofs given in <a href="../bulletproofs-and-mimblewimble/MainReport.html">Bulletproofs and Mimblewimble</a> 
 was largely based on the original work done by Bünz et al. [<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions 
 and More, Blockchain Protocol Analysis and Security 
@@ -283,8 +283,8 @@ different Bulletproof protocols, but not all of them in an obvious manner. This 
 different Bulletproof protocols as simply as possible. It also simplifies the logic and explains the base 
 mathematical concepts in more detail where prior knowledge was assumed. The report concludes with a discussion on an 
 improved Bulletproof zero-knowledge proof protocol provided by some community members following an evolutionary approach.</p>
-<h2><a class="header" href="#preliminaries" id="preliminaries">Preliminaries</a></h2>
-<h3><a class="header" href="#notation-used" id="notation-used">Notation Used</a></h3>
+<h2 id="preliminaries"><a class="header" href="#preliminaries">Preliminaries</a></h2>
+<h3 id="notation-used"><a class="header" href="#notation-used">Notation Used</a></h3>
 <p>This section gives the general notation of mathematical expressions when specifically referenced, based on [<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions 
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018">1</a>]. This
@@ -357,7 +357,7 @@ $ \mathbf {k}^n = (1,k,k^2, \mspace{3mu} ... \mspace{3mu} ,k^{n-1}) \in (\mathbb
 <li>Let $ \mathcal{P_{IP}} $ and $ \mathcal{V_{IP}} ​$ denote the <em>prover</em> and <em>verifier</em> in relation to inner-product 
 calculations respectively.</li>
 </ul>
-<h3><a class="header" href="#pedersen-commitments-and-elliptic-curve-pedersen-commitments" id="pedersen-commitments-and-elliptic-curve-pedersen-commitments">Pedersen Commitments and Elliptic Curve Pedersen Commitments</a></h3>
+<h3 id="pedersen-commitments-and-elliptic-curve-pedersen-commitments"><a class="header" href="#pedersen-commitments-and-elliptic-curve-pedersen-commitments">Pedersen Commitments and Elliptic Curve Pedersen Commitments</a></h3>
 <p>The basis of confidential transactions is the Pedersen Commitment scheme defined in [<a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.pdf" title="Non-interactive and Information-theoretic
 Secure Verifiable Secret Sharing, 
 T. Pedersen">15</a>]. </p>
@@ -392,8 +392,8 @@ T. Pedersen">15</a>]).
 <p>The generalized Pedersen Commitment definition follows (refer to <a href="#notation-used">Notation Used</a>):</p>
 <ul>
 <li>Let $ q $ be a large prime and $ p $ be a large safe prime such that $ p = 2q + 1 $. </li>
-<li>Let $ h $ be a random generator of cyclic group $ \mathbb G $ such that $ h $ is an element of $ \mathbb Z_q^* $. </li>
-<li>Let $ a $ be a random value and element of $ \mathbb Z_q^* $ and calculate $ g $ such that $ g = h^a $. </li>
+<li>Let $ h $ be a random generator of cyclic subgroup $ \mathbb Q $ of order $ q $.</li>
+<li>Let $ a $ be a random value and element of $ \mathbb Q $ and calculate $ g $ such that $ g = h^a $. </li>
 <li>Let $ r $ (the blinding factor) be a random value and element of $ \mathbb Z_p^* $. </li>
 <li>The commitment to value $ x $ is then determined by calculating $ C(x,r) = h^r g^x $, which is called the Pedersen 
 Commitment.</li>
@@ -469,7 +469,7 @@ open and verify the commitment.</p>
 </ul>
 </li>
 </ul>
-<h3><a class="header" href="#security-aspects-of-elliptic-curve-pedersen-commitments" id="security-aspects-of-elliptic-curve-pedersen-commitments">Security Aspects of (Elliptic Curve) Pedersen Commitments</a></h3>
+<h3 id="security-aspects-of-elliptic-curve-pedersen-commitments"><a class="header" href="#security-aspects-of-elliptic-curve-pedersen-commitments">Security Aspects of (Elliptic Curve) Pedersen Commitments</a></h3>
 <p>By virtue of their definition, Pedersen Commitments are only computationally <em>binding</em> but perfectly <em>hiding</em>. A 
 simplified explanation follows.</p>
 <p>If Alice wants to commit to a value $ x $ that will be sent to Bob, who will at a later stage want Alice to prove that 
@@ -481,10 +481,10 @@ alternative solutions to $ C(x,r) = h^r g^x $ in a reasonable time, i.e.
 $  C(x,r) =  h^{r^\prime} g^{x^\prime} $. This means, even though Bob can find values for 
 $ r^\prime $ and $ x^\prime $ that produce $ C $, he cannot know if those are the specific $ x $ and $ r $ that Alice 
 chose, because there are so many that can produce the same $ C $. Pedersen Commitments are thus perfectly <em>hiding</em>.</p>
-<p>Although the Pederson Commitment is perfectly <em>hiding</em>, it does rely on the fact that Alice has NOT cracked the DLP to be 
-able to calculate other pairs of input values to open the commitment to another value when challenged. The Pederson 
+<p>Although the Pedersen Commitment is perfectly <em>hiding</em>, it does rely on the fact that Alice has NOT cracked the DLP to be 
+able to calculate other pairs of input values to open the commitment to another value when challenged. The Pedersen 
 Commitment is thus only computationally <em>binding</em>.</p>
-<h2><a class="header" href="#bulletproof-protocols" id="bulletproof-protocols">Bulletproof Protocols</a></h2>
+<h2 id="bulletproof-protocols"><a class="header" href="#bulletproof-protocols">Bulletproof Protocols</a></h2>
 <p>Bulletproof protocols have multiple applications, most of which are discussed in 
 <a href="../bulletproofs-and-mimblewimble/MainReport.html#applications-for-bulletproofs">Bulletproofs and Mimblewimble</a>. 
 The following list links these use cases to the different Bulletproof protocols:</p>
@@ -537,7 +537,7 @@ Engineering 2018">1</a>]. Refer to <a href="#notation-used">Notation Used</a>.</
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018">1</a>].
 <br></p>
-<h3><a class="header" href="#inner-product-argument-protocol-1" id="inner-product-argument-protocol-1">Inner-product Argument (Protocol 1)</a></h3>
+<h3 id="inner-product-argument-protocol-1"><a class="header" href="#inner-product-argument-protocol-1">Inner-product Argument (Protocol 1)</a></h3>
 <p>The first and most important building block of the Bulletproofs is its efficient algorithm to calculate an inner-product 
 argument for two independent (not related) binding vector Pedersen Commitments<sup><a href="#pc" title="The Pedersen commitment is a system 
 for making blinded non-interactive 
@@ -595,7 +595,7 @@ Engineering 2018">1</a>].</li>
 <li><strong>Statistical witness extended emulation (binding):</strong> Robust against either extracting a non-trivial discrete 
 logarithm relation between $ \mathbf {g} , \mathbf {h} , u $ or extracting a valid witness $ \mathbf {a}, \mathbf {b} $.</li>
 </ul>
-<h3><a class="header" href="#how-proof-system-for-protocol-1-works-shrinking-by-recursion" id="how-proof-system-for-protocol-1-works-shrinking-by-recursion">How Proof System for Protocol 1 Works, Shrinking by Recursion</a></h3>
+<h3 id="how-proof-system-for-protocol-1-works-shrinking-by-recursion"><a class="header" href="#how-proof-system-for-protocol-1-works-shrinking-by-recursion">How Proof System for Protocol 1 Works, Shrinking by Recursion</a></h3>
 <p>Protocol 1 uses an inner product argument of two vectors $ \mathbf a, \mathbf b \in \mathbb Z^n_p $ of size $ n $. 
 The Pedersen Commitment scheme allows a vector to be cut in half and the two halves to then be compressed together. 
 Let $ \mathrm H : \mathbb Z^{2n+1}_p \to \mathbb G $ be a hash function for commitment $ P $, with 
@@ -688,7 +688,7 @@ R _{\log _2 n}) \mspace{3mu} , \mspace{3mu} (a , b)
 $$</p>
 <p>where $ a,b \in \mathbb Z _p ​$ are only sent right at the end. This protocol can be made non-interactive using the 
 Fiat-Shamir<sup><a href="#fsh">def</a></sup> heuristic.</p>
-<h3><a class="header" href="#inner-product-verification-through-multi-exponentiation-protocol-2" id="inner-product-verification-through-multi-exponentiation-protocol-2">Inner-product Verification through Multi-exponentiation (Protocol 2)</a></h3>
+<h3 id="inner-product-verification-through-multi-exponentiation-protocol-2"><a class="header" href="#inner-product-verification-through-multi-exponentiation-protocol-2">Inner-product Verification through Multi-exponentiation (Protocol 2)</a></h3>
 <p>The inner product argument to be calculated is that of two vectors $ \mathbf a, \mathbf b \in \mathbb Z^n_p $ of size 
 $ n $. Protocol 2 has a logarithmic number of rounds. In each round, the <em>prover</em> $ \mathcal{P} $ and 
 <em>verifier</em> $ \mathcal{V} $ calculate a new set of generators $ ( \mathbf g ^\prime , \mathbf h ^\prime ) $, which would 
@@ -734,7 +734,7 @@ Transactions
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018, 
 Bünz B. et al.">1</a>]</b></div>
-<h3><a class="header" href="#range-proof-protocol-with-logarithmic-size" id="range-proof-protocol-with-logarithmic-size">Range Proof Protocol with Logarithmic Size</a></h3>
+<h3 id="range-proof-protocol-with-logarithmic-size"><a class="header" href="#range-proof-protocol-with-logarithmic-size">Range Proof Protocol with Logarithmic Size</a></h3>
 <p>This protocol provides short and aggregatable range proofs, using the improved inner product argument from Protocol 1. 
 It is built up in five parts: </p>
 <ul>
@@ -754,7 +754,7 @@ Elliptic Curve Cryptography, which is ...">def</a></sup>:</p>
 <div align="center"><b>Figure&nbsp;3: Range Proof Protocol Implementation 
 Example [<a href="https://doc.dalek.rs/bulletproofs/index.html" title="Dalek Cryptography - 
 Crate Bulletproofs">22</a>]</b></div>
-<h4><a class="header" href="#inner-product-range-proof" id="inner-product-range-proof">Inner-product Range Proof</a></h4>
+<h4 id="inner-product-range-proof"><a class="header" href="#inner-product-range-proof">Inner-product Range Proof</a></h4>
 <p>This protocol provides the ability to construct a range proof that requires the <em>verifier</em> $ \mathcal{V} ​$ to check an 
 inner product between two vectors. The range proof is constructed by exploiting the fact that a Pedersen 
 Commitment $ V ​$ is an element in the same group $ \mathbb G ​$ that is used to perform the inner product argument. 
@@ -879,7 +879,7 @@ spent by the <em>prover</em> $ \mathcal{P} $. Also refer to Definition 10 in [<
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018">1</a>].</li>
 </ul>
-<h4><a class="header" href="#logarithmic-range-proof" id="logarithmic-range-proof">Logarithmic Range Proof</a></h4>
+<h4 id="logarithmic-range-proof"><a class="header" href="#logarithmic-range-proof">Logarithmic Range Proof</a></h4>
 <p>This protocol replaces the inner product argument with an efficient inner-product argument. In step (63) in 
 Figure 5, the <em>prover</em> $ \mathcal{P} $ transmits $ \mathbf {l} $ and $ \mathbf {r} $ to the <em>verifier</em> 
 $ \mathcal{V} $, but their size is linear in $ n $. To make this efficient, a proof size that is logarithmic 
@@ -891,7 +891,7 @@ $ (\mathbf {g} , \mathbf {h} ^ \backprime , P \cdot h^{-\mu}, \hat t) $. Transmi
 $ \mathbf {r} $ to the <em>verifier</em> $ \mathcal{V} $ (step 63 in Figure 5) can then be eliminated and transfer 
 of information limited to the scalar properties $ ( \tau _x , \mu , \hat t ) $ alone, thereby archiving a proof size 
 that is logarithmic in $ n $.</p>
-<h4><a class="header" href="#aggregating-logarithmic-proofs" id="aggregating-logarithmic-proofs">Aggregating Logarithmic Proofs</a></h4>
+<h4 id="aggregating-logarithmic-proofs"><a class="header" href="#aggregating-logarithmic-proofs">Aggregating Logarithmic Proofs</a></h4>
 <p>This protocol efficiently aggregates $ m $ range proofs into one short proof with a slight modification to the protocol 
 presented in <a href="#inner-product-range-proof">Inner-product Range Proof</a>. For aggregate range proofs, the inputs of one 
 range proof do not affect the output of another range proof. Aggregating logarithmic range proofs is especially helpful 
@@ -933,14 +933,14 @@ spent by the <em>prover</em> $ \mathcal{P} $. Also refer to Definition 10 in [<
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018">1</a>].</li>
 </ul>
-<h4><a class="header" href="#non-interactive-proof-through-fiat-shamir-heuristic" id="non-interactive-proof-through-fiat-shamir-heuristic">Non-interactive Proof through Fiat-Shamir Heuristic</a></h4>
+<h4 id="non-interactive-proof-through-fiat-shamir-heuristic"><a class="header" href="#non-interactive-proof-through-fiat-shamir-heuristic">Non-interactive Proof through Fiat-Shamir Heuristic</a></h4>
 <p>So far, the <em>verifier</em> $ \mathcal{V} ​$ behaves as an honest verifier and all messages are random elements from 
 $ \mathbb Z_p^* ​$. These are the prerequisites needed to convert the protocol presented so far into a non-interactive 
 protocol that is secure and has full zero-knowledge in the random oracle model (thus without a trusted setup) using the 
 Fiat-Shamir Heuristic<sup><a href="#fsh" title="The Fiat–Shamir heuristic is a 
 technique in cryptography to 
 convert an interactive ...">def</a></sup>. </p>
-<h4><a class="header" href="#mpc-protocol-for-bulletproofs" id="mpc-protocol-for-bulletproofs">MPC Protocol for Bulletproofs</a></h4>
+<h4 id="mpc-protocol-for-bulletproofs"><a class="header" href="#mpc-protocol-for-bulletproofs">MPC Protocol for Bulletproofs</a></h4>
 <p>The Multi-party Computation (MPC) protocol for Bulletproofs allows multiple parties to construct a single, simple, 
 efficient, aggregate range proof designed for Bulletproofs. This is valuable when multiple parties want to create a 
 single joined confidential transaction, where each party knows some of the inputs and outputs, and needs to create range 
@@ -983,7 +983,7 @@ the interleaved concatenation of the parties' witnesses. The parties compute $ L
 dealer computes $ L, R $ as the homomorphic sum of the shares. In the final round, the dealer generates the final 
 challenge and sends it to each party, who in turn send their witness to the dealer, who completes 
 <a href="#inner-product-verification-through-multi-exponentiation-protocol-2">Protocol 2</a>. </p>
-<h4><a class="header" href="#mpc-protocol-security-discussion" id="mpc-protocol-security-discussion">MPC Protocol Security Discussion</a></h4>
+<h4 id="mpc-protocol-security-discussion"><a class="header" href="#mpc-protocol-security-discussion">MPC Protocol Security Discussion</a></h4>
 <p>With the standard MPC protocol implementation as depicted in Figure 7, there's no guarantee that the dealer behaves 
 honestly according to the specified protocol and generates challenges honestly. Since the Bulletproofs protocol is 
 special HVZK ([<a href="https://crypto.stackexchange.com/questions/40436/what-is-the-difference-between-honest-verifier-zero-knowledge-and-zero-knowledge" title="Difference between honest 
@@ -994,7 +994,7 @@ start of the protocol, and may complete the inner product compression, since it 
 <p>HVZK implies witness-indistinguishability [<a href="https://en.wikipedia.org/wiki/Witness-indistinguishable_proof" title="Wikipedia: Witness-indistinguishable proof">32</a>], but it isn't clear what the implications of this 
 would be on the MPC protocol in practice. It could be that there are no practical attacks possible from a malicious 
 dealer and that witness-indistinguishability is sufficient.</p>
-<h3><a class="header" href="#zero-knowledge-proof-for-arithmetic-circuits" id="zero-knowledge-proof-for-arithmetic-circuits">Zero-knowledge Proof for Arithmetic Circuits</a></h3>
+<h3 id="zero-knowledge-proof-for-arithmetic-circuits"><a class="header" href="#zero-knowledge-proof-for-arithmetic-circuits">Zero-knowledge Proof for Arithmetic Circuits</a></h3>
 <p>Bulletproofs present an efficient zero-knowledge argument for arbitrary Arithmetic Circuits<sup><a href="#ac" title="An arithmetic circuit C over a 
 field F and variables (x_1, ..., x_n) 
 is a directed acyclic graph ...">def</a></sup> with a 
@@ -1019,7 +1019,7 @@ $$</p>
 constraints into a single inner product relation. Pedersen Commitments $ V_j $ are also included as input wires to the 
 arithmetic circuit, which is an important refinement, otherwise the arithmetic circuit would need to implement a 
 commitment algorithm. The linear constraints also include openings $ v_j $ of $ V_j $. </p>
-<h4><a class="header" href="#inner-product-proof-for-arithmetic-circuits-protocol-3" id="inner-product-proof-for-arithmetic-circuits-protocol-3">Inner-product Proof for Arithmetic Circuits (Protocol 3)</a></h4>
+<h4 id="inner-product-proof-for-arithmetic-circuits-protocol-3"><a class="header" href="#inner-product-proof-for-arithmetic-circuits-protocol-3">Inner-product Proof for Arithmetic Circuits (Protocol 3)</a></h4>
 <p>Similar to <a href="#inner-product-range-proof">Inner-product Range Proof</a>, the <em>prover</em> $ \mathcal{P} $ produces a random linear 
 combination of the Hadamard Product<sup><a href="#hdmp" title="In mathematics, the Hadamard product 
 is a binary operation that takes two 
@@ -1076,7 +1076,7 @@ spent by the <em>prover</em> $ \mathcal{P} $. Also refer to Definition 10 in [<
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018">1</a>].</li>
 </ul>
-<h4><a class="header" href="#logarithmic-sized-non-interactive-protocol-for-arithmetic-circuits" id="logarithmic-sized-non-interactive-protocol-for-arithmetic-circuits">Logarithmic-sized Non-interactive Protocol for Arithmetic Circuits</a></h4>
+<h4 id="logarithmic-sized-non-interactive-protocol-for-arithmetic-circuits"><a class="header" href="#logarithmic-sized-non-interactive-protocol-for-arithmetic-circuits">Logarithmic-sized Non-interactive Protocol for Arithmetic Circuits</a></h4>
 <p>Similar to <a href="#logarithmic-range-proof">Logarithmic Range Proof</a>, the communication cost of 
 <a href="#inner-product-proof-for-arithmetic-circuits-protocol-3">Protocol 3</a> can be reduced by using the efficient inner 
 product argument. Transmission of vectors $ \mathbf {l} ​$ and $ \mathbf {r} ​$ to the <em>verifier</em> $ \mathcal{V} ​$ 
@@ -1102,12 +1102,12 @@ $ \mathbf {l} , \mathbf {r} $ can be efficiently simulated.</li>
 <li><strong>Computational soundness (binding):</strong> if the generators $ \mathbf {g} , \mathbf {h} , g , h ​$ are independently 
 generated, then finding a discrete logarithm relation between them is as hard as breaking the Discrete Log Problem.</li>
 </ul>
-<h3><a class="header" href="#optimized-verifier-using-multi-exponentiation-and-batch-verification" id="optimized-verifier-using-multi-exponentiation-and-batch-verification">Optimized Verifier using Multi-exponentiation and Batch Verification</a></h3>
+<h3 id="optimized-verifier-using-multi-exponentiation-and-batch-verification"><a class="header" href="#optimized-verifier-using-multi-exponentiation-and-batch-verification">Optimized Verifier using Multi-exponentiation and Batch Verification</a></h3>
 <p>In many of the Bulletproofs' <a href="../bulletproofs-and-mimblewimble/MainReport.html#applications-for-bulletproofs">Use Cases</a>, 
 the <em>verifier's</em> runtime is of particular interest. This protocol presents optimizations for a single range proof that 
 is also extendable to <a href="#aggregating-logarithmic-proofs">aggregate range proofs</a> and the 
 <a href="#zero-knowledge-proof-for-arithmetic-circuits">arithmetic circuit protocol</a>.</p>
-<h4><a class="header" href="#multi-exponentiation" id="multi-exponentiation">Multi-exponentiation</a></h4>
+<h4 id="multi-exponentiation"><a class="header" href="#multi-exponentiation">Multi-exponentiation</a></h4>
 <p>In <a href="#inner-product-verification-through-multi-exponentiation-protocol-2">Protocol 2</a>, verification of the inner-product 
 is reduced to a single multi-exponentiation. This can be extended to verify the whole range proof using a single 
 multi-exponentiation of size $ 2n + \log_2(n) + 7 $. In 
@@ -1131,7 +1131,7 @@ This follows from the fact that if $ A^cB = 1 ​$ for a random $ c ​$, then w
 $ A = 1 \mspace 3mu \wedge \mspace 3mu B = 1 ​$. Various algorithms are known to compute the multi-exponentiations and 
 scalar quantities (steps 101 and 102 in Figure 10) efficiently (sub-linearly), thereby further improving the 
 speed and efficiency of the protocol.</p>
-<h4><a class="header" href="#batch-verification" id="batch-verification">Batch Verification</a></h4>
+<h4 id="batch-verification"><a class="header" href="#batch-verification">Batch Verification</a></h4>
 <p>A further important optimization concerns the verification of multiple proofs. The essence of the verification is to 
 calculate a large multi-exponentiation. Batch verification is applied in order to reduce the number of expensive 
 exponentiations. This is based on the observation that checking 
@@ -1141,7 +1141,7 @@ With high probability, the latter equation implies the first. When applied to mu
 $ 2n ​$ exponentiations can be saved per additional proof. Verifying $ m ​$ distinct range proofs of size $ n ​$ only 
 requires a single multi-exponentiation of size $ 2n+2+m \cdot (2 \cdot \log (n) + 5 ) ​$ along with 
 $ O ( m \cdot n ) ​$ scalar operations.</p>
-<h2><a class="header" href="#evolving-bulletproof-protocols" id="evolving-bulletproof-protocols">Evolving Bulletproof Protocols</a></h2>
+<h2 id="evolving-bulletproof-protocols"><a class="header" href="#evolving-bulletproof-protocols">Evolving Bulletproof Protocols</a></h2>
 <p>Interstellar [<a href="https://interstellar.com" title="Inter/stellar Website">24</a>] recently introduced the Programmable Constraint Systems for Bulletproofs [<a href="https://medium.com/interstellar/programmable-constraint-systems-for-bulletproofs-365b9feb92f7" title="Programmable Constraint Systems for Bulletproofs,
 Interstellar,
 C. Yun">23</a>], an evolution of 
@@ -1207,7 +1207,7 @@ built with their programmable constraint system:</p>
 title="Programmable Constraint Systems for Bulletproofs,
 Interstellar,
 Cathie Yun">23</a>]</b></div>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
 <ul>
 <li>
 <p>Bulletproofs have many potential use cases or 
@@ -1250,7 +1250,7 @@ behaves honestly according to the protocol and generates challenges honestly. Th
 secure if all parties receive partial proof elements and independently compute aggregated challenges.</p>
 </li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions 
 and More, Blockchain Protocol Analysis and Security 
 Engineering 2018">1</a>] B. Bünz, J. Bootle, D. Boneh, A. Poelstra, P. Wuille and G. Maxwell, &quot;Bulletproofs: Short Proofs for Confidential 
@@ -1362,8 +1362,8 @@ Date accessed: 2019‑11‑12.</p>
 Available: <a href="https://www.cs.jhu.edu/%7Esusan/600.641/scribes/lecture11.pdf">https://www.cs.jhu.edu/~susan/600.641/scribes/lecture11.pdf</a>. Date accessed: 2019‑11‑12.</p>
 <p>[<a href="https://en.wikipedia.org/wiki/Witness-indistinguishable_proof" title="Wikipedia: Witness-indistinguishable proof">32</a>] Wikipedia: &quot;Witness-indistinguishable proof&quot; [online]. Available: 
 <a href="https://en.wikipedia.org/wiki/Witness-indistinguishable_proof">https://en.wikipedia.org/wiki/Witness-indistinguishable_proof</a>. Date accessed: 2019‑11‑12.</p>
-<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
-<h3><a class="header" href="#appendix-a-definition-of-terms" id="appendix-a-definition-of-terms">Appendix A: Definition of Terms</a></h3>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h3 id="appendix-a-definition-of-terms"><a class="header" href="#appendix-a-definition-of-terms">Appendix A: Definition of Terms</a></h3>
 <p>Definitions of terms presented here are high level and general in nature. Full mathematical definitions are available 
 in the cited references. </p>
 <ul>
@@ -1467,7 +1467,7 @@ confidential information from the interaction with the <em>prover</em> $ \mathca
 </ul>
 </li>
 </ul>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
 <li><a href="https://github.com/neonknight64">https://github.com/neonknight64</a></li>

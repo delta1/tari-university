@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#understanding-byzantine-fault-tolerant-consensus" id="understanding-byzantine-fault-tolerant-consensus">Understanding Byzantine Fault-tolerant Consensus</a></h1>
+                        <h1 id="understanding-byzantine-fault-tolerant-consensus"><a class="header" href="#understanding-byzantine-fault-tolerant-consensus">Understanding Byzantine Fault-tolerant Consensus</a></h1>
 <ul>
 <li><a href="#background">Background</a></li>
 <li><a href="#randomized-gossip-methods">Randomized Gossip Methods</a>
@@ -242,15 +242,15 @@
 </ul>
 </li>
 </ul>
-<h2><a class="header" href="#background" id="background">Background</a></h2>
-<p>When considering the concept of consensus in cryptocurrency and cryptographic protocols, the Byzantine Generals Problem 
-is often referenced, where a protocol is described as being Byzantine Fault Tolerant (BFT). This stems from an analogy, 
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<p>When considering the concept of consensus in cryptocurrency and cryptographic protocols, the Byzantine Generals Problem
+is often referenced, where a protocol is described as being Byzantine Fault Tolerant (BFT). This stems from an analogy,
 as a means to understand the problem of distributed consensus.</p>
 <p><strong>To classify Byzantine failure:</strong>
-If a node in a system is exhibiting Byzantine failure, it is called a traitor node. The traitor (which is a flaky or 
-malicious node) sends conflicting messages, leading to an incorrect result of the calculation that the distributed 
+If a node in a system is exhibiting Byzantine failure, it is called a traitor node. The traitor (which is a flaky or
+malicious node) sends conflicting messages, leading to an incorrect result of the calculation that the distributed
 system is trying to perform.</p>
-<h2><a class="header" href="#randomized-gossip-methods" id="randomized-gossip-methods">Randomized Gossip Methods</a></h2>
+<h2 id="randomized-gossip-methods"><a class="header" href="#randomized-gossip-methods">Randomized Gossip Methods</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/dahlia_malkhi.png" width="90" />
@@ -263,22 +263,22 @@ system is trying to perform.</p>
     <br>
   </p>
 </div>
-<h3><a class="header" href="#summary" id="summary">Summary</a></h3>
+<h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
 <p><em>&quot;Randomized Gossip Methods&quot;</em> by Dahlia Malkhi, PWL Conference, September 2016.</p>
-<p>As an introduction, gossip-based protocols are simple, robust, efficient and fault tolerant. This talk provides insight 
-into gossip protocols and how they function, as well as the reasoning behind the instances in which they do not function. It 
-touches on three protocols from randomized gossip methods: Rumor Mongering, which spreads gossip in each communication; 
-Name Dropper, which pushes new neighbors in each communication; and Scalable Weakly-consistent Infection-style Process 
+<p>As an introduction, gossip-based protocols are simple, robust, efficient and fault tolerant. This talk provides insight
+into gossip protocols and how they function, as well as the reasoning behind the instances in which they do not function. It
+touches on three protocols from randomized gossip methods: Rumor Mongering, which spreads gossip in each communication;
+Name Dropper, which pushes new neighbors in each communication; and Scalable Weakly-consistent Infection-style Process
 Group Membership (SWIM), which pulls a heartbeat in each communication.</p>
-<h3><a class="header" href="#video" id="video">Video</a></h3>
+<h3 id="video"><a class="header" href="#video">Video</a></h3>
 <p><strong>Note:</strong> Transcripts are available <a href="https://github.com/papers-we-love/pwlconf-info/blob/master/2016/dahlia-malkhi/dahlia_pwlconf_captions.srt">here</a>.</p>
-<iframe width="750" height="600" src="https://www.youtube.com/embed/Gxf5glthqrk" frameborder="0" 
+<iframe width="1000" height="800" src="https://www.youtube.com/embed/Gxf5glthqrk" frameborder="0"
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h3><a class="header" href="#slides" id="slides">Slides</a></h3>
-<p><embed src="https://speakerd.s3.amazonaws.com/presentations/c1c33de400a44e90911569ce999bde95/PWL-Sep-2016hotel.pdf" 
+<h3 id="slides"><a class="header" href="#slides">Slides</a></h3>
+<p><embed src="https://speakerd.s3.amazonaws.com/presentations/c1c33de400a44e90911569ce999bde95/PWL-Sep-2016hotel.pdf"
 type="application/pdf" width="750" height="600" /></p>
 <br>
-<h2><a class="header" href="#byzantine-fault-tolerance-blockchain-and-beyond" id="byzantine-fault-tolerance-blockchain-and-beyond">Byzantine Fault Tolerance, Blockchain and Beyond</a></h2>
+<h2 id="byzantine-fault-tolerance-blockchain-and-beyond"><a class="header" href="#byzantine-fault-tolerance-blockchain-and-beyond">Byzantine Fault Tolerance, Blockchain and Beyond</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/ittai_abraham.png" width="90" />
@@ -291,21 +291,21 @@ type="application/pdf" width="750" height="600" /></p>
     <br>
   </p>
 </div>
-<h3><a class="header" href="#summary-1" id="summary-1">Summary</a></h3>
-<p><em>&quot;BFT, Blockchain and Beyond&quot;</em> by Ittai Abraham, Israel Institute for Advanced Studies, 2018. </p>
-<p>This talk provides an overview of blockchain and decentralized trust, with the focus on Byzantine Fault Tolerance (BFT). 
-Traditional BFT protocols are assessed and compared with the modern Nakamoto Consensus. </p>
-<p>The presentation looks at a hybrid solution of combining traditional and modern consensus mechanisms. The talk delves 
-into the types of consensus; asynchrony, synchrony and partial synchrony, and provides a brief history of all three, as well as 
+<h3 id="summary-1"><a class="header" href="#summary-1">Summary</a></h3>
+<p><em>&quot;BFT, Blockchain and Beyond&quot;</em> by Ittai Abraham, Israel Institute for Advanced Studies, 2018.</p>
+<p>This talk provides an overview of blockchain and decentralized trust, with the focus on Byzantine Fault Tolerance (BFT).
+Traditional BFT protocols are assessed and compared with the modern Nakamoto Consensus.</p>
+<p>The presentation looks at a hybrid solution of combining traditional and modern consensus mechanisms. The talk delves
+into the types of consensus; asynchrony, synchrony and partial synchrony, and provides a brief history of all three, as well as
 their recent implementation and responsiveness.</p>
-<p>In addition, the fundamental trade-off of decentralized trust is assessed, and performance, 
-decentralization and privacy are compared. </p>
-<h3><a class="header" href="#video-1" id="video-1">Video</a></h3>
+<p>In addition, the fundamental trade-off of decentralized trust is assessed, and performance,
+decentralization and privacy are compared.</p>
+<h3 id="video-1"><a class="header" href="#video-1">Video</a></h3>
 <p><strong>Part 1</strong></p>
-<iframe width="750" height="600" src="https://www.youtube.com/embed/N_3r-NkBUTk" frameborder="0" allow="accelerometer; 
+<iframe width="1000" height="800" src="https://www.youtube.com/embed/N_3r-NkBUTk" frameborder="0" allow="accelerometer;
 autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p><strong>Part 2</strong></p>
-<iframe width="750" height="600" src="https://www.youtube.com/embed/c72itS8BfC0" frameborder="0" allow="accelerometer; 
+<iframe width="1000" height="800" src="https://www.youtube.com/embed/c72itS8BfC0" frameborder="0" allow="accelerometer;
 autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                     </main>

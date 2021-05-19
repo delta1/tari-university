@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#rank-1-constraint-system-with-application-to-bulletproofs" id="rank-1-constraint-system-with-application-to-bulletproofs"><strong>Rank-1 Constraint System with Application to Bulletproofs</strong></a></h1>
+                        <h1 id="rank-1-constraint-system-with-application-to-bulletproofs"><a class="header" href="#rank-1-constraint-system-with-application-to-bulletproofs"><strong>Rank-1 Constraint System with Application to Bulletproofs</strong></a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a> </li>
 <li><a href="#arithmetic-circuits">Arithmetic Circuits</a>
@@ -263,7 +263,7 @@
 </li>
 <li><a href="#contributors">Contributors</a> </li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>This report explains the technical underpinnings of Rank-1 Constraint Systems (R1CSs) as applied 
 to Bulletproofs. </p>
 <p>The literature on the use of R1CSs in zero-knowledge (ZK) proofs, for example in zero-knowledge Succinct Non-interactive 
@@ -285,15 +285,15 @@ implementation in RUST are available in [<a href="https://doc-internal.dalek.rs/
 <li>clarify the difference R1CSs make in Bulletproofs and in range proofs; </li>
 <li>compare ZK proofs for arithmetic circuits and programmable constraint systems. </li>
 </ul>
-<h2><a class="header" href="#arithmetic-circuits" id="arithmetic-circuits">Arithmetic Circuits</a></h2>
-<h3><a class="header" href="#overview" id="overview">Overview</a></h3>
+<h2 id="arithmetic-circuits"><a class="header" href="#arithmetic-circuits">Arithmetic Circuits</a></h2>
+<h3 id="overview"><a class="header" href="#overview">Overview</a></h3>
 <p>Many problems in <em>Symbolic Computation</em><sup><a href="#sc" title="The study and development of algorithms 
 and software for manipulating ...">def</a></sup> and cryptography can be expressed as the task of computing 
 some polynomials. Arithmetic circuits are the most standard model for studying the complexity of such computations. 
 ZK proofs form a core building block of many cryptographic protocols. Of special interest are ZK proof systems capable 
 of proving the correct computation of arbitrary arithmetic circuits ([<a href="https://pdfs.semanticscholar.org/06c8/ea507b2c4aaf7b421bd0c93e6145e3ff7517.pdf?_ga=2.124585865.240482160.1578465071-151955209.1571053591" title="Generic Zero-knowledge and MultiQuadratic Systems">6</a>], [<a href="http://www.cs.tau.ac.il/%7Eshpilka/publications/SY10.pdf" title="Arithmetic Circuits: A Survey of Recent Results and Open 
 Questions">7</a>]).</p>
-<h3><a class="header" href="#definition-of-arithmetic-circuit" id="definition-of-arithmetic-circuit">Definition of Arithmetic Circuit</a></h3>
+<h3 id="definition-of-arithmetic-circuit"><a class="header" href="#definition-of-arithmetic-circuit">Definition of Arithmetic Circuit</a></h3>
 <p>An arithmetic circuit $\mathcal{A}$ over the field<sup><a href="#fd" title="Any set of elements together with binary operations 'addition' and 'multiplication' satisfying field axioms ... ">def</a></sup> $\mathcal{F}$ and the set of variables 
 $X = \lbrace {x_1,\dots,x_n} \rbrace$ is a directed acyclic graph such that the vertices of $\mathcal{A}$ are called 
 <em>gates</em>, while the edges are called <em>wires</em> [<a href="http://www.cs.tau.ac.il/%7Eshpilka/publications/SY10.pdf" title="Arithmetic Circuits: A Survey of Recent Results and Open 
@@ -335,7 +335,7 @@ $$</p>
 <p>The equation ${ \mathbf{a_L}\circ \mathbf{a_R} = \mathbf{a_O} }$ 
 is referred to as a multiplicative constraint, 
 but is also known as the Hadamard relation [<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions and More">4</a>]. </p>
-<h3><a class="header" href="#example-of-arithmetic-circuit" id="example-of-arithmetic-circuit">Example of Arithmetic Circuit</a></h3>
+<h3 id="example-of-arithmetic-circuit"><a class="header" href="#example-of-arithmetic-circuit">Example of Arithmetic Circuit</a></h3>
 <p>An arithmetic circuit computes a polynomial in a natural way, as shown in this example. Consider the following 
 arithmetic circuit $\mathcal{A}$ with inputs $\lbrace x_1, x_2, 1 \rbrace$ over some field $\mathcal{F}​$: </p>
 <p align="center"><img src="sources/polynomial-eg-ac.png" width="400" /></p>
@@ -363,8 +363,8 @@ computations are expressed in terms of arithmetic circuits, the process translat
 whether the output $ a_O $ of each gate is correct with respect to the given inputs 
 $ a_L $ and $ a_R $. That is, testing if $ a_L \cdot a_R - a_O = 0 $ for each multiplication 
 gate. </p>
-<h2><a class="header" href="#rank-1-constraint-systems" id="rank-1-constraint-systems">Rank-1 Constraint Systems</a></h2>
-<h3><a class="header" href="#overview-1" id="overview-1">Overview</a></h3>
+<h2 id="rank-1-constraint-systems"><a class="header" href="#rank-1-constraint-systems">Rank-1 Constraint Systems</a></h2>
+<h3 id="overview-1"><a class="header" href="#overview-1">Overview</a></h3>
 <p>Although a computational problem is typically expressed in terms of a high-level programming language, a ZK proof 
 requires 
 it to be expressed in terms of a set of quadratic constraints, which are closely related to circuits of logical gates. </p>
@@ -374,7 +374,7 @@ refer to
 [<a href="https://pdfs.semanticscholar.org/06c8/ea507b2c4aaf7b421bd0c93e6145e3ff7517.pdf?_ga=2.124585865.240482160.1578465071-151955209.1571053591" title="Generic Zero-knowledge and MultiQuadratic Systems">6</a>], [<a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf" title="DIZK: A Distributed Zero 
 Knowledge Proof System">9</a>] and [<a href="https://eprint.iacr.org/2013/507.pdf" title="SNARKs for C: Verifying Program Executions Succinctly and in Zero Knowledge 
 (extended version)">10</a>]. </p>
-<h3><a class="header" href="#definition-of-constraint-system" id="definition-of-constraint-system">Definition of Constraint System</a></h3>
+<h3 id="definition-of-constraint-system"><a class="header" href="#definition-of-constraint-system">Definition of Constraint System</a></h3>
 <p>A constraint system was originally defined by Bootle et al. in [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments for Arithmetic Circuits in the Discrete 
 Log Setting">5</a>], who first expressed arithmetic circuit 
 satisfiability in terms of the Hadamard relation and linear constraints:</p>
@@ -406,7 +406,7 @@ ${ \mathbf{a}_R},$ and output vectors ${ \mathbf{a}_O } $ of the multiplication 
 <li>${ n}$ multiplicative constraints, $ \mathbf{ a_L \circ a_R = a_O } $; and</li>
 <li>${ q}$ linear constraints, $\mathbf{W_L\cdot { a_L} + W_R\cdot { a_R} + W_O\cdot { a_O } = W_V\cdot { v + c} } $. </li>
 </ul>
-<h3><a class="header" href="#r1cs-definition-of-zksnarks" id="r1cs-definition-of-zksnarks">R1CS Definition of zk‑SNARKs</a></h3>
+<h3 id="r1cs-definition-of-zksnarks"><a class="header" href="#r1cs-definition-of-zksnarks">R1CS Definition of zk‑SNARKs</a></h3>
 <p>Arithmetic circuits and R1CS are more naturally applied to zk‑SNARKs, and these are implemented in 
 cryptocurrencies such as Zerocoin and Zcash; refer to [<a href="https://electriccoin.co/blog/snark-explain5/" title="Explaining SNARKs Part V: From Computations to Polynomials">1</a>]. 
 To illustrate the simplicity of this concept, a definition (from [<a href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649" title="Quadratic 
@@ -425,7 +425,7 @@ $$</p>
 $ \mathbf{a_{L}} = (a_{L,1}, a_{L,2}, ..., a_{L,n} )​$
 and
 $ {\mathbf{s}} = (s_1, s_2, ..., s_n) ​$.</p>
-<h3><a class="header" href="#example-of-rank-1-constraint-system" id="example-of-rank-1-constraint-system">Example of Rank-1 Constraint System</a></h3>
+<h3 id="example-of-rank-1-constraint-system"><a class="header" href="#example-of-rank-1-constraint-system">Example of Rank-1 Constraint System</a></h3>
 <p>One solution to the equation ${x^2_1 x_2 + x_1 + 1 = 22}$, from the preceding example of an arithmetic circuit, is 
 ${ x_1 = 3}$ 
 and ${ { x_2 = 2 }}$ belonging to the appropriate field ${ \mathcal{F}}$. Thus the solution vector 
@@ -450,7 +450,7 @@ ${ \bf{a_O}} $, respectively, as shown in Table 1: </p>
 $$</p>
 <p>Observe that ${ \bf{ (A_L * s^T) \cdot (A_R * s^T ) - (A_O * s^T)} = 0 }$, where &quot;$ * $&quot; is 
 <em>matrix multiplication</em> and ${ \bf s^T}$ is the transpose of the solution vector ${ \bf{s}}$ [<a href="http://coders-errand.com/constraint-systems-for-zk%E2%80%91SNARKs/" title="Constraint Systems for ZK SNARKs">8</a>]. </p>
-<h2><a class="header" href="#from-arithmetic-circuits-to-programmable-constraint-systems-for-bulletproofs" id="from-arithmetic-circuits-to-programmable-constraint-systems-for-bulletproofs">From Arithmetic Circuits to Programmable Constraint Systems for Bulletproofs</a></h2>
+<h2 id="from-arithmetic-circuits-to-programmable-constraint-systems-for-bulletproofs"><a class="header" href="#from-arithmetic-circuits-to-programmable-constraint-systems-for-bulletproofs">From Arithmetic Circuits to Programmable Constraint Systems for Bulletproofs</a></h2>
 <p>Interstellar's &quot;Programmable Constraint Systems for Bulletproofs&quot; [<a href="https://medium.com/interstellar/programmable-constraint-systems-for-bulletproofs-365b9feb92f7" title="Programmable 
 Constraint Systems for Bulletproofs">12</a>]
 is an extension of &quot;Efficient Zero-knowledge Arguments for Arithmetic Circuits in the Discrete 
@@ -477,8 +477,8 @@ Log Setting">5</a>]. Reducing a $6log_2(N) + 13$ complexity to $2log_2(N) + 13$,
 <p>Interstellar is building an Application Programming Interface (API) that allows developers to choose their own 
 collection of gadgets suitable for the protocol they wish to develop, as discussed in the 
 <a href="#interstellars-bulletproof-constraint-system">next section</a>. </p>
-<h2><a class="header" href="#interstellars-bulletproof-constraint-system" id="interstellars-bulletproof-constraint-system">Interstellar's Bulletproof Constraint System</a></h2>
-<h3><a class="header" href="#overview-2" id="overview-2">Overview</a></h3>
+<h2 id="interstellars-bulletproof-constraint-system"><a class="header" href="#interstellars-bulletproof-constraint-system">Interstellar's Bulletproof Constraint System</a></h2>
+<h3 id="overview-2"><a class="header" href="#overview-2">Overview</a></h3>
 <p>The Interstellar team paved the way for the implementation of several cryptographic primitives in the RUST language, 
 including <em>Ristretto</em> [<a href="https://docs.rs/curve25519-dalek/0.15.1/curve25519_dalek/ristretto/index.html" title="Ristretto">14</a>], a construction 
 of a prime-order group using a cofactor-8 curve known as Curve25519. They reported on how they implemented Bulletproofs 
@@ -493,7 +493,7 @@ constraints and bulletproofs is contained in Bunz et al.'s paper [<a href="http:
 <p>Dalek's constraint system, as defined earlier in <a href="#definition-of-constraint-system">Definition of Constraint System</a>, is 
 a collection of two types of arithmetic constraints: multiplicative constraints and linear constraints, over a set of 
 high-level and low-level variables. </p>
-<h3><a class="header" href="#easy-to-build-constraint-systems" id="easy-to-build-constraint-systems">Easy-to-build Constraint Systems</a></h3>
+<h3 id="easy-to-build-constraint-systems"><a class="header" href="#easy-to-build-constraint-systems">Easy-to-build Constraint Systems</a></h3>
 <p>In this Bulletproofs framework, a prover can build a constraint system in two steps:</p>
 <ul>
 <li>Firstly, committing to secret inputs and allocating high-level variables corresponding to the inputs.</li>
@@ -509,7 +509,7 @@ values. The constraints might require the prover to commit to some additional va
 <li>The prover sends the verifier all the commitments made in step 1 and step 2, along with the proof from step 2. </li>
 <li>The verifier now verifies the proof by enforcing the same constraints over the commitments, plus any public values.</li>
 </ol>
-<h3><a class="header" href="#about-gadgets" id="about-gadgets">About Gadgets</a></h3>
+<h3 id="about-gadgets"><a class="header" href="#about-gadgets">About Gadgets</a></h3>
 <p>Consider a verifiable shuffle: given two lists of committed values ${ x_1, x_2, . . ., x_n}$ and 
 ${ y_1, y_2, . . ., y_n},$ prove that the second list is a permutation of the first. Bunz et al. ([<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions and More">4</a>, page 5]) 
 mention that 
@@ -538,7 +538,7 @@ they
 may allocate more variables, sometimes called auxiliary variables, for internal use, and produce constraints involving 
 all these variables. The main advantage of gadgets is that they are composable, thus a more complex 
 gadget can always be created from a number of single gadgets. Interstellar's Bulletproofs API allows developers to choose their own collection of gadgets suitable for the protocol they wish to develop. </p>
-<h3><a class="header" href="#interstellars-concluding-remarks" id="interstellars-concluding-remarks">Interstellar's Concluding Remarks</a></h3>
+<h3 id="interstellars-concluding-remarks"><a class="header" href="#interstellars-concluding-remarks">Interstellar's Concluding Remarks</a></h3>
 <p>Cathie Yun reports in [<a href="https://medium.com/interstellar/programmable-constraint-systems-for-bulletproofs-365b9feb92f7" title="Programmable 
 Constraint Systems for Bulletproofs">12</a>] that their &quot;work on Cloak and Spacesuit is far from complete&quot; and mentions that they 
 still have two goals to achieve: </p>
@@ -554,7 +554,7 @@ each other&quot;.</li>
 </ul>
 <p>All-in-all, Yun regards constraint systems as &quot;very powerful because they can represent any efficiently 
 verifiable program&quot; [<a href="https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8" title="Building on Bulletproofs">2</a>]. </p>
-<h3><a class="header" href="#r1cs-factorization-example-for-bulletproofs" id="r1cs-factorization-example-for-bulletproofs">R1CS Factorization Example for Bulletproofs</a></h3>
+<h3 id="r1cs-factorization-example-for-bulletproofs"><a class="header" href="#r1cs-factorization-example-for-bulletproofs">R1CS Factorization Example for Bulletproofs</a></h3>
 <p>In [<a href="https://medium.com/coinmonks/zero-knowledge-proofs-using-bulletproofs-4a8e2579fc82" title="Zero Knowledge Proofs 
 using Bulletproofs">17</a>], Harchandani explores the Dalek Bulletproofs API, using various examples. Of interest
 is the factorization problem, which is one out of the six R1CS Bulletproof examples 
@@ -576,7 +576,7 @@ circuit used by the prover.</p>
 <tr><td>8.</td><td align="left">Verifier constrains variables corresponding to <br/>the commitments.</td><td><code>let (_, _, o) = verifier.multiply(var_p.into(), var_q.into());</code><br/><code>let r_lc: LinearCombination = vec![(Variable::One(), r.into())].iter().collect();</code><br/><code>verifier.constrain(o - r_lc);</code></td></tr>
 <tr><td>9.</td><td align="left">Verifier verifies the proof.</td><td><code>verifier.verify(&amp;proof)</code></td></tr>
 </tbody></table>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
 <p>Constraint systems form a natural language for most computational problems expressed as arithmetic circuits, and have 
 found ample application in both zk‑SNARKs and Bulletproofs. The use of ZK proofs for arithmetic circuits and 
 programmable constraint systems has evolved considerably as illustrated in Table 2. Although much work still needs 
@@ -585,7 +585,7 @@ verifiable programs. The leverage that developers have, in choosing whatever gad
 enough room to build proof systems that have some degree of modularity. Proof system examples by both Dalek and 
 Harchandani are valuable examples of what can be achieved with Bulletproofs and R1CSs. This framework provides great 
 opportunities in building blockchain-enabled confidential digital asset schemes. </p>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://electriccoin.co/blog/snark-explain5/" title="Explaining SNARKs Part V: From Computations to Polynomials">1</a>] A. Gabizon, &quot;Explaining SNARKs Part V: From Computations to Polynomials&quot; [online]. Available:
 <a href="https://electriccoin.co/blog/snark-explain5/">https://electriccoin.co/blog/snark-explain5/</a>. Date accessed: 2020‑01‑03.</p>
 <p>[<a href="https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8" title="Building on Bulletproofs">2</a>] C. Yun, &quot;Building on Bulletproofs&quot; [online]. 
@@ -648,8 +648,8 @@ Date accessed: 2020‑02‑06. </p>
 Date accessed: 2020‑02‑06. </p>
 <p>[<a href="https://en.wikipedia.org/wiki/Finite_field" title="Field Theory - Wikipedia">22</a>] Wikipedia: &quot;Finite Theory&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Finite_field">https://en.wikipedia.org/wiki/Finite_field</a>. 
 Date accessed: 2020‑02‑06. </p>
-<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
-<h3><a class="header" href="#appendix-a-definition-of-terms" id="appendix-a-definition-of-terms">Appendix A: Definition of Terms</a></h3>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h3 id="appendix-a-definition-of-terms"><a class="header" href="#appendix-a-definition-of-terms">Appendix A: Definition of Terms</a></h3>
 <p>Definitions of terms presented here are high level and general in nature. Full mathematical definitions are available in 
 the cited references. </p>
 <ul>
@@ -676,7 +676,7 @@ A <strong>Finite field</strong> is any field $ \mathcal{F} $ that contains a fin
 <tr><td>identity</td><td><img src="http://mathworld.wolfram.com/images/equations/FieldAxioms/Inline7.gif" alt="a+0=a=0+a" /></td><td><img src="http://mathworld.wolfram.com/images/equations/FieldAxioms/Inline8.gif" alt="a·1=a=1·a" /></td></tr>
 <tr><td>inverses</td><td><img src="http://mathworld.wolfram.com/images/equations/FieldAxioms/Inline9.gif" alt="a+(-a)=0=(-a)+a" /></td><td><img src="http://mathworld.wolfram.com/images/equations/FieldAxioms/Inline10.gif" alt="aa^(-1)=1=a^(-1)a if a!=0" /></td></tr>
 </tbody></table>
-<h3><a class="header" href="#appendix-b-notation-used" id="appendix-b-notation-used">Appendix B: Notation Used</a></h3>
+<h3 id="appendix-b-notation-used"><a class="header" href="#appendix-b-notation-used">Appendix B: Notation Used</a></h3>
 <ul>
 <li>
 <p>Let $ \mathcal{F} $ be a field. </p>
@@ -690,7 +690,7 @@ are elements of some field $ \mathcal{F} ​$.</p>
 $ \mathbf{s}^T = \begin{bmatrix} s_1 \\ s_2 \\ \cdot \\ \cdot \\ \cdot \\ s_n \end{bmatrix} ​$ </p>
 </li>
 </ul>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/Empiech007">https://github.com/Empiech007</a></li>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a> </li>

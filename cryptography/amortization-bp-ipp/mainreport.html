@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#amortization-of-bulletproofs-inner-product-proof" id="amortization-of-bulletproofs-inner-product-proof">Amortization of Bulletproofs Inner-product Proof</a></h1>
+                        <h1 id="amortization-of-bulletproofs-inner-product-proof"><a class="header" href="#amortization-of-bulletproofs-inner-product-proof">Amortization of Bulletproofs Inner-product Proof</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a> </li>
 <li><a href="#notation-and-assumptions">Notation and Assumptions</a></li>
@@ -298,7 +298,7 @@
 </li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>One of the main attractions of blockchains is the idea of trustlessness. It is aiming at building a network that 
 allows every participant to run their own validation should they be in doubt about any given set of transactions. 
 Well, this is currently an ideal, especially for blockchains with confidential transactions. One of the reasons for this 
@@ -326,14 +326,14 @@ zero-knowledge proofs involved in validation of blockchain transactions. The bul
 take place in the Inner-product Proof (IPP).</p>
 <p>This report investigates how the innovative amortization strategies of the Halo protocol can be used to 
 enhance the Bulletproofs IPP. </p>
-<h2><a class="header" href="#notation-and-assumptions" id="notation-and-assumptions">Notation and Assumptions</a></h2>
+<h2 id="notation-and-assumptions"><a class="header" href="#notation-and-assumptions">Notation and Assumptions</a></h2>
 <p>The settings and notations used in this report follow the Bulletproofs framework as in the Dalek notes [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>]. This 
 includes the underlying field  $\mathbb{F}_p$, elliptic curve, elliptic curve group, and generators $G$ and $H$. The 
 details are not included here, as they have been covered in other Tari Labs University (TLU) reports. 
 Note that properties such as completeness, soundness or public coin, and discrete log difficulty, are assumed here. </p>
 <p>Since the Ristretto implementation of the curve25519 is used in the Bulletproofs setting, unless otherwise stated, all 
 vectors of size $n$ refer to $n$ 32 bytes. </p>
-<h2><a class="header" href="#zero-knowledge-proofs" id="zero-knowledge-proofs">Zero-knowledge Proofs</a></h2>
+<h2 id="zero-knowledge-proofs"><a class="header" href="#zero-knowledge-proofs">Zero-knowledge Proofs</a></h2>
 <p>There are two parties in a zero-knowledge proof: the prover and the verifier. The prover seeks to convince the verifier 
 that he or she has knowledge of a secret value $w$, called the <em>witness</em>, without disclosing any more information about 
 $w$ to the verifier. How does this work?</p>
@@ -347,7 +347,7 @@ the verifier tests if some particular relation $\mathcal{R}$ between $w$ and $x$
 correct if $\mathcal{R}(x,w) = 1$ and incorrect if $\mathcal{R}(x,w) = 0$. Since the verifier does not know $w$, they 
 use some verification algorithm $\mathcal{V}$ such that $\mathcal{V}(x, \pi) = \mathcal{R}(x,w)$. </p>
 <p>The entire research on scalability is in pursuit of such an algorithm $\mathcal{V}$ that is most efficient and secure. </p>
-<h2><a class="header" href="#bulletproofs-range-proofs" id="bulletproofs-range-proofs">Bulletproofs Range Proofs</a></h2>
+<h2 id="bulletproofs-range-proofs"><a class="header" href="#bulletproofs-range-proofs">Bulletproofs Range Proofs</a></h2>
 <p>The Bulletproofs system provides a framework for building non-interactive zero-knowledge proofs without any need for a 
 trusted setup. Also, according to Cathie Yun, &quot;it allows for proving a much wider class of statements than just 
 range proofs&quot; [<a href="https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8" title="Building on Bulletproofs">8</a>]. </p>
@@ -387,7 +387,7 @@ Zero-knowledge Proofs">10</a>]. </p>
 recursive nature. Close attention is therefore given to the IPP as described by Bootle et al. [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
 for Arithmetic Circuits in 
 the Discrete Log Setting">9</a>]. </p>
-<h2><a class="header" href="#what-is-recursive-proof-composition" id="what-is-recursive-proof-composition">What is Recursive Proof Composition?</a></h2>
+<h2 id="what-is-recursive-proof-composition"><a class="header" href="#what-is-recursive-proof-composition">What is Recursive Proof Composition?</a></h2>
 <p>The aim of Recursive Proof Composition is to construct &quot;proofs that verify other proofs&quot; or &quot;proofs that are capable of 
 verifying other instances of themselves&quot; [<a href="https://www.coindesk.com/you-can-now-prove-a-whole-blockchain-with-one-math-problem-really" title="You Can Now Prove 
 a Whole Blockchain With 
@@ -397,7 +397,7 @@ zero-knowledge proofs. </p>
 algorithms are briefly discussed. The IPP, as used in a Bulletproofs range proof, is given as an example of a 
 recursive algorithm. <a href="#fig_brf">Figure 1</a> shows the recursive nature of the IPP, 
 and will later be helpful in explaining some of Halo's amortization strategies. </p>
-<h3><a class="header" href="#recursive-functions" id="recursive-functions">Recursive Functions</a></h3>
+<h3 id="recursive-functions"><a class="header" href="#recursive-functions">Recursive Functions</a></h3>
 <p>Recursion is used to define functions or sequences of values that depict a consistent pattern. When written as a formula, 
 it becomes apparent that a $(j-1)$-th member of such a sequence is needed in computing the $j$-th member of the same 
 sequence. </p>
@@ -413,7 +413,7 @@ and &quot;while-loops&quot;. One can say that computers were made and designed t
 without much error. However, although recursive proof composition is pointedly applicable to recursive algorithms, 
 there's more to it than just recursiveness. Proof recursion is not defined by recursiveness, but rather takes advantage 
 of it. </p>
-<h3><a class="header" href="#recursion-in-bulletproofs-inner-product-proof" id="recursion-in-bulletproofs-inner-product-proof">Recursion in Bulletproofs Inner-product Proof</a></h3>
+<h3 id="recursion-in-bulletproofs-inner-product-proof"><a class="header" href="#recursion-in-bulletproofs-inner-product-proof">Recursion in Bulletproofs Inner-product Proof</a></h3>
 <p>In Bulletproofs range proofs, a prover commits to a value $v$ and seeks to construct an IPP to the fact 
 that $v \in  [ 0 , 2^n ) $. Pedersen commitments are used to keep the value of $v$ confidential, and are expressed as 
 inner-products. </p>
@@ -471,7 +471,7 @@ $$</p>
 <div align="center"><b>Figure 2: Inner-product Proof - Prover Side </b></div> 
 <p><a href="#fig_ipprs">Figure 2</a> is included here not only to display the recursive nature of 
 the IPP, but will also be handy and pivotal in understanding amortization strategies that will be applied to the IPP. </p>
-<h3><a class="header" href="#inductive-proofs" id="inductive-proofs">Inductive Proofs</a></h3>
+<h3 id="inductive-proofs"><a class="header" href="#inductive-proofs">Inductive Proofs</a></h3>
 <p>As noted earlier, &quot;for-loops&quot; and &quot;while-loops&quot; are powerful in efficiently executing repetitive computations. However, 
 they are not sufficient to reach the level of scalability needed in blockchains. The basic reason for this is that the 
 iterative executions compute each instance of the recursive function. This is very expensive and clearly undesirable, 
@@ -526,11 +526,11 @@ single proof that this state is correct.</p>
 <p>Recursive proof composition is described in [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
 without a Trusted Setup">14</a>] as &quot;proofs that can feasibly attest to the correctness of other 
 instances of themselves&quot;. </p>
-<h2><a class="header" href="#verification-amortization-strategies" id="verification-amortization-strategies">Verification Amortization Strategies</a></h2>
+<h2 id="verification-amortization-strategies"><a class="header" href="#verification-amortization-strategies">Verification Amortization Strategies</a></h2>
 <p>Only a few amortization strategies in the literature are used to achieve proper recursive proof composition. This report
 focuses on those that Bowe et al. [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
 without a Trusted Setup">14</a>] used in the Halo protocol. </p>
-<h3><a class="header" href="#application-of-verifiable-computation" id="application-of-verifiable-computation">Application of Verifiable Computation</a></h3>
+<h3 id="application-of-verifiable-computation"><a class="header" href="#application-of-verifiable-computation">Application of Verifiable Computation</a></h3>
 <p>Verifiable computation is used for the delegation of computations to an untrusted third party (or at times, the prover) 
 who returns: </p>
 <ul>
@@ -540,7 +540,7 @@ who returns: </p>
 <p>The ideal property of such a proof $\pi_z$ is <em>succinctness</em>, which means the proof $\pi_z$ must be asymptotically 
 smaller and less expensive to check than the delegated computation itself [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
 without a Trusted Setup">14</a>].</p>
-<h3><a class="header" href="#incrementally-verifiable-computation" id="incrementally-verifiable-computation">Incrementally Verifiable Computation</a></h3>
+<h3 id="incrementally-verifiable-computation"><a class="header" href="#incrementally-verifiable-computation">Incrementally Verifiable Computation</a></h3>
 <p>The idea here is to attest to the validity of a previous proof in addition to application of verifiable computation. The 
 best thing about this amortization strategy is that one proof can be used to inductively demonstrate the correctness of 
 many previous proofs. </p>
@@ -558,7 +558,7 @@ with a single proof, and with this proof alone, the computation can be extended 
 <p>Due to this strategy, by &quot;allowing a single proof to inductively demonstrate the correctness of many previous proofs&quot; 
 [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
 without a Trusted Setup">14</a>], Halo achieves better scalability than most known SNARKs constructions.</p>
-<h3><a class="header" href="#nested-amortization" id="nested-amortization">Nested Amortization</a></h3>
+<h3 id="nested-amortization"><a class="header" href="#nested-amortization">Nested Amortization</a></h3>
 <p>This strategy can be used as part of the above two amortization strategies. </p>
 <p>Whenever the verifier has to compute an expensive fixed operation $F$ that is invoked with some input $x$, the prover is 
 allowed to witness $y = F(x)$ and send the pair $(x, y)$ to the verifier. The verification circuit takes $(x, y)$
@@ -587,11 +587,11 @@ a Whole Blockchain With
 One Math Problem – Really">6</a>]. The discussion 
 in this report focuses on the latter, while the former will be part of forthcoming reports, as it 
 requires delving into understanding cycles of elliptic curves. </p>
-<h2><a class="header" href="#amortized-inner-product-proof" id="amortized-inner-product-proof">Amortized Inner-product Proof</a></h2>
+<h2 id="amortized-inner-product-proof"><a class="header" href="#amortized-inner-product-proof">Amortized Inner-product Proof</a></h2>
 <p>One application of the amortization strategies discussed thus far, is the Bulletproofs IPP. The aim here is to 
 investigate how much significance these strategies bring to this powerful and pervasive proof, especially in blockchain 
 technology, where efficiency of zero-knowledge proof is pursued.</p>
-<h3><a class="header" href="#bulletproofs-inner-product-proof-verification" id="bulletproofs-inner-product-proof-verification">Bulletproofs Inner-product Proof Verification</a></h3>
+<h3 id="bulletproofs-inner-product-proof-verification"><a class="header" href="#bulletproofs-inner-product-proof-verification">Bulletproofs Inner-product Proof Verification</a></h3>
 <p>Consider the Bulletproofs IPP, originally described by Bootle et al. [<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments 
 for Arithmetic Circuits in 
 the Discrete Log Setting">9</a>], but following the Dalek's Bulletproofs 
@@ -601,8 +601,8 @@ costs, especially in the context of recursive proofs. </p>
 <p>Figure 6 shows a naive implementation of the verifier's side of the Bulletproofs IPP.</p>
 <p align="center"><a name="fig_bpippvs"> </a><img src="sources/IPProof-verifier-side-11.png" width="650" /></p>
 <div align="center"><b>Figure 6: Bulletproofs Inner-product Proof - Verifier Side </b></div>
-<h3><a class="header" href="#verifiable-computation" id="verifiable-computation">Verifiable Computation</a></h3>
-<h4><a class="header" href="#application-1---delegating-inversion-of-verifiers-challenges" id="application-1---delegating-inversion-of-verifiers-challenges">Application 1 - Delegating Inversion of Verifier's Challenges</a></h4>
+<h3 id="verifiable-computation"><a class="header" href="#verifiable-computation">Verifiable Computation</a></h3>
+<h4 id="application-1---delegating-inversion-of-verifiers-challenges"><a class="header" href="#application-1---delegating-inversion-of-verifiers-challenges">Application 1 - Delegating Inversion of Verifier's Challenges</a></h4>
 <p>One of the details omitted from <a href="#fig_bpippvs">Figure 6</a> is the computation of inverses 
 of the verifier's challenges $u_j$ needed to complete verification. The verifier, for example, needs $u_j^{-2}$ in order 
 to compute $- L_j \cdot u_j^2 - R_j \cdot u^{-2}$. Verifiable computation strategy is therefore applicable to the IPP, 
@@ -624,7 +624,7 @@ now only cost $log_2(n)$ multiplication constraints for a single IPP. The saving
 $n$, which is the size of the initial input vectors to the IPP, is typically very small compared to $p$, the prime order 
 of the elliptic curve group. </p>
 <p>As noted earlier, this amortization strategy reduces the verification costs by factor of $log(p)$. </p>
-<h4><a class="header" href="#application-2---delegating-computation-of-g_is-coefficients" id="application-2---delegating-computation-of-g_is-coefficients">Application 2 - Delegating Computation of $G_i$'s Coefficients</a></h4>
+<h4 id="application-2---delegating-computation-of-g_is-coefficients"><a class="header" href="#application-2---delegating-computation-of-g_is-coefficients">Application 2 - Delegating Computation of $G_i$'s Coefficients</a></h4>
 <p>Consider the vector of group-generators $\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1} )$, one of the four initial 
 input vectors to the IPP. In verifying the prover's IPP, the verifier has to compute the vector 
 $\mathbf{s} = ( s_0 , s_1 , s_2 , ... , s_{(n-1)} )$, where each $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ is the 
@@ -640,8 +640,8 @@ properties that can be exploited in two ways:</p>
 <li>Firstly, the verifier can use these properties to check if the $s_i$'s were correctly computed by the helper.</li>
 <li>Secondly, they can be used to minimize the prover's computational costs. </li>
 </ul>
-<h3><a class="header" href="#verifiers-test-of-g_is-coefficients" id="verifiers-test-of-g_is-coefficients">Verifier's Test of $G_i$'s Coefficients</a></h3>
-<h4><a class="header" href="#properties-of-g_is-coefficients" id="properties-of-g_is-coefficients">Properties of $G_i$'s Coefficients</a></h4>
+<h3 id="verifiers-test-of-g_is-coefficients"><a class="header" href="#verifiers-test-of-g_is-coefficients">Verifier's Test of $G_i$'s Coefficients</a></h3>
+<h4 id="properties-of-g_is-coefficients"><a class="header" href="#properties-of-g_is-coefficients">Properties of $G_i$'s Coefficients</a></h4>
 <p>Note that the verifier has to compute the values $u_j^2$  and $u_j^{-2}$ for all $j \in \{ 1, 2, 3, ... , k \}$. </p>
 <p>The 
 idea here is to use a verifier's test that involves these squares of the challenges and their inverses. The next theorem 
@@ -663,7 +663,7 @@ is the $i-$th component of the initial input vector $\mathbf{G} = ( G_0 , G_1 , 
 <p>The proof of Part (1) of Theorem 1 follows by induction on the size $n$ of the initial input vector 
 $\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1} )$ to the IPP, while parts (2) and (3) follow by induction on $k$. 
 <a href="#appendix-b-proof-of-theorem-1-and-its-preliminaries">Appendix B</a> contains full details of the proof.</p>
-<h4><a class="header" href="#test-of-g_is-coefficients" id="test-of-g_is-coefficients">Test of $G_i$'s Coefficients</a></h4>
+<h4 id="test-of-g_is-coefficients"><a class="header" href="#test-of-g_is-coefficients">Test of $G_i$'s Coefficients</a></h4>
 <p>The verifier tests the correctness of the coefficients $s_i$ with the following statement: </p>
 <p>$$
 (s_{1} \cdot s_{n-1}  = u_1^2) \land (s_{2} \cdot s_{n-1} = u_2^2) \land (s_{4} \cdot s_{n-1}  = u_3^2) \land\ \dots \ \land (s_{2^{(k-1)}} \cdot s_{n-1}  = u_k^2) \land \\ 
@@ -673,8 +673,8 @@ $$</p>
 <p>for randomly sampled values $ \{r_1, r_2, ... , r_k \} \subset \{0, 1, 2, ... , n-1 \} $ where $k = log_2(n)$. </p>
 <p>The multiplication cost of the <em>Test of $G_i$'s Coefficients</em> as stated above is sub-linear with respect to $n$, costing the verifier only $3log(n)$ multiplications. That's because all three parts of Theorem 1 are tested. However, it would still suffice for the verifier to test only two out of the three parts of Theorem 1, reducing the cost to $2log(n)$. </p>
 <p>Note that the values of the coefficients $s_i$ and the squares $u_j^2$ and $u_j^{-2}$ do not exist by default nor are they automatically computed in the Bulletproofs system. In fact, according to Dalek's internal documents on the Inner-product Proof [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>], specifically under <a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html#verification-equation">Verification equation</a>, these values can be provided by the system. Either way, these values need to be computed. The next subsection therefore focuses on optimising the computations of the $s_i$'s. </p>
-<h3><a class="header" href="#optimizing-provers-computation-of-g_is-coefficients" id="optimizing-provers-computation-of-g_is-coefficients">Optimizing Prover's Computation of $G_i$'s Coefficients</a></h3>
-<h4><a class="header" href="#naive-algorithm" id="naive-algorithm">Naive Algorithm</a></h4>
+<h3 id="optimizing-provers-computation-of-g_is-coefficients"><a class="header" href="#optimizing-provers-computation-of-g_is-coefficients">Optimizing Prover's Computation of $G_i$'s Coefficients</a></h3>
+<h4 id="naive-algorithm"><a class="header" href="#naive-algorithm">Naive Algorithm</a></h4>
 <p>The naively implemented computation of the coefficients $s_i$, as depicted in 
 <a href="#fig_bpippvs">Figure 6</a>, is very expensive in terms of the number of multiplications. </p>
 <p>The naive algorithm codes computation of the coefficients $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ 
@@ -700,7 +700,7 @@ return = 0;
 </code></pre>
 <p>Using the naive algorithm, an input vector $\mathbf{G}$ to the IPP of size $n$, costs the verifier $n*[ log_2(n) - 1 ]$ 
 multiplications. If $n = 256$, the cost is $1,792$. This is rather expensive irrespective of whether the $s_i$'s are computed by a third party or by the proof system.</p>
-<h4><a class="header" href="#optimized-algorithms" id="optimized-algorithms">Optimized Algorithms</a></h4>
+<h4 id="optimized-algorithms"><a class="header" href="#optimized-algorithms">Optimized Algorithms</a></h4>
 <p>At least four competing algorithms optimize computation of the coefficients ${ s_i }$. Each one is far much better than 
 the naive algorithm. </p>
 <p>The basic optimization strategy is based on the observation that every coefficient has at least one common factor with 
@@ -771,14 +771,14 @@ Algorithm 4 or [A4]. </p>
 $n = 4$ and $n = 8$; as well as when the best optimized algorithm saves a mere $4$ multiplications. </p>
 </li>
 </ul>
-<h3><a class="header" href="#concluding-amortized-inner-product-proof" id="concluding-amortized-inner-product-proof">Concluding Amortized Inner-product Proof</a></h3>
+<h3 id="concluding-amortized-inner-product-proof"><a class="header" href="#concluding-amortized-inner-product-proof">Concluding Amortized Inner-product Proof</a></h3>
 <p>The amortization strategies herein applied to the Bulletproofs IPP are tangible and significantly enhance the proof. 
 With the above amortization of the IPP, the prover sends $3log_2(n)$ IPP elements, i.e. the set of all $log_2(n)$ 
 triples $L_j$, $R_j$ and $u^{-1}$. The $n$ coefficients $s_i$'s will either be sent by the third-party helper or provided by the system according to Dalek's internal documents. See IPP's <a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html#verification-equation">Verification equation</a> in [<a href="https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html" title="Module Bulletproofs::notes ::index">7</a>]. </p>
 <p>The given verifier's test of the $G_i$'s coefficients and the optimization of their computations solidify the proposed 
 amortization of the IPP. Given the Bulletproofs setting, that a vector of size $n$ refers to $n$ number of 32-byte 
 values, even seemingly small savings are significant. </p>
-<h2><a class="header" href="#application-to-tari-blockchain" id="application-to-tari-blockchain">Application to Tari Blockchain</a></h2>
+<h2 id="application-to-tari-blockchain"><a class="header" href="#application-to-tari-blockchain">Application to Tari Blockchain</a></h2>
 <p>This report not only explains the often obscured parts of the IPP mechanism, but also succeeds in bringing this powerful 
 proof as close as possible to practicality.</p>
 <p>The amortized IPP as discussed above does not veer off the Dalek's Bulletproofs setting, which is preferred for the Tari 
@@ -788,7 +788,7 @@ huge savings for the verification costs, cutting down on the number of multiplic
 the prime $p$ is deliberately chosen to be very large. </p>
 <p>The amortized IPP lends itself to implementations of any zero-knowledge proof that involves inner-products, especially 
 in the Bulletproofs framework. </p>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf" title="DIZK: A Distributed 
 Zero Knowledge Proof System">1</a>] H. Wu, W. Zheng, A. Chiesa, R. A. Popa and I. Stoica, &quot;DIZK: A Distributed Zero Knowledge Proof System&quot;, 
 UC Berkeley [online]. Available: <a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf">https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf</a>. 
@@ -841,14 +841,14 @@ Proofs: A Comprehensive Primer">13</a>] M. Straka, &quot;Recursive Zero-knowledg
 <p>[<a href="https://eprint.iacr.org/2019/1021.pdf" title="Recursive Proof Composition 
 without a Trusted Setup">14</a>] S. Bowe, J. Grigg and D. Hopwood, &quot;Recursive Proof Composition without a Trusted Setup&quot; [online]. Electric Coin 
 Company, 2019. Available: <a href="https://eprint.iacr.org/2019/1021.pdf">https://eprint.iacr.org/2019/1021.pdf</a>. Date accessed: 2020‑04‑24. </p>
-<h1><a class="header" href="#appendices" id="appendices">Appendices</a></h1>
-<h2><a class="header" href="#appendix-a-optimized-algorithms" id="appendix-a-optimized-algorithms">Appendix A: Optimized Algorithms</a></h2>
+<h1 id="appendices"><a class="header" href="#appendices">Appendices</a></h1>
+<h2 id="appendix-a-optimized-algorithms"><a class="header" href="#appendix-a-optimized-algorithms">Appendix A: Optimized Algorithms</a></h2>
 <p>The naive algorithm codes computation of the coefficients $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$ 
 by cumulatively multiplying the correct factor $u_j^{b(i,j)}$ in each $j-$th round of the IPP, running from 
 $k = log_2(n)$ to $1$. </p>
 <p>This appendix contains details of the algorithms investigated to optimize computations of the coefficients 
 ${ s_i }$ of $G_i$ the component of the vector input to the IPP, $\mathbf{G} = (G_0 , G_1 , G_2 , ... , G_{n-1})$. </p>
-<h4><a class="header" href="#basic-approach" id="basic-approach">Basic Approach</a></h4>
+<h4 id="basic-approach"><a class="header" href="#basic-approach">Basic Approach</a></h4>
 <p>The basic approach to the formulation of efficient and cost-saving algorithms is as follows: </p>
 <ul>
 <li>
@@ -879,11 +879,11 @@ $$</p>
 $\ \ u_{10}^{b(i,10)} \cdot u_{9}^{b(i,9)} \cdot u_{8}^{b(i,8)}\ \ $ or 
 $\ \ u_{4}^{b(i,4)} \cdot u_{3}^{b(i,3)} \cdot u_{2}^{b(i,2)} \cdot u_{1}^{b(i,1)}\ \ $ are herein referred to as &quot;doubles&quot; or 
 &quot;triples&quot; or &quot;quadruples&quot;, respectively.</p>
-<h4><a class="header" href="#defining-optimized-algorithms" id="defining-optimized-algorithms">Defining Optimized Algorithms</a></h4>
+<h4 id="defining-optimized-algorithms"><a class="header" href="#defining-optimized-algorithms">Defining Optimized Algorithms</a></h4>
 <p>Since the main strategy in using these algorithms is to avoid insisting on immediate updates of the values $s_i$, they 
 differ in their scheduling of when &quot;doubles&quot; or &quot;triples&quot; or &quot;quadruples&quot; are computed. Note that &quot;distinct&quot; 
 sub-products refers to those sub-products with no common factor. </p>
-<h5><a class="header" href="#algorithm-1" id="algorithm-1">Algorithm 1</a></h5>
+<h5 id="algorithm-1"><a class="header" href="#algorithm-1">Algorithm 1</a></h5>
 <p>This algorithm computes new distinct doubles as soon as it is possible to do so. These new doubles are 
 turned into triples in the next immediate IPP round. This process is repeated until all IPP rounds are completed. Only 
 then are next larger-sized sub-products computed, but consumption of the smallest existing &quot;tuples&quot; is given priority. </p>
@@ -929,7 +929,7 @@ int main() {
     return = 0;
 }
 </code></pre>
-<h5><a class="header" href="#algorithm-2" id="algorithm-2">Algorithm 2</a></h5>
+<h5 id="algorithm-2"><a class="header" href="#algorithm-2">Algorithm 2</a></h5>
 <p>This algorithm starts exactly like Algorithm 1, by forming only new and distinct doubles and turning them into triples 
 in the next immediate IPP round, but goes beyond the triples by immediately forming the next possible quadruples.</p>
 <pre><code class="language-text">**Algorithm 2 or [A2]**
@@ -974,7 +974,7 @@ int main() {
     return = 0;  
 }
 </code></pre>
-<h5><a class="header" href="#algorithm-3" id="algorithm-3">Algorithm 3</a></h5>
+<h5 id="algorithm-3"><a class="header" href="#algorithm-3">Algorithm 3</a></h5>
 <p>This algorithm computes new distinct doubles as soon as it is possible to do so, until the end of the 
 IPP rounds. The program then forms any possible triples. Larger-sized sub-products are then computed by firstly 
 consuming the smallest existing &quot;tuples&quot;. </p>
@@ -1020,7 +1020,7 @@ int main() {
     return = 0;  
 }
 </code></pre>
-<h5><a class="header" href="#algorithm-4" id="algorithm-4">Algorithm 4</a></h5>
+<h5 id="algorithm-4"><a class="header" href="#algorithm-4">Algorithm 4</a></h5>
 <p>This algorithm is the same as Algorithm 3 throughout the IPP rounds. However, at the end of the IPP rounds, the program 
 gives preference to the formation of all possible distinct quadruples. Larger-sized sub-products are then computed by 
 firstly consuming the largest existing &quot;tuples&quot;. </p>
@@ -1028,7 +1028,7 @@ firstly consuming the largest existing &quot;tuples&quot;. </p>
 
 The same pseudocode used for Algorithm 3 applies to Algorithm 4
 </code></pre>
-<h5><a class="header" href="#example-1-algorithm-1-or-a1" id="example-1-algorithm-1-or-a1">Example 1 (Algorithm 1 or [A1])</a></h5>
+<h5 id="example-1-algorithm-1-or-a1"><a class="header" href="#example-1-algorithm-1-or-a1">Example 1 (Algorithm 1 or [A1])</a></h5>
 <p>Let $n = 32$ so that $k = 5$. The coefficients $s_i$ for $i \in \{0, 1, 2, ... , 15 \}$ are $32$ quintets: </p>
 <p>$$
 u_5^{b(i,5)} * u_4^{b(i,4)} * u_3^{b(i,3)} * u_2^{b(i,2)} * u_1^{b(i,1)}
@@ -1075,16 +1075,16 @@ Table 2 only displays the updated and computed values $s_i$ since the initializa
 <p>At the end of the $k$ IPP rounds, there are $eight$ distinct triples and $four$ distinct doubles. These are sufficient 
 to form all the required $32$ quintets, and it takes exactly $32$ multiplications to form them all. </p>
 <p>The <strong>total cost</strong> of computing the coefficients for $n = 32$ using <em>Algorithm 1</em> is $\mathbf{4 + 8 + 4 + 32 = 48}$.</p>
-<h2><a class="header" href="#appendix-b-proof-of-theorem-1-and-its-preliminaries" id="appendix-b-proof-of-theorem-1-and-its-preliminaries">Appendix B: Proof of Theorem 1 and its Preliminaries</a></h2>
+<h2 id="appendix-b-proof-of-theorem-1-and-its-preliminaries"><a class="header" href="#appendix-b-proof-of-theorem-1-and-its-preliminaries">Appendix B: Proof of Theorem 1 and its Preliminaries</a></h2>
 <p>The proof of <strong>Theorem 1</strong> makes use of a few basic properties of the parity values $b(i,j)​$, which are described in 
 this appendix.</p>
-<h3><a class="header" href="#notation-and-definitions" id="notation-and-definitions">Notation and Definitions</a></h3>
+<h3 id="notation-and-definitions"><a class="header" href="#notation-and-definitions">Notation and Definitions</a></h3>
 <p>The letters $j$, $k$ and $l$ denote non-negative integers, unless otherwise stated. In addition: 
 $n = 2^k$, $i \in \{ 0, 1, 2, ... , n-1 \}$ and $j \in \{ 1, 2, ... , k \}$. </p>
 <p>The multiplicative identity of the field  $\mathbb{F}_p$  is denoted by $1_{\mathbb{F}_p}$. </p>
 <p>The IPP verifier's $j-$th challenge is denoted by $u_j$ and its parity exponent is defined by 
 $b(i,j) = \begin{cases} {-1} &amp; {\text{if}\ \ (i\ \ mod\ \ 2^j) &lt; 2^{j-1}} \\ {+1} &amp; {\text{if}\ \ (i\ \ mod\ \ 2^j) \geq 2^{j-1}} \end{cases} $</p>
-<h3><a class="header" href="#preliminary-lemmas-and-corollaries" id="preliminary-lemmas-and-corollaries">Preliminary Lemmas and Corollaries</a></h3>
+<h3 id="preliminary-lemmas-and-corollaries"><a class="header" href="#preliminary-lemmas-and-corollaries">Preliminary Lemmas and Corollaries</a></h3>
 <p>Details of preliminary results needed to complete the proof of Theorem 1 are provided here in the form of lemmas and 
 corollaries. </p>
 <p>Proofs of these lemmas and their corollaries follow readily from the definition of the parity exponent $b(i,j)$ of 
@@ -1186,7 +1186,7 @@ $  b(i, j) = -1 $. Then  $ c_{j-1} \cdot 2^{j-1} + c_{j-2} \cdot 2^{j-2} + \dots
 which means  $ c_{j-1}  = 0 $. This also implies $  ((n-1)-i) \text{ mod } 2^j \geq 2^{j-1} $.  Hence  $ b((n-1)-i) = +1 $. 
 Again, the converse argument here follows the reverse argument. </p>
 <p>The above two cases prove the inductive step, i.e. $  b(i, j) = (-1) \cdot b((n-1)-i) $.</p>
-<h3><a class="header" href="#proof-of-theorem-1" id="proof-of-theorem-1">Proof of Theorem 1</a></h3>
+<h3 id="proof-of-theorem-1"><a class="header" href="#proof-of-theorem-1">Proof of Theorem 1</a></h3>
 <p><strong>Theorem 1 (Some properties of the set of coefficients ${ s_i }$)</strong> </p>
 <p>Let  $s_i = \prod\limits_{j = 1}^k u_j^{b(i,j)}$  be the coefficient of  $G_i$,  the $i-$th component of the initial IPP
 input vector $\mathbf{G} = ( G_0 , G_1 , G_2 , ... , G_{n-1})$.<br />
@@ -1225,7 +1225,7 @@ $  s_i \cdot s_{(n-1)-i} = 1_{\mathbb{F}_p} \cdot u_j^{b(i,j)} \cdot u_j^{b((n-1
 <p>This part also follows readily from  Part (4)  of  Corollary 2.</p>
 </li>
 </ol>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/empiech007">https://github.com/empiech007</a></li>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>

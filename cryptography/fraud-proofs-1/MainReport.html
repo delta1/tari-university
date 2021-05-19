@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#fraud-proofs-and-spv-lightweight-clients---easier-said-than-done" id="fraud-proofs-and-spv-lightweight-clients---easier-said-than-done">Fraud Proofs and SPV (Lightweight) Clients - Easier Said than Done?</a></h1>
+                        <h1 id="fraud-proofs-and-spv-lightweight-clients---easier-said-than-done"><a class="header" href="#fraud-proofs-and-spv-lightweight-clients---easier-said-than-done">Fraud Proofs and SPV (Lightweight) Clients - Easier Said than Done?</a></h1>
 <ul>
 <li><a href="#background">Background</a></li>
 <li><a href="#introduction">Introduction</a></li>
@@ -265,7 +265,7 @@
 <li><a href="#references">References</a></li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#background" id="background">Background</a></h2>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
 <p>The bitcoin blockchain was, as of June 2018, approximately 173 GB in size [<a href="https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/" title="Size of the Bitcoin Blockchain from 2010 to 2018, by Quarter (in Megabytes)">1</a>]. This makes it nearly impossible 
 for everyone to run a full bitcoin node. Lightweight/Simplified Payment Verification (SPV) clients will have to be used 
 by users, since not everyone can run full nodes due to the computational power, bandwidth and cost needed to run a full 
@@ -276,7 +276,7 @@ Peter Todd modified the code for his node in order to deceive the bitcoin wallet
 amounts [<a href="https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv" title="Bitcoin Integration/Staging Tree">27</a>] (code can be found in the &quot;Quick-n-dirty hack to lie to SPV wallets&quot; branch on his GitHub repository).</p>
 <p align="center"><img src="sources/todd-btc-spv.jpg" width="301" /></p>
 <div align="center"><i>Courtesy: MIT Bitcoin Expo 2016 Day 1</i></div>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>In the original bitcoin whitepaper [<a href="https://www.bitcoin.com/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic Cash System">2</a>], Satoshi recognized the limitations described in <a href="#background">Background</a>,
 and introduced the concept of a Simplified Payment Verification (SPV). This concept allows verification of payments 
 using a lightweight client that does not need to download the entire bitcoin blockchain. It only downloads block 
@@ -289,7 +289,7 @@ the Merkle root, provides confirmation of the legitimacy of that chain.</p>
 block is detected. The SPV clients would then be prompted to download the full block and alerted transactions to 
 confirm the inconsistency [<a href="https://www.bitcoin.com/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic Cash System">2</a>]. An invalid block need not be of malicious intent, but could be as a result of other 
 accounting errors (whether by accident or by malicious intent).</p>
-<h2><a class="header" href="#full-node-vs-spv-client" id="full-node-vs-spv-client">Full Node vs. SPV Client</a></h2>
+<h2 id="full-node-vs-spv-client"><a class="header" href="#full-node-vs-spv-client">Full Node vs. SPV Client</a></h2>
 <p>A full bitcoin node contains the following details:</p>
 <ul>
 <li>every block;</li>
@@ -302,16 +302,16 @@ accounting errors (whether by accident or by malicious intent).</p>
 Merkle root; or</li>
 <li>just a block header with no transactions.</li>
 </ul>
-<h2><a class="header" href="#what-are-fraud-proofs" id="what-are-fraud-proofs">What are Fraud Proofs?</a></h2>
+<h2 id="what-are-fraud-proofs"><a class="header" href="#what-are-fraud-proofs">What are Fraud Proofs?</a></h2>
 <p>Fraud proofs are a way to improve the security of SPV clients [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>] by providing a mechanism for full nodes to prove 
 that a chain is invalid, irrespective of the amount of proof of work it has [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>]. Fraud proofs could also help with 
 the bitcoin scaling debate, as SPV clients are easier to run and could thus help with bitcoin scalability issues
 ([<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>], [<a href="https://www.trustnodes.com/2017/08/12/new-satoshi-nakamoto-e-mails-revealed" title="New Satoshi Nakamoto E-mails Revealed">18</a>]).</p>
-<h2><a class="header" href="#fraud-proofs-possible-within-existing-bitcoin-protocol" id="fraud-proofs-possible-within-existing-bitcoin-protocol">Fraud Proofs Possible within Existing Bitcoin Protocol</a></h2>
+<h2 id="fraud-proofs-possible-within-existing-bitcoin-protocol"><a class="header" href="#fraud-proofs-possible-within-existing-bitcoin-protocol">Fraud Proofs Possible within Existing Bitcoin Protocol</a></h2>
 <p>At the time of writing (February 2019), various proofs are needed to prove fraud in the bitcoin blockchain based on 
 various actions. The following are the types of proofs needed to prove fraud based on specific fraud cases within the 
 existing bitcoin protocol [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>]:</p>
-<h3><a class="header" href="#invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc" id="invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc">Invalid Transaction due to Stateless Criteria Violation (Correct Syntax, Input Scripts Conditions Satisfied, etc.)</a></h3>
+<h3 id="invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc"><a class="header" href="#invalid-transaction-due-to-stateless-criteria-violation-correct-syntax-input-scripts-conditions-satisfied-etc">Invalid Transaction due to Stateless Criteria Violation (Correct Syntax, Input Scripts Conditions Satisfied, etc.)</a></h3>
 <p>In the case of an invalid transaction, the fraud proofs consist of:</p>
 <ul>
 <li>the header of invalid block;</li>
@@ -319,7 +319,7 @@ existing bitcoin protocol [<a href="https://gist.github.com/justusranvier/451616
 <li>an invalid block's Merkle tree containing the minimum number of nodes needed to prove the existence of the invalid 
 transaction in the tree.</li>
 </ul>
-<h3><a class="header" href="#invalid-transaction-due-to-input-already-spent" id="invalid-transaction-due-to-input-already-spent">Invalid Transaction due to Input Already Spent</a></h3>
+<h3 id="invalid-transaction-due-to-input-already-spent"><a class="header" href="#invalid-transaction-due-to-input-already-spent">Invalid Transaction due to Input Already Spent</a></h3>
 <p>In this case, the fraud proof would consist of:</p>
 <ul>
 <li>the header of the invalid block;</li>
@@ -329,13 +329,13 @@ transaction in the tree.</li>
 <li>the original spending transaction;</li>
 <li>proof showing that the spend transaction is within the header block of the spend transaction.</li>
 </ul>
-<h3><a class="header" href="#invalid-transaction-due-to-incorrect-generation-output-value" id="invalid-transaction-due-to-incorrect-generation-output-value">Invalid Transaction due to Incorrect Generation Output Value</a></h3>
+<h3 id="invalid-transaction-due-to-incorrect-generation-output-value"><a class="header" href="#invalid-transaction-due-to-incorrect-generation-output-value">Invalid Transaction due to Incorrect Generation Output Value</a></h3>
 <p>In this case, the fraud proof consists of the block itself.</p>
-<h3><a class="header" href="#invalid-transaction-if-input-does-not-exist" id="invalid-transaction-if-input-does-not-exist">Invalid Transaction if Input does not Exist</a></h3>
+<h3 id="invalid-transaction-if-input-does-not-exist"><a class="header" href="#invalid-transaction-if-input-does-not-exist">Invalid Transaction if Input does not Exist</a></h3>
 <p>In this case, the fraud proof consists of the entire blockchain.</p>
-<h2><a class="header" href="#fraud-proofs-requiring-changes-to-bitcoin-protocol" id="fraud-proofs-requiring-changes-to-bitcoin-protocol">Fraud Proofs Requiring Changes to Bitcoin Protocol</a></h2>
+<h2 id="fraud-proofs-requiring-changes-to-bitcoin-protocol"><a class="header" href="#fraud-proofs-requiring-changes-to-bitcoin-protocol">Fraud Proofs Requiring Changes to Bitcoin Protocol</a></h2>
 <p>The following fraud proofs would require changes to the bitcoin protocol itself [<a href="https://gist.github.com/justusranvier/451616fa4697b5f25f60" title="Improving the Ability of SPV Clients to Detect Invalid Chains">5</a>]:</p>
-<h3><a class="header" href="#invalid-transaction-if-input-does-not-exist-in-old-blocks" id="invalid-transaction-if-input-does-not-exist-in-old-blocks">Invalid Transaction if Input does not Exist in Old Blocks</a></h3>
+<h3 id="invalid-transaction-if-input-does-not-exist-in-old-blocks"><a class="header" href="#invalid-transaction-if-input-does-not-exist-in-old-blocks">Invalid Transaction if Input does not Exist in Old Blocks</a></h3>
 <p>In this case, the fraud proof consists of:</p>
 <ul>
 <li>the header of the invalid block;</li>
@@ -344,7 +344,7 @@ transaction in the tree.</li>
 <li>proof that the header of the invalid block contains the leaf node corresponding to the non-existent input;</li>
 <li>the block referenced by the leaf node, if it exists.</li>
 </ul>
-<h3><a class="header" href="#missing-proof-tree-item" id="missing-proof-tree-item">Missing Proof Tree Item</a></h3>
+<h3 id="missing-proof-tree-item"><a class="header" href="#missing-proof-tree-item">Missing Proof Tree Item</a></h3>
 <p>In this case, the fraud proof consists of:</p>
 <ul>
 <li>the header of the invalid block;</li>
@@ -353,7 +353,7 @@ transaction in the tree.</li>
 <li>proof that the header of the invalid block contains the transition of the missing proof tree node;</li>
 <li>proof that the proof tree contains two adjacent leaf nodes.</li>
 </ul>
-<h2><a class="header" href="#universal-fraud-proofs-suggested-improvement" id="universal-fraud-proofs-suggested-improvement">Universal Fraud Proofs (Suggested Improvement)</a></h2>
+<h2 id="universal-fraud-proofs-suggested-improvement"><a class="header" href="#universal-fraud-proofs-suggested-improvement">Universal Fraud Proofs (Suggested Improvement)</a></h2>
 <p>As can be seen, requiring different fraud proof constructions for different fraud proofs can get cumbersome.
 Al-Bassam, et al. [<a href="https://arxiv.org/pdf/1809.09044.pdf" title="Fraud Proofs: Maximising Light Client Security and Scaling Blockchains with Dishonest Majorities">26</a>] proposed a general, universal fraud-proof construction for most cases. Their proposition is to
 generalize the entire blockchain as a state transition system and represent the entire state as a Merkle root using a
@@ -394,7 +394,7 @@ is rejected.</p>
 Dishonest Majorities</i></div>
 <p>The post-state root can be excluded in order to save block space. However, this does increase the fraud proof size.
 This works with the assumption that the SPV client is connected to a minimum of one honest node.</p>
-<h2><a class="header" href="#how-spv-clients-work" id="how-spv-clients-work">How SPV Clients Work</a></h2>
+<h2 id="how-spv-clients-work"><a class="header" href="#how-spv-clients-work">How SPV Clients Work</a></h2>
 <p>SPV clients make use of Bloom filters to receive transactions that are relevant to the user [<a href="https://eprint.iacr.org/2014/763.pdf" title="On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients">7</a>]. Bloom filters are
 probabilistic data structures used to check the existence of an element in a set quicker by responding with a Boolean
 answer [<a href="https://medium.com/blockchain-musings/a-case-of-false-positives-in-bloom-filters-da09ec487ff0" title="A Case of False Positives in Bloom Filters,">9</a>].</p>
@@ -406,8 +406,8 @@ the block, called a Merkle root, to prove that the transaction has been accepted
 <p align="center"><img src="sources/merkle-tree.png" width="1000" /></p>
 <p>Fraud proofs are integral to the security of SPV clients. However, the other components in SPV clients are not without
 issues. </p>
-<h2><a class="header" href="#security-and-privacy-issues-with-spv-clients" id="security-and-privacy-issues-with-spv-clients">Security and Privacy Issues with SPV Clients</a></h2>
-<h3><a class="header" href="#weak-bloom-filters-and-merkle-tree-designs" id="weak-bloom-filters-and-merkle-tree-designs">Weak Bloom Filters and Merkle Tree Designs</a></h3>
+<h2 id="security-and-privacy-issues-with-spv-clients"><a class="header" href="#security-and-privacy-issues-with-spv-clients">Security and Privacy Issues with SPV Clients</a></h2>
+<h3 id="weak-bloom-filters-and-merkle-tree-designs"><a class="header" href="#weak-bloom-filters-and-merkle-tree-designs">Weak Bloom Filters and Merkle Tree Designs</a></h3>
 <p>In August 2017, a weakness in the bitcoin Merkle tree design was found to reduce the security of SPV clients. This
 weakness could allow an attacker to simulate a payment of an arbitrary amount to a victim using an SPV wallet, and
 trick the victim into accepting it as valid [<a href="https://media.rsk.co/the-design-of-bitcoin-merkle-trees-reduces-the-security-of-spv-clients/" title="The Design of Bitcoin Merkle Trees Reduces the Security of SPV Clients">10</a>]. The bitcoin Merkle tree makes no distinction between inner and leaf
@@ -423,7 +423,7 @@ Networks (VPNs) are not used).</p>
 (80 GB disk reads) when SPV clients sync and full nodes themselves can cause a denial of service for SPV clients
 by returning NULL filter responses to requests [<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html" title="Committed Bloom Filters for Improved Wallet Performance and SPV Security">14</a>]. Peter Todd [<a href="https://github.com/petertodd/bloom-io-attack" title="Bloom-io-attack">15</a>] aptly demonstrates the risk of SPV denial of
 service.</p>
-<h3><a class="header" href="#improvements" id="improvements">Improvements</a></h3>
+<h3 id="improvements"><a class="header" href="#improvements">Improvements</a></h3>
 <p>To address these issues, a new concept called committed Bloom filters was introduced to improve the performance and
 security of SPV clients. In this concept, which can be used in lieu of BIP37 [<a href="https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/" title="Committed Bloom Filters versus BIP37 SPV">16</a>], a Bloom filter digest (BFD) of
 every block's inputs, outputs and transactions is created with a filter that consists of a small size of the overall
@@ -432,12 +432,12 @@ block size [<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/201
 transactions. This BFD allows the caching of filters by SPV clients without the need to recompute [<a href="https://www.newsbtc.com/2016/05/10/developers-introduce-bloom-filters-improve-bitcoin-wallet-security/" title="Committed Bloom Filters versus BIP37 SPV">16</a>]. It also
 introduces semi-trusted oracles to improve the security and privacy of SPV clients by allowing SPV clients to download
 block data via any out of band method [<a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-May/012636.html" title="Committed Bloom Filters for Improved Wallet Performance and SPV Security">14</a>].</p>
-<h2><a class="header" href="#examples-of-spv-implementations" id="examples-of-spv-implementations">Examples of SPV Implementations</a></h2>
+<h2 id="examples-of-spv-implementations"><a class="header" href="#examples-of-spv-implementations">Examples of SPV Implementations</a></h2>
 <p>There are two well-known SPV implementations for bitcoin: bitcoinj and electrum. The latter does SPV-level validation,
 comparing multiple electrum servers against each other. It has very similar security to bitcoinj, but potentially better 
 privacy [<a href="https://www.reddit.com/r/Bitcoin/comments/3c3zn4/whats_the_difference_between_an_api_wallet_and_a/" title="Whats the Difference between an API Wallet and a SPV Wallet?">25</a>] due to bitcoinj's implementation of Bloom filters [<a href="https://eprint.iacr.org/2014/763.pdf" title="On the Privacy Provisions of Bloom Filters in Lightweight Bitcoin Clients">7</a>].</p>
-<h2><a class="header" href="#other-suggested-fraud-proof-improvements" id="other-suggested-fraud-proof-improvements">Other Suggested Fraud-proof Improvements</a></h2>
-<h3><a class="header" href="#erasure-codes" id="erasure-codes">Erasure Codes</a></h3>
+<h2 id="other-suggested-fraud-proof-improvements"><a class="header" href="#other-suggested-fraud-proof-improvements">Other Suggested Fraud-proof Improvements</a></h2>
+<h3 id="erasure-codes"><a class="header" href="#erasure-codes">Erasure Codes</a></h3>
 <p>Along with the proposed universal fraud-proof solution, another data availability issue with fraud proofs is erasure
 coding. Erasure coding allows a piece of data M chunks long to be expanded into a piece of data N chunks long (“chunks”
 can be of arbitrary size), such that any M of the N chunks can be used to recover the original data. Blocks are then
@@ -453,7 +453,7 @@ one of three conditions will be true for the SPV client when using erasure codes
 <p>In case (1), the block is valid and the light client can accept it. In case (2), it is expected that some other node
 will quickly construct and relay a fraud proof. In case (3), it is also expected that some other node will quickly
 construct and relay a specialized kind of fraud proof that shows that the erasure code is constructed incorrectly.</p>
-<h3><a class="header" href="#merklix-trees" id="merklix-trees">Merklix Trees</a></h3>
+<h3 id="merklix-trees"><a class="header" href="#merklix-trees">Merklix Trees</a></h3>
 <p>Another suggested fraud proof improvement for the bitcoin blockchain is by means of block sharding and validation using
 Merklix trees. Merklix trees are essentially Merkle trees that use unordered set [<a href="https://www.deadalnix.me/2016/09/24/introducing-merklix-tree-as-an-unordered-merkle-tree-on-steroid/" title="Introducing Merklix Tree as an Unordered Merkle Tree on Steroid">22</a>]. This also assumes that there
 is at least one honest node per shard. Using Merklix proofs, the following can be proven [<a href="https://www.deadalnix.me/2016/11/06/using-merklix-tree-to-shard-block-validation/" title="Using Merklix Tree to Shard Block Validation">23</a>]:</p>
@@ -462,7 +462,7 @@ is at least one honest node per shard. Using Merklix proofs, the following can b
 <li>The transaction's inputs and outputs are or are not in the UTXO set.</li>
 </ol>
 <p>In this scenario, SPV clients can be made aware of any invalidity in blocks and cannot be lied to about the UTXO set.</p>
-<h3><a class="header" href="#payment-channels" id="payment-channels">Payment Channels</a></h3>
+<h3 id="payment-channels"><a class="header" href="#payment-channels">Payment Channels</a></h3>
 <p>Bitcoin is made to be resilient to denial of service (DoS) attacks. However, the same cannot be said for SPV clients.
 This could be an issue if malicious alerting nodes spam with false fraud proofs. A proposed solution to this is payment
 channels [<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>], due to them:</p>
@@ -472,7 +472,7 @@ channels [<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditati
 <li>being robust to temporary mining failures (as they use long “custodial periods”).</li>
 </ol>
 <p>In this way, the use of payment channels can help with incentivizing full nodes to issue fraud proofs.</p>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
 <p>Fraud proofs can be complex [<a href="http://www.truthcoin.info/blog/fraud-proofs/" title="Meditations on Fraud Proofs">6</a>] and hard to implement. However, they appear to be necessary for scalability of
 blockchains and the security and privacy for SPV clients, since not everyone can or should want to run a full node to
 participate in the network. The current SPV implementations are working on improving the security and privacy of these
@@ -485,7 +485,7 @@ have to emerge.</p>
 looked into, as undoubtedly end-users of the protocol/network will mostly be using light clients. However, since these
 fraud proofs work on the assumption of a minimum of one honest node, in the case of a digital issuer (which may be one
 or more), a fraud proof will not be viable on this assumption, as the digital issuer could be the sole node.</p>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/" title="Size of the Bitcoin Blockchain from 2010 to 2018, by Quarter (in Megabytes)">1</a>] &quot;Size of the Bitcoin Blockchain from 2010 to 2018, by Quarter (in Megabytes)&quot; [online].<br />
 Available:  <a href="https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/">https://www.statista.com/statistics/647523/worldwide-bitcoin-blockchain-size/</a>. Date accessed: 2018‑09‑10.</p>
 <p>[<a href="https://www.bitcoin.com/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic Cash System">2</a>] S. Nakamoto, &quot;Bitcoin: A Peer-to-Peer Electronic Cash System&quot; [online]. Available: <a href="https://www.bitcoin.com/bitcoin.pdf">https://www.bitcoin.com/bitcoin.pdf</a>.<br />
@@ -546,7 +546,7 @@ Date accessed: 2018‑09‑21.</p>
 with Dishonest Majorities&quot; [online]. Available: <a href="https://arxiv.org/pdf/1809.09044.pdf">https://arxiv.org/pdf/1809.09044.pdf</a>. Date accessed: 2018‑10‑08.</p>
 <p>[<a href="https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv" title="Bitcoin Integration/Staging Tree">27</a>] &quot;Bitcoin Integration/Staging Tree&quot; [online]. Available: <a href="https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv">https://github.com/petertodd/bitcoin/tree/2016-02-lie-to-spv</a>.<br />
 Date accessed: 2018‑10‑12.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/ksloven">https://github.com/ksloven</a></li>
 <li><a href="https://github.com/CjS77">https://github.com/CjS77</a></li>

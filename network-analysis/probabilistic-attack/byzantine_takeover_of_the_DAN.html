@@ -235,7 +235,7 @@
             color: #000000;
             }
         </style>
-<h1><a class="header" href="#probability-of-a-byzantine-takeover-of-the-digital-assets-network" id="probability-of-a-byzantine-takeover-of-the-digital-assets-network">Probability of a Byzantine Takeover of the Digital Assets Network</a></h1>
+<h1 id="probability-of-a-byzantine-takeover-of-the-digital-assets-network"><a class="header" href="#probability-of-a-byzantine-takeover-of-the-digital-assets-network">Probability of a Byzantine Takeover of the Digital Assets Network</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#tari-digital-assets-network">Tari Digital Assets Network</a> 
@@ -284,14 +284,14 @@
 </li>
 <li><a href="#contributors">Contributors</a> </li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>This investigation aims to provide answers to questions posed about the workings of the Tari Digital Assets Network (DAN) 
 environment. It covers probabilistic attack vector with regard to the total nodes, compromised nodes, committee size and 
 Byzantine Fault-tolerance (BFT) threshold. </p>
 <p>The investigation attempts to answer the following question:
 <em>What is the percentage chance of controlling the majority of nodes in a random sample with varying quantities of the total 
 number of nodes, committee size, bad nodes and BFT threshold?</em></p>
-<h2><a class="header" href="#tari-digital-assets-network" id="tari-digital-assets-network">Tari Digital Assets Network</a></h2>
+<h2 id="tari-digital-assets-network"><a class="header" href="#tari-digital-assets-network">Tari Digital Assets Network</a></h2>
 <p>The Tari Digital Assets Network (DAN) forms part of the Tari second layer, where the management of all digital 
 asset interactions takes place. </p>
 <p>These interactions are processed and validated by committees of special nodes, called Validator Nodes<sup><a href="#vn" title=" Validator nodes make up 
@@ -305,15 +305,15 @@ proved that the VN engaged in malicious behavior, the VN will lose its collatera
 digital assets...">def</a></sup> (AI) would then issue DAs and draw up a contract. The AI will dictate the size of 
 the committee of VNs for a particular DA. The AI will also have the ability to nominate a trusted node to 
 form part of the VN committee for the DA [<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>].</p>
-<h3><a class="header" href="#kademlia" id="kademlia">Kademlia</a></h3>
+<h3 id="kademlia"><a class="header" href="#kademlia">Kademlia</a></h3>
 <p>Kademlia was designed by Petar Maymounkov and David Mazières in 2002 [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Kademlia">2</a>]. It is a distributed hash table, used for 
 decentralized, peer-to-peer computer networks. </p>
-<h3><a class="header" href="#node-id" id="node-id">Node ID</a></h3>
+<h3 id="node-id"><a class="header" href="#node-id">Node ID</a></h3>
 <p>A node selects an $n$-bit ID, given to nodes on the network. Node IDs have uniformly distributed numbers. 
 A node's position is determined by a unique prefix of its ID, which forms a tree structure, with node IDs as leaves. </p>
 <p>The bit length of the node ID should be sufficiently large to make collisions unlikely when using a uniformly 
 distributed random number generator [<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>].</p>
-<h4><a class="header" href="#bootstrapping-a-node" id="bootstrapping-a-node">Bootstrapping a Node</a></h4>
+<h4 id="bootstrapping-a-node"><a class="header" href="#bootstrapping-a-node">Bootstrapping a Node</a></h4>
 <p>A bootstrap node is a node listed on a predetermined list, and serves as the first point of contact for a new node. The 
 node bootstrapping process is as follows:</p>
 <ul>
@@ -333,15 +333,15 @@ requesting an introduction to the network.</li>
 <li>it populates other nodes' 
 routing tables with the node's ID [<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>].</li>
 </ul>
-<h4><a class="header" href="#xor-metric" id="xor-metric">XOR Metric</a></h4>
+<h4 id="xor-metric"><a class="header" href="#xor-metric">XOR Metric</a></h4>
 <p>The Kademlia paper, published in 2002 [<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Kademlia">2</a>], contained the novel idea of using the XOR operator to determine the 
 distance and therefore the arrangement of peers within the network. </p>
 <p>Through the XOR metric, a distance is captured. The lookup procedure allows nodes to locate other nodes, 
 given a node ID [<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>].</p>
-<h2><a class="header" href="#implementation" id="implementation">Implementation</a></h2>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
 <p>The following calculations were done using the <a href="https://github.com/tari-labs/modelling">Tari Labs Modelling Repository</a>. </p>
-<h3><a class="header" href="#crude-monte-carlo-simulation" id="crude-monte-carlo-simulation">Crude Monte Carlo Simulation</a></h3>
-<h4><a class="header" href="#proving-the-law-of-large-numbers" id="proving-the-law-of-large-numbers">Proving the Law of Large Numbers</a></h4>
+<h3 id="crude-monte-carlo-simulation"><a class="header" href="#crude-monte-carlo-simulation">Crude Monte Carlo Simulation</a></h3>
+<h4 id="proving-the-law-of-large-numbers"><a class="header" href="#proving-the-law-of-large-numbers">Proving the Law of Large Numbers</a></h4>
 <p>With the Crude Monte Carlo technique, to gain precision, the number of samples can be increased. Thus, before 
 calculating the probability and drawing comparisons, the sample size, number of draws within an experiment, and the 
 number of experiments can be varied to find an optimal amount. </p>
@@ -374,7 +374,7 @@ plotted against the number of experiments. The bold blue line represents the mea
 <p>In the first graph, where the experiments and draws are equal to $10$, there is weak convergence. In the second graph, where the 
 experiments and draws are equal to $1,000$, the  Law of Large Numbers (LLN) is proved; as the sample size grows, convergence 
 with the statistical mean is achieved. </p>
-<h4><a class="header" href="#individual-probabilities" id="individual-probabilities">Individual Probabilities</a></h4>
+<h4 id="individual-probabilities"><a class="header" href="#individual-probabilities">Individual Probabilities</a></h4>
 <p>The following graph highlights the varying probabilities of each experiment conducted for the hypergeometric distribution. 
 The mean of this distribution provides us with the average of the probabilities, which can then be compared to the calculated 
 theoretical mean. </p>
@@ -383,27 +383,27 @@ distribution type that closely mimics the theoretical result is hypergeometric. 
 <p>Hypergeometric distribution is where there is no replacement, i.e. nodes are drawn simultaneously, distinguished and 
 not returned to the pool of total nodes. </p>
 <p align="center"><img src="assets/individual_probability_hypergeometric.png" width="700" /></p>
-<h5><a class="header" href="#uniform-distribution" id="uniform-distribution">Uniform Distribution</a></h5>
+<h5 id="uniform-distribution"><a class="header" href="#uniform-distribution">Uniform Distribution</a></h5>
 <table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference  Calculated</th></tr></thead><tbody>
 <tr><td>Intercept</td><td>0.6497887492507493</td><td>0.649474335188621</td><td>3.14414E-4</td></tr>
 <tr><td>Standard Deviation</td><td>0.015438728229013219</td><td></td><td></td></tr>
 </tbody></table>
-<h5><a class="header" href="#hypergeometric-distribution" id="hypergeometric-distribution">Hypergeometric Distribution</a></h5>
+<h5 id="hypergeometric-distribution"><a class="header" href="#hypergeometric-distribution">Hypergeometric Distribution</a></h5>
 <table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference Calculated</th></tr></thead><tbody>
 <tr><td>Intercept</td><td>0.6495665834165834</td><td>0.649474335188621</td><td>9.22482E-5</td></tr>
 <tr><td>Standard Deviation</td><td>0.014812123075035204</td><td></td><td></td></tr>
 </tbody></table>
-<h5><a class="header" href="#poisson-distribution" id="poisson-distribution">Poisson Distribution</a></h5>
+<h5 id="poisson-distribution"><a class="header" href="#poisson-distribution">Poisson Distribution</a></h5>
 <table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference Calculated</th></tr></thead><tbody>
 <tr><td>Intercept</td><td>0.6501259280719281</td><td>0.649474335188621</td><td>6.51592E-4</td></tr>
 <tr><td>Standard Deviation</td><td>0.015233575444419514</td><td></td><td></td></tr>
 </tbody></table>
-<h5><a class="header" href="#normal-distribution" id="normal-distribution">Normal Distribution</a></h5>
+<h5 id="normal-distribution"><a class="header" href="#normal-distribution">Normal Distribution</a></h5>
 <table><thead><tr><th>Statistical Information</th><th></th><th>Comparison with <br />Theoretical Mean</th><th>  Difference Calculated</th></tr></thead><tbody>
 <tr><td>Intercept</td><td>0.6482901778221778</td><td>0.649474335188621</td><td>1.18416E-3</td></tr>
 <tr><td>Standard Deviation</td><td>0.01507612979811762</td><td></td><td></td></tr>
 </tbody></table>
-<h4><a class="header" href="#histogram-and-visualization-of-distribution" id="histogram-and-visualization-of-distribution">Histogram and Visualization of Distribution</a></h4>
+<h4 id="histogram-and-visualization-of-distribution"><a class="header" href="#histogram-and-visualization-of-distribution">Histogram and Visualization of Distribution</a></h4>
 <p>The histogram of randomness highlights the distribution of good and bad nodes selected in each experiment, highlighting 
 the random nature of the experiment. </p>
 <p align="center"><img src="assets/histogram_of_randomness.png" width="700" /></p>
@@ -413,12 +413,12 @@ the random nature of the experiment. </p>
 <tr><td>Mode</td><td>-</td></tr>
 <tr><td>Standard Deviation</td><td>346.4313595341606</td></tr>
 </tbody></table>
-<h3><a class="header" href="#statistical-calculation" id="statistical-calculation">Statistical Calculation</a></h3>
+<h3 id="statistical-calculation"><a class="header" href="#statistical-calculation">Statistical Calculation</a></h3>
 <p>Literature about <a href="../../consensus-mechanisms/BFT-consensus-mechanisms-applications/MainReport.html">BFT threshold</a> advises 
 the number of good nodes to be at least $\frac{2}{3} \cdot n+1​$, where $n​$ is the number of nodes. In the calculations 
 that follow, BFT threshold of, for example, $67​$% of N, is implemented with rounding up to ensure that at least that 
 fraction is obtained. In this sense, $67​$% of N simulates $\frac{2}{3} \cdot n+1​$.</p>
-<h4><a class="header" href="#variation-of-total-nodes" id="variation-of-total-nodes">Variation of Total Nodes</a></h4>
+<h4 id="variation-of-total-nodes"><a class="header" href="#variation-of-total-nodes">Variation of Total Nodes</a></h4>
 <p>The variables and results are below: </p>
 <ul>
 <li>N (total number of nodes in the network) = $100, 300, 500, 1000$</li>
@@ -447,7 +447,7 @@ fraction is obtained. In this sense, $67​$% of N simulates $\frac{2}{3} \cdot 
 <p align="center"><img src="assets/variation_of_total_nodes .png" width="700" /></p>
 From a plot of committee size versus probability with a change in $N$, the total number of nodes, it can be seen that 
 the probability is lower with respect to the committee size when $N$ is smaller. 
-<h4><a class="header" href="#variation-of-byzantine-fault-tolerance-threshold" id="variation-of-byzantine-fault-tolerance-threshold">Variation of Byzantine Fault-tolerance Threshold</a></h4>
+<h4 id="variation-of-byzantine-fault-tolerance-threshold"><a class="header" href="#variation-of-byzantine-fault-tolerance-threshold">Variation of Byzantine Fault-tolerance Threshold</a></h4>
 <p>The variables and results are below: </p>
 <ul>
 <li>N (total number of nodes in the network) = $100$</li>
@@ -466,7 +466,7 @@ The probability is higher for the case where the BFT threshold is $50$% than whe
 <p>When the BFT threshold is $60$%, the probability decreases from $0.63$ to approximately $0.59$, where it remains constant. </p>
 <p>When the BFT threshold is $65$% and $67$%, the probability decreases from $0.38$ and tends to zero. This confirms the 
 BFT threshold of $\frac{2}{3} \cdot n+1$ as per literature.</p>
-<h4><a class="header" href="#variation-of-total-number-of-nodes-with-committee-size-10" id="variation-of-total-number-of-nodes-with-committee-size-10">Variation of Total Number of Nodes with Committee Size 10</a></h4>
+<h4 id="variation-of-total-number-of-nodes-with-committee-size-10"><a class="header" href="#variation-of-total-number-of-nodes-with-committee-size-10">Variation of Total Number of Nodes with Committee Size 10</a></h4>
 <p>The variables and results are below: </p>
 <ul>
 <li>N (total number of nodes in the network) = ranging from $10$ to $350$</li>
@@ -480,7 +480,7 @@ BFT threshold of $\frac{2}{3} \cdot n+1$ as per literature.</p>
 graph showing varying probabilities with respect to the total number of network nodes, where the committee size is $10$, 
 the probability dramatically increases when the total nodes is $3$ times more than the committee size and onwards. The 
 probability plateaus at $0.35$. </p>
-<h4><a class="header" href="#variation-of-total-number-of-nodes-with-committee-size-100" id="variation-of-total-number-of-nodes-with-committee-size-100">Variation of Total Number of Nodes with Committee Size 100</a></h4>
+<h4 id="variation-of-total-number-of-nodes-with-committee-size-100"><a class="header" href="#variation-of-total-number-of-nodes-with-committee-size-100">Variation of Total Number of Nodes with Committee Size 100</a></h4>
 <p>The variables and results are below: </p>
 <ul>
 <li>N (total number of nodes in the network) = ranging from $100$ to $1,300$</li>
@@ -495,7 +495,7 @@ From this and the previous graph, it can be seen that probabilities are signific
 $100$ compared to when it is $10$. There is an increase in probability up to a network size of $700$, albeit, not as steep as the 
 change when the committee size is $10$. The probability plateaus at $0.08$.</p>
 <p>The larger the committee size, the fewer dramatic changes there are in the probability. </p>
-<h4><a class="header" href="#variation-of-bad-nodes-with-committee-size-10-and-100" id="variation-of-bad-nodes-with-committee-size-10-and-100">Variation of Bad Nodes with Committee Size 10 and 100</a></h4>
+<h4 id="variation-of-bad-nodes-with-committee-size-10-and-100"><a class="header" href="#variation-of-bad-nodes-with-committee-size-10-and-100">Variation of Bad Nodes with Committee Size 10 and 100</a></h4>
 <p>The variables and results are below: </p>
 <ul>
 <li>N (total number of nodes in the network) = ranging from $10$ and $100$ to $50,000$</li>
@@ -520,7 +520,7 @@ When the committee size is $100$, there is a steep increase in the probability w
 $50$ and $80$. When the committee size is $100$, the probability remains lower as the bad node percentage increases and 
 has a steeper gradient when the change in probability occurs. Whereas, when the committee size is $10$, the probability 
 begins to increase at a lower percentage of bad nodes. </p>
-<h2><a class="header" href="#conclusions-and-remarks" id="conclusions-and-remarks">Conclusions and Remarks</a></h2>
+<h2 id="conclusions-and-remarks"><a class="header" href="#conclusions-and-remarks">Conclusions and Remarks</a></h2>
 <p>With regard to the Crude Monte Carlo Simulation, at this building block stage, probabilities were calculated and 
 distributions of nodes within the network illustrated.</p>
 <p>With regard to the statistical calculation, comments can be made for each of the varied parameters. </p>
@@ -539,15 +539,15 @@ and <a href="#variation-of-total-number-of-nodes-with-committee-size-100">Variat
 low, as the percentage of bad nodes increases if the committee size is approximately $100$ or larger. This can be seen in the 
 graphs in <a href="#variation-of-bad-nodes-with-committee-size-10-and-100">Variation of Bad Nodes with Committee Size 10 and 100</a></li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>] C. Sharrock [online]. Available: <a href="https://rfc.tari.com/RFC-0300_DAN.html">https://rfc.tari.com/RFC-0300_DAN.html</a>. 
 Date accessed: 2019‑07‑18.</p>
 <p>[<a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf" title="Kademlia">2</a>] P. Maymounkov and D. Mazières, &quot;Kademlia: A Peer-to-peer Information System Based on the XOR Metric&quot; [online]. 
 Available: <a href="https://pdos.csail.mit.edu/%7Epetar/papers/maymounkov-kademlia-lncs.pdf">https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf</a>. Date accessed: 2019‑07‑18.</p>
 <p>[<a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html" title="Distributed Hash Tables">3</a>] S. Bondi, &quot;Distributed Hash Tables&quot; [online]. Available: <a href="https://tlu.tarilabs.com/protocols/dht/MainReport.html">https://tlu.tarilabs.com/protocols/dht/MainReport.html</a>. 
 Date accessed: 2019‑07‑18.</p>
-<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
-<h3><a class="header" href="#appendix-a-definitions-of-terms" id="appendix-a-definitions-of-terms">Appendix A: Definitions of Terms</a></h3>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h3 id="appendix-a-definitions-of-terms"><a class="header" href="#appendix-a-definitions-of-terms">Appendix A: Definitions of Terms</a></h3>
 <p>Definitions of terms presented here are high level and general in nature. </p>
 <ul>
 <li><strong>Asset Issuer (AI):</strong><a name="ai"> </a> An entity that creates digital assets on the Tari Digital Asset Network (DAN). The Asset Issuer will 
@@ -558,7 +558,7 @@ of its constituent tokens on issuance. The AI will, generally, be the initial ow
 <li><strong>Validator Node (VN):</strong><a name="vn"> </a>Validator nodes make up the Tari second layer, or Digital Asset Network (DAN). VNs 
 are responsible for creating and updating digital asset living on the Tari network [<a href="https://rfc.tari.com/RFC-0300_DAN.html" title="Tari RFC">1</a>].</li>
 </ul>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/kevoulee">https://github.com/kevoulee</a></li>
 <li><a href="https://github.com/anselld">https://github.com/anselld</a> </li>

@@ -225,10 +225,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#zk-snarks" id="zk-snarks">zk-SNARKs</a></h1>
+                        <h1 id="zk-snarks"><a class="header" href="#zk-snarks">zk-SNARKs</a></h1>
 <ul>
-<li><a href="#introduction">Introduction</a> </li>
-<li><a href="#what-is-zkp-a-complete-guide-to-zero-knowledge-proof">What is ZKP? A Complete Guide to Zero-knowledge Proof</a> 
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#what-is-zkp-a-complete-guide-to-zero-knowledge-proof">What is ZKP? A Complete Guide to Zero-knowledge Proof</a>
 <ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#summary">Summary</a></li>
@@ -241,31 +241,31 @@
 <li><a href="#video">Video</a></li>
 </ul>
 </li>
-<li><a href="#comparing-general-purpose-zk-snarks">Comparing General-purpose zk-SNARKs</a> 
+<li><a href="#comparing-general-purpose-zk-snarks">Comparing General-purpose zk-SNARKs</a>
 <ul>
 <li><a href="#overview-2">Overview</a></li>
 <li><a href="#summary-2">Summary</a></li>
 </ul>
 </li>
-<li><a href="#quadratic-arithmetic-programs---from-zero-to-hero">Quadratic Arithmetic Programs - from Zero to Hero</a> 
+<li><a href="#quadratic-arithmetic-programs---from-zero-to-hero">Quadratic Arithmetic Programs - from Zero to Hero</a>
 <ul>
 <li><a href="#overview-3">Overview</a></li>
 <li><a href="#summary-3">Summary</a></li>
 </ul>
 </li>
-<li><a href="#explaining-snarks-series-part-i-to-part-vii">Explaining SNARKs Series: Part I to Part VII</a> 
+<li><a href="#explaining-snarks-series-part-i-to-part-vii">Explaining SNARKs Series: Part I to Part VII</a>
 <ul>
 <li><a href="#overview-4">Overview</a></li>
-<li><a href="#part-i-homomorphic-hidings">Part I: Homomorphic Hidings</a> </li>
-<li><a href="#part-ii-blind-evaluation-of-polynomials">Part II: Blind Evaluation of Polynomials</a> </li>
-<li><a href="#part-iii-the-knowledge-of-coefficient-test-and-assumption">Part III: The Knowledge of Coefficient Test and Assumption</a> </li>
-<li><a href="#part-iv-how-to-make-blind-evaluation-of-polynomials-verifiable">Part IV: How to make Blind Evaluation of Polynomials Verifiable</a> </li>
-<li><a href="#part-v-from-computations-to-polynomials">Part V: From Computations to Polynomials</a> </li>
-<li><a href="#part-vi-the-pinocchio-protocol">Part VI: The Pinocchio Protocol</a> </li>
+<li><a href="#part-i-homomorphic-hidings">Part I: Homomorphic Hidings</a></li>
+<li><a href="#part-ii-blind-evaluation-of-polynomials">Part II: Blind Evaluation of Polynomials</a></li>
+<li><a href="#part-iii-the-knowledge-of-coefficient-test-and-assumption">Part III: The Knowledge of Coefficient Test and Assumption</a></li>
+<li><a href="#part-iv-how-to-make-blind-evaluation-of-polynomials-verifiable">Part IV: How to make Blind Evaluation of Polynomials Verifiable</a></li>
+<li><a href="#part-v-from-computations-to-polynomials">Part V: From Computations to Polynomials</a></li>
+<li><a href="#part-vi-the-pinocchio-protocol">Part VI: The Pinocchio Protocol</a></li>
 <li><a href="#part-vii-pairings-of-elliptic-curves">Part VII: Pairings of Elliptic Curves</a></li>
 </ul>
 </li>
-<li><a href="#zk-sharks-combining-succinct-verification-and-public-coin-setup">zk-SHARKs: Combining Succinct Verification and Public Coin Setup</a> 
+<li><a href="#zk-sharks-combining-succinct-verification-and-public-coin-setup">zk-SHARKs: Combining Succinct Verification and Public Coin Setup</a>
 <ul>
 <li><a href="#background">Background</a></li>
 <li><a href="#summary-4">Summary</a></li>
@@ -273,27 +273,27 @@
 </li>
 <li><a href="#references">References</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
-<p>Zero-knowledge proof protocols have gained much attention in the past decade, due to the popularity of cryptocurrencies. 
-A zero-knowledge Succinct Non-interactive Argument of Knowledge (zk-SNARK), referred to here as an <em>argument of 
-knowledge,</em> is a special kind of a zero-knowledge proof. The difference between a <em>proof of knowledge</em> and an <em>argument 
-of knowledge</em> is rather technical for the intended audience of this report. The distinction lies in the difference 
-between <em>statistical soundness</em> and <em>computational soundness</em>. The technical reader is referred to 
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>Zero-knowledge proof protocols have gained much attention in the past decade, due to the popularity of cryptocurrencies.
+A zero-knowledge Succinct Non-interactive Argument of Knowledge (zk-SNARK), referred to here as an <em>argument of
+knowledge,</em> is a special kind of a zero-knowledge proof. The difference between a <em>proof of knowledge</em> and an <em>argument
+of knowledge</em> is rather technical for the intended audience of this report. The distinction lies in the difference
+between <em>statistical soundness</em> and <em>computational soundness</em>. The technical reader is referred to
 [<a href="http://crypto.cs.mcgill.ca/%7Ecrepeau/PDF/BCC88-jcss.pdf" title="Minimum Disclosure
 Proofs of Knowledge">1</a>] or [<a href="http://people.seas.harvard.edu/%7Esalil/research/SZKargs-focs.pdf" title="Statistical Zero-knowledge
 Arguments for NP from
 Any One-way Function
-(Extended 
-Abstract)">2</a>]. </p>
-<p>zk-SNARKs have found many applications in zero-knowledge proving systems, libraries of proving systems such as 
-<em>libsnark</em> and <em>bellman</em> and general-purpose compilers from high-level languages such as <em>Pinocchio</em>. &quot;DIZK: A 
+(Extended
+Abstract)">2</a>].</p>
+<p>zk-SNARKs have found many applications in zero-knowledge proving systems, libraries of proving systems such as
+<em>libsnark</em> and <em>bellman</em> and general-purpose compilers from high-level languages such as <em>Pinocchio</em>. &quot;DIZK: A
 Distributed Zero Knowledge Proof System&quot;, by Wu et al. [<a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf" title="DIZK: A Distributed
 Zero Knowledge
-Proof System">3</a>], is one of the best papers on zk-SNARKs, at least from a 
-cryptographer's point of view. Coins such as Zerocoin and Zcash use zk-SNARKs. The content reflected in this curated 
-content report, although not all inclusive, covers all the necessary basics one needs to understand zk-SNARKs and their 
+Proof System">3</a>], is one of the best papers on zk-SNARKs, at least from a
+cryptographer's point of view. Coins such as Zerocoin and Zcash use zk-SNARKs. The content reflected in this curated
+content report, although not all inclusive, covers all the necessary basics one needs to understand zk-SNARKs and their
 implementations.</p>
-<h2><a class="header" href="#what-is-zkp-a-complete-guide-to-zero-knowledge-proof" id="what-is-zkp-a-complete-guide-to-zero-knowledge-proof">What is ZKP? A Complete Guide to Zero-knowledge Proof</a></h2>
+<h2 id="what-is-zkp-a-complete-guide-to-zero-knowledge-proof"><a class="header" href="#what-is-zkp-a-complete-guide-to-zero-knowledge-proof">What is ZKP? A Complete Guide to Zero-knowledge Proof</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/hasib_anwar.png" width="90" />
@@ -306,18 +306,18 @@ implementations.</p>
     <br>
   </p>
 </div>
-<h3><a class="header" href="#overview" id="overview">Overview</a></h3>
-<p>A zero-knowledge proof is a technique one uses to prove to a verifier that one has knowledge of some secret information, 
-without disclosing the information. This is a powerful tool in the blockchain world, particularly in cryptocurrencies. 
-The aim is to achieve a trustless network, i.e. anyone in the network should be able to verify information recorded in a 
+<h3 id="overview"><a class="header" href="#overview">Overview</a></h3>
+<p>A zero-knowledge proof is a technique one uses to prove to a verifier that one has knowledge of some secret information,
+without disclosing the information. This is a powerful tool in the blockchain world, particularly in cryptocurrencies.
+The aim is to achieve a trustless network, i.e. anyone in the network should be able to verify information recorded in a
 block.</p>
-<h3><a class="header" href="#summary" id="summary">Summary</a></h3>
-<p>In <a href="https://101blockchains.com/zero-knowledge-proof/">this post</a>, Anwar provides an excellent zero-knowledge 
-infographic that summarizes what a zero-knowledge proof is, its main properties (completeness, soundness and 
-zero-knowledge), as well as its <em>use cases</em> such as <em>authentication</em>, <em>secure data sharing</em> and <em>file-system control</em>. 
-Find what Anwar calls a <em>complete guide to zero-knowledge proofs</em>, 
+<h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
+<p>In <a href="https://101blockchains.com/zero-knowledge-proof/">this post</a>, Anwar provides an excellent zero-knowledge
+infographic that summarizes what a zero-knowledge proof is, its main properties (completeness, soundness and
+zero-knowledge), as well as its <em>use cases</em> such as <em>authentication</em>, <em>secure data sharing</em> and <em>file-system control</em>.
+Find what Anwar calls a <em>complete guide to zero-knowledge proofs</em>,
 <a href="https://101blockchains.com/zero-knowledge-proof/#prettyPhoto">here</a>.</p>
-<h2><a class="header" href="#introduction-to-zk-snarks" id="introduction-to-zk-snarks">Introduction to zk-SNARKs</a></h2>
+<h2 id="introduction-to-zk-snarks"><a class="header" href="#introduction-to-zk-snarks">Introduction to zk-SNARKs</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/chris_reitweissner.png" width="90" />
@@ -330,28 +330,28 @@ Find what Anwar calls a <em>complete guide to zero-knowledge proofs</em>,
     <br>
   </p>
 </div>
-<h3><a class="header" href="#overview-1" id="overview-1">Overview</a></h3>
-<p>A typical zero-knowledge proof protocol involves at least two participants: the <em>Verifier</em> and the <em>Prover</em>. 
-The <em>Verifier</em> sends a challenge to the <em>Prover</em> in the form of a computational problem. The <em>Prover</em> has to solve the 
-computational problem and, without revealing the solution, send proof of the correct solution to the <em>Verifier</em>. </p>
-<h3><a class="header" href="#summary-1" id="summary-1">Summary</a></h3>
+<h3 id="overview-1"><a class="header" href="#overview-1">Overview</a></h3>
+<p>A typical zero-knowledge proof protocol involves at least two participants: the <em>Verifier</em> and the <em>Prover</em>.
+The <em>Verifier</em> sends a challenge to the <em>Prover</em> in the form of a computational problem. The <em>Prover</em> has to solve the
+computational problem and, without revealing the solution, send proof of the correct solution to the <em>Verifier</em>.</p>
+<h3 id="summary-1"><a class="header" href="#summary-1">Summary</a></h3>
 <p>zk-SNARKs are important in blockchains for at least two reasons:</p>
 <ul>
-<li>Blockchains are by nature not scalable. They 
-thus benefit in that zk-SNARKs allow a verifier to verify a given <em>proof</em> of a computation without having to actually 
+<li>Blockchains are by nature not scalable. They
+thus benefit in that zk-SNARKs allow a verifier to verify a given <em>proof</em> of a computation without having to actually
 carry out the computation.</li>
-<li>Blockchains are public and need to be <em>trustless,</em> as explained earlier. The <em>zero-knowledge</em> property of 
-zk‑SNARKs as well as the possibility to put in place a so-called <em>trusted setup</em> make this <em>almost</em> possible. </li>
+<li>Blockchains are public and need to be <em>trustless,</em> as explained earlier. The <em>zero-knowledge</em> property of
+zk‑SNARKs as well as the possibility to put in place a so-called <em>trusted setup</em> make this <em>almost</em> possible.</li>
 </ul>
-<p>Reitwiessner uses an example of a mini 4 x 4 Sudoku challenge as an example of an interactive zero-knowledge proof. He 
-explains how it would fall short of the <em>zero-knowledge</em> property without the use of homomorphic encryption as well as 
-putting in place a <em>trusted setup</em>. Reitwiessner proceeds to explain how computations involving <em>polynomials</em> are better 
+<p>Reitwiessner uses an example of a mini 4 x 4 Sudoku challenge as an example of an interactive zero-knowledge proof. He
+explains how it would fall short of the <em>zero-knowledge</em> property without the use of homomorphic encryption as well as
+putting in place a <em>trusted setup</em>. Reitwiessner proceeds to explain how computations involving <em>polynomials</em> are better
 suited as challenges posed by the <em>Verifier</em> to the <em>Prover</em>.</p>
-<h3><a class="header" href="#video" id="video">Video</a></h3>
+<h3 id="video"><a class="header" href="#video">Video</a></h3>
 <p>The slides from the talk can be found <a href="https://chriseth.github.io/notes/talks/intro_to_zksnarks/#/27">here</a>.</p>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/jr95o_k_SwI" frameborder="0" allow="accelerometer; 
+<iframe width="1000" height="800" src="https://www.youtube.com/embed/jr95o_k_SwI" frameborder="0" allow="accelerometer;
 autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h2><a class="header" href="#comparing-general-purpose-zk-snarks" id="comparing-general-purpose-zk-snarks">Comparing General-purpose zk-SNARKs</a></h2>
+<h2 id="comparing-general-purpose-zk-snarks"><a class="header" href="#comparing-general-purpose-zk-snarks">Comparing General-purpose zk-SNARKs</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/ronald_mannak.png" width="90" />
@@ -364,27 +364,27 @@ autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></ifra
     <br>
   </p>
 </div>
-<h3><a class="header" href="#overview-2" id="overview-2">Overview</a></h3>
+<h3 id="overview-2"><a class="header" href="#overview-2">Overview</a></h3>
 <p>Recently, zk-SNARK constructs such as Supersonic [<a href="https://eprint.iacr.org/2019/1229.pdf" title="Transparent SNARKs
 from DARK Compilers">4</a>] and Halo [<a href="https://eprint.iacr.org/2019/1021.pdf" title="Halo: Recursive Proof
 Composition without
-a Trusted Setup">5</a>] were created mainly for efficiency of proofs. The 
-following article by Mannak gives a quick survey of the most recent developments, comparing general-purpose zk-SNARKs. 
+a Trusted Setup">5</a>] were created mainly for efficiency of proofs. The
+following article by Mannak gives a quick survey of the most recent developments, comparing general-purpose zk-SNARKs.
 The article is easy to read. It provides the technical reader with relevant references to scholarly research papers.</p>
-<h3><a class="header" href="#summary-2" id="summary-2">Summary</a></h3>
-<p>The main drawback of zk-SNARKs is their reliance on a <em>common reference string</em> that is created using a <em>trusted setup</em>. 
-In <a href="https://medium.com/coinmonks/comparing-general-purpose-zk-snarks-51ce124c60bd?">this post</a>, Mannak mentions three 
+<h3 id="summary-2"><a class="header" href="#summary-2">Summary</a></h3>
+<p>The main drawback of zk-SNARKs is their reliance on a <em>common reference string</em> that is created using a <em>trusted setup</em>.
+In <a href="https://medium.com/coinmonks/comparing-general-purpose-zk-snarks-51ce124c60bd?">this post</a>, Mannak mentions three
 issues with reference strings or having a trusted setup:</p>
 <ul>
-<li>A leaked reference string can be used to create 
+<li>A leaked reference string can be used to create
 undetectable fake proofs.</li>
 <li>One setup is only applicable to one computation, thus making smart contracts impossible.</li>
-<li>Reference strings are not upgradeable. This means that a whole new <em>ceremony</em> is required, 
+<li>Reference strings are not upgradeable. This means that a whole new <em>ceremony</em> is required,
 even for minor <em>bug fixes</em> in crypto coins.</li>
 </ul>
-<p>After classifying zk-SNARKs according to the type of trusted setup they use, Mannak compares their 
-<em>proof</em> and <em>verification sizes</em> as well as <em>performance</em>. </p>
-<h2><a class="header" href="#quadratic-arithmetic-programs---from-zero-to-hero" id="quadratic-arithmetic-programs---from-zero-to-hero">Quadratic Arithmetic Programs - from Zero to Hero</a></h2>
+<p>After classifying zk-SNARKs according to the type of trusted setup they use, Mannak compares their
+<em>proof</em> and <em>verification sizes</em> as well as <em>performance</em>.</p>
+<h2 id="quadratic-arithmetic-programs---from-zero-to-hero"><a class="header" href="#quadratic-arithmetic-programs---from-zero-to-hero">Quadratic Arithmetic Programs - from Zero to Hero</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/vitalik_buterin.png" width="90" />
@@ -397,21 +397,21 @@ even for minor <em>bug fixes</em> in crypto coins.</li>
     <br>
   </p>
 </div>
-<h3><a class="header" href="#overview-3" id="overview-3">Overview</a></h3>
-<p>The zk-SNARK end-to-end journey is to create a function or a protocol that takes the proof, given by the Prover, and 
-checks its veracity. In a zk-SNARK proof, a computation is verified step by step. To do so, the computation is first 
-turned into an arithmetic circuit. Each of its wires is then assigned a value that results from feeding specific inputs 
-to the circuit. Next, each computing node of the arithmetic circuit (called a “gate” - an analogy of the nomenclature of 
-electronic circuits) is transformed into a constraint that verifies the output wire has the value it should have for the 
-values assigned to the input wires. This process involves transforming statements or computational problems into various 
+<h3 id="overview-3"><a class="header" href="#overview-3">Overview</a></h3>
+<p>The zk-SNARK end-to-end journey is to create a function or a protocol that takes the proof, given by the Prover, and
+checks its veracity. In a zk-SNARK proof, a computation is verified step by step. To do so, the computation is first
+turned into an arithmetic circuit. Each of its wires is then assigned a value that results from feeding specific inputs
+to the circuit. Next, each computing node of the arithmetic circuit (called a “gate” - an analogy of the nomenclature of
+electronic circuits) is transformed into a constraint that verifies the output wire has the value it should have for the
+values assigned to the input wires. This process involves transforming statements or computational problems into various
 formats on which a zk-SNARK proof can be performed. The following seven steps depicts the process for achieving a zk-SNARK:</p>
 <p><code>Computational Problem  —&gt;  Arithmetic Circuit  —&gt;  R1CS  —&gt;  QAP  —&gt;  Linear PCP  —&gt;  Linear Interactive Proof  -&gt;  zk-SNARK</code></p>
-<h3><a class="header" href="#summary-3" id="summary-3">Summary</a></h3>
-<p>In <a href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649?source=post_page-----f6d558cea649----------------------">this post</a>, 
-Buterin explains how zk-SNARKs work, using an example that focuses on the first three steps of the process given above. 
-Buterin explains how a computational problem can be written as an arithmetic circuit, converted into a rank-1 constraint 
+<h3 id="summary-3"><a class="header" href="#summary-3">Summary</a></h3>
+<p>In <a href="https://medium.com/@VitalikButerin/quadratic-arithmetic-programs-from-zero-to-hero-f6d558cea649?source=post_page-----f6d558cea649----------------------">this post</a>,
+Buterin explains how zk-SNARKs work, using an example that focuses on the first three steps of the process given above.
+Buterin explains how a computational problem can be written as an arithmetic circuit, converted into a rank-1 constraint
 system or R1CS, and ultimately transform the R1CS into a quadratic arithmetic program.</p>
-<h2><a class="header" href="#explaining-snarks-series-part-i-to-part-vii" id="explaining-snarks-series-part-i-to-part-vii">Explaining SNARKs Series: Part I to Part VII</a></h2>
+<h2 id="explaining-snarks-series-part-i-to-part-vii"><a class="header" href="#explaining-snarks-series-part-i-to-part-vii">Explaining SNARKs Series: Part I to Part VII</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/ariel_gabizon.png" width="90" />
@@ -424,74 +424,74 @@ system or R1CS, and ultimately transform the R1CS into a quadratic arithmetic pr
     <br>
   </p>
 </div>
-<h3><a class="header" href="#overview-4" id="overview-4">Overview</a></h3>
-<p>The explanation of zk-SNARKs given by <a href="#quadratic-arithmetic-programs---from-zero-to-hero">Buterin above</a>, and similar 
+<h3 id="overview-4"><a class="header" href="#overview-4">Overview</a></h3>
+<p>The explanation of zk-SNARKs given by <a href="#quadratic-arithmetic-programs---from-zero-to-hero">Buterin above</a>, and similar
 explanations by Pinto (<a href="http://coders-errand.com/constraint-systems-for-zk-snarks/" title="Constraint Systems for ZK SNARKs">6</a>], [<a href="http://coders-errand.com/the-vanishing-polynomial-for-qaps/" title="The Vanishing Polynomial
-for QAPs">7</a>]), although excellent in clarifying the R1CS and the Quadratic Arithmatic Program (QAP) 
-concepts, do not explain how zero-knowledge is achieved in zk-SNARKs. For a step-by-step and mathematical explanation of 
-how this is achieved, as used in Zcash, refer to the seven-part series listed here. </p>
-<h3><a class="header" href="#part-i-homomorphic-hidings" id="part-i-homomorphic-hidings">[Part I: Homomorphic Hidings]</a></h3>
-<p>This <a href="https://z.cash/blog/snark-explain">post</a> explains how zk-SNARKs use <em>homomorphic hiding</em> or 
-<em>homomorphic encryption</em> in order to achieve zero-knowledge proofs. Gabizon dives into the <em>mathematics</em> that underpins 
-the cryptographic security of homomorphic encryption afforded by the difficulty of solving <em>discrete log problems</em> in a 
-finite group of a large <em>prime</em> order. </p>
-<h3><a class="header" href="#part-ii-blind-evaluation-of-polynomials" id="part-ii-blind-evaluation-of-polynomials">[Part II: Blind Evaluation of Polynomials]</a></h3>
-<p>This <a href="https://z.cash/blog/snark-explain2">post</a> explains how the power of the <em>homomorphic property</em> of these types of 
-hidings is seen in how it easily extends to linear combinations. Since any polynomial evaluated at a specific value 
-$x = \bf{s} $ is a <em>weighted linear combination</em> of powers of $\bf{s}​$, this property allows sophisticated 
-zero-knowledge proofs to be set up. </p>
-<p>For example, two parties can set up a <em>zero-knowledge proof</em> where the Verifier can request the Prover to prove 
-knowledge of the &quot;right&quot; polynomial $P(x)$, without revealing $P(x)$ to the Verifier. All that the Verifier requests 
-is for the Prover to evaluate $P(x)$ at a secret point $\bf{s}$, without learning what $\bf{s}$ is. Thus, instead of 
-sending $\bf{s}$ in the open, the Verifier sends homomorphic hidings of the necessary power of $\bf{s}$. The Prover 
-therefore simply evaluates the right linear combination of the hidings as dictated to by the polynomial $P(x)$. This is 
-how the Prover performs what is called a <em>blind evaluation of the polynomial</em> $P(x)$ at a secret point $\bf{s}​$ 
+for QAPs">7</a>]), although excellent in clarifying the R1CS and the Quadratic Arithmatic Program (QAP)
+concepts, do not explain how zero-knowledge is achieved in zk-SNARKs. For a step-by-step and mathematical explanation of
+how this is achieved, as used in Zcash, refer to the seven-part series listed here.</p>
+<h3 id="part-i-homomorphic-hidings"><a class="header" href="#part-i-homomorphic-hidings">[Part I: Homomorphic Hidings]</a></h3>
+<p>This <a href="https://z.cash/blog/snark-explain">post</a> explains how zk-SNARKs use <em>homomorphic hiding</em> or
+<em>homomorphic encryption</em> in order to achieve zero-knowledge proofs. Gabizon dives into the <em>mathematics</em> that underpins
+the cryptographic security of homomorphic encryption afforded by the difficulty of solving <em>discrete log problems</em> in a
+finite group of a large <em>prime</em> order.</p>
+<h3 id="part-ii-blind-evaluation-of-polynomials"><a class="header" href="#part-ii-blind-evaluation-of-polynomials">[Part II: Blind Evaluation of Polynomials]</a></h3>
+<p>This <a href="https://z.cash/blog/snark-explain2">post</a> explains how the power of the <em>homomorphic property</em> of these types of
+hidings is seen in how it easily extends to linear combinations. Since any polynomial evaluated at a specific value
+$x = \bf{s} $ is a <em>weighted linear combination</em> of powers of $\bf{s}​$, this property allows sophisticated
+zero-knowledge proofs to be set up.</p>
+<p>For example, two parties can set up a <em>zero-knowledge proof</em> where the Verifier can request the Prover to prove
+knowledge of the &quot;right&quot; polynomial $P(x)$, without revealing $P(x)$ to the Verifier. All that the Verifier requests
+is for the Prover to evaluate $P(x)$ at a secret point $\bf{s}$, without learning what $\bf{s}$ is. Thus, instead of
+sending $\bf{s}$ in the open, the Verifier sends homomorphic hidings of the necessary power of $\bf{s}$. The Prover
+therefore simply evaluates the right linear combination of the hidings as dictated to by the polynomial $P(x)$. This is
+how the Prover performs what is called a <em>blind evaluation of the polynomial</em> $P(x)$ at a secret point $\bf{s}​$
 only known by the Verifier.</p>
-<h3><a class="header" href="#part-iii-the-knowledge-of-coefficient-test-and-assumption" id="part-iii-the-knowledge-of-coefficient-test-and-assumption">[Part III: The Knowledge of Coefficient Test and Assumption]</a></h3>
-<p>In this <a href="https://z.cash/blog/snark-explain3">post</a>, Gabizon notes that it is necessary to force the Prover to comply 
-with the rules of the protocol. Although this is covered in the next part of the series, in this post he considers <em>the 
-Knowledge of Coefficient (KC) Test</em>, as well as its <em>KC assumption</em>. </p>
-<p>The KC Test is in fact a request for a <em>proof</em> in the form of a challenge that a Verifier poses to a Prover. The 
-Verifier sends a pair  $( a, b )$  of elements of a prime field, where $a$ is such that $b = \alpha \cdot a$, to the 
-Prover. The Verifier challenges the Prover to produce a similar pair $( a', b' )$, where  $b' = \alpha \cdot a' $ for 
-the same scalar $\alpha$. The KC assumption is that if the Prover succeeds with a non-negligible probability, then the 
-Prover knows the ratio between $a$ and $a'$. Gabizon explains how this two concept can be formalized using an 
-<em>extractor</em> of the Prover. </p>
-<h3><a class="header" href="#part-iv-how-to-make-blind-evaluation-of-polynomials-verifiable" id="part-iv-how-to-make-blind-evaluation-of-polynomials-verifiable">[Part IV: How to make Blind Evaluation of Polynomials Verifiable]</a></h3>
-<p>In <a href="https://z.cash/blog/snark-explain4">this part</a> of the series, Gabizon explains how to make the <em>blind 
-evaluation of polynomials</em> of Part II above, verifiable. This requires an extension of the <em>Knowledge of Coefficient 
-Assumption</em> considered in Part III. Due to the homomorphic property of the used homomorphic hiding function, the Prover 
-is able to receive several hidings of $\alpha​$-pairs from the Verifier, evaluate the polynomial $P(x)​$ on a 
-particular linear combination of these hidings of $\alpha​$-pairs and send the resulting pair to the Verifier. Now, 
-according to the extended <em>Knowledge of Coefficient Assumption</em> of degree $d​$, the Verifier can know, with a high 
-probability, that the Prover knows the &quot;right&quot; polynomial, 
+<h3 id="part-iii-the-knowledge-of-coefficient-test-and-assumption"><a class="header" href="#part-iii-the-knowledge-of-coefficient-test-and-assumption">[Part III: The Knowledge of Coefficient Test and Assumption]</a></h3>
+<p>In this <a href="https://z.cash/blog/snark-explain3">post</a>, Gabizon notes that it is necessary to force the Prover to comply
+with the rules of the protocol. Although this is covered in the next part of the series, in this post he considers <em>the
+Knowledge of Coefficient (KC) Test</em>, as well as its <em>KC assumption</em>.</p>
+<p>The KC Test is in fact a request for a <em>proof</em> in the form of a challenge that a Verifier poses to a Prover. The
+Verifier sends a pair  $( a, b )$  of elements of a prime field, where $a$ is such that $b = \alpha \cdot a$, to the
+Prover. The Verifier challenges the Prover to produce a similar pair $( a', b' )$, where  $b' = \alpha \cdot a' $ for
+the same scalar $\alpha$. The KC assumption is that if the Prover succeeds with a non-negligible probability, then the
+Prover knows the ratio between $a$ and $a'$. Gabizon explains how this two concept can be formalized using an
+<em>extractor</em> of the Prover.</p>
+<h3 id="part-iv-how-to-make-blind-evaluation-of-polynomials-verifiable"><a class="header" href="#part-iv-how-to-make-blind-evaluation-of-polynomials-verifiable">[Part IV: How to make Blind Evaluation of Polynomials Verifiable]</a></h3>
+<p>In <a href="https://z.cash/blog/snark-explain4">this part</a> of the series, Gabizon explains how to make the <em>blind
+evaluation of polynomials</em> of Part II above, verifiable. This requires an extension of the <em>Knowledge of Coefficient
+Assumption</em> considered in Part III. Due to the homomorphic property of the used homomorphic hiding function, the Prover
+is able to receive several hidings of $\alpha​$-pairs from the Verifier, evaluate the polynomial $P(x)​$ on a
+particular linear combination of these hidings of $\alpha​$-pairs and send the resulting pair to the Verifier. Now,
+according to the extended <em>Knowledge of Coefficient Assumption</em> of degree $d​$, the Verifier can know, with a high
+probability, that the Prover knows the &quot;right&quot; polynomial,
 $P(x)​$, without disclosing it.</p>
-<h3><a class="header" href="#part-v-from-computations-to-polynomials" id="part-v-from-computations-to-polynomials">[Part V: From Computations to Polynomials]</a></h3>
-<p><a href="https://z.cash/blog/snark-explain5">This post</a> aims to translate statements that are to be proved and verified 
-into the language of polynomials. Gabizon explains the same process discussed above by Buterin, for transforming a 
-computational problem into an <em>arithmetic circuit</em> and ultimately into a QAP. However, unlike Buterin, Gabizon does 
-not mention constraint systems. </p>
-<h3><a class="header" href="#part-vi-the-pinocchio-protocol" id="part-vi-the-pinocchio-protocol">[Part VI: The Pinocchio Protocol]</a></h3>
-<p>The <a href="https://z.cash/blog/snark-explain6">Pinocchio protocol</a> is used as an example of how the QAP computed in the 
-previous parts of this series can be used between both the Prover and the Verifier to achieve a zero-knowledge proof 
-with negligible probability that the Verifier would accept a wrong polynomial as correct. The low probability is 
-guaranteed by a well-known theorem that &quot;two different polynomials of degree at most $2d$ can agree on at most $2d$ 
-points in the given prime field&quot;. Gabizon further discusses how to restrict the Prover to choose their polynomials 
-according to the assignment $\bf{s}$ given by the Verifier, and how the Prover can use randomly chosen field elements 
-to <em>blind</em> all the information they send to the Verifier. </p>
-<h3><a class="header" href="#part-vii-pairings-of-elliptic-curves" id="part-vii-pairings-of-elliptic-curves">[Part VII: Pairings of Elliptic Curves]</a></h3>
-<p><a href="https://z.cash/blog/snark-explain7">This part</a> of the series aims to set up a Common Reference String (CRS) model that 
-can be used to convert the <em>verifiable blind evaluation</em> of the polynomial of Part IV into a <em>non-interactive proof 
-system</em>. A homomorphic hiding that supports both addition and multiplication is needed for this purpose. Such a 
-homomorphic hiding is created from what is known as <em>Tate pairings</em>. Since <em>Tate pairings</em> emanate from Elliptic Curve 
-Groups, Gabizon starts by defining these groups. </p>
-<p>The Pinnochio SNARK, however, uses a relaxed notion of a <em>non-interactive proof</em>, where the use of a CRS is allowed. The 
-CRS is created before any proofs are constructed, according to a certain randomized process, and is broadcast to all 
-parties. The assumption here is that the randomness used in creating the CRS is not known to any of the parties. </p>
-<p>The intended non-interactive evaluation protocol has three parts; Setup, Proof, and Verification. In the Setup, the CRS 
-and a random field element $\bf{s}$ are used to calculate the Verifier's challenge (i.e. the set of $\alpha$-pairs a in 
+<h3 id="part-v-from-computations-to-polynomials"><a class="header" href="#part-v-from-computations-to-polynomials">[Part V: From Computations to Polynomials]</a></h3>
+<p><a href="https://z.cash/blog/snark-explain5">This post</a> aims to translate statements that are to be proved and verified
+into the language of polynomials. Gabizon explains the same process discussed above by Buterin, for transforming a
+computational problem into an <em>arithmetic circuit</em> and ultimately into a QAP. However, unlike Buterin, Gabizon does
+not mention constraint systems.</p>
+<h3 id="part-vi-the-pinocchio-protocol"><a class="header" href="#part-vi-the-pinocchio-protocol">[Part VI: The Pinocchio Protocol]</a></h3>
+<p>The <a href="https://z.cash/blog/snark-explain6">Pinocchio protocol</a> is used as an example of how the QAP computed in the
+previous parts of this series can be used between both the Prover and the Verifier to achieve a zero-knowledge proof
+with negligible probability that the Verifier would accept a wrong polynomial as correct. The low probability is
+guaranteed by a well-known theorem that &quot;two different polynomials of degree at most $2d$ can agree on at most $2d$
+points in the given prime field&quot;. Gabizon further discusses how to restrict the Prover to choose their polynomials
+according to the assignment $\bf{s}$ given by the Verifier, and how the Prover can use randomly chosen field elements
+to <em>blind</em> all the information they send to the Verifier.</p>
+<h3 id="part-vii-pairings-of-elliptic-curves"><a class="header" href="#part-vii-pairings-of-elliptic-curves">[Part VII: Pairings of Elliptic Curves]</a></h3>
+<p><a href="https://z.cash/blog/snark-explain7">This part</a> of the series aims to set up a Common Reference String (CRS) model that
+can be used to convert the <em>verifiable blind evaluation</em> of the polynomial of Part IV into a <em>non-interactive proof
+system</em>. A homomorphic hiding that supports both addition and multiplication is needed for this purpose. Such a
+homomorphic hiding is created from what is known as <em>Tate pairings</em>. Since <em>Tate pairings</em> emanate from Elliptic Curve
+Groups, Gabizon starts by defining these groups.</p>
+<p>The Pinnochio SNARK, however, uses a relaxed notion of a <em>non-interactive proof</em>, where the use of a CRS is allowed. The
+CRS is created before any proofs are constructed, according to a certain randomized process, and is broadcast to all
+parties. The assumption here is that the randomness used in creating the CRS is not known to any of the parties.</p>
+<p>The intended non-interactive evaluation protocol has three parts; Setup, Proof, and Verification. In the Setup, the CRS
+and a random field element $\bf{s}$ are used to calculate the Verifier's challenge (i.e. the set of $\alpha$-pairs a in
 Part IV).</p>
-<h2><a class="header" href="#zk-sharks-combining-succinct-verification-and-public-coin-setup" id="zk-sharks-combining-succinct-verification-and-public-coin-setup">zk-SHARKs: Combining Succinct Verification and Public Coin Setup</a></h2>
+<h2 id="zk-sharks-combining-succinct-verification-and-public-coin-setup"><a class="header" href="#zk-sharks-combining-succinct-verification-and-public-coin-setup">zk-SHARKs: Combining Succinct Verification and Public Coin Setup</a></h2>
 <div>
   <p style="float: left;">
     <img src="sources/madars_virza.png" width="90" />
@@ -504,60 +504,60 @@ Part IV).</p>
     <br>
   </p>
 </div>
-<h3><a class="header" href="#background" id="background">Background</a></h3>
-<p>Most of the research done on zero-knowledge proofs has been about the efficiency of these types of proofs and making 
-them more practical, especially in cryptocurrencies. One of the most recent innovations is that of the so-called 
-<em>zk-SHARKs</em> (short for <em>zero-knowledge Succinct Hybrid ARguments of Knowledge</em>) designed by Mariana Raykova, Eran Tromer 
+<h3 id="background"><a class="header" href="#background">Background</a></h3>
+<p>Most of the research done on zero-knowledge proofs has been about the efficiency of these types of proofs and making
+them more practical, especially in cryptocurrencies. One of the most recent innovations is that of the so-called
+<em>zk-SHARKs</em> (short for <em>zero-knowledge Succinct Hybrid ARguments of Knowledge</em>) designed by Mariana Raykova, Eran Tromer
 and Madars Virza.</p>
-<h3><a class="header" href="#summary-4" id="summary-4">Summary</a></h3>
-<p>Virza starts with a concise survey of the best zk-SNARK protocols and their applications while giving an assessment of 
-the efficiency of zero-knowledge proof implementations in the context of blockchains. He mentions that although 
-zero-knowledge proofs have found practical applications in <em>privacy preserving cryptocurrencies</em>, <em>privacy preserving 
-smart contracts</em>, <em>proof of regulatory compliance</em> and <em>blockchain-based sovereign identity</em>, they still have a few 
-shortcomings. While QAP-based zero-knowledge proofs can execute fast verifications, they still require a <em>trusted 
-setup</em>. Also, in Probabilistically Checkable Proof (PCP)-based zk-SNARKs, the speed of verification decays with the 
-increasing statement size. </p>
-<p>Virza mentions that the danger of slow verification can tempt miners to skip validation of transactions. This can cause 
-forks such as the July 2015 Bitcoin fork. He uses the Bitcoin fork example and slow verification as motivation for a 
-zero-knowledge protocol that allows multiple verification modes. This will allow miners to carry out an <em>optimistic 
-verification</em> without losing much time and later check the validity of transactions by using <em>prudent verification</em>. The 
-<em>zk-SHARK</em> is introduced as one such zero-knowledge protocol that implements these two types of verification modes. It 
-is a <em>hybrid,</em> as it incorporates a Non-interactive Zero-knowledge (NIZK) proof inside a  SNARK. The internal design of 
-the NIZK verifier is algebraic in nature, using a new compilation technique for linear PCPs. The special-purpose SNARK, 
+<h3 id="summary-4"><a class="header" href="#summary-4">Summary</a></h3>
+<p>Virza starts with a concise survey of the best zk-SNARK protocols and their applications while giving an assessment of
+the efficiency of zero-knowledge proof implementations in the context of blockchains. He mentions that although
+zero-knowledge proofs have found practical applications in <em>privacy preserving cryptocurrencies</em>, <em>privacy preserving
+smart contracts</em>, <em>proof of regulatory compliance</em> and <em>blockchain-based sovereign identity</em>, they still have a few
+shortcomings. While QAP-based zero-knowledge proofs can execute fast verifications, they still require a <em>trusted
+setup</em>. Also, in Probabilistically Checkable Proof (PCP)-based zk-SNARKs, the speed of verification decays with the
+increasing statement size.</p>
+<p>Virza mentions that the danger of slow verification can tempt miners to skip validation of transactions. This can cause
+forks such as the July 2015 Bitcoin fork. He uses the Bitcoin fork example and slow verification as motivation for a
+zero-knowledge protocol that allows multiple verification modes. This will allow miners to carry out an <em>optimistic
+verification</em> without losing much time and later check the validity of transactions by using <em>prudent verification</em>. The
+<em>zk-SHARK</em> is introduced as one such zero-knowledge protocol that implements these two types of verification modes. It
+is a <em>hybrid,</em> as it incorporates a Non-interactive Zero-knowledge (NIZK) proof inside a  SNARK. The internal design of
+the NIZK verifier is algebraic in nature, using a new compilation technique for linear PCPs. The special-purpose SNARK,
 which constitutes the main part of the zk-SHARK, is dedicated to verifying an <em>encoded polynomial delegation</em> problem.</p>
 <p>The design of zk-SHARKs is ingenious and aims at avoiding unnecessary coin forkings.</p>
-<h3><a class="header" href="#video-1" id="video-1">Video</a></h3>
-<p>The slides from the <a href="https://dci.mit.edu/zksharks">talk</a> can be found 
+<h3 id="video-1"><a class="header" href="#video-1">Video</a></h3>
+<p>The slides from the <a href="https://dci.mit.edu/zksharks">talk</a> can be found
 <a href="https://madars.org/sharks/2019-04-10-SHARK-zkproof-workshop.pdf">here</a>.</p>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/OP8ydUxAVt4" frameborder="0" allow="accelerometer; 
+<iframe width="1000" height="800" src="https://www.youtube.com/embed/OP8ydUxAVt4" frameborder="0" allow="accelerometer;
 autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="http://crypto.cs.mcgill.ca/%7Ecrepeau/PDF/BCC88-jcss.pdf" title="Minimum Disclosure
 Proofs of Knowledge">1</a>] G. Brassard, D. Chaum and C. Crepeau, &quot;Minimum Disclosure Proofs of Knowledge&quot; [online]. Available:
 <a href="http://crypto.cs.mcgill.ca/%7Ecrepeau/PDF/BCC88-jcss.pdf">http://crypto.cs.mcgill.ca/~crepeau/PDF/BCC88-jcss.pdf</a>. Date accessed: 2019‑12‑07.</p>
 <p>[<a href="http://people.seas.harvard.edu/%7Esalil/research/SZKargs-focs.pdf" title="Statistical Zero-knowledge
 Arguments for NP from
 Any One-way Function
-(Extended 
-Abstract)">2</a>] M. Nguyen, S. J. Ong and S. Vadhan, &quot;Statistical Zero-knowledge Arguments for NP from any One-way Function 
-(Extended Abstract)&quot; [online]. Available: <a href="http://people.seas.harvard.edu/%7Esalil/research/SZKargs-focs.pdf">http://people.seas.harvard.edu/~salil/research/SZKargs-focs.pdf</a>. 
+(Extended
+Abstract)">2</a>] M. Nguyen, S. J. Ong and S. Vadhan, &quot;Statistical Zero-knowledge Arguments for NP from any One-way Function
+(Extended Abstract)&quot; [online]. Available: <a href="http://people.seas.harvard.edu/%7Esalil/research/SZKargs-focs.pdf">http://people.seas.harvard.edu/~salil/research/SZKargs-focs.pdf</a>.
 Date accessed: 2019‑12‑07.</p>
 <p>[<a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf" title="DIZK: A Distributed
 Zero Knowledge
-Proof System">3</a>] H. Wu, W. Zheng, A. Chiesa, R. A. Popa and I. Stoica, &quot;DIZK: A Distributed Zero Knowledge Proof System&quot;, 
-UC Berkeley [online]. Available: <a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf">https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf</a>. 
+Proof System">3</a>] H. Wu, W. Zheng, A. Chiesa, R. A. Popa and I. Stoica, &quot;DIZK: A Distributed Zero Knowledge Proof System&quot;,
+UC Berkeley [online]. Available: <a href="https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf">https://www.usenix.org/system/files/conference/usenixsecurity18/sec18-wu.pdf</a>.
 Date accessed: 2019‑12‑07.</p>
 <p>[<a href="https://eprint.iacr.org/2019/1229.pdf" title="Transparent SNARKs
-from DARK Compilers">4</a>] B. Bünz, B. Fisch and A. Szepieniec, &quot;Transparent SNARKs from DARK Compilers&quot; [online]. Available: 
+from DARK Compilers">4</a>] B. Bünz, B. Fisch and A. Szepieniec, &quot;Transparent SNARKs from DARK Compilers&quot; [online]. Available:
 <a href="https://eprint.iacr.org/2019/1229.pdf">https://eprint.iacr.org/2019/1229.pdf</a>. Date accessed: 2019‑12‑07.</p>
 <p>[<a href="https://eprint.iacr.org/2019/1021.pdf" title="Halo: Recursive Proof
 Composition without
-a Trusted Setup">5</a>] S. Bowe, J. Grigg and D. Hopwood, &quot;Halo: Recursive Proof Composition without a Trusted Setup&quot; [online]. Available: 
-<a href="https://eprint.iacr.org/2019/1021.pdf">https://eprint.iacr.org/2019/1021.pdf</a>. Date accessed: 2019‑12‑07. </p>
-<p>[<a href="http://coders-errand.com/constraint-systems-for-zk-snarks/" title="Constraint Systems for ZK SNARKs">6</a>] A. Pinto, &quot;Constraint Systems for ZK SNARKs&quot; [online]. Available: 
-<a href="http://coders-errand.com/constraint-systems-for-zk-snarks/">http://coders-errand.com/constraint-systems-for-zk-snarks/</a>. Date accessed: 2019‑03‑06. </p>
+a Trusted Setup">5</a>] S. Bowe, J. Grigg and D. Hopwood, &quot;Halo: Recursive Proof Composition without a Trusted Setup&quot; [online]. Available:
+<a href="https://eprint.iacr.org/2019/1021.pdf">https://eprint.iacr.org/2019/1021.pdf</a>. Date accessed: 2019‑12‑07.</p>
+<p>[<a href="http://coders-errand.com/constraint-systems-for-zk-snarks/" title="Constraint Systems for ZK SNARKs">6</a>] A. Pinto, &quot;Constraint Systems for ZK SNARKs&quot; [online]. Available:
+<a href="http://coders-errand.com/constraint-systems-for-zk-snarks/">http://coders-errand.com/constraint-systems-for-zk-snarks/</a>. Date accessed: 2019‑03‑06.</p>
 <p>[<a href="http://coders-errand.com/the-vanishing-polynomial-for-qaps/" title="The Vanishing Polynomial
-for QAPs">7</a>] A. Pinto, &quot;The Vanishing Polynomial for QAPs&quot;, 23 March 2019 [online]. Available: 
+for QAPs">7</a>] A. Pinto, &quot;The Vanishing Polynomial for QAPs&quot;, 23 March 2019 [online]. Available:
 <a href="http://coders-errand.com/the-vanishing-polynomial-for-qaps/">http://coders-errand.com/the-vanishing-polynomial-for-qaps/</a>. Date accessed: 2019‑10‑10.</p>
 
                     </main>

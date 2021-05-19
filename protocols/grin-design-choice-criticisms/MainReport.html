@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#grin-design-choice-criticisms---truth-or-fiction" id="grin-design-choice-criticisms---truth-or-fiction">Grin Design Choice Criticisms - Truth or Fiction</a></h1>
+                        <h1 id="grin-design-choice-criticisms---truth-or-fiction"><a class="header" href="#grin-design-choice-criticisms---truth-or-fiction">Grin Design Choice Criticisms - Truth or Fiction</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#monetary-policy-due-to-choice-of-static-emission-scheme">Monetary Policy due to Choice of Static Emission Scheme</a></li>
@@ -236,7 +236,7 @@
 <li><a href="#references">References</a></li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>Grin is a cryptocurrency, implemented in Rust, that makes use of Mimblewimble transactions and the Cuckatoo algorithm to 
 perform Proof-of-Work (PoW) calculations. The main design goals of the Grin project are privacy, transaction scaling 
 and design simplicity to promote long-term maintenance of the Grin source code [<a href="https://medium.com/novamining/grin-testnet-is-live-98b0f8cd135d" title="Grin: A Lightweight Implementation of 
@@ -248,7 +248,7 @@ will be made as to how these problems could be mitigated or addressed.</p>
 <p>This report will also investigate Grin's selected emission scheme, PoW algorithm, choice of cryptographic curve used for
 signatures, and selection of key-store library. Each of these topics will be discussed in detail.</p>
 <p align="center"><img src="sources/intro.png" width="700" /></p>
-<h2><a class="header" href="#monetary-policy-due-to-choice-of-static-emission-scheme" id="monetary-policy-due-to-choice-of-static-emission-scheme">Monetary Policy due to Choice of Static Emission Scheme</a></h2>
+<h2 id="monetary-policy-due-to-choice-of-static-emission-scheme"><a class="header" href="#monetary-policy-due-to-choice-of-static-emission-scheme">Monetary Policy due to Choice of Static Emission Scheme</a></h2>
 <p>Bitcoin has a limited and finite supply of coins. It makes use of 10‑minute block times, where the initial reward for 
 solving the first block was 50 BTC. This reward is reduced every four years, by halving it, until a maximum of 
 21 million coins are in circulation [<a href="https://bitcoin.org/bitcoin.pdf" title="Bitcoin: A Peer-to-Peer Electronic 
@@ -321,7 +321,7 @@ balance between deflation and inflation needs to be achieved to motivate saving 
 currency. A low inflationary model where inflation is algorithmically maintained and not controlled by a single 
 authority seems to be the safest choice. However, only time will tell if the high inflation model proposed by Grin will 
 have the desired effect. </p>
-<h2><a class="header" href="#proof-of-work-algorithm---from-asic-resistant-to-asic-friendly" id="proof-of-work-algorithm---from-asic-resistant-to-asic-friendly">Proof-of-Work Algorithm - from ASIC Resistant to ASIC Friendly</a></h2>
+<h2 id="proof-of-work-algorithm---from-asic-resistant-to-asic-friendly"><a class="header" href="#proof-of-work-algorithm---from-asic-resistant-to-asic-friendly">Proof-of-Work Algorithm - from ASIC Resistant to ASIC Friendly</a></h2>
 <p>Initially, the Grin team proposed using two Application-Specific Integrated Circuit (ASIC) resistant algorithms: 
 Cuckoo cycles and a high memory requirement Equihash algorithm called Equigrin. These algorithms were selected to 
 encourage mining decentralization. ASIC resistance was obtained by having high memory requirements for the PoW 
@@ -354,7 +354,7 @@ hash rate or total computational power, limiting the potential of double spends.
 <p>Selecting to be ASIC resistant or ASIC friendly is an important decision that can affect the security of the blockchain. 
 The Grin team's choice to support the ASIC community and try to balance an ASIC-friendly and an ASIC-resistant PoW 
 algorithm will be interesting, with many potential pitfalls.</p>
-<h2><a class="header" href="#choice-of-cryptographic-elliptic-curve---secp256k1" id="choice-of-cryptographic-elliptic-curve---secp256k1">Choice of Cryptographic Elliptic-curve - secp256k1</a></h2>
+<h2 id="choice-of-cryptographic-elliptic-curve---secp256k1"><a class="header" href="#choice-of-cryptographic-elliptic-curve---secp256k1">Choice of Cryptographic Elliptic-curve - secp256k1</a></h2>
 <p>Elliptic curve cryptography is used for generating Private and Public key pairs that can be used for digital signatures 
 as well as authorization for individuals and transactions. It is much more secure and requires smaller keys for similar 
 security compared to other Public-key cryptography techniques such as RSA [<a href="https://hackernoon.com/what-is-the-math-behind-elliptic-curve-cryptography-f61b25253da3" title="What is the Math behind 
@@ -378,7 +378,7 @@ Speed Records, Daniel J. Bernstein">24</a>] to build a fast signature scheme wit
 can help with the investigation and selection of an alternative security curve. The SafeCurves platform will make it 
 easier to evaluate the security properties and potential vulnerabilities of many cryptographic curves [<a href="http://safecurves.cr.yp.to/" title="SafeCurves - Choosing Safe Curves 
 for Elliptic-curve Cryptography">25</a>].</p>
-<h2><a class="header" href="#selection-of-key-store-library" id="selection-of-key-store-library">Selection of Key-store Library</a></h2>
+<h2 id="selection-of-key-store-library"><a class="header" href="#selection-of-key-store-library">Selection of Key-store Library</a></h2>
 <p>Grin originally made use of RocksDB [<a href="https://rocksdb.org/" title="RocksDB">26</a>] as an internal key-value store, but received some criticism for this 
 decision. A number of alternatives with other performance and security characteristics exist, such as LevelDB [<a href="https://web.archive.org/web/20180917125549/https://cryptoinsider.21mil.com/debtcoin-credit-debt-and-cryptocurrencies/" title="LevelDB">27</a>], 
 HyperLevelDB [<a href="http://hyperdex.org/" title="HyperLevelDB">28</a>] and the Lightning Memory-Mapped Database (LMDB) [<a href="https://github.com/LMDB" title="LMDB">29</a>]. Selecting between these to find the &quot;best&quot; 
@@ -396,7 +396,7 @@ and Benchmarks, Howard Chu">32</a>]. Other
 benchmarks performed by Symas Corp support this claim, where LMDB outperformed all the tested key store libraries [<a href="http://www.lmdb.tech/bench/hyperdex/" title="HyperDex Benchmark, Symas Corp">33</a>].</p>
 <p>Grin later replaced RocksDB with LMDB to maintain the state of Grin Wallets [<a href="https://www.grin-forum.org/t/yeastplume-progress-update-thread-may-sept-2018/361/12" title="Progress Update May - Sep 2018, Yeastplume">34</a>]. This switch appears to be a 
 good idea, as LMDB seem to be the best key-value store library for blockchain-related applications.</p>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
 <ul>
 <li>Selecting the correct emission rate to create a sustainable monetary policy is an important decision. Care should 
 be taken to ensure that the right balance is found between being an SoV and/or an MoE.</li>
@@ -407,7 +407,7 @@ even potential security vulnerabilities should rather be ignored.</li>
 <li>Care should be taken when using online benchmarks to help select libraries for a project, as the results might be 
 misleading.</li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://medium.com/novamining/grin-testnet-is-live-98b0f8cd135d" title="Grin: A Lightweight Implementation of 
 the MimbleWimble Protocol, Mattia Franzoni">1</a>]  M. Franzoni, &quot;Grin: a Lightweight Implementation of the MimbleWimble Protocol&quot; [online]. 
 Available: <a href="https://medium.com/novamining/grin-testnet-is-live-98b0f8cd135d">https://medium.com/novamining/grin-testnet-is-live-98b0f8cd135d</a>. Date accessed: 2018‑10‑05.</p>
@@ -504,7 +504,7 @@ Date accessed: 2018‑10‑29.</p>
 <p>[<a href="https://www.grin-forum.org/t/yeastplume-progress-update-thread-may-sept-2018/361/12" title="Progress Update May - Sep 2018, Yeastplume">34</a>] Yeastplume, &quot;Progress Update May - Sep 2018&quot;  [online]. 
 Available: <a href="https://www.grin-forum.org/t/yeastplume-progress-update-thread-may-sept-2018/361/12">https://www.grin-forum.org/t/yeastplume-progress-update-thread-may-sept-2018/361/12</a>. 
 Date accessed: 2018‑10‑28.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/neonknight64">https://github.com/neonknight64</a></li>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>

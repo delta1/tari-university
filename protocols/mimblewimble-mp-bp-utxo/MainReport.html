@@ -238,7 +238,7 @@ div.mywrap {
 }
 </style>
 </head>
-<h1><a class="header" href="#mimblewimble-multiparty-bulletproof-utxo" id="mimblewimble-multiparty-bulletproof-utxo">Mimblewimble Multiparty Bulletproof UTXO</a></h1>
+<h1 id="mimblewimble-multiparty-bulletproof-utxo"><a class="header" href="#mimblewimble-multiparty-bulletproof-utxo">Mimblewimble Multiparty Bulletproof UTXO</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#background">Background</a>
@@ -283,7 +283,7 @@ div.mywrap {
 </li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>In <a href="../mimblewimble-1/MainReport.html">Mimblewimble</a>, the concept of a Bitcoin-type multi-signature (multisig) applied to 
 an Unspent Transaction Output (UTXO) does not really exist. </p>
 <p>In Bitcoin, multisig payments are usually combined with Pay to Script Hash (P2SH) functionality as a means to send funds 
@@ -296,8 +296,8 @@ that contains the tokens; it does not require an &quot;owner&quot; signature. A 
 <div class="mywrap">08c15e94ddea81e6a0a31ed558ef5e0574e5369c4fcba92808fe992fbff68884cc</div>
 <p>Another fundamental difference is that for any Mimblewimble transaction, all parties, i.e. all senders and all 
 receivers, must interact to conclude the transaction.</p>
-<h2><a class="header" href="#background" id="background">Background</a></h2>
-<h3><a class="header" href="#bitcoin--mtext-of-n--multisig-in-a-nutshell" id="bitcoin--mtext-of-n--multisig-in-a-nutshell">Bitcoin $ m\text{-of-}n $ Multisig in a Nutshell</a></h3>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<h3 id="bitcoin--mtext-of-n--multisig-in-a-nutshell"><a class="header" href="#bitcoin--mtext-of-n--multisig-in-a-nutshell">Bitcoin $ m\text{-of-}n $ Multisig in a Nutshell</a></h3>
 <p>Multiple use cases of $ m\text{-of-}n $ multisig applications exist, e.g. a $ 1\text{-of-}2 $ petty cash account, 
 a $ 2\text{-of-}2 $ two-factor authentication wallet and a $ 2\text{-of-}3 $ board of directors account [<a href="https://en.bitcoin.it/wiki/Multisignature" title="Multisignature">3</a>]. 
 A typical $ 2\text{-of-}3 $ Bitcoin P2SH multisig redeem script (where any two of the three predefined public keys must sign the 
@@ -341,7 +341,7 @@ transaction can be the original <code>P2SHAddress</code>, thus sending change ba
 addresses are allowed, but they will suffer from a lack of confidentiality. Another way to do this would be to create a 
 new <code>redeemScript</code> with a new set of public keys every time a P2SH multisig transaction is done to collect the change, 
 but this would be more complex to manage [<a href="https://en.bitcoin.it/wiki/Transaction" title="Transaction">4</a>].</p>
-<h3><a class="header" href="#security-of-the-mimblewimble-blockchain" id="security-of-the-mimblewimble-blockchain">Security of the Mimblewimble Blockchain</a></h3>
+<h3 id="security-of-the-mimblewimble-blockchain"><a class="header" href="#security-of-the-mimblewimble-blockchain">Security of the Mimblewimble Blockchain</a></h3>
 <p>A <a href="../mimblewimble-1/MainReport.html">Mimblewimble</a> blockchain relies on two complementary aspects to provide security: 
 <a href="../../cryptography/bulletproofs-protocols/MainReport.html#pedersen-commitments-and-elliptic-curve-pedersen-commitments">Pedersen Commitments</a> 
 and range proofs (in the form of <a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html">Bulletproof range proofs</a>). 
@@ -357,7 +357,7 @@ $ [0,2^{64} - 1] $, it also prohibits third parties locking away one's funds, as
 Mimblewimble commitments are totally confidential and ownership cannot be proved, anyone can try to spend or mess with 
 unspent coins embedded in those commitments. Fortunately, any new UTXO requires a range proof, and this is impossible to 
 create if the input commitment cannot be opened.</p>
-<h3><a class="header" href="#the-importance-of-range-proofs" id="the-importance-of-range-proofs">The importance of Range Proofs</a></h3>
+<h3 id="the-importance-of-range-proofs"><a class="header" href="#the-importance-of-range-proofs">The importance of Range Proofs</a></h3>
 <p>The role that Bulletproof range proofs play in securing the blockchain can be demonstrated as follows. Let 
 $ C_a(v_1 , k_1) $ be the &quot;closed&quot; input UTXO commitment from Alice that a bad actor, Bob, is trying to lock away. 
 Bob knows that all commitments in a Mimblewimble blockchain are additionally homomorphic. This means that he can 
@@ -383,14 +383,14 @@ $ v_1 $ is non-negative (i.e. in the range $ [0,2^n - 1] $).</p>
 <p>If Bob can convince Alice that she must create a fund over which both of them have signing powers ($ 2\text{-of-}2 $ 
 multisig), it would theoretically be possible to create the required Bulletproof range proof for relation (1) if they 
 work together to create it.</p>
-<h3><a class="header" href="#secure-sharing-protocol" id="secure-sharing-protocol">Secure Sharing Protocol</a></h3>
+<h3 id="secure-sharing-protocol"><a class="header" href="#secure-sharing-protocol">Secure Sharing Protocol</a></h3>
 <p>Multiple parties working together to create a single transaction that involves multiple steps, need to share information 
 in such a way that what they shared cannot work against them. Each step requires a proof, and it should not be possible 
 to replay an individual step's proof in a different context. Merlin transcripts [<a href="https://doc-internal.dalek.rs/merlin/index.html" title="Merlin Transcripts">7</a>] is an excellent example of a 
 protocol implementation that achieves this. For the purposes of this report, a simple information sharing protocol 
 is proposed that can be implemented with Merlin transcripts [<a href="https://doc-internal.dalek.rs/merlin/index.html" title="Merlin Transcripts">7</a>]. </p>
-<h2><a class="header" href="#mimblewimble--ntext-of-n--multiparty-bulletproof-utxo" id="mimblewimble--ntext-of-n--multiparty-bulletproof-utxo">Mimblewimble $ n\text{-of-}n $ Multiparty Bulletproof UTXO</a></h2>
-<h3><a class="header" href="#simple-sharing-protocol" id="simple-sharing-protocol">Simple Sharing Protocol</a></h3>
+<h2 id="mimblewimble--ntext-of-n--multiparty-bulletproof-utxo"><a class="header" href="#mimblewimble--ntext-of-n--multiparty-bulletproof-utxo">Mimblewimble $ n\text{-of-}n $ Multiparty Bulletproof UTXO</a></h2>
+<h3 id="simple-sharing-protocol"><a class="header" href="#simple-sharing-protocol">Simple Sharing Protocol</a></h3>
 <p>Alice, Bob and Carol agree to set up a multiparty $ 3\text{-of-}3 $ multisig fund that they can control together. They 
 decide to use a sharing hash function $ val_H = \text{H}_{s}(arg) $ as a handshaking mechanism for all information 
 they need to share. The first step is to calculate the hash $ val_H $ for the value $ arg $ they want to 
@@ -401,7 +401,7 @@ have done. </p>
 <p>This ensures that public values for each step are not exposed until all commitments have been received. They will apply 
 this simple sharing protocol to all information they need to share with each other. This will be denoted by 
 $ \text{share:} $.</p>
-<h3><a class="header" href="#setting-up-the-multiparty-funding-transaction" id="setting-up-the-multiparty-funding-transaction">Setting up the Multiparty Funding Transaction</a></h3>
+<h3 id="setting-up-the-multiparty-funding-transaction"><a class="header" href="#setting-up-the-multiparty-funding-transaction">Setting up the Multiparty Funding Transaction</a></h3>
 <p>In the transaction Alice, Bob and Carol want to set up, $ C_m $ is the multiparty shared commitment that contains the 
 funds, and $ C_a $, $ C_b $ and $ C_c $ are their respective input contributions. This transaction looks as follows:</p>
 <p>$$
@@ -500,13 +500,13 @@ $$</p>
 (0H + (P_{agg} + \phi_{tot}G))
 \tag{15}
 $$</p>
-<h3><a class="header" href="#creating-the-multiparty-bulletproof-range-proof" id="creating-the-multiparty-bulletproof-range-proof">Creating the Multiparty Bulletproof Range Proof</a></h3>
+<h3 id="creating-the-multiparty-bulletproof-range-proof"><a class="header" href="#creating-the-multiparty-bulletproof-range-proof">Creating the Multiparty Bulletproof Range Proof</a></h3>
 <p>One crucial aspect in validating the transaction is still missing, i.e. each new UTXO must also include a Bulletproof 
 range proof. Up to now, Alice, Bob and Carol could each keep their portion of the shared blinding factor $ k_n $ 
 secret. The new combined commitment they created $ (v_1H + (k_1 + k_2 + k_3)G) $ cannot be used as is to calculate 
 the Bulletproof range proof, otherwise the three parties would have to give up their portion of the shared blinding 
 factor. Now they need to use a secure method to calculate their combined Bulletproof range proof.</p>
-<h4><a class="header" href="#utilizing-bulletproofs-mpc-protocol" id="utilizing-bulletproofs-mpc-protocol">Utilizing Bulletproofs MPC Protocol</a></h4>
+<h4 id="utilizing-bulletproofs-mpc-protocol"><a class="header" href="#utilizing-bulletproofs-mpc-protocol">Utilizing Bulletproofs MPC Protocol</a></h4>
 <p>This scheme involves coloring the UTXO to enable attachment of additional proof data, a flag to let the miners know that 
 they must employ a different set of validation rules and a hash of the UTXO and all metadata. The 
 <a href="../../cryptography/bulletproofs-protocols/MainReport.html#mpc-protocol-for-bulletproofs">Bulletproofs Multiparty Computation</a> 
@@ -561,7 +561,7 @@ $$</p>
 \text{verify: } RP_m \text{ for } C_m
 \tag{20}
 $$</p>
-<h4><a class="header" href="#utilizing-grins-shared-bulletproof-computation" id="utilizing-grins-shared-bulletproof-computation">Utilizing Grin's Shared Bulletproof Computation</a></h4>
+<h4 id="utilizing-grins-shared-bulletproof-computation"><a class="header" href="#utilizing-grins-shared-bulletproof-computation">Utilizing Grin's Shared Bulletproof Computation</a></h4>
 <p>Grin extended the 
 <a href="../../cryptography/bulletproofs-protocols/MainReport.html#inner-product-range-proof">Inner-product Range Proof</a> 
 implementation to allow for multiple parties to jointly construct a single Bulletproof range proof $ RP_m $ for a known 
@@ -596,7 +596,7 @@ C_m(v_1, \sum _{j=1}^3 k_jG) = (v_1H + \sum _{j=1}^3 k_jG) = (v_1H + (k_1 + k_2 
 $$</p>
 <p>with the UTXO tuple being $ (C_m , RP_m) $. Range proof validation by miners will involve verifying $ RP_m $ for 
 $ C_m $.</p>
-<h4><a class="header" href="#comparison-of-the-two-bulletproof-methods" id="comparison-of-the-two-bulletproof-methods">Comparison of the Two Bulletproof Methods</a></h4>
+<h4 id="comparison-of-the-two-bulletproof-methods"><a class="header" href="#comparison-of-the-two-bulletproof-methods">Comparison of the Two Bulletproof Methods</a></h4>
 <table><thead><tr><th>Consideration</th><th>Using Dalek's Bulletproofs MPC Protocol</th><th>Using Grin's Multiparty Bulletproof</th></tr></thead><tbody>
 <tr><td>Rounds of communication</td><td>Three</td><td>Two</td></tr>
 <tr><td>Information sharing security</td><td>Use of Merlin transcripts, combined with the MPC protocol, makes this method more secure against replay attacks.</td><td>No specific sharing protocol suggested, but potentially easy to implement, as described <a href="#simple-sharing-protocol">here</a>.</td></tr>
@@ -606,7 +606,7 @@ $ C_m $.</p>
 <tr><td>Wallet reconstructability</td><td>Each individual range proof's data is accessible within the aggregated range proof. It is possible to identify the colored coin and then to reconstruct the wallet if the initial blinding factor seed is remembered in conjunction with <a href="../../cryptography/bulletproofs-and-mimblewimble/MainReport.html#improved-implementation">Bulletproof range proof rewinding</a>.</td><td>The wallet cannot be reconstructed, as a single party's blinding factor cannot be distinguished from the combined range proof. Even if these coins were colored with a flag to make them identifiable, it would not help.</td></tr>
 <tr><td>Hiding and binding commitment</td><td>The main commitment and additional commitments in the UTXO's metadata retain all hiding and binding security aspects of the Pederson Commitment.</td><td>The commitment retains all hiding and binding security aspects of the Pederson Commitment.</td></tr>
 </tbody></table>
-<h3><a class="header" href="#spending-the-multiparty-utxo" id="spending-the-multiparty-utxo">Spending the Multiparty UTXO</a></h3>
+<h3 id="spending-the-multiparty-utxo"><a class="header" href="#spending-the-multiparty-utxo">Spending the Multiparty UTXO</a></h3>
 <p>Alice, Bob and Carol had a private bet going that Carol won, and they agree to spend the multiparty UTXO to pay Carol 
 her winnings, with the change being used to set up a consecutive multiparty UTXO. This transaction looks as follows:</p>
 <p>$$
@@ -700,7 +700,7 @@ $$</p>
 (0H + (P^{'}_{agg} + \phi^{'}_{tot}G))
 \tag{36}
 $$</p>
-<h2><a class="header" href="#mimblewimble--mtext-of-n--multiparty-bulletproof-utxo" id="mimblewimble--mtext-of-n--multiparty-bulletproof-utxo">Mimblewimble $ m\text{-of-}n $ Multiparty Bulletproof UTXO</a></h2>
+<h2 id="mimblewimble--mtext-of-n--multiparty-bulletproof-utxo"><a class="header" href="#mimblewimble--mtext-of-n--multiparty-bulletproof-utxo">Mimblewimble $ m\text{-of-}n $ Multiparty Bulletproof UTXO</a></h2>
 <p>As mentioned in the <a href="#introduction">Introduction</a>, Mimblewimble transactions cannot utilize a smart/redeem script in the 
 form of a P2SH, but similar functionality can be implemented in the users' wallets. For the $ m\text{-of-}n $ multiparty 
 Bulletproof UTXO, <a href="#ssss" title="Appendix B:
@@ -725,13 +725,13 @@ Secret Sharing Scheme.">Pedersen’s Verifiable Secret Sharing</a> (VSS) scheme,
 the SSSS, where the dealer commits to the secret $ s $ itself and the coefficients of the sharing polynomial $ f(x) $. 
 This is broadcast to all parties, with each receiving a blinding factor shard $ g(i) $ corresponding to their 
 secret shard $ f(i) $. This will enable each party to verify that their shard is correct.</p>
-<h3><a class="header" href="#secret-sharing" id="secret-sharing">Secret Sharing</a></h3>
+<h3 id="secret-sharing"><a class="header" href="#secret-sharing">Secret Sharing</a></h3>
 <p>Our friends Alice, Bob and Carol decide to set up a $ 2\text{-of-}3 $ scheme, whereby any two of them can authorize a 
 spend of their multiparty UTXO. They also want to be able to set up the scheme such that they can perform three rounds 
 of spending, with the last round being the closing round. Something they were all thinking about was how to share pieces 
 of their blinding factor with each other in a secure and reconstructable fashion. They have heard of Pedersen's VSS scheme 
 and decide to use that. </p>
-<h3><a class="header" href="#multiple-rounds-data" id="multiple-rounds-data">Multiple Rounds' Data</a></h3>
+<h3 id="multiple-rounds-data"><a class="header" href="#multiple-rounds-data">Multiple Rounds' Data</a></h3>
 <p>The parties will each pre-calculate $ three $ private blinding factors $ k_{n\text{-}i} $ and shard it according to 
 <a href="#pvss" title="Appendix B:
 The Pedersen Verifiable Secret Sharing scheme 
@@ -749,7 +749,7 @@ ready and stored in their wallets.</p>
 <tr><td>2</td><td>Alice: $ (k_{1\text{-}2}, b_{1\text{-}2}) $ <br />Bob:   $ (k_{2\text{-}2}, b_{2\text{-}2}) $ <br />Carol: $ (k_{3\text{-}2}, b_{3\text{-}2}) $</td><td>$ \mathbf{C_{2}}( k_{1\text{-}2}) $ <br />$ \mathbf{C_{2}}( k_{2\text{-}2}) $ <br />$ \mathbf{C_{2}}( k_{3\text{-}2}) $</td><td>$ (k_{1\text{-}a2}, b_{1\text{-}a2}) $ <br />$ (k_{2\text{-}a2}, b_{2\text{-}a2}) $ <br />$ (k_{3\text{-}a2}, b_{3\text{-}a2}) $</td><td>$ (k_{1\text{-}b2}, b_{1\text{-}b2}) $ <br />$ (k_{2\text{-}}b2, b_{2\text{-}b2}) $ <br />$ (k_{3\text{-}},b2 b_{3\text{-}b2}) $</td><td>$ (k_{1\text{-}c2}, b_{1\text{-}c2}) $ <br />$ (k_{2\text{-}}c2, b_{2\text{-}c2}) $ <br />$ (k_{3\text{-}},c2 b_{3\text{-}c2}) $</td></tr>
 <tr><td>3</td><td>Alice: $ (k_{1\text{-}3}, b_{1\text{-}3}) $ <br />Bob:   $ (k_{2\text{-}3}, b_{2\text{-}3}) $ <br />Carol: $ (k_{3\text{-}3}, b_{3\text{-}3}) $</td><td>$ \mathbf{C_{2}}( k_{1\text{-}3}) $ <br />$ \mathbf{C_{2}}( k_{2\text{-}3}) $ <br />$ \mathbf{C_{2}}( k_{3\text{-}3}) $</td><td>$ (k_{1\text{-}a3}, b_{1\text{-}a3}) $ <br />$ (k_{2\text{-}a3}, b_{2\text{-}a3}) $ <br />$ (k_{3\text{-}a3}, b_{3\text{-}a3}) $</td><td>$ (k_{1\text{-}b3}, b_{1\text{-}b3}) $ <br />$ (k_{2\text{-}}b3, b_{2\text{-}b3}) $ <br />$ (k_{3\text{-}},b3 b_{3\text{-}b3}) $</td><td>$ (k_{1\text{-}c3}, b_{1\text{-}c3}) $ <br />$ (k_{2\text{-}}c3, b_{2\text{-}c3}) $ <br />$ (k_{3\text{-}},c3 b_{3\text{-}c3}) $</td></tr>
 </tbody></table>
-<h3><a class="header" href="#how-it-works" id="how-it-works">How it Works</a></h3>
+<h3 id="how-it-works"><a class="header" href="#how-it-works">How it Works</a></h3>
 <p>The three parties set up the initial multiparty <a href="#setting-up-the-multiparty-funding-transaction">funding transaction</a> 
 and <a href="#creating-the-multiparty-bulletproof-range-proof">Bulletproof range proof</a> exactly the same as they did for the 
 $ 3\text{-of-}3 $ case. For this, they use the private blinding factors they pre-calculated for round 1. Now, when 
@@ -782,7 +782,7 @@ that a consecutive multi-spend needs to start at round 2.</p>
 <p>The next time two of our friends want to spend some or all of the remainder of their multiparty UTXO, they will just 
 repeat these steps, starting at round 2. The only thing that will be different will be the person nominated to play 
 the part of the party that is absent; they have to take turns at this.</p>
-<h3><a class="header" href="#spending-protocol" id="spending-protocol">Spending Protocol</a></h3>
+<h3 id="spending-protocol"><a class="header" href="#spending-protocol">Spending Protocol</a></h3>
 <p>Alice, Bob and Carol are now seasoned at setting up their $ 2\text{-of-}3 $ scheme and spending the UTXO until all funds 
 are depleted. They have come to an agreement on a simple spending protocol, something to help keep all of them honest:</p>
 <ul>
@@ -801,8 +801,8 @@ present.</p>
 must take turns.</p>
 </li>
 </ul>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
-<h3><a class="header" href="#comparison-to-bitcoin" id="comparison-to-bitcoin">Comparison to Bitcoin</a></h3>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h3 id="comparison-to-bitcoin"><a class="header" href="#comparison-to-bitcoin">Comparison to Bitcoin</a></h3>
 <p>Given the basic differences between Bitcoin and Mimblewimble as mentioned in the <a href="#introduction">Introduction</a>, and the 
 multiparty payment scheme introduced here, the following observations can be made:</p>
 <ol>
@@ -829,7 +829,7 @@ validation rules are applied.</p>
 implement more functionality than when compared to Bitcoin, e.g. Pedersen's VSS scheme.</p>
 </li>
 </ol>
-<h3><a class="header" href="#general" id="general">General</a></h3>
+<h3 id="general"><a class="header" href="#general">General</a></h3>
 <ol>
 <li>
 <p>Bulletproof Range Proof</p>
@@ -853,7 +853,7 @@ $ n\text{-of-}n $ and $ m\text{-of-}n $ cases.</p>
 <p>Although all examples presented here were for three parties, this could easily be generalized.</p>
 </li>
 </ol>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://blockgeeks.com/guides/bitcoin-script-guide-part-2" title="The Best Step-by-Step Bitcoin Script Guide Part 2">1</a>] &quot;The Best Step-by-Step Bitcoin Script Guide Part 2&quot; [online]. Available: 
 <a href="https://blockgeeks.com/guides/bitcoin-script-guide-part-2">https://blockgeeks.com/guides/bitcoin-script-guide-part-2</a>. Date accessed: 2019‑05‑02.</p>
 <p>[<a href="https://en.bitcoin.it/wiki/Script" title="Script">2</a>] &quot;Script&quot; [online]. Available: <a href="https://en.bitcoin.it/wiki/Script">https://en.bitcoin.it/wiki/Script</a>. Date accessed: 2019‑05‑06.</p>
@@ -900,8 +900,8 @@ Based on the Discrete Logarithm Problem">18</a>] T. Pedersen, &quot;Distributed 
 Date accessed: 2019‑06‑03.</p>
 <p>[<a href="https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing" title="Wikipedia: Shamir's Secret Sharing">19</a>] Wikipedia: &quot;Shamir's Secret Sharing&quot; [online]. Available: <a href="https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing">https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing</a>. 
 Date accessed: 2019‑05‑06.</p>
-<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
-<h3><a class="header" href="#appendix-a-notation-used" id="appendix-a-notation-used">Appendix A: Notation Used</a></h3>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h3 id="appendix-a-notation-used"><a class="header" href="#appendix-a-notation-used">Appendix A: Notation Used</a></h3>
 <p>This section gives the general notation of mathematical expressions used. It provides important pre-knowledge for the 
 remainder of the report.</p>
 <ul>
@@ -930,7 +930,7 @@ $ \lbrace C_1, C_2, ... , C_n \rbrace $.</p>
 <p>Let $ \mathbf {C_{m}}(v) $ be a vector of commitments $ (C_0 , \ldots , C_{m-1}) $ for value $ v $.</p>
 </li>
 </ul>
-<h3><a class="header" href="#appendix-b-definition-of-terms" id="appendix-b-definition-of-terms">Appendix B: Definition of Terms</a></h3>
+<h3 id="appendix-b-definition-of-terms"><a class="header" href="#appendix-b-definition-of-terms">Appendix B: Definition of Terms</a></h3>
 <p>Definitions of terms presented here are high level and general in nature. Full mathematical definitions are available in 
 the cited references.</p>
 <ul>
@@ -1050,7 +1050,7 @@ $$</p>
 </ul>
 </li>
 </ul>
-<h3><a class="header" href="#appendix-c-shamirs-secret-sharing-example" id="appendix-c-shamirs-secret-sharing-example">Appendix C: Shamir's Secret Sharing Example</a></h3>
+<h3 id="appendix-c-shamirs-secret-sharing-example"><a class="header" href="#appendix-c-shamirs-secret-sharing-example">Appendix C: Shamir's Secret Sharing Example</a></h3>
 <p>One of the private blinding factors Alice calculated and wants to share with Bob and Carol is</p>
 <div class="mywrap">29bb078b7b2b01e62dd684cd20742b510ece6175fa58d7a79cceeefe5297a804</div>
 <p>Alice's shard:</p>
@@ -1067,7 +1067,7 @@ $$</p>
 </div>
 <p>Using any two of these shards with the tool provided in [<a href="https://iancoleman.io/shamir" title="Online Tool: Shamir Secret Sharing Scheme">16</a>], Alice's original private blinding factor can be recreated. Try it out!</p>
 <p><strong>Note:</strong> This example shows blinding factor shards created with the SSSS tool developed by Coleman [<a href="https://iancoleman.io/shamir" title="Online Tool: Shamir Secret Sharing Scheme">16</a>]. It was merely developed for demonstration purposes and does not make any claims to meet cryptographic security rules other than using secure randomness.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
 <li><a href="https://github.com/anselld">https://github.com/anselld</a></li>

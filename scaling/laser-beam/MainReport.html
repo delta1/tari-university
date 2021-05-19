@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#laser-beam" id="laser-beam">Laser Beam</a></h1>
+                        <h1 id="laser-beam"><a class="header" href="#laser-beam">Laser Beam</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#detail-scheme">Detail Scheme</a>
@@ -253,7 +253,7 @@
 <li><a href="#references">References</a></li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>Proof-of-Work (PoW) blockchains are notoriously slow, as transactions need to be a number of blocks in the past to be 
 confirmed, and have poor scalability properties. A payment channel 
 is a class of techniques designed to allow two or more parties to make multiple blockchain transactions, without 
@@ -280,7 +280,7 @@ repository, which at this stage demonstrates off-chain transactions in a single 
 at master - BeamMW/beam">8</a>]. 
 According to the Request for Comment (RFC) documents, Beam plans to 
 implement routing across different payment channels in the Lightning Network style.</p>
-<h2><a class="header" href="#detail-scheme" id="detail-scheme">Detail Scheme</a></h2>
+<h2 id="detail-scheme"><a class="header" href="#detail-scheme">Detail Scheme</a></h2>
 <p>Beam's version of a multisignature (MultiSig) is actually a $2\text{-of-}2$ multiparty Unspent Transaction Output (UTXO), 
 where each party keeps its share of the blinding factor of the Pedersen commitment, 
 $C(v,k_{1}+k_{2})=\Big(vH+(k_{1}+k_{2})G\Big)$, secret. (Refer to <a href="#appendix-a-notation-used">Appendix A</a> for notation 
@@ -293,7 +293,7 @@ $f$ is the fee and $\mathcal{X}$ is the excess. Note that blinding factors denot
 $k^{\prime\prime}$, and values denoted by $v^{\prime}$ and $v^{\prime\prime}$, have a special purpose, discussed later, 
 so that $\hat{k}_{N_{a}} \neq k_{N_{a}} \neq k^{\prime} \neq k^{\prime\prime}_{N_{a}}$ and $v_{N_{a}} 
 \neq v^{\prime}_{N_{a}} \neq v^{\prime\prime}_{N_{a}}$. </p>
-<h3><a class="header" href="#funding-transaction" id="funding-transaction">Funding Transaction</a></h3>
+<h3 id="funding-transaction"><a class="header" href="#funding-transaction">Funding Transaction</a></h3>
 <p>The parties collaborate to create the multiparty UTXO (i.e. commitment and associated multiparty range proof), combined 
 on‑chain funding transaction (Figure 1) and an initial refund transaction for each party (off‑chain). All refund 
 transactions have a relative time lock in their kernel, referencing the kernel of the original combined funding 
@@ -321,8 +321,8 @@ transactions, to spending the same set of outputs to each participant.</p>
 $_{AA}$, $_{AB}$, $_{BA}$ and $_{BB}$ have the following meaning: the first letter and the second letter indicate 
 who controls the transaction and who created the value, respectively. Capitalized use of $R$ and $P$ denotes public 
 nonce and public blinding factor respectively. The $N_{\text{th}}$ refund procedure is as follows:</p>
-<h3><a class="header" href="#refund-procedure" id="refund-procedure">Refund Procedure</a></h3>
-<h4><a class="header" href="#alice---part-1" id="alice---part-1">Alice - Part 1</a></h4>
+<h3 id="refund-procedure"><a class="header" href="#refund-procedure">Refund Procedure</a></h3>
+<h4 id="alice---part-1"><a class="header" href="#alice---part-1">Alice - Part 1</a></h4>
 <p align="center"><img src="sources/refund_procedure_02.png" width="700" /></p>
 <div align="center"><b>Figure&nbsp;2: Laser Beam Refund Part 1 for Round (N)</b></div>
 <p>Alice and Bob set up Alice's intermediate MultiSig funding transaction (Figure 2), spending the original funding 
@@ -365,7 +365,7 @@ $$</p>
 \end{aligned}
 \tag{6}
 $$</p>
-<h4><a class="header" href="#bob---part-1" id="bob---part-1">Bob - Part 1</a></h4>
+<h4 id="bob---part-1"><a class="header" href="#bob---part-1">Bob - Part 1</a></h4>
 <p>Alice and Bob set up Bob's intermediate MultiSig funding transaction (Figure 2), also spending the original funding 
 MultiSig UTXO. The lock height $h_{N}$ again corresponds to the current blockchain height.</p>
 <p>$$
@@ -406,7 +406,7 @@ $$</p>
 \end{aligned}
 \tag{11}
 $$</p>
-<h4><a class="header" href="#alice---part-2" id="alice---part-2">Alice - Part 2</a></h4>
+<h4 id="alice---part-2"><a class="header" href="#alice---part-2">Alice - Part 2</a></h4>
 <p align="center"><img src="sources/refund_procedure_03.png" width="700" /></p>
 <div align="center"><b>Figure&nbsp;3: Laser Beam Refund Part 2 for Round (N)</b></div>
 <p>Alice and Bob set up a refund transaction (Figure 3), which Alice controls, with the same relative time lock 
@@ -439,7 +439,7 @@ $$</p>
 \end{aligned}
 \tag{14}
 $$</p>
-<h4><a class="header" href="#bob---part-2" id="bob---part-2">Bob - Part 2</a></h4>
+<h4 id="bob---part-2"><a class="header" href="#bob---part-2">Bob - Part 2</a></h4>
 <p>Alice and Bob set up a refund transaction (Figure 3), which Bob controls, with a relative time lock $h_{rel}$ to 
 the intermediate funding transaction's kernel, $\mathcal{K}_{N_{BB1}}$. Output commitment values and blinding factors 
 are identified by superscript $^{\prime}$.</p>
@@ -470,7 +470,7 @@ $$</p>
 \end{aligned}
 \tag{17}
 $$</p>
-<h3><a class="header" href="#revoke-previous-refund" id="revoke-previous-refund">Revoke Previous Refund</a></h3>
+<h3 id="revoke-previous-refund"><a class="header" href="#revoke-previous-refund">Revoke Previous Refund</a></h3>
 <p>Whenever the individual balances in the channel change, a new refund procedure is negotiated, revoking previous 
 agreements (Figure 4). </p>
 <p align="center"><img src="sources/refund_procedure_04.png" width="700" /></p>
@@ -523,13 +523,13 @@ $$</p>
 UTXO, they will still not be able to spend it, because the corresponding transaction kernel is still kept secret by the 
 counterparty. The previous round's corresponding transaction (2) or (10), with a fully signed transaction kernel, was 
 never published on the blockchain.</p>
-<h3><a class="header" href="#punishment-transaction" id="punishment-transaction">Punishment Transaction</a></h3>
+<h3 id="punishment-transaction"><a class="header" href="#punishment-transaction">Punishment Transaction</a></h3>
 <p>If a counterparty decides to broadcast a revoked set of refund transactions, and if the honest party is actively 
 monitoring the blockchain and able to detect the attempted foul play, a punishment transaction can immediately be 
 constructed before the relative time lock $h_{rel}$ expires. Whenever any of the counterparty's intermediate multiparty 
 UTXOs, $\text{MultiSig}(N-m)\ \text{for}\ 0&lt;m&lt;N$, becomes available in the blockchain, the honest party can spend all 
 the funds to its own output, because it knows the total blinding factor and the counterparty does not.</p>
-<h3><a class="header" href="#channel-closure" id="channel-closure">Channel Closure</a></h3>
+<h3 id="channel-closure"><a class="header" href="#channel-closure">Channel Closure</a></h3>
 <p>Whenever the parties agree to a channel closure, the original on‑chain multiparty UTXO, $\text{MultiSig}(0)$, is spent 
 to their respective outputs in a collaborative transaction. In the event of a single party deciding to close the channel 
 unilaterally for whatever reason, its latest refund transaction is broadcast, effectively closing the channel. In either
@@ -538,7 +538,7 @@ case, the parties have to wait for the relative time lock $h_{rel}$ to expire be
 party broadcasting its respective portion of the refund transaction to the blockchain, or collaborating to broadcast a 
 single settlement transaction. A round-trip open channel, multiple off‑chain spending and close channel thus involves, 
 at most, three on‑chain transactions.</p>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
 <ol>
 <li>
 <p>MultiSig</p>
@@ -575,8 +575,8 @@ Alice with the ability to broadcast any of refund transactions $(N-1)$ and $N$, 
 punishment transaction. Bob, on the other hand, will only be able to broadcast refund transaction $N$.</p>
 </li>
 </ol>
-<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
-<h3><a class="header" href="#appendix-a-notation-used" id="appendix-a-notation-used">Appendix A: Notation Used</a></h3>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h3 id="appendix-a-notation-used"><a class="header" href="#appendix-a-notation-used">Appendix A: Notation Used</a></h3>
 <ul>
 <li>
 <p>Let $p$ be a large prime number, $\mathbb{Z}_{p}$ denote the ring of integers $\mathrm{mod} \text{ } p$, and 
@@ -596,7 +596,7 @@ value.</p>
 <p>Let scalar multiplication be depicted by $\cdot$, e.g. $e\cdot(vH+kG)=e\cdot vH+e\cdot kG$.</p>
 </li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html" title="Layer 2 Scaling Survey - 
 Tari Labs University">1</a>] J. A. Odendaal, &quot;Layer 2 Scaling Survey - Tari Labs University&quot; [online]. Available: 
 <a href="https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html">https://tlu.tarilabs.com/scaling/layer2scaling-landscape/layer2scaling-survey.html</a>. Date accessed: 2019‑10‑06.</p>
@@ -626,7 +626,7 @@ at mainnet - BeamMW/beam">9</a>] The Beam Team, &quot;GitHub: beam/ecc_bulletpro
 <a href="https://github.com/BeamMW/beam/blob/mainnet/core/ecc_bulletproof.cpp">https://github.com/BeamMW/beam/blob/mainnet/core/ecc_bulletproof.cpp</a>. Date accessed: 2019‑07‑05.</p>
 <p>[<a href="https://suredbits.com/lightning-101-for-exchanges-overview/" title="Lightning 101 for Exchanges">10</a>] D. Smith, N. Kohen, and C. Stewart, “Lightning 101 for Exchanges” [online]. Available: 
 <a href="https://suredbits.com/lightning-101-for-exchanges-overview">https://suredbits.com/lightning-101-for-exchanges-overview</a>. Date accessed: 2019‑11‑06.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
 <li><a href="https://github.com/anselld">https://github.com/anselld</a></li>

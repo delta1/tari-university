@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#bulletproofs-and-mimblewimble" id="bulletproofs-and-mimblewimble">Bulletproofs and Mimblewimble</a></h1>
+                        <h1 id="bulletproofs-and-mimblewimble"><a class="header" href="#bulletproofs-and-mimblewimble">Bulletproofs and Mimblewimble</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a>
 <ul>
@@ -259,8 +259,8 @@
 </li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
-<h3><a class="header" href="#bulletproofs" id="bulletproofs">Bulletproofs</a></h3>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<h3 id="bulletproofs"><a class="header" href="#bulletproofs">Bulletproofs</a></h3>
 <p>Bulletproofs form part of the family of distinct <em>Zero-knowledge Proof</em><sup><a href="#zk" title="In cryptography, a zero-knowledge 
 proof/protocol is a method by which 
 one party (the prover) can convince ...">def</a></sup> systems, such as Zero-Knowledge 
@@ -306,7 +306,7 @@ proofs, but offer a further replacement for the inner product argument that redu
 three ([<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions and 
 More">1</a>], [<a href="https://github.com/adjoint-io/bulletproofs" title="GitHub: adjoint-io/Bulletproofs, Bulletproofs are Short 
 Non-interactive Zero-knowledge Proofs that Require no Trusted Setup">29</a>]).</p>
-<h3><a class="header" href="#mimblewimble" id="mimblewimble">Mimblewimble</a></h3>
+<h3 id="mimblewimble"><a class="header" href="#mimblewimble">Mimblewimble</a></h3>
 <p><a href="../../protocols/mimblewimble-1/MainReport.html">Mimblewimble</a> is a blockchain protocol designed for confidential 
 transactions. The essence is that a Pedersen Commitment to $ 0 $ can be viewed as an Elliptic Curve Digital Signature 
 Algorithm (ECDSA) public key, and that for a valid confidential transaction, the difference between outputs, inputs and 
@@ -317,7 +317,7 @@ any old and spent transactions. The blockchain consists only of block-headers, r
 (UTXO) with their range proofs and an unprunable transaction kernel per transaction. Mimblewimble also allows 
 transactions to be aggregated before being committed to the blockchain ([<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions and 
 More">1</a>], [<a href="https://www.weusecoins.com/mimble-wimble-andrew-poelstra" title="Mimblewimble Explained">20</a>]).</p>
-<h2><a class="header" href="#how-do-bulletproofs-work" id="how-do-bulletproofs-work">How do Bulletproofs Work?</a></h2>
+<h2 id="how-do-bulletproofs-work"><a class="header" href="#how-do-bulletproofs-work">How do Bulletproofs Work?</a></h2>
 <p>The basis of confidential transactions is to replace the input and output amounts with <em>Pedersen 
 Commitments</em><sup><a href="#ecpc" title="An efficient implementation of the 
 Pedersen Commitment  will use secure 
@@ -378,7 +378,7 @@ payment reduce by ~73% and the average USD-based fees reduce by ~94.5% for the p
 28 November 2018 (refer to Figure 3).</p>
 <p align="center"><img src="sources/xmr-tx-size.png" width="650" /></p>
 <p align="center"><b>Figure&nbsp;3: Monero Payment, Block and Data Size Statistics</b></p>
-<h2><a class="header" href="#applications-for-bulletproofs" id="applications-for-bulletproofs">Applications for Bulletproofs</a></h2>
+<h2 id="applications-for-bulletproofs"><a class="header" href="#applications-for-bulletproofs">Applications for Bulletproofs</a></h2>
 <p>Bulletproofs were designed for range proofs. However, they also generalize to arbitrary arithmetic circuits. 
 In practice, this means that Bulletproofs have wide application and can be efficiently used for many types of proofs. 
 Use cases of Bulletproofs are listed in this section, but this list may not be exhaustive, as use cases for Bulletproofs 
@@ -477,7 +477,7 @@ block of transactions needs to verify all transactions as well as range proofs. 
 implemented as one large multi-exponentiation; it is applied to reduce the number of expensive exponentiations.</p>
 </li>
 </ol>
-<h2><a class="header" href="#comparison-to-other-zero-knowledge-proof-systems" id="comparison-to-other-zero-knowledge-proof-systems">Comparison to other Zero-knowledge Proof Systems</a></h2>
+<h2 id="comparison-to-other-zero-knowledge-proof-systems"><a class="header" href="#comparison-to-other-zero-knowledge-proof-systems">Comparison to other Zero-knowledge Proof Systems</a></h2>
 <p>Table 1 ([<a href="https://diyhpl.us/wiki/transcripts/2018-02-02-andrew-poelstra-bulletproofs" title="Bulletproofs (Transcript)">2</a>], [<a href="https://cyber.stanford.edu/sites/default/files/bpase18.pptx" title="Bulletproofs: Short Proofs for Confidential Transactions and More (Slides)">5</a>]) shows a high-level comparison between Sigma protocols (i.e. interactive public-coin 
 protocols) and the different Zero-knowledge proof systems mentioned in this report. (The most desirable outcomes for 
 each measurement are shown in <em><strong>bold italics</strong></em>.) The aim will be to have a proof system that is not interactive, has 
@@ -497,11 +497,11 @@ These attributes make Bulletproofs extremely desirable to use as range proofs in
 compute on every input, but hard to invert 
 given the image of a random input.">OWF</a>) [<a href="https://en.wikipedia.org/wiki/One-way_function" title="Wikipedia: One-way Function">50</a>], which is better than DL</strong></em></td><td><em><strong>similar to STARKs</strong></em></td><td><em><strong>DL</strong></em></td></tr>
 </tbody></table>
-<h2><a class="header" href="#interesting-bulletproofs-implementation-snippets" id="interesting-bulletproofs-implementation-snippets">Interesting Bulletproofs Implementation Snippets</a></h2>
+<h2 id="interesting-bulletproofs-implementation-snippets"><a class="header" href="#interesting-bulletproofs-implementation-snippets">Interesting Bulletproofs Implementation Snippets</a></h2>
 <p>Bulletproofs development is currently still evolving, as can be seen when following the different community development 
 projects. Different implementations of Bulletproofs also offer different levels of efficiency, security and functionality. 
 This section describes some of these aspects.</p>
-<h3><a class="header" href="#current-and-past-efforts" id="current-and-past-efforts">Current and Past Efforts</a></h3>
+<h3 id="current-and-past-efforts"><a class="header" href="#current-and-past-efforts">Current and Past Efforts</a></h3>
 <p>The initial prototype Bulletproofs' implementation was done by <a href="https://github.com/bbuenz">Benedikt Bünz</a> in Java 
 located at <code>GitHub:bbuenz/BulletProofLib</code> [<a href="https://github.com/bbuenz/BulletProofLib" title="GitHub: bbuenz/BulletProofLib, Library for Generating Non-interactive 
 Zero Knowledge Proofs without Trusted Setup (Bulletproofs)">27</a>].</p>
@@ -539,7 +539,7 @@ with multiparty workflow aimed at the financial industry.</p>
 Implementation of Bulletproofs using Ristretto">28</a>]. It has implemented parallel Edwards formulas [<a href="https://iacr.org/archive/asiacrypt2008/53500329/53500329.pdf" title="Twisted Edwards Curves Revisited">39</a>] using Intel® 
 Advanced Vector Extensions 2 (AVX2) to accelerate curve operations. Initial testing suggests approximately 50% speedup 
 (twice as fast) over the original <code>libsecp256k1</code>-based Bulletproofs implementation.</p>
-<h3><a class="header" href="#security-considerations" id="security-considerations">Security Considerations</a></h3>
+<h3 id="security-considerations"><a class="header" href="#security-considerations">Security Considerations</a></h3>
 <p>Real-world implementation of Elliptic-curve Cryptography (ECC) is largely based on official standards that govern the 
 selection of curves in order to try and make the Elliptic-curve Discrete-logarithm Problem (ECDLP) hard to solve, i.e. 
 finding an ECC user's secret key given the user's public key. Many attacks break real-world ECC without solving ECDLP 
@@ -559,7 +559,7 @@ serious and critical bug fixes as well as some other code improvements  ([<a hre
 Fundraising">8</a>], [<a href="https://ostif.org/the-quarkslab-and-kudelski-security-audits-of-monero-bulletproofs-are-complete" title="The QuarksLab and 
 Kudelski Security Audits of Monero Bulletproofs are Complete">9</a>], [<a href="https://ostif.org/the-ostif-and-quarkslab-audit-of-monero-bulletproofs-is-complete-critical-bug-patched/" title="The 
 OSTIF and QuarksLab Audit of Monero Bulletproofs is Complete – Critical Bug Patched">11</a>]).</p>
-<h3><a class="header" href="#wallet-reconstruction-and-switch-commitment---grin" id="wallet-reconstruction-and-switch-commitment---grin">Wallet Reconstruction and Switch Commitment - Grin</a></h3>
+<h3 id="wallet-reconstruction-and-switch-commitment---grin"><a class="header" href="#wallet-reconstruction-and-switch-commitment---grin">Wallet Reconstruction and Switch Commitment - Grin</a></h3>
 <p>Grin implemented a switch commitment [<a href="https://people.mmci.uni-saarland.de/%7Etruffing/papers/switch-commitments.pdf" title="Switch Commitments: A Safety Switch 
 for Confidential Transactions">43</a>] as part of a transaction output to be ready for the age of quantum 
 adversaries and to pose as a defense mechanism. It had an original implementation that was discarded (completely 
@@ -568,7 +568,7 @@ also employed a complex scheme to embed the transaction amount inside a Bulletpr
 reconstruction, which was linked to the original switch commitment hash implementation. The latest implementation 
 improved on all those aspects and uses a much simpler method to regain the transaction amount from a Bulletproof range 
 proof. </p>
-<h4><a class="header" href="#initial-implementation" id="initial-implementation">Initial Implementation</a></h4>
+<h4 id="initial-implementation"><a class="header" href="#initial-implementation">Initial Implementation</a></h4>
 <p>The initial Grin implementation ([<a href="https://github.com/mimblewimble/grin/issues/721" title="Message Hiding in Bulletproofs #721">21</a>], [<a href="https://github.com/mimblewimble/grin/issues/734" title="GitHub: mimblewimble/grin, Switch Commits / Bulletproofs - Status 
 #734">34</a>]. [<a href="https://github.com/mimblewimble/grin/issues/273" title="GitHub: mimblewimble/grin, Bulletproofs #273">35</a>], [<a href="https://github.com/mimblewimble/grin/pull/730" title="GitHub: mimblewimble/grin, Bulletproof messages #730">54</a>]) hides two things in the Bulletproof range proof: a 
 transaction amount for wallet reconstruction and an optional switch commitment hash to make the transaction perfectly 
@@ -629,7 +629,7 @@ $$</p>
 <p>To retrieve the embedded message, the process is simply inverted. Note that the owner of an output needs to keep record 
 of the blinding factor $ b $, the nonce $ \eta $ if not equal to the blinding factor $ b $, as well as the wallet-seed 
 derived random value $ r $ to be able to claim such an output.</p>
-<h4><a class="header" href="#improved-implementation" id="improved-implementation">Improved Implementation</a></h4>
+<h4 id="improved-implementation"><a class="header" href="#improved-implementation">Improved Implementation</a></h4>
 <p>The latter Grin implementation ([<a href="https://github.com/mimblewimble/grin/issues/998" title="GitHub: mimblewimble/grin, switch commitment discussion #998">56</a>], [<a href="https://github.com/mimblewimble/grin/pull/2007" title="GitHub: mimblewimble/grin, [DNM] Switch commitments #2007">57</a>]) uses Bulletproof range proof rewinding so that wallets can recognize 
 their own transaction outputs. This negated the requirement to remember the wallet-seed derived random value $ r $, 
 nonce $ \eta $ for the seed function $ \mathrm S $ and use of the adapted pair $ \tilde{\alpha} , \tilde{\tau_1} 
@@ -651,7 +651,7 @@ $ ( vG + b^\prime H \mspace{3mu} , \mspace{3mu} b^\prime J ) $, and <em>verifier
 use it as if it were the <em>ElGamal Commitment</em><sup><a href="#egc" title="An ElGamal Commitment is a 
 Pedersen Commitment with
 additional commitment ...">def</a></sup> $ ( vG + b H \mspace{3mu} , \mspace{3mu} b J ) $. </p>
-<h4><a class="header" href="#github-extracts" id="github-extracts">GitHub Extracts</a></h4>
+<h4 id="github-extracts"><a class="header" href="#github-extracts">GitHub Extracts</a></h4>
 <p>The following extracts of discussions depict the initial and improved implementations of the switch commitment and 
 retrieving transactions amounts from Bulletproofs for wallet reconstruction.</p>
 <p><strong>Bulletproofs #273</strong> [<a href="https://github.com/mimblewimble/grin/issues/273" title="GitHub: mimblewimble/grin, Bulletproofs #273">35</a>]</p>
@@ -709,7 +709,7 @@ this is just used like a normal Pedersen Commitment vG + bH. After the switch, u
 verifiers check if it's computed correctly and use as if it were the ElGamal commitment (vG + bH, bJ).&quot;</p>
 <p>{<strong>@ignopeverell</strong>} modified the milestones: Beta / testnet3, Mainnet on 11 Jul.</p>
 <p>{<strong>@ignopeverell</strong>} added the must-have label on 24 Aug.</p>
-<h2><a class="header" href="#conclusions-observations-and-recommendations" id="conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
+<h2 id="conclusions-observations-and-recommendations"><a class="header" href="#conclusions-observations-and-recommendations">Conclusions, Observations and Recommendations</a></h2>
 <ul>
 <li>
 <p>Bulletproofs are not Bulletproofs are not Bulletproofs. This is evident by comparing the functionality, security and 
@@ -742,7 +742,7 @@ Presentation at Feb 2 Milan Meetup">10</a>]).</p>
 in a new confidential blockchain protocol such as Tari; in the base layer as well as in the probable second layer.</p>
 </li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions and 
 More">1</a>] B. Bünz, J. Bootle, D. Boneh, A. Poelstra, P. Wuille and G. Maxwell, &quot;Bulletproofs: Short Proofs for Confidential 
 Transactions and More&quot;, Blockchain Protocol Analysis and Security Engineering 2018 [online]. 
@@ -914,8 +914,8 @@ Confidential Transactions">62</a>] A. Gibson, &quot;An Investigation into Confid
 Zero-knowledge from Discrete-Logs in under 7kB">63</a>] J. Bootle, &quot;How to do Zero-knowledge from Discrete-Logs in under 7kB&quot;, October 2016 [online]. Available: 
 <a href="https://www.benthamsgaze.org/2016/10/25/how-to-do-zero-knowledge-from-discrete-logs-in-under-7kb">https://www.benthamsgaze.org/2016/10/25/how-to-do-zero-knowledge-from-discrete-logs-in-under-7kb</a>. Date accessed: 
 2019‑01‑18. </p>
-<h2><a class="header" href="#appendices" id="appendices">Appendices</a></h2>
-<h3><a class="header" href="#appendix-a-definition-of-terms" id="appendix-a-definition-of-terms">Appendix A: Definition of Terms</a></h3>
+<h2 id="appendices"><a class="header" href="#appendices">Appendices</a></h2>
+<h3 id="appendix-a-definition-of-terms"><a class="header" href="#appendix-a-definition-of-terms">Appendix A: Definition of Terms</a></h3>
 <p>Definitions of terms presented here are high level and general in nature. Full mathematical definitions are available 
 in the cited references. </p>
 <ul>
@@ -1070,7 +1070,7 @@ confidential information from the interaction with the <em>prover</em>, apart fr
 </ul>
 </li>
 </ul>
-<h3><a class="header" href="#appendix-b-notation-used" id="appendix-b-notation-used">Appendix B: Notation Used</a></h3>
+<h3 id="appendix-b-notation-used"><a class="header" href="#appendix-b-notation-used">Appendix B: Notation Used</a></h3>
 <p>The general notation of mathematical expressions when specifically referenced is given here, based on [<a href="http://web.stanford.edu/%7Ebuenz/pubs/bulletproofs.pdf" title="Bulletproofs: Short Proofs for Confidential Transactions and 
 More">1</a>].</p>
 <ul>
@@ -1087,7 +1087,7 @@ Note that not every element of $ \mathbb Z_p $ is a generator of $ \mathbb G $.<
 $ \mathbb Z_q \setminus \lbrace 0 \rbrace $, that is all invertible elements of  $ \mathbb Z_p $ and $ \mathbb Z_q $ 
 respectively. This excludes the element $ 0 $ which is not invertible.</li>
 </ul>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
 <li><a href="https://github.com/CjS77">https://github.com/CjS77</a></li>

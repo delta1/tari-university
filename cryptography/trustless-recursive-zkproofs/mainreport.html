@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#trustless-recursive-zero-knowledge-proofs" id="trustless-recursive-zero-knowledge-proofs">Trustless Recursive Zero-Knowledge Proofs</a></h1>
+                        <h1 id="trustless-recursive-zero-knowledge-proofs"><a class="header" href="#trustless-recursive-zero-knowledge-proofs">Trustless Recursive Zero-Knowledge Proofs</a></h1>
 <ul>
 <li><a href="#introduction">Introduction</a> </li>
 <li><a href="#notation-and-preliminaries">Notation and Preliminaries</a>
@@ -275,7 +275,7 @@
 <li><a href="#appendix-a-pairing-cryptography">Appendix A: Pairing Cryptography</a> </li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#introduction" id="introduction">Introduction</a></h2>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
 <p>In pursuit of blockchain scalability investigation in this report focuses on 
 the second leg of recursive proofs composition: 
 &quot;proofs that verify other proofs&quot;. </p>
@@ -293,11 +293,11 @@ to simplify concepts, while keeping technical reader's interests in mind.
 At the end the reader will appreciate the power of recursive proofs composition, how 
 it uses PCDs and cycles of elliptic curves, as well as why it needs the two to achieve 
 significant blockchain scalability. </p>
-<h2><a class="header" href="#notation-and-preliminaries" id="notation-and-preliminaries">Notation and Preliminaries</a></h2>
+<h2 id="notation-and-preliminaries"><a class="header" href="#notation-and-preliminaries">Notation and Preliminaries</a></h2>
 <p>Notation and terminology in this report is standard. But in order to achieve a clear understanding of
 the concept of <a href="#cycles-of-elliptic-curves">cycles of elliptic curves</a>, a few basic facts about elliptic curves are herein ironed 
 out. </p>
-<h3><a class="header" href="#fields-and-elliptic-curves" id="fields-and-elliptic-curves">Fields and Elliptic Curves</a></h3>
+<h3 id="fields-and-elliptic-curves"><a class="header" href="#fields-and-elliptic-curves">Fields and Elliptic Curves</a></h3>
 <p>A <strong>field</strong> is any set 
 $\mathbb{F}$ 
 of objects upon which addition '$+$' and multiplication '$*$' 
@@ -364,7 +364,7 @@ The order of the elliptic curve group $E(\mathbb{F})$ is denoted by $\# E(\mathb
 <p>Ultimately, unlike an elliptic curve $E$ over a general field $\mathbb{F}$, an elliptic curve group $E(\mathbb{F})$ is discrete, 
 consisting of only a finite number of points. The sizes of these groups are bounded by what is known as 
 the Hasse bound [<a href="http://math.uchicago.edu/%7Emay/REU2017/REUPapers/CoatesWelsh.pdf" title="ELLIPTIC CURVE CRYPTOGRAPHY">12</a>]. Algorithms used to compute these sizes are also known, see [<a href="https://math.mit.edu/classes/18.783/2015/LectureNotes9.pdf" title="Elliptic Curves, Lecture 9 Schoof's Algorithm">13</a>].</p>
-<h4><a class="header" href="#example-1" id="example-1">Example 1</a></h4>
+<h4 id="example-1"><a class="header" href="#example-1">Example 1</a></h4>
 <p>Consider the curve $E$ of points satisfying this equation 
 $$y^2 = x^3 - 43x + 166$$ 
 Pick the point 
@@ -393,7 +393,7 @@ See [<a href="http://web.math.ucsb.edu/%7Epadraic/ucsb_2014_15/ccs_discrete_f201
 referred to as an <strong>elliptic curve</strong>. 
 And unless otherwise stated, 
 the base field will be a field of a large prime order $p$, denoted by $\mathbb{F}_p$.</p>
-<h3><a class="header" href="#arithmetic-circuits-and-r1cs" id="arithmetic-circuits-and-r1cs">Arithmetic Circuits and R1CS</a></h3>
+<h3 id="arithmetic-circuits-and-r1cs"><a class="header" href="#arithmetic-circuits-and-r1cs">Arithmetic Circuits and R1CS</a></h3>
 <p>A zero-knowledge proof typically involves two parties, 
 the prover $\mathcal{P}$ and the verifier $\mathcal{V}$. 
 The prover $\mathcal{P}$ has to convince the verifier $\mathcal{V}$ that he knows the correct solution to a 
@@ -412,13 +412,13 @@ $\mathcal{C}$, and the circuit
 $\mathcal{C}$ is satisfied
 <em>if and only if</em> 
 the prover has the correct solution to the original computational problem. </p>
-<h2><a class="header" href="#recursive-proofs-composition-overview" id="recursive-proofs-composition-overview">Recursive Proofs Composition Overview</a></h2>
+<h2 id="recursive-proofs-composition-overview"><a class="header" href="#recursive-proofs-composition-overview">Recursive Proofs Composition Overview</a></h2>
 <p>In their recent paper [<a href="https://eprint.iacr.org/2020/499.pdf" title="Proof-Carrying Data from Accumulation Schemes">1</a>], Benedikt Buenz et al. report that,
 &quot;Recursive proofs composition has been shown to lead to powerful primitives 
 such as incrementally-verifiable computation (IVC) and proof-carrying data (PCD).&quot; 
 Thus recognising the two main components of recursive proofs composition, IVC and PCD. 
 The former was adequately investigated in [<a href="https://tlu.tarilabs.com/cryptography/amortization-bp-ipp/mainreport.html#amortization-of-bulletproofs-inner-product-proof" title="Amortization of Bulletproofs Inner-product Proof">9</a>], and the latter is now the focus of this report.</p>
-<h3><a class="header" href="#verification-amortization-strategies" id="verification-amortization-strategies">Verification Amortization Strategies</a></h3>
+<h3 id="verification-amortization-strategies"><a class="header" href="#verification-amortization-strategies">Verification Amortization Strategies</a></h3>
 <p>These strategies are briefly mentioned here but their detailed descriptions can be found in [<a href="https://tlu.tarilabs.com/cryptography/amortization-bp-ipp/mainreport.html#amortization-of-bulletproofs-inner-product-proof" title="Amortization of Bulletproofs Inner-product Proof">9</a>]. </p>
 <p><strong>Verifiable Computation</strong> 
 allows a verifier to delegate expensive computations to untrusted third parties and be able 
@@ -437,11 +437,11 @@ only executes a single proof at the end.</p>
 the strategy here is to reduce the cost of an expensive computation to a sub-linear 
 cost (logarithmic relative to the cost of the original computation) by collapsing the cost of two 
 computations to a cost of one.</p>
-<h2><a class="header" href="#proof-carrying-data" id="proof-carrying-data">Proof-Carrying Data</a></h2>
+<h2 id="proof-carrying-data"><a class="header" href="#proof-carrying-data">Proof-Carrying Data</a></h2>
 <p>Recursive proofs composition uses an abstraction called <em>proof-carrying data</em> (PCD) when dealing with 
 distributed computations. These PCDs are powerful tools that enable practical implementation 
 of the above verification amortization strategies. </p>
-<h3><a class="header" href="#what-is-a-pcd" id="what-is-a-pcd">What is a PCD?</a></h3>
+<h3 id="what-is-a-pcd"><a class="header" href="#what-is-a-pcd">What is a PCD?</a></h3>
 <p><strong>Proof-Carrying Data</strong>, or PCD, is a cryptographic mechanism that allows 
 proof strings $\pi_i$ to be carried along with messages $m_i$ in a distributed computation [<a href="https://www.michaelstraka.com/posts/recursivesnarks" title="Recursive Zero-knowledge Proofs: A Comprehensive Primer">15</a>]. </p>
 <p align="center"><a name="fig_dco"> </a><img src="sources/distributed-computation.png" width="450" /></p>
@@ -452,7 +452,7 @@ The assumption here is that there are specific invariant properties that all pro
 messages need to maintain. </p>
 <p>An obvious example of a distributed computation in PoW blockchains is mining. And of course, 
 the integrity of any PoW blockchains relies on the possibility for proper validation of the PoW. </p>
-<h3><a class="header" href="#trustlessness-via-pcds" id="trustlessness-via-pcds">Trustlessness via PCDs</a></h3>
+<h3 id="trustlessness-via-pcds"><a class="header" href="#trustlessness-via-pcds">Trustlessness via PCDs</a></h3>
 <p>A PCD achieves trustlessness in the sense that untrusted parties carry out 
 distributed computations, and a protocol compiler $\mathbf{\Pi}$ is used to enforce 
 compliance to a predicate specified by the proof system designer. 
@@ -474,11 +474,11 @@ Any new node can take advantage of IVC and a PCD to succinctly verify the curren
 the blockchain without concern about the chain's historical integrity.</p>
 <p>The PCD abstraction is no doubt the very secret to achieving blockchain scaling 
 especially via recursive proofs composition. </p>
-<h2><a class="header" href="#cycles-of-elliptic-curves" id="cycles-of-elliptic-curves">Cycles of Elliptic Curves</a></h2>
+<h2 id="cycles-of-elliptic-curves"><a class="header" href="#cycles-of-elliptic-curves">Cycles of Elliptic Curves</a></h2>
 <p>Given the above discussion on PCDs, note that the cryptographic technique of using 
 a <em>cycle of elliptic curves</em> is not much about scalability but rather about efficiency of 
 arithmetic circuits. The main trick is to exploit the proof system's field structure. </p>
-<h3><a class="header" href="#why-cycle-of-elliptic-curves" id="why-cycle-of-elliptic-curves">Why Cycle of Elliptic Curves?</a></h3>
+<h3 id="why-cycle-of-elliptic-curves"><a class="header" href="#why-cycle-of-elliptic-curves">Why Cycle of Elliptic Curves?</a></h3>
 <p>Why then the need for a second elliptic curve that warrants the use of a cycle of elliptic curves? </p>
 <p>The reason a second elliptic curve is needed is due to the inherent field structure of 
 elliptic curves. There are two practical aspects to carefully consider when 
@@ -487,7 +487,7 @@ choosing fields for the underlying Elliptic Curve Cryptosystem of a blockchain; 
 <li>firstly, the best field arithmetic for arithmetic circuits that are instantiated with $E(\mathbb{F}_q)$, and </li>
 <li>secondly, the possible or mathematically permissible orders of the scalar field of $E(\mathbb{F}_q)$. </li>
 </ul>
-<h4><a class="header" href="#the-native-field-arithmetic" id="the-native-field-arithmetic">The Native Field Arithmetic</a></h4>
+<h4 id="the-native-field-arithmetic"><a class="header" href="#the-native-field-arithmetic">The Native Field Arithmetic</a></h4>
 <p>When instantiating a proof system's arithmetic circuit using an elliptic curve 
 $E(\mathbb{F}_q)$, it is 
 important to take cognizance of the two types of field arithmetic involved: 
@@ -502,7 +502,7 @@ and multiplication modulo $r$. </li>
 </ul>
 <p>The question now is which arithmetic is better to use in a circuit instantiated with $E(\mathbb{F}_p)$? 
 The next example makes the choice obvious. </p>
-<h4><a class="header" href="#example-2" id="example-2">Example 2</a></h4>
+<h4 id="example-2"><a class="header" href="#example-2">Example 2</a></h4>
 <p>Consider the elliptic curve $E(\mathbb{Q})$ from <a href="#example-1">Example 1</a>. 
 Since $E(\mathbb{Q})$ is isomorphic to $\mathbb{F}_7$, group addition of two elements 
 in $E(\mathbb{Q})$ amounts to 
@@ -517,7 +517,7 @@ $ \mathbb{F}_7 $ is more natural to use than the base field's. </p>
 thus the infinite field of rationals $\mathbb{Q}$ is never used. 
 Yet, even in cases where the base field is finite and of prime order, 
 a more native arithmetic is that of the scalar field. </p>
-<h4><a class="header" href="#the-order-of-the-scalar-field" id="the-order-of-the-scalar-field">The Order of the Scalar Field</a></h4>
+<h4 id="the-order-of-the-scalar-field"><a class="header" href="#the-order-of-the-scalar-field">The Order of the Scalar Field</a></h4>
 <p>For any finite field $\mathbb{F}_q$, 
 as noted earlier <a href="#fields-and-elliptic-curves">here</a>, 
 either $q = p$ or $q = p^n$ for some $p$ a prime. 
@@ -537,7 +537,7 @@ a concept discussed later <a href="#pairing-friendly-elliptic-curves">here</a>. 
 <p>It is thus mathematically impossible for the scalar field $\mathbb{F}_r$ of 
 the elliptic curve $E(\mathbb{F}_q)$ 
 to have the same order as the base field $\mathbb{F}_q$. </p>
-<h4><a class="header" href="#no-prover-verifier-dichotomy" id="no-prover-verifier-dichotomy">No Prover-Verifier Dichotomy</a></h4>
+<h4 id="no-prover-verifier-dichotomy"><a class="header" href="#no-prover-verifier-dichotomy">No Prover-Verifier Dichotomy</a></h4>
 <p>In the envisaged proof-of-proofs system using recursive proofs composition, the tremendous 
 accomplishment is to allow every participant to simultaneously be a prover and a verifier. 
 However, this presents a serious practical problem. </p>
@@ -565,7 +565,7 @@ come to be deployed in zero-knowledge proof systems such as zkSNARKs. </p>
 <p>The proof system aimed at is illustrated in <a href="#fig_app">Figure 3</a> below.</p>
 <p align="center"><a name="fig_apps"> </a><img src="sources/amicable-pair-1way-circuit.png" width="600" /></p>
 <div align="center"><b>Figure 3: Amicable Pair-based Proof System </b></div>  
-<h3><a class="header" href="#pairing-friendly-elliptic-curves" id="pairing-friendly-elliptic-curves">Pairing-friendly Elliptic Curves</a></h3>
+<h3 id="pairing-friendly-elliptic-curves"><a class="header" href="#pairing-friendly-elliptic-curves">Pairing-friendly Elliptic Curves</a></h3>
 <p>It was Groth in [<a href="https://eprint.iacr.org/2016/260.pdf" title="On the Size of Pairing-based Non-interactive Arguments">18</a>] who first constructed &quot;a pairing-based 
 (preprocessing) SNARK for arithmetic circuit satisfiability, which is an NP-complete language&quot;. 
 But when it comes to a scalable zero-knowledge proof system, it was Ben-Sasson et al in [<a href="https://eprint.iacr.org/2014/595.pdf" title="Scalable Zero Knowledge via Cycles of Elliptic Curves">2</a>] 
@@ -582,7 +582,7 @@ In the same paper, the authors furnish what they call a &quot;single coherent fr
 elliptic curves. </p>
 <p>The Coda blockchain [<a href="https://cdn.codaprotocol.com/v2/static/coda-whitepaper-05-10-2018-0.pdf" title="Coda: Decentralized cryptocurrency at scale">19</a>] is an example of a deployed protocol using the Ben-Sasson approach in [<a href="https://eprint.iacr.org/2014/595.pdf" title="Scalable Zero Knowledge via Cycles of Elliptic Curves">2</a>]. 
 It uses pairing-friendly MNT curves of embedding degrees 4 and 6. </p>
-<h3><a class="header" href="#amicable-pairs-of-elliptic-curves" id="amicable-pairs-of-elliptic-curves">Amicable Pairs of Elliptic Curves</a></h3>
+<h3 id="amicable-pairs-of-elliptic-curves"><a class="header" href="#amicable-pairs-of-elliptic-curves">Amicable Pairs of Elliptic Curves</a></h3>
 <p>According to Bowe et al in [<a href="https://pdfs.semanticscholar.org/83ac/e8f26e6c57c6c2b4e66e5e81aafaadd7ca38.pdf" title="Halo: Recursive Proof Composition without a Trusted Setup">8</a>], pairing-based curves of small embedding degree like 
 MNT constructions used in Coda require curves of size 
 approaching 800 bits for 128-bit security level. </p>
@@ -619,11 +619,11 @@ For instance, in [<a href="https://arxiv.org/pdf/0912.1831.pdf" title="Amicable 
 more than $800$ amicable pairs using prime numbers that are less than $10^6$. </p>
 <p>See <a href="#fig_apps">Figure 3</a> above for a simplified depiction of a recursive proofs system using 
 an Amicable pair of elliptic curves. </p>
-<h2><a class="header" href="#brief-survey-recursive-proofs-protocols" id="brief-survey-recursive-proofs-protocols">Brief Survey: Recursive Proofs Protocols</a></h2>
+<h2 id="brief-survey-recursive-proofs-protocols"><a class="header" href="#brief-survey-recursive-proofs-protocols">Brief Survey: Recursive Proofs Protocols</a></h2>
 <p>There are two recursive proofs protocols using amicable pairs of elliptic curves 
 that are of keen interest; Coda and Halo. The Sonic protocol is mentioned here 
 because it is a close predecessor of Halo, and it utilises a few Bulletproofs techniques. </p>
-<h3><a class="header" href="#coda-protocol" id="coda-protocol">Coda Protocol</a></h3>
+<h3 id="coda-protocol"><a class="header" href="#coda-protocol">Coda Protocol</a></h3>
 <p>The Coda Protocol seems to be more successful at scalability than Halo, though the two have 
 fundamental differences. It is claimed in [<a href="https://cdn.codaprotocol.com/v2/static/coda-whitepaper-05-10-2018-0.pdf" title="Coda: Decentralized cryptocurrency at scale">19</a>] that Coda can handle a
 throughput of thousands of transactions per second. And this could perhaps be attributed to its 
@@ -635,7 +635,7 @@ Tic and Toc, that verify each other. Note that this means the recursive proofs c
 to achieve 128-bit security at low embedding degrees it requires 750-bit-sized curves. </p>
 <p align="center"><a name="fig_ttc"> </a><img src="sources/mnt-4-mnt-6-coda.png" width="500" /></p>
 <div align="center"><b>Figure 4: MNT4/MNT6: Coda Protocol's Pair of Elliptic Curves [[22]] </b></div>  
-<h3><a class="header" href="#sonic-protocol" id="sonic-protocol">Sonic Protocol</a></h3>
+<h3 id="sonic-protocol"><a class="header" href="#sonic-protocol">Sonic Protocol</a></h3>
 <p>The Sonic protocol aims at providing zero-knowledge arguments of knowledge for 
 the satisfiability of constraint systems representing NP-hard languages [<a href="https://eprint.iacr.org/2019/099" title="Sonic: Zero-Knowledge SNARKs 
 from Linear-Size Universal and Updateable Structured Reference Strings">23</a>]. Its 
@@ -654,7 +654,7 @@ the computation was correctly carried out. </p>
 <p>Lastly, Sonic makes use of an elliptic curve construction known as BLS12-381 in order to achieve 
 128-bit security at the minimum [<a href="https://eprint.iacr.org/2019/099" title="Sonic: Zero-Knowledge SNARKs 
 from Linear-Size Universal and Updateable Structured Reference Strings">23</a>].</p>
-<h3><a class="header" href="#halo-protocol" id="halo-protocol">Halo Protocol</a></h3>
+<h3 id="halo-protocol"><a class="header" href="#halo-protocol">Halo Protocol</a></h3>
 <p>Although Halo is a variant of Sonic, the two differ mainly in that Halo uses no trusted setup. 
 It however inherits all Bulletproofs techniques that Sonic employs, including the polynomial 
 commitment scheme and the constraint system. </p>
@@ -671,7 +671,7 @@ a generalization of the approach used in Halo. </p>
 <p>Halo is no doubt the closest recursive proofs protocol to Bulletproofs, and hence 
 of keen interest to Tari for possibly developing a recursive proofs system that achieves scaling of
 the Tari Blockchain. </p>
-<h2><a class="header" href="#conclusion" id="conclusion">Conclusion</a></h2>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
 <p>Recursive proofs composition is not only fascinating but also powerful, even as 
 evidenced by real life applications such as the Coda Protocol and the Halo Protocol. </p>
 <p>This report completes the necessary theory needed to understand what is 
@@ -691,7 +691,7 @@ Buenz et al say,
 with messages passed along directed edges&quot; [<a href="https://eprint.iacr.org/2020/499.pdf" title="Proof-Carrying Data from Accumulation Schemes">1</a>]. 
 This together with the Coda example imply that an ingenious combination of 
 a DLT and a PCD for Layer 2 could achieve immense blockchain scalability. </p>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://eprint.iacr.org/2020/499.pdf" title="Proof-Carrying Data from Accumulation Schemes">1</a>] B. Buenz, P. Mishra, A. Chiesa and N. Spooner, &quot;Proof-Carrying Data from Accumulation Schemes&quot;, May 25, 2020
 [online]. Available: <a href="https://eprint.iacr.org/2020/499.pdf">https://eprint.iacr.org/2020/499.pdf</a>. 
 Date accessed: 2020‑07‑01. </p>
@@ -738,7 +738,7 @@ from Linear-Size Universal and Updateable Structured Reference Strings,&quot;
 Cryptology ePrint Archive: Report 2019/099. Last revised July 8, 2019. [online]. 
 Available: <a href="https://eprint.iacr.org/2019/099">https://eprint.iacr.org/2019/099</a></p>
 <p>[<a href="https://eprint.iacr.org/2016/263.pdf" title="Efficient Zero-knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting">24</a>] J. Bootle, A. Cerulli, P. Chaidos, J. Groth and C. Petit, &quot;Efficient Zero-knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting&quot; [online]. Annual International Conference on the Theory and Applications of Cryptographic Techniques, pp. 327‑357. Springer, 2016. Available: <a href="https://eprint.iacr.org/2016/263.pdf">https://eprint.iacr.org/2016/263.pdf</a>. Date accessed: 2019‑12‑21. </p>
-<h2><a class="header" href="#appendix-a-pairing-cryptography" id="appendix-a-pairing-cryptography">Appendix A: Pairing Cryptography</a></h2>
+<h2 id="appendix-a-pairing-cryptography"><a class="header" href="#appendix-a-pairing-cryptography">Appendix A: Pairing Cryptography</a></h2>
 <p>Pairing-based cryptographic systems are defined on pairings like the Weil pairing and the Tate pairing all 
 characterised by a bilinear mapping defined on a pair of groups; an additively group including 
 a special element $\mathcal{O}$, and a multiplicative group. </p>
@@ -779,7 +779,7 @@ $$\hat{e}(A,M) = \hat{e}(aP,M) = \hat{e}(P,M)^a $$ </p>
 <p>See the diagram below that illustrates the verification. </p>
 <p align="center"><a name="fig_bls"> </a><img src="sources/bls-signature.png" width="600" /></p>
 <div align="center"><b>Figure A1: BLS Signature Verification </b></div> 
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/empiech007">https://github.com/empiech007</a></li>
 </ul>

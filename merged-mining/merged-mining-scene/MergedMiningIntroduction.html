@@ -225,7 +225,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#merged-mining-introduction" id="merged-mining-introduction">Merged Mining Introduction</a></h1>
+                        <h1 id="merged-mining-introduction"><a class="header" href="#merged-mining-introduction">Merged Mining Introduction</a></h1>
 <ul>
 <li><a href="#what-is-merged-mining">What is Merged Mining?</a></li>
 <li><a href="#merged-mining-with-multiple-auxiliary-chains">Merged Mining with Multiple Auxiliary Chains</a></li>
@@ -251,7 +251,7 @@
 <li><a href="#references">References</a></li>
 <li><a href="#contributors">Contributors</a></li>
 </ul>
-<h2><a class="header" href="#what-is-merged-mining" id="what-is-merged-mining">What is Merged Mining?</a></h2>
+<h2 id="what-is-merged-mining"><a class="header" href="#what-is-merged-mining">What is Merged Mining?</a></h2>
 <p>Merged mining is the act of using work done on another blockchain (the Parent) on one or more than one Auxiliary 
 blockchain and to accept it as valid on its own chain, using Auxiliary Proof-of-Work (AuxPoW), which is the relationship 
 between two blockchains for one to trust the other's work as their own. The Parent blockchain does not need to be aware 
@@ -272,7 +272,7 @@ As an example, the following diagram shows how this can play out in practice wit
 difficulty (D<sub>BTC</sub>) is more than the Auxiliary difficulty (D<sub>NMC</sub>). Note that <em>BTC block 2'</em> did not 
 become part of the Parent blockchain propagation.</p>
 <p align="center"><img src="./sources/MergedMiningIntro02.png" width="1100" /></p>
-<h2><a class="header" href="#merged-mining-with-multiple-auxiliary-chains" id="merged-mining-with-multiple-auxiliary-chains">Merged Mining with Multiple Auxiliary Chains</a></h2>
+<h2 id="merged-mining-with-multiple-auxiliary-chains"><a class="header" href="#merged-mining-with-multiple-auxiliary-chains">Merged Mining with Multiple Auxiliary Chains</a></h2>
 <p>A miner can use a single Parent to perform merged mining on multiple Auxiliary blockchains. The Merkle tree root of a 
 Merkle tree that contains the block hashes of the Auxiliary blocks as leaves must then be inserted in the Parent's 
 coinbase field as shown in the following diagram. To prevent double spending attacks, each Auxiliary blockchain must 
@@ -280,8 +280,8 @@ specify a unique ID that can be used to derive the leaf of the Merkle tree where
 located [<a href="http://repositum.tuwien.ac.at/obvutwhs/download/pdf/2315652" title="Merged Mining: Analysis of 
 Effects and Implications">25</a>].</p>
 <p align="center"><img src="./sources/MergedMiningIntro03.png" width="750" /></p>
-<h2><a class="header" href="#merged-mining---interesting-facts-and-case-studies" id="merged-mining---interesting-facts-and-case-studies">Merged Mining - Interesting Facts and Case Studies</a></h2>
-<h3><a class="header" href="#namecoin-307-with-bitcoin-1" id="namecoin-307-with-bitcoin-1">Namecoin (#307) with Bitcoin (#1)</a></h3>
+<h2 id="merged-mining---interesting-facts-and-case-studies"><a class="header" href="#merged-mining---interesting-facts-and-case-studies">Merged Mining - Interesting Facts and Case Studies</a></h2>
+<h3 id="namecoin-307-with-bitcoin-1"><a class="header" href="#namecoin-307-with-bitcoin-1">Namecoin (#307) with Bitcoin (#1)</a></h3>
 <ul>
 <li>Namecoin, the first fork of Bitcoin, introduced merged mining with Bitcoin [<a href="https://en.bitcoin.it/wiki/Merged_mining_specification" title="Merged Mining Specification">1</a>] from block 19,200 onwards [<a href="https://github.com/namecoin/wiki/blob/master/Merged-Mining.mediawiki" title="Merged-Mining.mediawiki">3</a>]. At 
 the time of writing (May 2018), the block height of Namecoin was greater than 400,500 [<a href="https://bchain.info/NMC" title="Bchain.info - Blockchain Explorer (NMC)">4</a>].</li>
@@ -298,7 +298,7 @@ of 2018 (Comparison)">6</a>].</li>
 <tr><td>Hash rate (Ehash/s)</td><td>31.705</td><td>21.814</td><td>68.80%</td></tr>
 <tr><td>Blocks count</td><td>525,064</td><td>400,794</td><td>76.33%</td></tr>
 </tbody></table>
-<h3><a class="header" href="#dogecoin-37-with-litecoin-6" id="dogecoin-37-with-litecoin-6">Dogecoin (#37) with Litecoin (#6)</a></h3>
+<h3 id="dogecoin-37-with-litecoin-6"><a class="header" href="#dogecoin-37-with-litecoin-6">Dogecoin (#37) with Litecoin (#6)</a></h3>
 <ul>
 <li>Dogecoin introduced merged mining with Litecoin [<a href="https://www.reddit.com/r/dogecoin/comments/22niq9/merged_mining_amafaq" title="Merged Mining AMA/FAQ">8</a>] from block 371,337 onwards [<a href="ESThttps://www.reddit.com/r/dogecoin/comments/2fyxg1/the_forkening_is_happening_at_900am_est_a_couple" title="The Forkening is Happening at ~9:00AM">9</a>]. At the time of writing 
 (May 2018), the block height of Dogecoin was greater than 2,240,000 [<a href="https://dogechain.info" title="Dogecoin Blockchain Explorer">10</a>].</li>
@@ -309,7 +309,7 @@ of 2018 (Comparison)">6</a>].</li>
 <tr><td>Hash rate (Thash/s)</td><td>311.188</td><td>235.552</td><td>75.69%</td></tr>
 <tr><td>Blocks count</td><td>1,430,517</td><td>2,241,120</td><td>156.67%</td></tr>
 </tbody></table>
-<h3><a class="header" href="#huntercoin-779-with-bitcoin-1-or-litecoin-6" id="huntercoin-779-with-bitcoin-1-or-litecoin-6">Huntercoin (#779) with Bitcoin (#1) or Litecoin (#6)</a></h3>
+<h3 id="huntercoin-779-with-bitcoin-1-or-litecoin-6"><a class="header" href="#huntercoin-779-with-bitcoin-1-or-litecoin-6">Huntercoin (#779) with Bitcoin (#1) or Litecoin (#6)</a></h3>
 <ul>
 <li>Huntercoin was released as a live experimental test to see how blockchain technology could handle full-on game 
 worlds [<a href="http://huntercoin.org" title="Huntercoin: A Blockchain based 
@@ -327,7 +327,7 @@ Game World">22</a>].</li>
 <tr><td>Blocks count</td><td>2,291,060</td></tr>
 <tr><td>PoW algorithm (for merged mining)</td><td>SHA256, Scrypt</td></tr>
 </tbody></table>
-<h3><a class="header" href="#myriad-510-with-bitcoin-1-or-litecoin-6" id="myriad-510-with-bitcoin-1-or-litecoin-6">Myriad (#510) with Bitcoin (#1) or Litecoin (#6)</a></h3>
+<h3 id="myriad-510-with-bitcoin-1-or-litecoin-6"><a class="header" href="#myriad-510-with-bitcoin-1-or-litecoin-6">Myriad (#510) with Bitcoin (#1) or Litecoin (#6)</a></h3>
 <ul>
 <li>Myriad is the first currency to support five PoW algorithms and claims its multi-PoW algorithm approach offers 
 exceptional 51% resistance [<a href="http://myriadcoin.org" title="Myriad: A Coin for Everyone">23</a>].</li>
@@ -350,7 +350,7 @@ exceptional 51% resistance [<a href="http://myriadcoin.org" title="Myriad: A Coi
 </ul>
 </li>
 </ul>
-<h3><a class="header" href="#monero-12digitalnote-166--fantomcoin-1068" id="monero-12digitalnote-166--fantomcoin-1068">Monero (#12)/DigitalNote (#166) + FantomCoin (#1068)</a></h3>
+<h3 id="monero-12digitalnote-166--fantomcoin-1068"><a class="header" href="#monero-12digitalnote-166--fantomcoin-1068">Monero (#12)/DigitalNote (#166) + FantomCoin (#1068)</a></h3>
 <ul>
 <li>FantamCoin was the first CryptoNote-based coin to develop merged mining with Monero, but was abandoned until 
 DigitalNote developers became interested in merged mining with Monero and revived FantamCoin in October 2016 
@@ -382,18 +382,18 @@ such as Monero Classic and Monero Original after Monero's recent hard fork to Cr
 <tr><td>Hash rate (Mhash/s)</td><td>410.804</td><td>19.29</td><td>4.70%</td></tr>
 <tr><td>Blocks count</td><td>1,583,869</td><td>2,126,079</td><td>134.23%</td></tr>
 </tbody></table>
-<h3><a class="header" href="#some-statistics" id="some-statistics">Some Statistics</a></h3>
+<h3 id="some-statistics"><a class="header" href="#some-statistics">Some Statistics</a></h3>
 <p>Merge-mined blocks in some cryptocurrencies on 18 June 2017 [<a href="https://eprint.iacr.org/2017/791.pdf" title="Merged Mining: Curse or Cure?">24</a>]:</p>
 <p align="center"><img src="./sources/MergedMiningStats-1.png" width="350" /></p>
-<h3><a class="header" href="#observations" id="observations">Observations</a></h3>
+<h3 id="observations"><a class="header" href="#observations">Observations</a></h3>
 <ul>
 <li>The Auxiliary blockchain's target block times can be smaller than, equal to or larger than the Parent blockchain.</li>
 <li>The Auxiliary blockchain's hash rate is generally smaller than, but of the same order of magnitude as that of, the 
 Parent blockchain.</li>
 <li>A multi-PoW algorithm approach may further enhance 51% resistance.</li>
 </ul>
-<h2><a class="header" href="#attack-vectors" id="attack-vectors">Attack Vectors</a></h2>
-<h3><a class="header" href="#51-attacks" id="51-attacks">51% Attacks</a></h3>
+<h2 id="attack-vectors"><a class="header" href="#attack-vectors">Attack Vectors</a></h2>
+<h3 id="51-attacks"><a class="header" href="#51-attacks">51% Attacks</a></h3>
 <ul>
 <li>
 <p>51% attacks are real and relevant today. Bitcoin Gold (rank #28 @ 2018‑05‑29) and Verge (rank #33 @ 2018‑05‑29) 
@@ -430,7 +430,7 @@ with providing the new hashing power after the Monero hard fork.</p>
 <p align="center"><img src="./sources/CryptoNight-v7.png" width="750" /></p>
 <p>The Tari blockchain will have to fork together with or just after a scheduled Monero fork. The Tari blockchain will be 
 vulnerable to ASIC miners until it has been forked.</p>
-<h3><a class="header" href="#double-proof" id="double-proof">Double Proof</a></h3>
+<h3 id="double-proof"><a class="header" href="#double-proof">Double Proof</a></h3>
 <ul>
 <li>A miner could cheat the PoW system by putting more than one Auxiliary block header into one Parent block [<a href="https://en.bitcoin.it/wiki/Alternative_chain#Protecting_against_double_proof" title="Alternative Chain">7</a>]. </li>
 <li>Multiple Auxiliary blocks could be competing for the same PoW, and could subject your Auxiliary blockchain to 
@@ -439,7 +439,7 @@ transactions ([<a href="https://en.bitcoin.it/wiki/Alternative_chain#Protecting_
 Proof of Stake">26</a>]).</li>
 <li>More than one Auxiliary blockchain will be merge-mined with Monero.</li>
 </ul>
-<h3><a class="header" href="#analysis-of-mining-power-centralization-issues" id="analysis-of-mining-power-centralization-issues">Analysis of Mining Power Centralization Issues</a></h3>
+<h3 id="analysis-of-mining-power-centralization-issues"><a class="header" href="#analysis-of-mining-power-centralization-issues">Analysis of Mining Power Centralization Issues</a></h3>
 <p>With reference to [<a href="https://eprint.iacr.org/2017/791.pdf" title="Merged Mining: Curse or Cure?">24</a>] and [<a href="http://repositum.tuwien.ac.at/obvutwhs/download/pdf/2315652" title="Merged Mining: Analysis of 
 Effects and Implications">25</a>]:</p>
 <ul>
@@ -455,7 +455,7 @@ parent blockchain.</li>
 as follows:</li>
 </ul>
 <p align="center"><img src="./sources/MergedMiningStats-2.png" width="350" /></p>
-<h3><a class="header" href="#introduction-of-new-attack-vectors" id="introduction-of-new-attack-vectors">Introduction of New Attack Vectors</a></h3>
+<h3 id="introduction-of-new-attack-vectors"><a class="header" href="#introduction-of-new-attack-vectors">Introduction of New Attack Vectors</a></h3>
 <p>With reference to [<a href="https://eprint.iacr.org/2017/791.pdf" title="Merged Mining: Curse or Cure?">24</a>] and [<a href="http://repositum.tuwien.ac.at/obvutwhs/download/pdf/2315652" title="Merged Mining: Analysis of 
 Effects and Implications">25</a>]:</p>
 <ul>
@@ -468,7 +468,7 @@ bootstrapping technique.</li>
 <li>Empirical evidence suggests that only a small number of mining pools are involved in merged mining, and they enjoy 
 block shares beyond the desired security and decentralization goals.</li>
 </ul>
-<h2><a class="header" href="#references" id="references">References</a></h2>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
 <p>[<a href="https://en.bitcoin.it/wiki/Merged_mining_specification" title="Merged Mining Specification">1</a>] &quot;Merged Mining Specification&quot; [online).
 Available: <a href="https://en.bitcoin.it/wiki/Merged_mining_specification">https://en.bitcoin.it/wiki/Merged_mining_specification</a>. Date accessed: 2018‑05‑28.</p>
 <p>[<a href="https://bitcoin.stackexchange.com/questions/273/how-does-merged-mining-work" title="How does Merged Mining Work?">2</a>] &quot;How does Merged Mining Work?&quot; [Online.]
@@ -534,7 +534,7 @@ Date accessed: 2019‑02‑12. </p>
 <p>[<a href="https://github.com/ethereum/wiki/wiki/Problems" title="Problems - Consensus - 8. 
 Proof of Stake">26</a>] &quot;Problems - Consensus - 8. Proof of Stake&quot; [online]. Available: <a href="https://github.com/ethereum/wiki/wiki/Problems">https://github.com/ethereum/wiki/wiki/Problems</a>. 
 Date accessed: 2018‑06‑05.</p>
-<h2><a class="header" href="#contributors" id="contributors">Contributors</a></h2>
+<h2 id="contributors"><a class="header" href="#contributors">Contributors</a></h2>
 <ul>
 <li><a href="https://github.com/hansieodendaal">https://github.com/hansieodendaal</a></li>
 <li><a href="https://github.com/CjS77">https://github.com/CjS77</a></li>

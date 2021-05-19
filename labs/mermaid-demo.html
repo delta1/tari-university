@@ -225,9 +225,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#mermaid-demo" id="mermaid-demo">Mermaid Demo</a></h1>
+                        <h1 id="mermaid-demo"><a class="header" href="#mermaid-demo">Mermaid Demo</a></h1>
 <p>TLU can now support mermaid diagrams! Flowcharts, sequence diagrams and more!</p>
-<h3><a class="header" href="#how-to-write-mermaid-diagrams" id="how-to-write-mermaid-diagrams">How to write mermaid diagrams.</a></h3>
+<h3 id="how-to-write-mermaid-diagrams"><a class="header" href="#how-to-write-mermaid-diagrams">How to write mermaid diagrams.</a></h3>
 <ol>
 <li><a href="https://mermaidjs.github.io">RTFM</a>.</li>
 <li>Wrap your mermaid code in <code>&lt;div&gt;</code> tags. Add the <code>class=mermaid</code> attribute to the tag. So your code will look like</li>
@@ -242,7 +242,7 @@ graph LR
 this as a new paragraph and break your diagram. However, you can <em>sort of</em> workaround this by putting a <code>#</code> as a 
 spacer (see first example).</li>
 </ol>
-<h2><a class="header" href="#sequence-diagram-example" id="sequence-diagram-example">Sequence diagram example</a></h2>
+<h2 id="sequence-diagram-example"><a class="header" href="#sequence-diagram-example">Sequence diagram example</a></h2>
 <pre><code class="language-html">&lt;div  class=mermaid&gt;
 sequenceDiagram
     Alice -&gt;&gt; Bob: Hello Bob, how are you?
@@ -266,7 +266,7 @@ sequenceDiagram
     Bob-->Alice: Checking with John...
     Alice->John: Yes... John, how are you?
 </div>
-<h2><a class="header" href="#flowchart-example" id="flowchart-example">Flowchart example</a></h2>
+<h2 id="flowchart-example"><a class="header" href="#flowchart-example">Flowchart example</a></h2>
 <pre><code class="language-html">&lt;div  class=mermaid&gt;
 graph LR
     A[Hard edge] --&gt;|Link text| B(Round edge)
@@ -282,7 +282,7 @@ graph LR
     C -->|One| D[Result one]
     C -->|Two| E[Result two]    
 </div>
-<h2><a class="header" href="#gantt-chart-example" id="gantt-chart-example">Gantt Chart example</a></h2>
+<h2 id="gantt-chart-example"><a class="header" href="#gantt-chart-example">Gantt Chart example</a></h2>
 <pre><code class="language-html">&lt;div class=&quot;mermaid&quot;&gt;
 gantt
        dateFormat  YYYY-MM-DD
